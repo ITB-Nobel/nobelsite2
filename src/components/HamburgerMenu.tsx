@@ -1,0 +1,3 @@
+const HamburgerMenu = () => {
+    return <></>
+}
