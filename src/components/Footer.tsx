@@ -8,11 +8,12 @@ import Image from "next/image";
 import Link from "next/link";
 import {fetcher} from "@/lib/api";
 import useSWR from 'swr'
-import {Logo} from "@/lib/types";
+import {Photo} from "@/lib/types";
+
 
 
 export type Acf = {
-    logo: Logo;
+    logo: Photo;
     facebook: string;
     instagram: string;
     tiktok: string;

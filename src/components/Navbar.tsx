@@ -29,10 +29,13 @@ export const Navbar = () => {
             </ul>
         </div>
         <div>
-            <button
-                className={"border-2 font-roboto p-2 px-8 rounded-md border-black hover:bg-black hover:text-white font-semibold"}>
-                Apply To Study
-            </button>
+            <a href={"https://join.nobel.ac.id"} target={"_blank"}>
+                <button
+                    className={"border-2 font-roboto p-2 px-8 rounded-md border-black hover:bg-black hover:text-white font-semibold"}>
+                    Apply To Study
+                </button>
+            </a>
+
         </div>
     </div>)
 }

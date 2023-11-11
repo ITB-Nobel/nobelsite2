@@ -12,7 +12,7 @@ import {usePathname, useRouter} from 'next/navigation'
 import {fetcher} from "@/lib/api";
 import useSWR from "swr";
 import {ProdiACF} from "@/lib/types";
-
+export const  dynamic = 'force-static'
 const JurusanDetailPage = () => {
     const pathname = usePathname()
     const idProdi = pathname.split('/')[2]

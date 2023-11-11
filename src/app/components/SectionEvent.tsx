@@ -10,10 +10,10 @@ const SectionEvent = ({data}:{data:any[]}) => {
             <p className={"text-slate-500 text-md nd:text-lg mt-2"}>Explore opportunities to engage with people, ideas,
                 and education across campus.</p>
             <div className={"w-full grid grid-cols-1 lg:grid-cols-3 gap-8  mt-12 md:mt-24 "}>
-                {
-                    //@ts-ignore
-                    data.nodes.map(({frontmatter}) => <EventCard {...frontmatter?.event}/>)
-                }
+                {/*{*/}
+                {/*    //@ts-ignore*/}
+                {/*    data.nodes.map(({frontmatter}) => <EventCard key={index} {...frontmatter?.event}/>)*/}
+                {/*}*/}
             </div>
             {/*<button className={"border-2 px-4 py-2 border-black hover:bg-black hover:text-white mt-12 md:mt-24"}>*/}
             {/*    Show More <span className={"ml-2"}>&#8594;</span>*/}
