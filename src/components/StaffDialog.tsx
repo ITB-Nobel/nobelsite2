@@ -33,9 +33,11 @@ const StaffDialog = (props: StaffPropType) => <Dialog>
                     </div>
 
                     {/*CONTENT*/}
-                    <div contentEditable
-                         dangerouslySetInnerHTML={{__html: props.description}}
-                    />
+                    <article>
+                        <div contentEditable
+                             dangerouslySetInnerHTML={{__html: props.description}}
+                        />
+                    </article>
 
 
                 </ScrollArea>

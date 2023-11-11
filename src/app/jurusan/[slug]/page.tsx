@@ -20,10 +20,9 @@ const JurusanDetailPage = () => {
         acf: ProdiACF,
         title: { rendered: string }
     }>(`prodi-${idProdi}`, () => fetcher(`prodi/${idProdi}`))
-    console.log(data, 'overview')
     return <GeneralLayout
         withFeaturedImage={true}
-        featuredTitle={data?.title?.rendered}
+        featuredTitle={"Prodi Detail"}
     >
         <main className={"min-h-screen"}>
             <Tabs defaultValue="1" className={"container py-12 text-center "}>

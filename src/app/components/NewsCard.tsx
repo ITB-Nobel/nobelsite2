@@ -18,9 +18,11 @@ const NewsNormalCard = ({acf, slug}: NewsCardType) => {
             <h1 className={"text-[20px] leading-normal  font-semibold mx-6 my-6"}>
                 {title}
             </h1>
-            <div className={" mx-6 max-h-[220px] overflow-hidden text-ellipsis flex-nowrap"}
-                 dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-            <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
+            <article>
+                <div className={" mx-6 max-h-[220px] overflow-hidden text-ellipsis flex-nowrap"}
+                     dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
+                <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
+            </article>
         </div>
         <div className={"flex flex-row gap-2 items-center my-4 mx-6 absolute bottom-0"}>
             {/*{*/}
@@ -34,7 +36,7 @@ const NewsNormalCard = ({acf, slug}: NewsCardType) => {
 
 const NewsWiderCard = ({acf, slug}: NewsCardType) => {
     const {title, date, author, description, photo} = acf
-    return  <Link href={`news/${slug}`} className={"lg:col-span-2 mt-4 lg:row-span-1 "}>
+    return <Link href={`news/${slug}`} className={"lg:col-span-2 mt-4 lg:row-span-1 "}>
         <div
             className={"card-shadow rounded-xl text-left flex flex-col lg:flex-row  "}>
 
@@ -52,10 +54,11 @@ const NewsWiderCard = ({acf, slug}: NewsCardType) => {
                 <h1 className={"text-[20px] leading-normal font-semibold mx-6 mt-8"}>
                     {title}
                 </h1>
-
-                <div className={"mt-6 mx-6 max-h-[180px] overflow-hidden text-ellipsis flex-nowrap"}
-                     dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
+                <article>
+                    <div className={"mt-6 mx-6 max-h-[180px] overflow-hidden text-ellipsis flex-nowrap"}
+                         dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
+                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
+                </article>
                 <div className={"flex flex-row gap-2 items-center mt-8 mb-4 mx-6"}>
                     {/*{*/}
                     {/*    news?.categories?.slice(0, 3).map((category, index) => <p*/}
@@ -87,11 +90,12 @@ const NewsWidestCard = ({acf, slug}: NewsCardType) => {
                     <h1 className={"text-[20px] leading-normal font-semibold "}>
                         {title}
                     </h1>
-
-                    <div
-                        className={"mt-6 text-md lg:text-lg max-h-[200px] overflow-hidden text-ellipsis flex-nowrap"}
-                        dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4"}>{date}</p>
+                    <article>
+                        <div
+                            className={"mt-6 text-md lg:text-lg max-h-[200px] overflow-hidden text-ellipsis flex-nowrap"}
+                            dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
+                        <p className={"!text-sm text-slate-400 !capitalize font-light mt-4"}>{date}</p>
+                    </article>
                 </div>
 
                 <div className={"flex flex-row gap-2 items-center"}>
@@ -125,9 +129,11 @@ const NewsHigherCard = ({acf, slug}: NewsCardType) => {
                         layout={"fill"}
                     />
                 </div>
-                <div className={"mt-6 mx-6 max-h-[380px] overflow-hidden text-ellipsis flex-nowrap "}
-                     dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
+                <article>
+                    <div className={"mt-6 mx-6 max-h-[380px] overflow-hidden text-ellipsis flex-nowrap "}
+                         dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
+                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
+                </article>
             </div>
             <div className={"flex flex-row gap-2 items-center mb-4 ml-6"}>
                 {/*{*/}

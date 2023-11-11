@@ -18,10 +18,13 @@ const TabAktivitasJurusan = ({term_id, idProdi}: ActivityProdiCategory & { idPro
                 (data && data.length > 0) && <>
                     <div className={"basis-3/4 space-y-4"}>
                         <h1 className={"text-primary"}>{data[0].acf.title}</h1>
-                        <div className={"!font-light"}
-                             dangerouslySetInnerHTML={{__html: data[0].acf.description.split('<p>')[1] as string}}/>
-                        <Link href={`/news/${data[0].id}`}><p className={"text-sm font-semibold text-slate-500 mt-2"}>Lihat
-                            selengkapnya</p></Link>
+                        <article>
+                            <div className={"!font-light"}
+                                 dangerouslySetInnerHTML={{__html: data[0].acf.description.split('<p>')[1] as string}}/>
+                            <Link href={`/news/${data[0].id}`}><p
+                                className={"text-sm font-semibold text-slate-500 mt-2"}>Lihat
+                                selengkapnya</p></Link>
+                        </article>
                     </div>
                     <div className={"relative w-1/2 h-64"}>
                         <Image
@@ -65,8 +68,10 @@ const AktivitasJurusanNews = ({title, photo, description, index, idNews}: NewsAC
 
                 <div className={"absolute bottom-0 !text-white text-left px-8 py-4 space-y-4"}>
                     <h4 className={"text-xl font-semibold"}>{title}</h4>
-                    <div className={"text-sm"}
-                         dangerouslySetInnerHTML={{__html: description.split('<p>')[1] as string}}/>
+                    <article>
+                        <div className={"text-sm"}
+                             dangerouslySetInnerHTML={{__html: description.split('<p>')[1] as string}}/>
+                    </article>
                 </div>
             </div>
         </Link>

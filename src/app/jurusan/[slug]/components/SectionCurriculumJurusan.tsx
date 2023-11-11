@@ -7,9 +7,11 @@ const SectionCurriculumJurusan = ({description, title, image}: ProdiCurriculum) 
     className={"py-12 text-left flex flex-col lg:flex-row gap-12 items-center justify-between w-full"}>
     <div className={"basis-1/2"}>
         <h1 className={"text-5xl font-semibold text-primary"}>{title}</h1>
-        <div className={"text-left mt-10 max-w-md"}>
-            <div className={"!font-light"} dangerouslySetInnerHTML={{__html: description as string}}/>
-        </div>
+        <article>
+            <div className={"text-left mt-10 max-w-md"}>
+                <div className={"!font-light"} dangerouslySetInnerHTML={{__html: description as string}}/>
+            </div>
+        </article>
     </div>
     <div className={"basis-1/2 flex justify-end"}>
         <div className={'relative w-[480px] h-[480px]'}>

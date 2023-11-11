@@ -18,6 +18,9 @@ const config: Config = {
       },
     },
     extend: {
+      // fontFamily:{
+      //   "font-condensed" : "r"
+      // },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
