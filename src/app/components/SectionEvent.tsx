@@ -3,9 +3,6 @@ import EventCard from "@/app/components/EventCard";
 
 
 const SectionEvent = ({data}:{data:any[]}) => {
-
-
-
     return <section className={" text-center bg-slate-100 "}>
         <div className={"container py-12 md:py-24"}>
             <h1 className={"text-2xl md:text-4xl font-semibold"}>Recent <span className={"text-primary"}>Events</span>

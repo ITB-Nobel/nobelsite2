@@ -1,35 +1,40 @@
 'use client'
 import React from "react";
 import {NewsHigherCard, NewsNormalCard, NewsWiderCard, NewsWidestCard} from "@/app/components/NewsCard";
+import {NewsACF} from "@/lib/types";
+import useSWR from "swr";
+import {fetcher} from "@/lib/api";
 
-;
+type SectionNewsType = {
+    title: string
+    color_title: string
+    subtitle: string
+}
 
-const SectionNews = ({nodes}: { nodes: any[] }) => {
+const SectionNews = ({title, color_title, subtitle}: SectionNewsType) => {
+    const {data} =
+        useSWR<{ acf: NewsACF, slug: string }[]>
+        ('news', () => fetcher('news?_embed&orderby=date&order=desc&_fields=acf,slug,title&per_page=5'))
+
     return (<section id={"news-section"} className={"container pt-12 lg:pt-24 pb-12 md:pb-24 text-center "}>
-        <h1 className={"text-2xl lg:text-4xl font-semibold"}>Latest <span className={"text-primary"}>News</span></h1>
+        <h1 className={"text-2xl lg:text-4xl font-semibold"}>{title} <span
+            className={"text-primary"}>{color_title}</span></h1>
         <p className={"text-slate-500 text-md lg:text-lg mt-2"}>
-            Find all the latest news from Nobel and across the
-            higher education sector.
+            {subtitle}
         </p>
         <div className={"w-full grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-8  mt-12 lg:mt-24"}>
             {
-                nodes?.map(({frontmatter, html}, index) => {
-                    const item = {frontmatter, html}
+                data?.map((item, index) => {
                     switch (index) {
                         case 0 :
-                            // @ts-ignore
                             return <NewsWidestCard {...item} key={index}/>
                         case 1 :
-                            // @ts-ignore
                             return <NewsHigherCard {...item} key={index}/>
                         case 2 :
-                            // @ts-ignore
                             return <NewsNormalCard {...item} key={index}/>
                         case 3 :
-                            // @ts-ignore
                             return <NewsNormalCard {...item} key={index}/>
                         case 4 :
-                            // @ts-ignore
                             return <NewsWiderCard {...item} key={index}/>
                         default:
                             return <div key={index}></div>

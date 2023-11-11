@@ -1,11 +1,28 @@
 import React from "react";
 
-const SectionPodcast = () => {
+type SectionPodcastType = {
+    iframeUrl: string
+    title: string;
+    color_title: string;
+    title2: string
+    subtitle: string
+    button_title: string;
+    button_link: string
+}
+const SectionPodcast = ({
+                            iframeUrl,
+                            title2,
+                            title,
+                            color_title,
+                            subtitle,
+                            button_title,
+                            button_link
+                        }: SectionPodcastType) => {
     return (<section className={"py-12  bg-black text-white relative "}>
 
         <div className={"flex flex-col-reverse sm:flex-row justify-between gap-12 lg:gap-24  container items-center "}>
             <iframe
-                src="https://www.youtube.com/embed/N_7H5r_iqM4"
+                src={iframeUrl}
                 title="How to improve our English speaking skills NIOUS episode #2"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -13,16 +30,15 @@ const SectionPodcast = () => {
             />
             <div className={"space-y-12"}>
                 <h1 className={"font-semibold text-2xl md:text-4xl"}>
-                    Listen to <span className={"text-primary"}>our podcast</span> and you know things
+                    {title} <span className={"text-primary"}>{color_title}</span> {title2}
                 </h1>
                 <p>
-                    Let our podcasts on education, business, and ideas inspire you to live better. Hearing conversations
-                    that provoke thought and challenge your perspective
+                    {subtitle}
                 </p>
                 <div>
-                    <a href={"https://www.youtube.com/@nobelindonesiainstitute"} target={"_blank"}>
+                    <a href={button_link} target={"_blank"}>
                         <button className={"border-2 p-4 border-white hover:bg-white hover:text-black"}>
-                            Watch More <span className={"ml-2"}>&#8594;</span>
+                            {button_title} <span className={"ml-2"}>&#8594;</span>
                         </button>
                     </a>
                 </div>

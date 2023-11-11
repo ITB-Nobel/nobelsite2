@@ -1,21 +1,26 @@
-
 import React from "react";
 import Link from "next/link";
+import {NewsACF} from "@/lib/types";
+import Image from "next/image";
 
 
+type NewsCardType = {
+    acf: NewsACF
+    slug: string
+}
 
-const NewsNormalCard = ({html, frontmatter}: any) => {
-    const news = frontmatter?.news
-    return news && <Link
-        href={`coming-soon`}
+const NewsNormalCard = ({acf, slug}: NewsCardType) => {
+    const {title, date, author, description, photo} = acf
+    return <Link
+        href={`news/${slug}`}
         className={"max-h-fit card-shadow rounded-xl text-left row-span-1 relative pb-24"}>
         <div>
             <h1 className={"text-[20px] leading-normal  font-semibold mx-6 my-6"}>
-                {news.title}
+                {title}
             </h1>
             <div className={" mx-6 max-h-[220px] overflow-hidden text-ellipsis flex-nowrap"}
-                 dangerouslySetInnerHTML={{__html: html?.split('<p>')[1] as string}}/>
-            {/*<p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{news.date}</p>*/}
+                 dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
+            <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
         </div>
         <div className={"flex flex-row gap-2 items-center my-4 mx-6 absolute bottom-0"}>
             {/*{*/}
@@ -27,28 +32,30 @@ const NewsNormalCard = ({html, frontmatter}: any) => {
     </Link>
 }
 
-const NewsWiderCard = ({html, frontmatter}: any) => {
-    const news = frontmatter?.news;
-    return news && <Link href={`coming-soon`} className={"lg:col-span-2 mt-4 lg:row-span-1 "}>
+const NewsWiderCard = ({acf, slug}: NewsCardType) => {
+    const {title, date, author, description, photo} = acf
+    return  <Link href={`news/${slug}`} className={"lg:col-span-2 mt-4 lg:row-span-1 "}>
         <div
             className={"card-shadow rounded-xl text-left flex flex-col lg:flex-row  "}>
 
             <div className={"hidden lg:block"}>
-                {/*<GatsbyImage*/}
-                {/*    className={"md:w-[320px] self-start rounded-tl-xl rounded-tr-xl lg:rounded-tr-none"}*/}
-                {/*    image={news?.image?.childImageSharp?.gatsbyImageData as IGatsbyImageData}*/}
-                {/*    alt={"Gambar Content"}*/}
-                {/*/>*/}
+                <div className={"relative md:w-[320px] h-48 self-start rounded-tl-xl rounded-tr-xl lg:rounded-tr-none"}>
+                    <Image
+                        src={photo.url}
+                        alt={slug}
+                        layout={"fill"}
+                    />
+                </div>
             </div>
 
             <div>
                 <h1 className={"text-[20px] leading-normal font-semibold mx-6 mt-8"}>
-                    {news.title}
+                    {title}
                 </h1>
 
                 <div className={"mt-6 mx-6 max-h-[180px] overflow-hidden text-ellipsis flex-nowrap"}
-                     dangerouslySetInnerHTML={{__html: html?.split('<p>')[1] as string}}/>
-                {/*<p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{news.date}</p>*/}
+                     dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
+                <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
                 <div className={"flex flex-row gap-2 items-center mt-8 mb-4 mx-6"}>
                     {/*{*/}
                     {/*    news?.categories?.slice(0, 3).map((category, index) => <p*/}
@@ -61,25 +68,30 @@ const NewsWiderCard = ({html, frontmatter}: any) => {
     </Link>
 }
 
-const NewsWidestCard = ({html, frontmatter}: any) => {
-    const news = frontmatter?.news
-    return news && <Link href={`coming-soon`} className={"col-span-1 lg:col-span-3"}>
+const NewsWidestCard = ({acf, slug}: NewsCardType) => {
+    const {title, date, author, description, photo} = acf
+    return <Link href={slug} className={"col-span-1 lg:col-span-3"}>
         <div
             className={"flex flex-col lg:flex-row  gap-8  card-shadow rounded-xl"}>
-            {/*<GatsbyImage className={"flex-1 rounded-tl-lg rounded-tr-lg lg:rounded-tr-none lg:rounded-bl-lg"}*/}
-            {/*             image={news?.image?.childImageSharp?.gatsbyImageData as IGatsbyImageData}*/}
-            {/*             alt={news?.title as string}/>*/}
+            <div className={"relative flex-1 rounded-tl-lg rounded-tr-lg lg:rounded-tr-none lg:rounded-bl-lg"}>
+                <Image
+                    src={photo.url}
+                    alt={slug}
+                    layout={"fill"}
+                />
+            </div>
+
             <div className={"flex-1 flex flex-col  text-left justify-between gap-8 my-12 mr-4 px-8 lg:px-0"}>
                 <div className={""}>
 
                     <h1 className={"text-[20px] leading-normal font-semibold "}>
-                        {news.title}
+                        {title}
                     </h1>
 
                     <div
                         className={"mt-6 text-md lg:text-lg max-h-[200px] overflow-hidden text-ellipsis flex-nowrap"}
-                        dangerouslySetInnerHTML={{__html: html?.split('<p>')[1] as string}}/>
-                    {/*<p className={"!text-sm text-slate-400 !capitalize font-light mt-4"}>{news.date}</p>*/}
+                        dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
+                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4"}>{date}</p>
                 </div>
 
                 <div className={"flex flex-row gap-2 items-center"}>
@@ -96,25 +108,26 @@ const NewsWidestCard = ({html, frontmatter}: any) => {
     </Link>
 }
 
-const NewsHigherCard = ({html, frontmatter}: any) => {
-    const news = frontmatter?.news
-    // href={`123news12${news.slug}`}
-    return news && <Link href={`coming-soon`} className={"row-span-2"}>
+const NewsHigherCard = ({acf, slug}: NewsCardType) => {
+    const {title, date, author, description, photo} = acf
+    return <Link href={`news/${slug}`} className={"row-span-2"}>
         <div
             className={"h-full  card-shadow rounded-xl text-left  flex flex-col justify-between "}>
             <div>
 
                 <h1 className={"text-[20px] leading-normal  font-semibold mx-6 my-6"}>
-                    {news.title}
+                    {title}
                 </h1>
-
-                {/*<GatsbyImage className={"flex-1 w-full"}*/}
-                {/*             image={news?.image?.childImageSharp?.gatsbyImageData as IGatsbyImageData}*/}
-                {/*             alt={"Gambar Content"}*/}
-                {/*/>*/}
+                <div className={"relative w-full min-h-[200px] flex-q"}>
+                    <Image
+                        src={photo.url}
+                        alt={slug}
+                        layout={"fill"}
+                    />
+                </div>
                 <div className={"mt-6 mx-6 max-h-[380px] overflow-hidden text-ellipsis flex-nowrap "}
-                     dangerouslySetInnerHTML={{__html: html?.split('<p>')[1] as string}}/>
-                {/*<p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{news.date}</p>*/}
+                     dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
+                <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
             </div>
             <div className={"flex flex-row gap-2 items-center mb-4 ml-6"}>
                 {/*{*/}
@@ -127,7 +140,8 @@ const NewsHigherCard = ({html, frontmatter}: any) => {
     </Link>
 }
 
-const NewsCard = () => {
+const NewsCard = ({acf, slug}: NewsCardType) => {
+    const {title, date, author, description, photo} = acf
     return <div className={"space-y-4 w-[320px] h-fit  relative bg-white pb-4 rounded-xl card-shadow"}>
 
         {/*{*/}
@@ -151,8 +165,6 @@ const NewsCard = () => {
         <div className={"text-md md:text-xl font-semibold mt-2 px-4 w-full whitespace-pre-wrap text-left "}>
             Nobel Indonesia Gelar Seminar Nasional, Bahas Penerapan IoT dan Artificial Intellegence
         </div>
-
-
     </div>
 }
 

@@ -2,29 +2,37 @@
 import React, {useState} from "react";
 import {motion} from 'framer-motion'
 import Link from "next/link";
+import useSWR from "swr";
+import {fetcher} from "@/lib/api";
+import {ProdiACF} from "@/lib/types";
+import Image from "next/image";
 
 
-const ExploreDegreesSection = ({data}: { data: any[] }) => {
+type SectionBerandaType = {
+    title: string
+    color_title: string
+    subtitle: string
+}
+const ExploreDegreesSection = ({title, color_title, subtitle}: SectionBerandaType) => {
+    const {data} = useSWR<{ acf: ProdiACF, slug: string, id:string }[]>('prodi', () => fetcher('prodi?_fields=acf,slug,id'))
     const [filter, setFilter] = useState<"sarjana" | "magister" | string>("sarjana")
     return (
         <section className={"container relative py-12 md:py-24 text-center  "}>
-            <h1 className={"text-2xl md:text-4xl font-semibold "}>Explore Our <span
-                className={"text-primary"}>Degrees</span></h1>
+            <h1 className={"text-2xl md:text-4xl font-semibold "}>{title}<span
+                className={"text-primary"}>{color_title}</span></h1>
 
-            <p className={"text-slate-500 text-md md:text-lg mt-2"}>Information on degrees, requirements, policies</p>
+            <p className={"text-slate-500 text-md md:text-lg mt-2"}>{subtitle}</p>
 
             <ButtonFilter type={filter} handleClick={(input: string) => {
                 setFilter(input)
             }}/>
             <div className={"grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 min-h-[89vh]"}>
-                {data.map((item, index) => {
-                    const degree = item?.prodiField
-
+                {data?.map((item, index) => {
                     return (
                         <>
                             {
-                                filter === degree?.jenjang &&
-                                <Link href={`/jurusan/${item?.slug as string}`} key={index}>
+                                filter === item?.acf.jenjang &&
+                                <Link href={`/jurusan/${item?.id as string}`} key={index}>
                                     <motion.div
                                         whileHover={{scale: 1.1}}
                                         className={
@@ -32,16 +40,20 @@ const ExploreDegreesSection = ({data}: { data: any[] }) => {
                                             " hover:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
                                         }
                                     >
-                                        {/*{*/}
-                                        {/*    imageData &&*/}
-                                        {/*    <GatsbyImage alt={item?.title as string}*/}
-                                        {/*                 image={imageData}*/}
-                                        {/*                 className={"rounded-xl w-full"}*/}
-                                        {/*    />*/}
-                                        {/*}*/}
+                                        {
+                                            <div className={"rounded-xl w-full h-[180px] relative"}>
+                                                <Image alt={item?.slug as string}
+                                                       src={item.acf.overview.image}
+                                                       layout={"fill"}
+                                                       className={"rounded-xl"}
+
+                                                />
+                                            </div>
+
+                                        }
                                         <div
                                             className={" text-left absolute top-0 left-36 h-full flex items-center"}>
-                                            <h2 className={"text-xl max-w-[200px] capitalize"}>{degree.overview?.jurusan}</h2>
+                                            <h2 className={"text-xl max-w-[200px] capitalize"}>{item.acf.overview?.jurusan}</h2>
                                         </div>
                                     </motion.div>
                                 </Link>}

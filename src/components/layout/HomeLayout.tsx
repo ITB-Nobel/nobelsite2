@@ -4,7 +4,6 @@ import {Autoplay,Navigation} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import TopHeader from "@/components/TopHeader";
-
 import SliderContent from "@/app/components/SliderContent";
 import Footer from "@/components/Footer";
 import {HomeNavbar} from "@/components/Navbar";
