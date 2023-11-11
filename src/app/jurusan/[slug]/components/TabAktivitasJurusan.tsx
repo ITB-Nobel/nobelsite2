@@ -1,50 +1,75 @@
+'use client'
 import React from "react"
+import {ActivityProdiCategory, NewsACF} from "@/lib/types";
+import useSWR from "swr";
+import {fetcherAcf} from "@/lib/api";
+import Image from "next/image";
+import Link from "next/link";
 
 
-const TabAktivitasJurusan = () => {
+const TabAktivitasJurusan = ({term_id, idProdi}: ActivityProdiCategory & { idProdi: string }) => {
+    const {data} = useSWR<{
+        acf: NewsACF, id: string
+    }[]>(`news-${idProdi}/${term_id}`, () => fetcherAcf(`news?categories=${term_id}`))
+
     return <>
-        <section className={"py-12 text-left w-full flex flex-row gap-12"}>
-            <div className={"basis-3/4 space-y-4"}>
-                <h1 className={"text-primary"}>1ST PLACE OF NATIONAL COMPETITION OF BIOINFORMATICS - NATANIA ABIGAIL
-                    CHRISTY</h1>
-                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                <p>In this competition, Abigail brought 2 (two) specific topic, "Protein Study Bacillus subtilis dye
-                    {/* eslint-disable-next-line react/no-unescaped-entities */}
-                    decolorizing peroxidase" and "Speed and Mutation Variation of SARS-CoV-2 Virus Analysis in Asia
-                    Period
-                    {/* eslint-disable-next-line react/no-unescaped-entities */}
-                    August-October".
-                </p>
-            </div>
-            <div>
-                {/*<StaticImage*/}
-                {/*    src={"https://www.uph.edu/wp-content/uploads/2018/08/JUARA11-e1666337703695.jpg?x77749"}*/}
-                {/*    alt={"Image"}*/}
-                {/*/>*/}
-            </div>
+        <section className={"py-12 text-left w-full flex flex-row gap-12 items-center"}>
+            {
+                (data && data.length > 0) && <>
+                    <div className={"basis-3/4 space-y-4"}>
+                        <h1 className={"text-primary"}>{data[0].acf.title}</h1>
+                        <div className={"!font-light"}
+                             dangerouslySetInnerHTML={{__html: data[0].acf.description.split('<p>')[1] as string}}/>
+                        <Link href={`/news/${data[0].id}`}><p className={"text-sm font-semibold text-slate-500 mt-2"}>Lihat
+                            selengkapnya</p></Link>
+                    </div>
+                    <div className={"relative w-1/2 h-64"}>
+                        <Image
+                            src={data[0].acf.photo.url}
+                            alt={"Image"}
+                            layout={"fill"}
+                            objectFit={"cover"}
+                            className={"rounded-2xl"}
+                        />
+                    </div>
+                </>
+            }
+
         </section>
         <section className={"grid grid-cols-3 gap-4"}>
-            {/*{*/}
-            {/*    [1, 2, 3].map(() => <AktivitasJurusanNews/>)*/}
-            {/*}*/}
+            {
+                data && data.map((news, index) => <AktivitasJurusanNews idNews={news.id} index={index} {...news.acf}
+                                                                        key={index}/>)
+            }
         </section>
     </>
 }
 
 
-const AktivitasJurusanNews = () => {
-    return <div className={"relative group"}>
-        {/*<StaticImage*/}
-        {/*    src={"https://www.uph.edu/wp-content/uploads/2018/08/Peserta-Seleksi-Final-Kompetisi-Nasional-KNMIPA-PT-Bidang-Biologi-2021-e1666338009261-600x0-c-default.jpg"}*/}
-        {/*    alt={"Aktivitas Jurusan News"}*/}
-        {/*    className={"brightness-75 group-hover:brightness-90"}*/}
-        {/*/>*/}
-        <div className={"absolute bottom-0 !text-white text-left px-8 py-4"}>
-            <h4 className={"text-xl"}>Finalists of the National Competition (KNMIPA-PT) for Biology 2021</h4>
-            <p className={"text-sm"}>Caitlyn Christvania Sihombing, Jevon Aaron Lesmana & Samuel Emmanuel Soentoro</p>
-        </div>
+const AktivitasJurusanNews = ({title, photo, description, index, idNews}: NewsACF & {
+    index: number,
+    idNews: string
+}) => {
+    if (index > 0)
+        return <Link href={`/news/${idNews}`}>
+            <div className={"flex flex-row relative group"}>
+                <div className={"relative w-full h-80"}>
+                    <Image
+                        src={photo.url}
+                        alt={title}
+                        className={"brightness-50 group-hover:brightness-90 rounded-2xl"}
+                        layout={"fill"}
+                        objectFit={"cover"}
+                    />
+                </div>
 
-    </div>
+                <div className={"absolute bottom-0 !text-white text-left px-8 py-4 space-y-4"}>
+                    <h4 className={"text-xl font-semibold"}>{title}</h4>
+                    <div className={"text-sm"}
+                         dangerouslySetInnerHTML={{__html: description.split('<p>')[1] as string}}/>
+                </div>
+            </div>
+        </Link>
 }
 
 

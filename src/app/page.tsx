@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import HomeLayout from "@/components/layout/HomeLayout";
 import SectionJoinUs from "@/app/components/SectionJoinUs";
@@ -7,6 +9,7 @@ import SectionNews from "@/app/components/SectionNews";
 import SectionEvent from "@/app/components/SectionEvent";
 
 export default function Home() {
+
     return (
         <HomeLayout>
             <SectionJoinUs

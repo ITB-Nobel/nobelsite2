@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import {ProdiOverview} from "@/lib/types";
 import Image from "next/image";

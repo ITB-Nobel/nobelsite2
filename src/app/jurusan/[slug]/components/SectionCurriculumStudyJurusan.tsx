@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/Accordion";
 import TableKurikulumJurusan from "@/app/jurusan/[slug]/components/TableKurikulumJurusan";
@@ -5,7 +6,7 @@ import {ProdiCurriculum, ProdiStudyPlan} from "@/lib/types";
 
 
 
-const SectionCurriculumStudyJurusan = ({semester_1}:ProdiCurriculum & ProdiStudyPlan) => {
+const SectionCurriculumStudyJurusan = ({description}:ProdiCurriculum) => {
 
     return <section
         className={"py-12 space-y-12 text-left w-full"}>
@@ -15,7 +16,7 @@ const SectionCurriculumStudyJurusan = ({semester_1}:ProdiCurriculum & ProdiStudy
                 <AccordionItem value="item-1">
                     <AccordionTrigger className={"text-2xl text-slate-700"}>Semester 1</AccordionTrigger>
                     <AccordionContent>
-                        <div className={"!font-light"} dangerouslySetInnerHTML={{__html: semester_1 as string}}/>
+                        {/*<div className={"!font-light"} dangerouslySetInnerHTML={{__html: semester_1 as string}}/>*/}
                         {/*<TableKurikulumJurusan />*/}
                     </AccordionContent>
                 </AccordionItem>

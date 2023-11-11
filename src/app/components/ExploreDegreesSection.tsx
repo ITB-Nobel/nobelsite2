@@ -1,4 +1,5 @@
 'use client'
+
 import React, {useState} from "react";
 import {motion} from 'framer-motion'
 import Link from "next/link";
@@ -14,55 +15,59 @@ type SectionBerandaType = {
     subtitle: string
 }
 const ExploreDegreesSection = ({title, color_title, subtitle}: SectionBerandaType) => {
-    const {data} = useSWR<{ acf: ProdiACF, slug: string, id:string }[]>('prodi', () => fetcher('prodi?_fields=acf,slug,id'))
+    const {data} = useSWR<{
+        acf: ProdiACF,
+        slug: string,
+        id: string
+    }[]>('prodi', () => fetcher('prodi?_fields=acf,slug,id'))
     const [filter, setFilter] = useState<"sarjana" | "magister" | string>("sarjana")
-    return (
-        <section className={"container relative py-12 md:py-24 text-center  "}>
-            <h1 className={"text-2xl md:text-4xl font-semibold "}>{title}<span
-                className={"text-primary"}>{color_title}</span></h1>
+        return (
+            <section className={"container relative py-12 md:py-24 text-center  "}>
+                <h1 className={"text-2xl md:text-4xl font-semibold "}>{title}<span
+                    className={"text-primary"}>{color_title}</span></h1>
 
-            <p className={"text-slate-500 text-md md:text-lg mt-2"}>{subtitle}</p>
+                <p className={"text-slate-500 text-md md:text-lg mt-2"}>{subtitle}</p>
 
-            <ButtonFilter type={filter} handleClick={(input: string) => {
-                setFilter(input)
-            }}/>
-            <div className={"grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 min-h-[89vh]"}>
-                {data?.map((item, index) => {
-                    return (
-                        <>
-                            {
-                                filter === item?.acf.jenjang &&
-                                <Link href={`/jurusan/${item?.id as string}`} key={index}>
-                                    <motion.div
-                                        whileHover={{scale: 1.1}}
-                                        className={
-                                            "relative  font-semibold shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-2xl  gap-4  " +
-                                            " hover:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
-                                        }
-                                    >
-                                        {
-                                            <div className={"rounded-xl w-full h-[180px] relative"}>
-                                                <Image alt={item?.slug as string}
-                                                       src={item.acf.overview.image}
-                                                       layout={"fill"}
-                                                       className={"rounded-xl"}
+                <ButtonFilter type={filter} handleClick={(input: string) => {
+                    setFilter(input)
+                }}/>
+                <div className={"grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 min-h-[89vh]"}>
+                    {data?.map((item, index) => {
+                        return (
+                            <>
+                                {
+                                    filter === item?.acf.jenjang &&
+                                    <Link href={`/jurusan/${item?.id as string}`} key={index}>
+                                        <motion.div
+                                            whileHover={{scale: 1.1}}
+                                            className={
+                                                "relative  font-semibold shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-2xl  gap-4  " +
+                                                " hover:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
+                                            }
+                                        >
+                                            {
+                                                <div className={"rounded-xl w-full h-[180px] relative"}>
+                                                    <Image alt={item?.slug as string}
+                                                           src={item.acf.overview.image}
+                                                           layout={"fill"}
+                                                           className={"rounded-xl"}
 
-                                                />
+                                                    />
+                                                </div>
+
+                                            }
+                                            <div
+                                                className={" text-left absolute top-0 left-36 h-full flex items-center"}>
+                                                <h2 className={"text-xl max-w-[200px] capitalize"}>{item.acf.overview?.jurusan}</h2>
                                             </div>
-
-                                        }
-                                        <div
-                                            className={" text-left absolute top-0 left-36 h-full flex items-center"}>
-                                            <h2 className={"text-xl max-w-[200px] capitalize"}>{item.acf.overview?.jurusan}</h2>
-                                        </div>
-                                    </motion.div>
-                                </Link>}
-                        </>
-                    );
-                })}
-            </div>
-        </section>
-    );
+                                        </motion.div>
+                                    </Link>}
+                            </>
+                        );
+                    })}
+                </div>
+            </section>
+        );
 };
 
 const ButtonFilter = ({type, handleClick}: { type: string, handleClick: (input: string) => void }) => {

@@ -1,4 +1,5 @@
 'use client'
+
 import React from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/Tabs";
@@ -14,14 +15,15 @@ import {ProdiACF} from "@/lib/types";
 
 const JurusanDetailPage = () => {
     const pathname = usePathname()
+    const idProdi = pathname.split('/')[2]
     const {data} = useSWR<{
         acf: ProdiACF,
         title: { rendered: string }
-    }>('prodi', () => fetcher(`prodi/${pathname.split('/')[2]}`))
+    }>(`prodi-${idProdi}`, () => fetcher(`prodi/${idProdi}`))
     console.log(data, 'overview')
     return <GeneralLayout
         withFeaturedImage={true}
-        featuredTitle={data?.title.rendered}
+        featuredTitle={data?.title?.rendered}
     >
         <main className={"min-h-screen"}>
             <Tabs defaultValue="1" className={"container py-12 text-center "}>
@@ -39,17 +41,16 @@ const JurusanDetailPage = () => {
                         AKTIVITAS</TabsTrigger>
                 </TabsList>
                 <TabsContent value="1">
-                    {data?.acf.overview && <TabOverviewJurusan {...data?.acf.overview}/>}
+                    {data?.acf?.overview && <TabOverviewJurusan {...data?.acf.overview}/>}
                 </TabsContent>
                 <TabsContent value="2">
-                    {(data?.acf?.curriculum && data?.acf?.study_plan) &&
-                        <TabCurriculumJurusan {...data.acf.curriculum} {...data.acf.study_plan}  />}
+                    {(data?.acf?.curriculum) && <TabCurriculumJurusan {...data.acf.curriculum} />}
                 </TabsContent>
                 <TabsContent value="3">
-                    <TabDosenJurusan/>
+                    <TabDosenJurusan idProdi={idProdi}/>
                 </TabsContent>
                 <TabsContent value="4">
-                    <TabAktivitasJurusan/>
+                    {data && <TabAktivitasJurusan idProdi={idProdi} {...data?.acf.activity_news_category} />}
                 </TabsContent>
             </Tabs>
 

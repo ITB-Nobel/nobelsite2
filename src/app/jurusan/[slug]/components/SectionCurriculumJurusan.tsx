@@ -1,8 +1,9 @@
+'use client'
 import React from "react";
 import {ProdiCurriculum, ProdiStudyPlan} from "@/lib/types";
 import Image from "next/image";
 
-const SectionCurriculumJurusan = ({description, title, image}: ProdiCurriculum & ProdiStudyPlan) => <section
+const SectionCurriculumJurusan = ({description, title, image}: ProdiCurriculum) => <section
     className={"py-12 text-left flex flex-col lg:flex-row gap-12 items-center justify-between w-full"}>
     <div className={"basis-1/2"}>
         <h1 className={"text-5xl font-semibold text-primary"}>{title}</h1>
