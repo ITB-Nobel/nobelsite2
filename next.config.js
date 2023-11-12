@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
     transpilePackages: ['lucide-react'],
-    output: "export",
+    // output: "export",
     images:{
         unoptimized: true,
         remotePatterns:[{
