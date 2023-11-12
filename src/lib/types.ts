@@ -1,3 +1,37 @@
+import exp from "constants";
+
+export type EventType = {
+    acf: EventACF
+    id: string
+    slug: string
+    date: string
+    title: string
+    categories: Category[]
+}
+
+export type EventACF = {
+    image: Photo;
+    title: string;
+    start_registration: string;
+    end_registration: string;
+    event_start: string;
+    event_end: string;
+    place: string;
+    map_place: boolean;
+    registration_link: RegistrationLink;
+    kuota: string;
+    contact_name: string;
+    contact_phone: string;
+    description: string;
+}
+
+export type RegistrationLink = {
+    title: string;
+    url: string;
+    target: string;
+}
+
+
 export type StaffACF = {
     title: string;
     position: string;

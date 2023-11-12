@@ -133,7 +133,7 @@ export function SubMenu({submenu, type}: MenuType & { type: 'home' | 'general' }
                 {
                     type === 'home' ?
                         <NavigationMenuTrigger
-                            className={`text-white  text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
+                            className={`text-white font-medium font-condensed text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
                             About Us
                         </NavigationMenuTrigger> :
                         <NavigationMenuTrigger

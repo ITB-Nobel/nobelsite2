@@ -3,6 +3,7 @@ import Link from "next/link";
 import {DetailNewsType, NewsACF} from "@/lib/types";
 import Image from "next/image";
 import Categories from "@/components/Categories";
+import moment from "moment";
 
 
 const NewsNormalCard = ({slug, acf, id, categories}: DetailNewsType) => {
@@ -88,7 +89,7 @@ const NewsWidestCard = ({acf, id, slug, categories}: DetailNewsType) => {
                         <div
                             className={"mt-6 text-md lg:text-lg max-h-[200px] overflow-hidden text-ellipsis flex-nowrap"}
                             dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                        <p className={"!text-sm text-slate-400 !capitalize font-light mt-4"}>{date}</p>
+                        <p className={"!text-sm text-slate-400 !capitalize font-light mt-4"}>{moment(date).format('DD MMMM Y')}</p>
                     </article>
                 </div>
 
@@ -125,7 +126,7 @@ const NewsHigherCard = ({acf, slug, id, categories}: DetailNewsType) => {
                 <article>
                     <div className={"mt-6 mx-6 max-h-[380px] overflow-hidden text-ellipsis flex-nowrap "}
                          dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
+                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{moment(date).format('DD MMMM Y')}</p>
                 </article>
             </div>
             <div className={"flex flex-row gap-2 items-center mb-4 ml-6"}>
@@ -154,7 +155,8 @@ const NewsCard = ({acf, slug, id, categories}: DetailNewsType) => {
                 }
             </div>
 
-            <div className={"absolute flex flex-col top-4 left-4 flex gap-2 text-white text-sm"} style={{marginTop: "0px"}}>
+            <div className={"absolute flex-col top-4 left-4 flex gap-2 text-white text-sm"}
+                 style={{marginTop: "0px"}}>
 
                 <Categories key={slug}
                             ids={categories?.slice(0, 1)}
@@ -163,11 +165,11 @@ const NewsCard = ({acf, slug, id, categories}: DetailNewsType) => {
             </div>
             <div
                 className={"absolute bg-gradient-black   w-full h-[50px] top-[205px] shadow-[inset_-12px_-8px_40px_#46464620] text-left px-4 flex items-center text-white text-2xl font-semibold"}>
-                <h2>12 Oktober 2023</h2>
+                <h2>{moment(date).format('DD MMMM Y')}</h2>
             </div>
 
             <div className={"text-md md:text-xl font-semibold mt-2 px-4 w-full whitespace-pre-wrap text-left "}>
-                Nobel Indonesia Gelar Seminar Nasional, Bahas Penerapan IoT dan Artificial Intellegence
+                {title}
             </div>
         </div>
     </Link>

@@ -44,7 +44,10 @@ export default function Home() {
                 subtitle={"Find all the latest news from Nobel and across the higher education sector."}
             />
 
-            {/*<SectionEvent data={[]}/>*/}
+            <SectionEvent
+                title={"Recent"}
+                color_title={"Events"}
+                subtitle={"Explore opportunities to engage with people, ideas and education across campus."}/>
         </HomeLayout>
     )
 }

@@ -29,5 +29,3 @@ U
 %src/app/components/SectionPodcast.tsx,9/7/9728a4f72d4ebef6405f43582ba065fe76b62692
 C
 src/app/globals.css,d/a/da1d6f21d01d0f36b5501dffcf7fd160ffcb290d
-T
-$src/components/layout/HomeLayout.tsx,7/c/7cef468222770b4e1d6a1061f4b05f08d4e6c73c
