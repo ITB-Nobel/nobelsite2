@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
+    // reactStrictMode: true,
     transpilePackages: ['lucide-react'],
     // output: "export",
     images:{
-        unoptimized: true,
+        // unoptimized: true,
         remotePatterns:[{
             protocol: 'https',
             hostname: 'nobel.nobelcodelabs.com'
