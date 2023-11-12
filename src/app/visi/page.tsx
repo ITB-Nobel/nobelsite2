@@ -20,9 +20,10 @@ const VisiPage = () => {
                         className={"text-primary"}>{data[0].acf.color_title}</span></h1>
                     <p className={"text-slate-500 text-lg mt-2"}>{data[0].acf.subtitle}</p>
 
-                    <div className={"relative w-full h-96"}>
-                        {
-                            data[0].acf.image &&
+                    {
+                        data[0].acf.image &&
+                        <div className={"relative w-full h-96"}>
+
                             <Image
                                 src={data[0].acf.image.url}
                                 alt={data[0].acf.image.title}
@@ -30,8 +31,9 @@ const VisiPage = () => {
                                 objectFit={"cover"}
                                 className={"  my-16 object-center"}
                             />
-                        }
-                    </div>
+
+                        </div>
+                    }
 
 
                     {data[0].acf.description && <div className={"text-left  space-y-4 basis-3/4 mt-24"}

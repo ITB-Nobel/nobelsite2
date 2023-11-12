@@ -6,11 +6,11 @@ import useSWR from "swr";
 import {fetcher} from "@/lib/api";
 import {GeneralPageType} from "@/lib/types";
 
-const SejarahPage = () => {
-    const {data} = useSWR<GeneralPageType[]>('page-sejarah', () => fetcher('pages?slug=sejarah'))
+const NobelValuePage = () => {
+    const {data} = useSWR<GeneralPageType[]>('page-nobel-value', () => fetcher('pages?slug=nobel-value'))
     return <GeneralLayout
         withFeaturedImage={true}
-        featuredTitle={"Sejarah Nobel"}
+        featuredTitle={"Nobel Value"}
     >
         {
             data &&
@@ -19,7 +19,6 @@ const SejarahPage = () => {
                     <h1 className={"text-4xl font-semibold"}>{data[0].acf.title} <span
                         className={"text-primary"}>{data[0].acf.color_title}</span></h1>
                     <p className={"text-slate-500 text-lg mt-2"}>{data[0].acf.subtitle}</p>
-
                     {
                         data[0].acf.image &&
                         <div className={"relative w-full h-96"}>
@@ -36,8 +35,8 @@ const SejarahPage = () => {
                     }
 
 
-                        {data[0].acf.description && <div className={"text-left  space-y-4 basis-3/4 mt-24"} dangerouslySetInnerHTML={{__html: data[0].acf.description}}/>}
-
+                    {data[0].acf.description && <div className={"text-left  space-y-4 basis-3/4 mt-24"}
+                                                     dangerouslySetInnerHTML={{__html: data[0].acf.description}}/>}
 
 
                 </section>
@@ -46,4 +45,4 @@ const SejarahPage = () => {
 
 }
 
-export default SejarahPage;
+export default NobelValuePage;
