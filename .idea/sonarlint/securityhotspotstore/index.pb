@@ -17,8 +17,6 @@ j
 :src/app/jurusan/[slug]/components/TabCurriculumJurusan.tsx,0/c/0c537dc7f2b15227691b3508c15028a41212a1aa
 M
 src/components/ScrollArea.tsx,3/d/3d7ff28ebfe4224fdcca34781e8ca36481a5cd35
-N
-src/components/StaffDialog.tsx,3/2/3237dc74bebca42a642b78d25f5e323717bea3e0
 e
 5src/app/jurusan/[slug]/components/TabDosenJurusan.tsx,5/9/593b6f718aa1a450de0cdde04656d37ff770977e
 i

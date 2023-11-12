@@ -16,13 +16,13 @@ const TopHeader = ({variant}: { variant: "white" | "primary" }) => {
             <ul className={"flex gap-6 text-sm"}>
 
                 <li>
-                    <Link href={"/coming-soon"} className={style.list}>
+                    <Link href={"/news"} className={style.list}>
                         <Newspaper strokeWidth={1} size={14}/>
                         <span className={"hidden lg:block"}>News</span>
                     </Link>
                 </li>
                 <li>
-                    <Link href={"/coming-soon"} className={style.list}>
+                    <Link href={"/achievement"} className={style.list}>
                         <Trophy strokeWidth={1} size={14}/>
                         <span className={"hidden lg:block"}>Achievement</span>
                     </Link>

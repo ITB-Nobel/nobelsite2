@@ -53,7 +53,7 @@ const Footer = () => {
             data && data.length > 0 &&
             <div className={"container items-start grid grid-cols-1 lg:grid-cols-6 gap-8 "}>
                 <div className={"mx-auto col-span-1 relative h-24 lg:h-20 w-1/2 lg:w-full"}>
-                    <Image src={data[0].acf.logo.url}
+                    <Image src={data[0]?.acf.logo.url}
                            layout={"fill"}
                            alt={"Logo"}
                            className={"h-auto"}
@@ -62,39 +62,39 @@ const Footer = () => {
                 {/*GROUP FOOTER 1*/}
                 <div className={"uppercase text-sm col-span-2 lg:col-span-1"}>
                     <h2 className={"text-md font-semibold mb-4 text-slate-400"}>
-                        {data[0].acf.group1.group_name}
+                        {data[0]?.acf.group1.group_name}
                     </h2>
 
                     <ul className={"space-y-2 capitalize"}>
 
                         <li>
-                            <Link href={data[0].acf.group1.link1}>
-                                {data[0].acf.group1.label}
+                            <Link href={data[0]?.acf.group1.link1}>
+                                {data[0]?.acf.group1.label}
                             </Link>
                         </li>
                         <li>
-                            <Link href={data[0].acf.group1.link2}>
-                                {data[0].acf.group1.label2}
+                            <Link href={data[0]?.acf.group1.link2}>
+                                {data[0]?.acf.group1.label2}
                             </Link>
                         </li>
                         <li>
-                            <Link href={data[0].acf.group1.link3}>
-                                {data[0].acf.group1.label3}
+                            <Link href={data[0]?.acf.group1.link3}>
+                                {data[0]?.acf.group1.label3}
                             </Link>
                         </li>
                         <li>
-                            <Link href={data[0].acf.group1.link4}>
-                                {data[0].acf.group1.label4}
+                            <Link href={data[0]?.acf.group1.link4}>
+                                {data[0]?.acf.group1.label4}
                             </Link>
                         </li>
                         <li>
-                            <Link href={data[0].acf.group1.link5}>
-                                {data[0].acf.group1.label5}
+                            <Link href={data[0]?.acf.group1.link5}>
+                                {data[0]?.acf.group1.label5}
                             </Link>
                         </li>
                         <li>
-                            <Link href={data[0].acf.group1.link6}>
-                                {data[0].acf.group1.label6}
+                            <Link href={data[0]?.acf.group1.link6}>
+                                {data[0]?.acf.group1.label6}
                             </Link>
                         </li>
 
@@ -104,37 +104,37 @@ const Footer = () => {
                 {/*GROUP FOOTER 2*/}
                 <div className={"uppercase text-sm col-span-2"}>
                     <h2 className={"text-md font-semibold mb-4 text-slate-400"}>
-                        {data[0].acf.group2.group_name}
+                        {data[0]?.acf.group2.group_name}
                     </h2>
                     <ul className={"space-y-2 capitalize"}>
                         <li>
-                            <Link href={data[0].acf.group2.link1}>
-                                {data[0].acf.group2.label}
+                            <Link href={data[0]?.acf.group2.link1}>
+                                {data[0]?.acf.group2.label}
                             </Link>
                         </li>
                         <li>
-                            <Link href={data[0].acf.group2.link2}>
-                                {data[0].acf.group2.label2}
+                            <Link href={data[0]?.acf.group2.link2}>
+                                {data[0]?.acf.group2.label2}
                             </Link>
                         </li>
                         <li>
-                            <Link href={data[0].acf.group2.link3}>
-                                {data[0].acf.group2.label3}
+                            <Link href={data[0]?.acf.group2.link3}>
+                                {data[0]?.acf.group2.label3}
                             </Link>
                         </li>
                         <li>
-                            <Link href={data[0].acf.group2.link4}>
-                                {data[0].acf.group2.label4}
+                            <Link href={data[0]?.acf.group2.link4}>
+                                {data[0]?.acf.group2.label4}
                             </Link>
                         </li>
                         <li>
-                            <Link href={data[0].acf.group2.link5}>
-                                {data[0].acf.group2.label5}
+                            <Link href={data[0]?.acf.group2.link5}>
+                                {data[0]?.acf.group2.label5}
                             </Link>
                         </li>
                         <li>
-                            <Link href={data[0].acf.group2.link6}>
-                                {data[0].acf.group2.label6}
+                            <Link href={data[0]?.acf.group2.link6}>
+                                {data[0]?.acf.group2.label6}
                             </Link>
                         </li>
 
@@ -143,16 +143,16 @@ const Footer = () => {
                 {/*GROUP FOOTER 3*/}
                 <div className={"space-y-2 col-span-2 text-sm"}>
                     <h2 className={"text-md font-semibold mb-4 text-slate-400 uppercase"}>
-                        {data[0].acf.group3.group_name}
+                        {data[0]?.acf.group3.group_name}
                     </h2>
-                    <p className={""}>{data[0].acf.group3.alamat}</p>
-                    <p>Telepon: {data[0].acf.group3.telepon}</p>
-                    <p>Whatsapp: {data[0].acf.group3.whatsapp}</p>
+                    <p className={""}>{data[0]?.acf.group3.alamat}</p>
+                    <p>Telepon: {data[0]?.acf.group3.telepon}</p>
+                    <p>Whatsapp: {data[0]?.acf.group3.whatsapp}</p>
                     <div className={""}>
                         <ul className={"flex gap-4 justify-center md:justify-start py-2"}>
                             <li>
                                 <Link
-                                    href={data[0].acf.instagram}
+                                    href={data[0]?.acf.instagram}
                                     className={"group"}
                                 >
                                     <div
@@ -164,7 +164,7 @@ const Footer = () => {
 
                             <li>
                                 <Link
-                                    href={data[0].acf.facebook}
+                                    href={data[0]?.acf.facebook}
                                     className={"group"}
                                 >
                                     <div
@@ -175,7 +175,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    href={data[0].acf.youtube}
+                                    href={data[0]?.acf.youtube}
                                     className={"group"}
                                 >
                                     <div
@@ -186,7 +186,7 @@ const Footer = () => {
                             </li>
 
                             <li>
-                                <Link href={data[0].acf.tiktok} className={"group"}>
+                                <Link href={data[0]?.acf.tiktok} className={"group"}>
                                     <div
                                         className={"bg-white group-hover:bg-primary text-primary w-12 h-12 cursor-pointer rounded-full flex items-center"}>
                                         <TiktokIcon className={"mx-auto group-hover:text-white"} strokeWidth={1}/>

@@ -6,11 +6,11 @@ import useSWR from "swr";
 import {fetcher} from "@/lib/api";
 import {GeneralPageType} from "@/lib/types";
 
-const VisiPage = () => {
-    const {data} = useSWR<GeneralPageType[]>('page-visi-misi', () => fetcher('pages?slug=visi-misi'))
+const StudyPage = () => {
+    const {data} = useSWR<GeneralPageType[]>('page-study', () => fetcher('pages?slug=study'))
     return <GeneralLayout
         withFeaturedImage={true}
-        featuredTitle={"Visi Misi Nobel Institut"}
+        featuredTitle={"Study Page"}
     >
         {
             data &&
@@ -46,4 +46,4 @@ const VisiPage = () => {
 
 }
 
-export default VisiPage;
+export default StudyPage;

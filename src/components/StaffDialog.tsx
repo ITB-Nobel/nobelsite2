@@ -2,9 +2,10 @@ import React from "react";
 import Image from "next/image";
 import {Dialog, DialogDescription, DialogTrigger, DialogContentLeft} from "@/components/Dialog";
 import {ScrollArea} from "@/components/ScrollArea";
+import {StaffACF} from "@/lib/types";
 
 
-const StaffDialog = (props: StaffPropType) => <Dialog>
+const StaffDialog = (props: StaffACF) => <Dialog>
     <DialogTrigger>
         <Staff {...props}/>
     </DialogTrigger>
@@ -16,19 +17,18 @@ const StaffDialog = (props: StaffPropType) => <Dialog>
                 <div className={"absolute -top-[80px] right-[10px] z-50 "}>
                     <div className={"relative w-[150px] h-[150px]"}>
                         <Image
-                            alt={props.name}
+                            alt={props.title}
                             className={"shadow-white shadow-2xl rounded-full "}
                             layout={"fill"}
                             src={props.image}
                         />
                     </div>
-
                 </div>
                 <ScrollArea className={"h-60"}>
 
                     {/*HEADER*/}
                     <div className={"space-y-2 text-left"}>
-                        <h1 className={"text-2xl"}>{props.name}</h1>
+                        <h1 className={"text-2xl"}>{props.title}</h1>
                         <p className={"text-primary text-lg font-semibold"}>{props.position}</p>
                     </div>
 
@@ -51,15 +51,8 @@ const StaffDialog = (props: StaffPropType) => <Dialog>
 
 </Dialog>
 
-type StaffPropType = {
-    id: number | null,
-    name: string,
-    position: string,
-    image: any,
-    description: string
-}
 
-const Staff = ({name, position, image, description}: StaffPropType) => <div>
+const Staff = ({title, position, image, description}: StaffACF) => <div>
     <div
         className={"text-center px-2 py-4 hover:rounded-xl"}>
         <div
@@ -76,7 +69,7 @@ const Staff = ({name, position, image, description}: StaffPropType) => <div>
 
         <div className={"mt-12 h-[100px]"}>
             <h1 className={" text-xl  font-medium max-w-xs mx-auto text-center"}>
-                {name}
+                {title}
             </h1>
             <h2 className={"text-lg text-primary font-semibold"}>{position}</h2>
         </div>

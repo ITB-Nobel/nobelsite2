@@ -1,9 +1,26 @@
+export type StaffACF = {
+    title: string;
+    position: string;
+    group: string;
+    image: string;
+    description: string;
+}
+
+export type StaffType = {
+    acf: StaffACF,
+    id: string,
+    title: {
+        renderd: string
+    }
+}
+
+
 export type GeneralPageTypeACF = {
     "title": string,
     "color_title"?: string,
     "subtitle"?: string,
     "image"?: Photo,
-    "description" ?: string
+    "description"?: string
 }
 
 export type GeneralPageType = {
@@ -17,14 +34,14 @@ export type GeneralPageType = {
 export type DetailNewsType = { acf: NewsACF, slug: string, id: string, categories: string[] }
 
 export type Category = {
-    id:          number;
-    count:       number;
+    id: number;
+    count: number;
     description: string;
-    link:        string;
-    name:        string;
-    slug:        string;
-    taxonomy:    string;
-    parent:      number;
+    link: string;
+    name: string;
+    slug: string;
+    taxonomy: string;
+    parent: number;
 }
 
 

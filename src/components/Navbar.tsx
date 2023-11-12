@@ -15,16 +15,16 @@ export const Navbar = () => {
                     <Link href={"/"}>Home</Link>
                 </li>
                 <li className={" pb-2 cursor-pointer hover:text-primary"}>
-                    <Link href={"/content/about"}>About Us</Link>
+                    <Link href={"/about"}>About Us</Link>
                 </li>
                 <li className={" pb-2 cursor-pointer hover:text-primary"}>
-                    <Link href={"/content/study"}>Study</Link>
+                    <Link href={"/study"}>Study</Link>
                 </li>
                 <li className={" pb-2 cursor-pointer hover:text-primary"}>
-                    <Link href={"/content/research"}>Research</Link>
+                    <Link href={"/research"}>Research</Link>
                 </li>
                 <li className={" pb-2 cursor-pointer hover:text-primary"}>
-                    <Link href={"/content/international"}>International Program</Link>
+                    <Link href={"/international"}>International Program</Link>
                 </li>
             </ul>
         </div>
@@ -54,13 +54,13 @@ export function HomeNavbar() {
                 </li>
                 <AboutMenu/>
                 <li className={"text-white pb-2 cursor-pointer hover:border-primary hover:border-b-2 "}>
-                    <Link href={"/content/study"}>Study With Us</Link>
+                    <Link href={"/study"}>Study With Us</Link>
                 </li>
                 <li className={"text-white pb-2 cursor-pointer hover:border-primary hover:border-b-2 "}>
-                    <Link href={"/content/research"}>Research</Link>
+                    <Link href={"/research"}>Research</Link>
                 </li>
                 <li className={"text-white pb-2 cursor-pointer hover:border-primary hover:border-b-2 "}>
-                    <Link href={"/content/international"}>International Program</Link>
+                    <Link href={"/international"}>International Program</Link>
                 </li>
             </ul>
         </div>
