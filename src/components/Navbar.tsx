@@ -2,6 +2,68 @@ import React from "react";
 import Link from "next/link";
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/HoverCard";
 import Image from "next/image";
+import {
+    NavigationMenu, NavigationMenuContent,
+    NavigationMenuItem, NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger
+} from "@/components/NavigationMenu";
+import {cn} from "@/lib/utils";
+
+type MenuType = {
+    title: string;
+    link: string;
+    submenu: {
+        title: string;
+        link: string
+    }[]
+}
+
+const menu: MenuType[] = [
+    {
+        title: 'Home',
+        link: '/',
+        submenu: []
+    },
+    {
+        title: 'About',
+        link: '/about',
+        submenu: [
+            {
+                title: "Sejarah",
+                link: "/sejarah"
+            },
+            {
+                title: "Visi-Misi",
+                link: "/visi"
+            },
+            {
+                title: "NobelValue",
+                link: "/nobel-value"
+            },
+            {
+                title: "Staff",
+                link: "/staff"
+            },
+        ]
+    },
+    {
+        title: 'Study',
+        link: '/study',
+        submenu: []
+    },
+    {
+        title: 'Research',
+        link: '/research',
+        submenu: []
+    },
+    {
+        title: 'International Program',
+        link: '/international',
+        submenu: []
+    }
+]
+
 
 export const Navbar = () => {
     return (<div
@@ -11,21 +73,18 @@ export const Navbar = () => {
         </div>
         <div>
             <ul className={"text-md flex gap-14 text-black font-semibold text-md uppercase"}>
-                <li className={" pb-2 cursor-pointer hover:text-primary"}>
-                    <Link href={"/"}>Home</Link>
-                </li>
-                <li className={" pb-2 cursor-pointer hover:text-primary"}>
-                    <Link href={"/about"}>About Us</Link>
-                </li>
-                <li className={" pb-2 cursor-pointer hover:text-primary"}>
-                    <Link href={"/study"}>Study</Link>
-                </li>
-                <li className={" pb-2 cursor-pointer hover:text-primary"}>
-                    <Link href={"/research"}>Research</Link>
-                </li>
-                <li className={" pb-2 cursor-pointer hover:text-primary"}>
-                    <Link href={"/international"}>International Program</Link>
-                </li>
+
+
+                {
+                    menu.map((props, index) => {
+                        if (props.submenu.length === 0)
+                            return <li key={index} className={" pb-2 cursor-pointer hover:text-primary"}>
+                                <Link href={props.link}>{props.title}</Link>
+                            </li>
+                        return <SubMenu key={index} {...props} type={"general"}/>
+                    })
+                }
+
             </ul>
         </div>
         <div>
@@ -49,43 +108,85 @@ export function HomeNavbar() {
         </div>
         <div className={"hidden lg:block"}>
             <ul className={"text-md flex gap-14"}>
-                <li className={"text-white pb-2 cursor-pointer hover:border-primary hover:border-b-2 "}>
-                    <Link href={"/"}>Home</Link>
-                </li>
-                <AboutMenu/>
-                <li className={"text-white pb-2 cursor-pointer hover:border-primary hover:border-b-2 "}>
-                    <Link href={"/study"}>Study With Us</Link>
-                </li>
-                <li className={"text-white pb-2 cursor-pointer hover:border-primary hover:border-b-2 "}>
-                    <Link href={"/research"}>Research</Link>
-                </li>
-                <li className={"text-white pb-2 cursor-pointer hover:border-primary hover:border-b-2 "}>
-                    <Link href={"/international"}>International Program</Link>
-                </li>
+                {
+                    menu.map((props, index) => {
+                        if (props.submenu.length === 0)
+                            return <li key={index} className={"text-white pb-2 cursor-pointer hover:text-primary "}>
+                                <Link href={props.link}>{props.title}</Link>
+                            </li>
+                        return <SubMenu key={index} {...props} type={"home"}/>
+                    })
+                }
             </ul>
         </div>
     </nav>
 }
 
-export function AboutMenu() {
+export function SubMenu({submenu, type}: MenuType & { type: 'home' | 'general' }) {
     const styles = {
         menu: `hover:text-primary   cursor-pointer text-sm`
     }
-    return (<HoverCard>
-        <HoverCardTrigger asChild>
-            <button className={"text-white pb-2 cursor-pointer hover:border-primary hover:border-b-2"}>About Us
-            </button>
-        </HoverCardTrigger>
-        <HoverCardContent
-            className="before:absolute before:bg-blue-500 w-auto ml-64 min-w-[320px] px-6 bg-white rounded-xl card-shadow">
-            <div className={"flex flex-col"}>
-                <ul className="space-y-2">
-                    <li className={styles.menu}>Sejarah</li>
-                    <li className={styles.menu}>Visi Dan Misi</li>
-                    <li className={styles.menu}>N.O.B.E.L Value</li>
-                </ul>
-            </div>
+    return <NavigationMenu>
+        <NavigationMenuList>
 
-        </HoverCardContent>
-    </HoverCard>)
+            <NavigationMenuItem>
+                {
+                    type === 'home' ?
+                        <NavigationMenuTrigger
+                            className={`text-white  text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
+                            About Us
+                        </NavigationMenuTrigger> :
+                        <NavigationMenuTrigger
+                            className={`text-black font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
+                            ABOUT US
+                        </NavigationMenuTrigger>
+                }
+
+
+                <NavigationMenuContent>
+                    <div className={"bg-white  py-2 "}>
+                        <ul className="grid w-[300px] gap-3 p-4 md:grid-cols-1 ">
+                            {submenu.map((component) => (
+                                <ListItem
+                                    key={component.title}
+                                    title={component.title}
+                                    href={component.link}
+                                >
+                                    {/*{component.title}*/}
+                                </ListItem>
+                            ))}
+                        </ul>
+
+                    </div>
+                </NavigationMenuContent>
+            </NavigationMenuItem>
+
+        </NavigationMenuList>
+    </NavigationMenu>
 }
+
+const ListItem = React.forwardRef<
+    React.ElementRef<"a">,
+    React.ComponentPropsWithoutRef<"a">
+>(({className, title, children, ...props}, ref) => {
+    return (
+        <li>
+            <NavigationMenuLink asChild>
+                <a
+                    ref={ref}
+                    className={cn(
+                        "block select-none space-y-1 rounded-md p-1  leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                        className
+                    )}
+                    {...props}
+                >
+                    <div className="text-sm font-medium leading-none hover:text-primary">{title}</div>
+                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                        {children}
+                    </p>
+                </a>
+            </NavigationMenuLink>
+        </li>
+    )
+})
+ListItem.displayName = "ListItem"
