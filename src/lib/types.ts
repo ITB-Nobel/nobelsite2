@@ -1,3 +1,33 @@
+export type GeneralPageTypeACF = {
+    "title": string,
+    "color_title"?: string,
+    "subtitle"?: string,
+    "image"?: Photo,
+    "description" ?: string
+}
+
+export type GeneralPageType = {
+    acf: GeneralPageTypeACF,
+    id: string,
+    title: {
+        renderd: string
+    }
+}
+
+export type DetailNewsType = { acf: NewsACF, slug: string, id: string, categories: string[] }
+
+export type Category = {
+    id:          number;
+    count:       number;
+    description: string;
+    link:        string;
+    name:        string;
+    slug:        string;
+    taxonomy:    string;
+    parent:      number;
+}
+
+
 export type Author = {
     ID: number;
     user_firstname: string;
@@ -99,6 +129,7 @@ export type ProdiStudyPlan = {
 export type NewsACF = {
     title: string;
     description: string;
+    deskripsi_gambar: string;
     date: string;
     photo: Photo;
     author: Author;

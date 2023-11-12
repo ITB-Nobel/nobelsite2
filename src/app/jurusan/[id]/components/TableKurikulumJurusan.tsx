@@ -18,7 +18,7 @@ const TableKurikulumJurusan = ({items} : { items: SectionCurriculumStudyJurusanT
         <tbody>
         {/* eslint-disable-next-line react/jsx-key */}
         {
-            items.map((item) => <tr className="bg-white border-b">
+            items.map((item,index) => <tr key={index} className="bg-white border-b">
                 <th scope="row"
                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                     {item.acf.nama_matakuliah}

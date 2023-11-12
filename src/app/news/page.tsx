@@ -1,9 +1,20 @@
+import React from "react";
+
+import GeneralLayout from "@/components/layout/GeneralLayout";
+import SearchNews from "@/app/news/components/SearchNews";
+import NewsList from "@/app/news/components/NewsList";
 
 
 const NewsPage = () => {
-    return <div>
-        hello world
-    </div>
+    return (<GeneralLayout
+        withFeaturedImage={true}
+        featuredTitle={"News Page"}
+    >
+        <main>
+            <SearchNews/>
+            <NewsList/>
+        </main>
+    </GeneralLayout>)
 }
 
-export default NewsPage
+export default NewsPage;

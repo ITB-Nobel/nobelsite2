@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/HoverCard";
-
+import Image from "next/image";
 
 export const Navbar = () => {
     return (<div
         className={"w-full lg:flex border-b-[1px] hidden justify-between px-8 py-8 items-center bg-white text-black"}>
-        <div className={""}>
-            {/*<Image src={"../images/logo.png"} alt={"logo"} className={"w-32"}/>*/}
+        <div className={"relative w-48 h-24"}>
+            <Image src={"/images/logo.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
         </div>
         <div>
             <ul className={"text-md flex gap-14 text-black font-semibold text-md uppercase"}>
@@ -37,13 +37,15 @@ export const Navbar = () => {
             </a>
 
         </div>
-    </div>)
+    </div>);
 }
+
 export function HomeNavbar() {
     return <nav className={"justify-between w-full  flex absolute top-12 px-4 md:px-12 z-50"}>
         <div className={"-mt-4"}>
-            {/*<StaticImage src={"../../images/logo_putih.png"} placeholder={"blurred"}*/}
-            {/*             className={"w-[150px] h-auto lg:w-[250px]"} alt={"Logo Nobel Indonesia"}/>*/}
+            <div className={"relative w-[170px] lg:w-[250px] h-20"}>
+                <Image src={"/images/logo_putih.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
+            </div>
         </div>
         <div className={"hidden lg:block"}>
             <ul className={"text-md flex gap-14"}>
@@ -64,6 +66,7 @@ export function HomeNavbar() {
         </div>
     </nav>
 }
+
 export function AboutMenu() {
     const styles = {
         menu: `hover:text-primary   cursor-pointer text-sm`

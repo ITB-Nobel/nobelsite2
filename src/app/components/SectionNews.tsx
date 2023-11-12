@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 import {NewsHigherCard, NewsNormalCard, NewsWiderCard, NewsWidestCard} from "@/app/components/NewsCard";
-import {NewsACF} from "@/lib/types";
+import {DetailNewsType, NewsACF} from "@/lib/types";
 import useSWR from "swr";
 import {fetcher} from "@/lib/api";
 
@@ -13,8 +13,8 @@ type SectionNewsType = {
 
 const SectionNews = ({title, color_title, subtitle}: SectionNewsType) => {
     const {data} =
-        useSWR<{ acf: NewsACF, slug: string }[]>
-        ('news', () => fetcher('news?_embed&orderby=date&order=desc&_fields=acf,slug,title&per_page=5'))
+        useSWR<DetailNewsType[]>
+        ('news', () => fetcher('news?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=5'))
 
     return (<section id={"news-section"} className={"container pt-12 lg:pt-24 pb-12 md:pb-24 text-center "}>
         <h1 className={"text-2xl lg:text-4xl font-semibold"}>{title} <span

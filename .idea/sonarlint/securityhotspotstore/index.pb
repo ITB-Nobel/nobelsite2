@@ -3,10 +3,6 @@
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 T
 $src/app/components/SectionJoinUs.tsx,d/6/d6987217c525ff85c04e231eb11e28b2f1ea0ba1
-W
-'src/components/layout/GeneralLayout.tsx,8/1/81ed61a62eded77885287693a396045a4c8db1aa
-R
-"src/app/components/SectionNews.tsx,9/2/9247bd2b40e1a44d4d502cba5371f631976f1e80
 n
 >src/app/jurusan/[slug]/components/SectionCurriculumJurusan.tsx,e/f/ef8aca7d543ca2cce46a4fb1713c6699de891c66
 s
@@ -29,8 +25,6 @@ i
 9src/app/jurusan/[slug]/components/TabAktivitasJurusan.tsx,1/f/1fa8974346f48b183a9d3b8fa36d093eb4ba4bdc
 B
 tailwind.config.ts,5/2/52c961376029165b06e7861b1dc68c3b2455eeff
-O
-src/app/components/NewsCard.tsx,a/5/a5f4fc74a9b92da056241004e32f52088de1cba0
 h
 8src/app/jurusan/[slug]/components/TabOverviewJurusan.tsx,5/9/5900dab885fb5d7f7f2aa5b9df0108833a4db121
 U
