@@ -5,12 +5,12 @@ import Image from "next/image";
 
 
 const TabOverviewJurusan = ({jurusan, image, description, image_detail}: ProdiOverview) => {
-    return <section className={"py-12 text-left flex flex-col lg:flex-row gap-12 items-center justify-between w-full"}>
+    return <section data-aos={"zoom-in"} className={"py-12 text-left flex flex-col lg:flex-row gap-12 items-center justify-between w-full"}>
         <div className={"basis-1/2"}>
             <h1 className={"text-5xl font-semibold text-primary"}>{jurusan}</h1>
             <article>
-                <div className={"text-left mt-10 max-w-md "}>
-                    <div className={"!font-light"} dangerouslySetInnerHTML={{__html: description as string}}/>
+                <div className={"text-left mt-10 "}>
+                    <div className={"!justify-stretch"} dangerouslySetInnerHTML={{__html: description as string}}/>
                 </div>
             </article>
         </div>

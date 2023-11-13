@@ -1,6 +1,6 @@
 'use client'
 
-import React from "react";
+import React, {useEffect} from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/Tabs";
 import TabCurriculumJurusan from "@/app/jurusan/[id]/components/TabCurriculumJurusan";
@@ -12,6 +12,7 @@ import {usePathname, useRouter} from 'next/navigation'
 import {fetcher} from "@/lib/api";
 import useSWR from "swr";
 import {ProdiACF} from "@/lib/types";
+import AOS from "aos";
 
 
 const JurusanDetailPage = () => {
@@ -21,6 +22,9 @@ const JurusanDetailPage = () => {
         acf: ProdiACF,
         title: { rendered: string }
     }>(`prodi-${idProdi}`, () => fetcher(`prodi/${idProdi}`))
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return <GeneralLayout
         withFeaturedImage={true}
         featuredTitle={"Prodi Detail"}

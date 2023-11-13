@@ -1,11 +1,13 @@
+'use client'
 import {ChevronRight, MapPin, Timer} from "lucide-react";
-import React from "react";
+import React, {useEffect} from "react";
 import {EventType} from "@/lib/types";
 import Image from "next/image";
 
 
 const EventCard = ({title, acf, date, categories, id, slug}: EventType) => {
-    return <div className={"space-y-4 relative bg-white pb-4 rounded-xl card-shadow"}>
+
+    return <div  data-aos="fade-left"  className={"space-y-4 relative bg-white pb-4 rounded-xl card-shadow"}>
         {
             acf?.image &&
             <div className={"relative h-[270px] w-full "}>

@@ -13,7 +13,9 @@ const TabAktivitasJurusan = ({term_id, idProdi}: ActivityProdiCategory & { idPro
     }[]>(`news-${idProdi}/${term_id}`, () => fetcherAcf(`news?categories=${term_id}`))
 
     return <>
-        <section className={"py-12 text-left w-full flex flex-row gap-12 items-center"}>
+        <section
+            data-aos={"zoom-in"}
+            className={"py-12 text-left w-full flex flex-row gap-12 items-center"}>
             {
                 (data && data.length > 0) && <>
                     <div className={"basis-3/4 space-y-4"}>
@@ -55,7 +57,7 @@ const AktivitasJurusanNews = ({title, photo, description, index, idNews}: NewsAC
 }) => {
     if (index > 0)
         return <Link href={`/news/${idNews}`}>
-            <div className={"flex flex-row relative group"}>
+            <div data-aos={"zoom-in"} className={"flex flex-row relative group"}>
                 <div className={"relative w-full h-80"}>
                     <Image
                         src={photo.url}

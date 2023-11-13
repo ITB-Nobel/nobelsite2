@@ -20,7 +20,7 @@ const SectionPodcast = ({
                         }: SectionPodcastType) => {
     return (<section className={"py-12  bg-black text-white relative "}>
 
-        <div className={"flex flex-col-reverse sm:flex-row justify-between gap-12 lg:gap-24  container items-center "}>
+        <div data-aos={"zoom-out"}  className={"flex flex-col-reverse sm:flex-row justify-between gap-12 lg:gap-24  container items-center "}>
             <iframe
                 src={iframeUrl}
                 title="How to improve our English speaking skills NIOUS episode #2"

@@ -16,13 +16,13 @@ const SectionNews = ({title, color_title, subtitle}: SectionNewsType) => {
         useSWR<DetailNewsType[]>
         ('news', () => fetcher('news?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=5'))
 
-    return (<section id={"news-section"} className={"container pt-12 lg:pt-24 pb-12 md:pb-24 text-center "}>
+    return (<section  id={"news-section"} className={"container pt-12 lg:pt-24 pb-12 md:pb-24 text-center "}>
         <h1 className={"text-2xl lg:text-4xl font-semibold"}>{title} <span
             className={"text-primary"}>{color_title}</span></h1>
         <p className={"text-slate-500 text-md lg:text-lg mt-2"}>
             {subtitle}
         </p>
-        <div className={"w-full grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-8  mt-12 lg:mt-24"}>
+        <div  className={"w-full grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-8  mt-12 lg:mt-24"}>
             {
                 data?.map((item, index) => {
                     switch (index) {

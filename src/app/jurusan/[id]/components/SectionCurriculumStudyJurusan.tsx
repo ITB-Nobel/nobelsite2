@@ -33,6 +33,7 @@ const SectionCurriculumStudyJurusan = ({idProdi}:ProdiCurriculum & {idProdi: str
     },[data])
 
     return <section
+        data-aos={"zoom-in"}
         className={"py-12 space-y-12 text-left w-full"}>
         <h1 className={"text-5xl font-semibold text-primary"}>Study Plan</h1>
         <div>

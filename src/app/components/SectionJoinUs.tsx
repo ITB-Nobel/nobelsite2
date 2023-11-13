@@ -23,16 +23,16 @@ const SectionJoinUs = ({
                            join_button_link,
                        }: SectionJoinUsType) => {
     return <section className={"py-12 lg:py-24 lg:px-12 bg-white lg:bg-black lg:text-white "}>
-        <div className={"grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 container"}>
+        <div data-aos={"zoom-in"}  className={"grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 container"}>
             <div>
                 <blockquote className={"text-2xl lg:text-4xl"}>
                     {quotes}
                 </blockquote>
                 <p className={"text-lg lg:text-2xl mt-4"}>{author}</p>
             </div>
-            <div className={"capitalize text-left lg:text-center"}>
+            <div  className={"capitalize text-left lg:text-center"}>
                 <h1 className={"text-2xl lg:text-4xl mb-4 font-semibold"}>{title}</h1>
-                <div className={"flex flex-row mt-12 gap-2 text-black w-full text-xl lg:text-2xl"}>
+                <div  className={"flex flex-row mt-12 gap-2 text-black w-full text-xl lg:text-2xl"}>
                     <a className={"flex-1"} target={"_blank"}
                        href={contact_button_link}>
                         <motion.div

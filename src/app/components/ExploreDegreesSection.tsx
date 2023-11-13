@@ -39,6 +39,7 @@ const ExploreDegreesSection = ({title, color_title, subtitle}: SectionBerandaTyp
                                     filter === item?.acf.jenjang &&
                                     <Link href={`/jurusan/${item?.id as string}`} key={index}>
                                         <motion.div
+                                            data-aos={"fade-up"}
                                             whileHover={{scale: 1.1}}
                                             className={
                                                 "relative  font-semibold shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-2xl  gap-4  " +

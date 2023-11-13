@@ -10,6 +10,7 @@ const NewsNormalCard = ({slug, acf, id, categories}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
     return <Link
         href={`news/${id}`}
+        data-aos={"fade-up"}
         className={"max-h-fit card-shadow rounded-xl text-left row-span-1 relative pb-24"}>
         <div>
             <h1 className={"text-[20px] leading-normal  font-semibold mx-6 my-6"}>
@@ -18,7 +19,7 @@ const NewsNormalCard = ({slug, acf, id, categories}: DetailNewsType) => {
             <article>
                 <div className={" mx-6 max-h-[220px] overflow-hidden text-ellipsis flex-nowrap"}
                      dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
+                <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{moment(date, "DD/MM/YYYY hh:mm a").format('DD MMMM Y')}</p>
             </article>
         </div>
         <div className={"flex flex-row gap-2 items-center my-4 mx-6 absolute bottom-0"}>
@@ -34,6 +35,7 @@ const NewsWiderCard = ({acf, id, slug, categories}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
     return <Link href={`news/${id}`} className={"lg:col-span-2 mt-4 lg:row-span-1 "}>
         <div
+            data-aos={"fade-up"}
             className={"card-shadow rounded-xl text-left flex flex-col lg:flex-row  "}>
 
             <div className={"hidden lg:block"}>
@@ -53,7 +55,7 @@ const NewsWiderCard = ({acf, id, slug, categories}: DetailNewsType) => {
                 <article>
                     <div className={"mt-6 mx-6 max-h-[180px] overflow-hidden text-ellipsis flex-nowrap"}
                          dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{date}</p>
+                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{moment(date, "DD/MM/YYYY hh:mm a").format('DD MMMM Y')}</p>
                 </article>
                 <div className={"flex flex-row gap-2 items-center mt-8 mb-4 mx-6"}>
                     <Categories key={slug}
@@ -70,6 +72,7 @@ const NewsWidestCard = ({acf, id, slug, categories}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
     return <Link href={`news/${id}`} className={"col-span-1 lg:col-span-3"}>
         <div
+            data-aos={"fade-left"}
             className={"flex flex-col lg:flex-row  gap-8  card-shadow rounded-xl"}>
             <div className={"relative flex-1 rounded-tl-lg rounded-tr-lg lg:rounded-tr-none lg:rounded-bl-lg"}>
                 <Image
@@ -89,7 +92,7 @@ const NewsWidestCard = ({acf, id, slug, categories}: DetailNewsType) => {
                         <div
                             className={"mt-6 text-md lg:text-lg max-h-[200px] overflow-hidden text-ellipsis flex-nowrap"}
                             dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                        <p className={"!text-sm text-slate-400 !capitalize font-light mt-4"}>{moment(date).format('DD MMMM Y')}</p>
+                        <p className={"!text-sm text-slate-400 !capitalize font-light mt-4"}>{moment(date, "DD/MM/YYYY hh:mm a").format('DD MMMM Y')}</p>
                     </article>
                 </div>
 
@@ -110,6 +113,7 @@ const NewsHigherCard = ({acf, slug, id, categories}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
     return <Link href={`news/${id}`} className={"row-span-2"}>
         <div
+            data-aos={"fade-right"}
             className={"h-full  card-shadow rounded-xl text-left  flex flex-col justify-between "}>
             <div>
 
