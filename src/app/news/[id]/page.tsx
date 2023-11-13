@@ -1,7 +1,7 @@
 'use client'
 
 import GeneralLayout from "@/components/layout/GeneralLayout";
-import React from "react";
+import React, {useEffect} from "react";
 import {ClockIcon} from "lucide-react";
 import Image from "next/image";
 import useSWR from "swr";
@@ -11,19 +11,26 @@ import {usePathname} from "next/navigation";
 import {NewsCard} from "@/app/components/NewsCard";
 import Link from "next/link";
 import Categories from "@/components/Categories";
+import AOS from "aos";
+import {Skeleton} from "@/components/Skeleton";
 
 const DetailNewsPage = () => {
     const pathname = usePathname()
     const idNews = pathname.split('/')[2]
     const {data} =
         useSWR<DetailNewsType>(`news-${idNews}`, () => fetcher(`news/${idNews}`))
-
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return <GeneralLayout>
         <main className={"pt-12"}>
-            <section className={"container"}>
-                {data && <DetailNewsContent {...data}/>}
-            </section>
-            <NewsCardList/>
+            {data ? <>
+                    <section data-aos={"fade-in"} className={"container"}>
+                        <DetailNewsContent {...data}/>
+                    </section>
+                    <NewsCardList/>
+                </>
+                : <Skeleton className={"w-full rounded-xl h-screen"}/>}
         </main>
     </GeneralLayout>
 }

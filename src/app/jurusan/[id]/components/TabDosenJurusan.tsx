@@ -4,6 +4,7 @@ import StaffDialog from "@/components/StaffDialog";
 import useSWR from "swr";
 import {fetcher, fetcherAcf} from "@/lib/api";
 import {Dosen} from "@/lib/types";
+import {Skeleton} from "@/components/Skeleton";
 
 const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
 
@@ -13,7 +14,7 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
         data-aos={"zoom-in"}
         className={"py-12 grid grid-cols-3 text-left w-full"}>
         {
-            data && data?.map((item, index) => {
+            data ? data?.map((item, index) => {
                 const temp = item.acf.prodi.find((acf) => acf.ID.toString() === idProdi)
                 if (temp)
                     return <StaffDialog
@@ -24,9 +25,11 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
                         group={""}
                         title={item.acf.name}
                     />
-            })
+            }) : <Skeleton className={"w-full rounded-xl h-screen"}/>
         }
     </section>
 }
+
+
 
 export default TabDosenJurusan;

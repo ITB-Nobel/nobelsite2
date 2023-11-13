@@ -2,28 +2,26 @@
 import React from "react";
 import {ProdiCurriculum, ProdiStudyPlan} from "@/lib/types";
 import Image from "next/image";
+import BlurImage from "@/components/BlurImage";
 
 const SectionCurriculumJurusan = ({description, title, image}: ProdiCurriculum) => <section
     data-aos={"zoom-in"}
-    className={"py-12 text-left flex flex-col lg:flex-row items-center justify-between w-full"}>
-    <div className={"basis-1/2"}>
+    className={"py-12 text-left flex flex-col lg:flex-row items-center justify-between w-full gap-12 ju"}>
+    <div className={""}>
         <h1 className={"text-5xl font-semibold text-primary"}>{title}</h1>
-        <article >
+        <article>
             <div className={"text-left mt-10 "}>
-                <div className={"!font-light"} dangerouslySetInnerHTML={{__html: description as string}}/>
+                <div className={"!items-stretch relative flex"} dangerouslySetInnerHTML={{__html: description as string}}/>
             </div>
         </article>
     </div>
-    <div className={"basis-1/2 flex justify-end"}>
-        <div className={'relative w-[480px] h-[480px]'}>
-            <Image
-                src={image}
-                alt={title}
-                layout={"fill"}
-                objectFit={"cover"}
-                className={""}
+    <div className={" flex justify-end"}>
+        <div className={'relative w-[430px] h-[430px]'}>
+            <BlurImage
+                image={image}
+                alt={"Overview Jurusan"}
             />
-            <div className={"absolute bg-primary w-[495px] h-full -bottom-3 -z-10"}/>
+            <div className={"absolute bg-primary w-[445px] h-full -bottom-3 -z-10"}/>
         </div>
     </div>
 </section>

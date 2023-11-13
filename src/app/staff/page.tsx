@@ -1,11 +1,12 @@
 'use client'
 
 import GeneralLayout from "@/components/layout/GeneralLayout";
-import {useState} from "react";
+import React, {useState} from "react";
 import useSWR from "swr";
 import { StaffType } from "@/lib/types";
 import {fetcher} from "@/lib/api";
 import StaffDialog from "@/components/StaffDialog";
+import {Skeleton} from "@/components/Skeleton";
 
 const StaffPage = () => {
     const {data} = useSWR<StaffType[]>('staff', () => fetcher('staff'))
@@ -17,9 +18,9 @@ const StaffPage = () => {
                 <h1 className={"text-6xl"}>Nobel <span className={"text-primary"}>Staff</span></h1>
                 <Filter handleClick={handleClick} filter={filter}/>
                 <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 "}>
-                    {data && data.map((props, index) => {
+                    {data ? data.map((props, index) => {
                         return filter === props?.acf.group && <StaffDialog {...props.acf} key={index}/>
-                    })}
+                    }) : <Skeleton className={"w-full rounded-xl h-screen"}/>}
                 </div>
 
             </main>

@@ -5,6 +5,7 @@ import useSWR from "swr";
 import {fetcherAcf} from "@/lib/api";
 import Image from "next/image";
 import Link from "next/link";
+import BlurImage from "@/components/BlurImage";
 
 
 const TabAktivitasJurusan = ({term_id, idProdi}: ActivityProdiCategory & { idProdi: string }) => {
@@ -28,12 +29,12 @@ const TabAktivitasJurusan = ({term_id, idProdi}: ActivityProdiCategory & { idPro
                                 selengkapnya</p></Link>
                         </article>
                     </div>
-                    <div className={"relative w-1/2 h-64"}>
-                        <Image
-                            src={data[0]?.acf.photo.url}
+                    <div className={"relative w-[450px]"}>
+                        <BlurImage
+                            image={data[0]?.acf.photo.url}
                             alt={"Image"}
-                            layout={"fill"}
-                            objectFit={"cover"}
+                            // layout={"fill"}
+                            // objectFit={"cover"}
                             className={"rounded-2xl"}
                         />
                     </div>

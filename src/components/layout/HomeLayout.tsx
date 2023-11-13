@@ -8,6 +8,7 @@ import SliderContent from "@/app/components/SliderContent";
 import Footer from "@/components/Footer";
 import {HomeNavbar} from "@/components/Navbar";
 import Image from "next/image";
+import BlurImage from "@/components/BlurImage";
 
 const HomeLayout = ({children}: { children: React.ReactNode }) => {
     return <>
@@ -31,12 +32,15 @@ const HomeLayout = ({children}: { children: React.ReactNode }) => {
                 >
                     <SwiperSlide><>
                         <div className={"relative w-full h-screen max-h-[450px] lg:max-h-[650px]  xl:max-h-[800px] "}>
-                            <Image
-                                src={"/images/slidex.jpg"}
-                                alt={"Slider Image"}
-                                layout={"fill"}
-                                className={"bg-black brightness-75 "}
-                            />
+                            <BlurImage image={"/images/slidex.jpg"} alt={"Test"} />
+                            {/*<Image*/}
+                            {/*    src={"/images/slidex.jpg"}*/}
+                            {/*    alt={"Slider Image"}*/}
+                            {/*    layout={"fill"}*/}
+                            {/*    className={"bg-black brightness-75 "}*/}
+                            {/*    placeholder={"blur"}*/}
+                            {/*    blurDataURL={"/images/slidex.jpg"}*/}
+                            {/*/>*/}
                         </div>
                         {/*<SliderContent/>*/}
                     </></SwiperSlide>

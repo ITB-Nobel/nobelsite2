@@ -1,21 +1,26 @@
 'use client'
-import React from "react";
+import React, {useEffect} from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import Image from "next/image";
 import useSWR from "swr";
 import {fetcher} from "@/lib/api";
 import {GeneralPageType} from "@/lib/types";
+import {Skeleton} from "@/components/Skeleton";
+import AOS from "aos";
 
 const NobelValuePage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-nobel-value', () => fetcher('pages?slug=nobel-value'))
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return <GeneralLayout
         withFeaturedImage={true}
         featuredTitle={"Nobel Value"}
     >
         {
-            data &&
+            data ?
             <main>
-                <section className={"container py-24 text-center "}>
+                <section data-aos={"fade-in"} className={"container py-24 text-center "}>
                     <h1 className={"text-4xl font-semibold"}>{data[0]?.acf.title} <span
                         className={"text-primary"}>{data[0]?.acf.color_title}</span></h1>
                     <p className={"text-slate-500 text-lg mt-2"}>{data[0]?.acf.subtitle}</p>
@@ -40,7 +45,7 @@ const NobelValuePage = () => {
 
 
                 </section>
-            </main>}
+            </main> : <Skeleton className={"w-full rounded-xl h-screen"}/>}
     </GeneralLayout>
 
 }
