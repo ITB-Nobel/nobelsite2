@@ -1,19 +1,14 @@
 'use client'
-import React, {useEffect} from "react";
+import React from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
-import Image from "next/image";
 import useSWR from "swr";
 import {fetcher} from "@/lib/api";
 import {GeneralPageType} from "@/lib/types";
 import {Skeleton} from "@/components/Skeleton";
 import BlurImage from "@/components/BlurImage";
-import AOS from "aos";
 
 const SejarahPage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-sejarah', () => fetcher('pages?slug=sejarah'))
-    useEffect(() => {
-        AOS.init();
-    }, [])
     return <GeneralLayout
         withFeaturedImage={true}
         featuredTitle={"Sejarah Nobel"}

@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 import TopHeader from "@/components/TopHeader";
 import {Navbar} from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import AOS from "aos";
 
 
 type GeneralLayoutType = {
@@ -18,6 +19,9 @@ export default function GeneralLayout({
                                           featuredTitle = "Nobel Page",
                                           featuredImage = "/images/layer-banner.jpg"
                                       }: GeneralLayoutType) {
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return (
         <>
             <TopHeader variant={"primary"}/>

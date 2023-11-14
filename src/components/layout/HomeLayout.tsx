@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Navigation} from 'swiper/modules';
 import 'swiper/css';
@@ -9,11 +9,16 @@ import Footer from "@/components/Footer";
 import {HomeNavbar} from "@/components/Navbar";
 import Image from "next/image";
 import BlurImage from "@/components/BlurImage";
+import AOS from "aos";
+
 
 const HomeLayout = ({children}: { children: React.ReactNode }) => {
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return <>
         <TopHeader variant={"white"}/>
-        <main>
+        <main className={"overflow-x-hidden"}>
             <div className={"relative"}>
                 <HomeNavbar/>
                 <Swiper
@@ -32,7 +37,7 @@ const HomeLayout = ({children}: { children: React.ReactNode }) => {
                 >
                     <SwiperSlide><>
                         <div className={"relative w-full h-screen max-h-[450px] lg:max-h-[650px]  xl:max-h-[800px] "}>
-                            <BlurImage image={"/images/slidex.jpg"} alt={"Test"} />
+                            <BlurImage image={"/images/slidex.jpg"} alt={"Test"}/>
                             {/*<Image*/}
                             {/*    src={"/images/slidex.jpg"}*/}
                             {/*    alt={"Slider Image"}*/}
@@ -43,7 +48,8 @@ const HomeLayout = ({children}: { children: React.ReactNode }) => {
                             {/*/>*/}
                         </div>
                         {/*<SliderContent/>*/}
-                    </></SwiperSlide>
+                    </>
+                    </SwiperSlide>
                     {/*<SwiperSlide><>*/}
                     {/*    <StaticImage*/}
                     {/*        src={"../images/slidex.jpg"}*/}

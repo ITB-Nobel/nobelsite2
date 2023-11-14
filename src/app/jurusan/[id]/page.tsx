@@ -1,18 +1,16 @@
 'use client'
 
-import React, {useEffect} from "react";
+import React from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/Tabs";
 import TabCurriculumJurusan from "@/app/jurusan/[id]/components/TabCurriculumJurusan";
 import TabOverviewJurusan from "@/app/jurusan/[id]/components/TabOverviewJurusan";
 import TabDosenJurusan from "@/app/jurusan/[id]/components/TabDosenJurusan";
 import TabAktivitasJurusan from "@/app/jurusan/[id]/components/TabAktivitasJurusan";
-
-import {usePathname, useRouter} from 'next/navigation'
+import {usePathname} from 'next/navigation'
 import {fetcher} from "@/lib/api";
 import useSWR from "swr";
 import {ProdiACF} from "@/lib/types";
-import AOS from "aos";
 
 
 const JurusanDetailPage = () => {
@@ -22,9 +20,7 @@ const JurusanDetailPage = () => {
         acf: ProdiACF,
         title: { rendered: string }
     }>(`prodi-${idProdi}`, () => fetcher(`prodi/${idProdi}`))
-    useEffect(() => {
-        AOS.init();
-    }, [])
+
     return <GeneralLayout
         withFeaturedImage={true}
         featuredTitle={"Prodi Detail"}
@@ -48,7 +44,7 @@ const JurusanDetailPage = () => {
                     {data?.acf?.overview && <TabOverviewJurusan {...data?.acf.overview}/>}
                 </TabsContent>
                 <TabsContent value="2">
-                    {(data?.acf?.curriculum) && <TabCurriculumJurusan {...data.acf.curriculum} idProdi={idProdi} />}
+                    {(data?.acf?.curriculum) && <TabCurriculumJurusan {...data.acf.curriculum} idProdi={idProdi}/>}
                 </TabsContent>
                 <TabsContent value="3">
                     <TabDosenJurusan idProdi={idProdi}/>

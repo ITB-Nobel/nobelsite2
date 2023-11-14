@@ -1,17 +1,16 @@
 'use client'
 
 import GeneralLayout from "@/components/layout/GeneralLayout";
-import React, {useEffect} from "react";
+import React from "react";
 import {ClockIcon} from "lucide-react";
 import Image from "next/image";
 import useSWR from "swr";
-import {Category, DetailNewsType} from "@/lib/types";
+import {DetailNewsType} from "@/lib/types";
 import {fetcher} from "@/lib/api";
 import {usePathname} from "next/navigation";
 import {NewsCard} from "@/app/components/NewsCard";
 import Link from "next/link";
 import Categories from "@/components/Categories";
-import AOS from "aos";
 import {Skeleton} from "@/components/Skeleton";
 
 const DetailNewsPage = () => {
@@ -19,9 +18,6 @@ const DetailNewsPage = () => {
     const idNews = pathname.split('/')[2]
     const {data} =
         useSWR<DetailNewsType>(`news-${idNews}`, () => fetcher(`news/${idNews}`))
-    useEffect(() => {
-        AOS.init();
-    }, [])
     return <GeneralLayout>
         <main className={"pt-12"}>
             {data ? <>
