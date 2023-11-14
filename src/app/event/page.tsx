@@ -12,7 +12,7 @@ const EventPage = () => {
     >
         <main>
             <EventSearch/>
-            <EventList/>
+            {/*<EventList/>*/}
         </main>
     </GeneralLayout>)
 }

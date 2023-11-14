@@ -19,7 +19,10 @@ const DetailEventPage = () => {
     const idEvent = pathname.split('/')[2]
     const {data} =
         useSWR<EventType>(`event-${idEvent}`, () => fetcher(`event/${idEvent}`))
-    return <GeneralLayout>
+    return <GeneralLayout
+        withFeaturedImage={true}
+        featuredTitle={"Detail Event"}
+    >
         <main className={"pt-12"}>
             {data ? <>
                     <section data-aos={"fade-in"} className={"container"}>
@@ -35,11 +38,17 @@ const DetailEventPage = () => {
 const DetailEventContent = ({acf, tags}: EventType) =>
     <div className={""}>
         <h1 className={"text-5xl font-semibold "}>{acf.title}</h1>
-        <p className={"mt-4 flex gap-2 items-center"}>
-            <ClockIcon className={"w-4 h-4"}/>
-            {convertDate(acf.end_registration)}
-        </p>
-        <div className={"my-12"}>
+        <div className={"flex mt-6"}>
+            <span className={" flex gap-2 items-center"}>
+                <ClockIcon className={"w-4 h-4"}/>
+                {convertDate(acf.end_registration)}
+            </span>
+            <span>
+
+            </span>
+        </div>
+
+        <div className={"mb-12 mt-6"}>
             <div className={"relative w-full aspect-w-2 aspect-h-1"}>
                 <Image
                     src={acf.image.url}
@@ -55,7 +64,7 @@ const DetailEventContent = ({acf, tags}: EventType) =>
         <div className={"space-y-4 text-justify w-full"} dangerouslySetInnerHTML={{__html: acf.description}}/>
 
         <hr className={"my-4"}/>
-        <div className={"capitalize"}>By {acf?.author?.display_name}</div>
+        <div className={"capitalize"}>Author : {acf?.author?.display_name ?? "Unknown"}</div>
         <div className={"flex gap-2 items-center"}>
             Tags :
             <div className={"flex gap-4 items-center"}>

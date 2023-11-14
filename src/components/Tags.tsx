@@ -13,6 +13,6 @@ const Tags = ({key, ids, className}: TagsType) => {
     const {data} =
         useSWR<Category[]>(`${key}-${idsString}`, () => fetcher(`tags?include=${idsString}`))
     if (data)
-        return <> {data.map((item, index) => <div className={className} key={index}>{item.name}</div>)} </>
+        return <> {data.map((item, index) => <div className={`${className} hover:text-primary cursor-pointer`} key={index}>{item.name}</div>)} </>
 }
 export default Tags

@@ -19,7 +19,7 @@ const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaTyp
         acf: ProdiACF,
         slug: string,
         id: string
-    }[]>('prodi', () => fetcher('prodi?_fields=acf,slug,id'))
+    }[]>('prodi', () => fetcher('prodi?orderby=slug&order=asc&_fields=acf,slug,id'))
     const [filter, setFilter] = useState<"sarjana" | "magister" | string>("sarjana")
         return (
             <section className={"container relative py-12 md:py-24 text-center  "}>
@@ -58,7 +58,7 @@ const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaTyp
 
                                             }
                                             <div
-                                                className={" text-left absolute top-0 left-36 xl:left-44 h-full flex items-center"}>
+                                                className={" text-left absolute top-0 left-32 xl:left-32 h-full flex items-center"}>
                                                 <h2 className={"text-xl max-w-[230px] capitalize"}>{item.acf.overview?.jurusan}</h2>
                                             </div>
                                         </motion.div>
@@ -75,7 +75,7 @@ const ButtonFilter = ({type, handleClick}: { type: string, handleClick: (input: 
     const colorSarjana = `${type === 'sarjana' ? "bg-primary  text-white" : ""}`
     const colorMagister = `${type === 'magister' ? "bg-primary  text-white" : ""}`
     return <div
-        className={"bg-gray-100 rounded-xl w-[300px] h-12 mx-auto my-6 md:my-12 items-center gap-4 flex font-medium "}>
+        className={"bg-gray-100 rounded-xl w-[320px] h-12 mx-auto my-6 md:my-12 items-center gap-4 flex font-medium "}>
         <button className={`h-full flex-1 rounded-l-xl capitalize ${colorSarjana}`}
                 onClick={() => handleClick('sarjana')}>
             Undergraduate (S1)
