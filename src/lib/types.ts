@@ -24,6 +24,7 @@ export type EventACF = {
     contact_name: string;
     contact_phone: string;
     description: string;
+    author: Author;
 }
 
 export type RegistrationLink = {

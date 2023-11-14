@@ -1,11 +1,12 @@
 import React from "react";
-import {NewsItem} from "@/app/news/components/NewsItem";
+import {EventItem} from "@/app/event/components/EventItem";
+import {EventType} from "@/lib/types";
 
 
-const EventList = () => {
+const EventList = (events: EventType[]) => {
     return <section className={"container pb-12 md:pb-24"}>
         <div className={"grid grid-cols-1 lg:grid-cols-2 gap-8"}>
-           <NewsItem />
+            {events.map((event, index) => <EventItem key={index} {...event}/>)}
         </div>
     </section>
 }
