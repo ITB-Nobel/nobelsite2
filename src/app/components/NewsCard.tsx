@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import {DetailNewsType, NewsACF} from "@/lib/types";
+import {DetailNewsType} from "@/lib/types";
 import Image from "next/image";
 import Categories from "@/components/Categories";
-import moment from "moment";
+import {convertDate} from "@/lib/utils";
 
 
 const NewsNormalCard = ({slug, acf, id, categories}: DetailNewsType) => {
@@ -19,7 +19,7 @@ const NewsNormalCard = ({slug, acf, id, categories}: DetailNewsType) => {
             <article>
                 <div className={" mx-6 max-h-[220px] overflow-hidden text-ellipsis flex-nowrap"}
                      dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{moment(date, "DD/MM/YYYY hh:mm a").format('DD MMMM Y')}</p>
+                <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{convertDate(date)}</p>
             </article>
         </div>
         <div className={"flex flex-row gap-2 items-center my-4 mx-6 absolute bottom-0"}>
@@ -55,7 +55,7 @@ const NewsWiderCard = ({acf, id, slug, categories}: DetailNewsType) => {
                 <article>
                     <div className={"mt-6 mx-6 max-h-[180px] overflow-hidden text-ellipsis flex-nowrap"}
                          dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{moment(date, "DD/MM/YYYY hh:mm a").format('DD MMMM Y')}</p>
+                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{convertDate(date)}</p>
                 </article>
                 <div className={"flex flex-row gap-2 items-center mt-8 mb-4 mx-6"}>
                     <Categories key={slug}
@@ -92,7 +92,7 @@ const NewsWidestCard = ({acf, id, slug, categories}: DetailNewsType) => {
                         <div
                             className={"mt-6 text-md lg:text-lg max-h-[200px] overflow-hidden text-ellipsis flex-nowrap"}
                             dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                        <p className={"!text-sm text-slate-400 !capitalize font-light mt-4"}>{moment(date, "DD/MM/YYYY hh:mm a").format('DD MMMM Y')}</p>
+                        <p className={"!text-sm text-slate-400 !capitalize font-light mt-4"}>{convertDate(date)}</p>
                     </article>
                 </div>
 
@@ -130,7 +130,7 @@ const NewsHigherCard = ({acf, slug, id, categories}: DetailNewsType) => {
                 <article>
                     <div className={"mt-6 mx-6 max-h-[380px] overflow-hidden text-ellipsis flex-nowrap "}
                          dangerouslySetInnerHTML={{__html: description?.split('<p>')[1] as string}}/>
-                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{moment(date).format('DD MMMM Y')}</p>
+                    <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{convertDate(date)}</p>
                 </article>
             </div>
             <div className={"flex flex-row gap-2 items-center mb-4 ml-6"}>
@@ -169,7 +169,7 @@ const NewsCard = ({acf, slug, id, categories}: DetailNewsType) => {
             </div>
             <div
                 className={"absolute bg-gradient-black   w-full h-[50px] top-[205px] shadow-[inset_-12px_-8px_40px_#46464620] text-left px-4 flex items-center text-white text-2xl font-semibold"}>
-                <h2>{moment(date).format('DD MMMM Y')}</h2>
+                <h2>{convertDate(date)}</h2>
             </div>
 
             <div className={"text-md md:text-xl font-semibold mt-2 px-4 w-full whitespace-pre-wrap text-left "}>

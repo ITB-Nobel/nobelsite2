@@ -1,4 +1,4 @@
-import exp from "constants";
+
 
 export type EventType = {
     acf: EventACF
@@ -7,6 +7,7 @@ export type EventType = {
     date: string
     title: string
     categories: Category[]
+    tags: Tags[]
 }
 
 export type EventACF = {
@@ -68,6 +69,17 @@ export type GeneralPageType = {
 export type DetailNewsType = { acf: NewsACF, slug: string, id: string, categories: string[] }
 
 export type Category = {
+    id: number;
+    count: number;
+    description: string;
+    link: string;
+    name: string;
+    slug: string;
+    taxonomy: string;
+    parent: number;
+}
+
+export type Tags = {
     id: number;
     count: number;
     description: string;

@@ -2,8 +2,9 @@ import React from "react";
 import EventCard from "@/app/components/EventCard";
 import Link from "next/link";
 import useSWR from "swr";
-import {DetailNewsType, EventType} from "@/lib/types";
+import {EventType} from "@/lib/types";
 import {fetcher} from "@/lib/api";
+import {Skeleton} from "@/components/Skeleton";
 
 type SectionEventType = {
     title: string,
@@ -23,15 +24,18 @@ const SectionEvent = ({title, subtitle, color_title}: SectionEventType) => {
             <p className={"text-slate-500 text-md nd:text-lg mt-2"}>{subtitle}</p>
             <div className={"w-full grid grid-cols-1 lg:grid-cols-3 gap-8  mt-12 md:mt-24 "}>
                 {
-                    data &&
-                    data.map((props,index) => <EventCard  key={index} {...props}/>)
+                    data ?
+                    data.map((props, index) => <EventCard key={index} {...props}/>) : <Skeleton className={"min-h-screen"} />
                 }
             </div>
-            <Link href={"/events"}>
-                <button className={"border-2 px-4 py-2 border-black hover:bg-black hover:text-white mt-12 md:mt-24"}>
-                    Show More <span className={"ml-2"}>&#8594;</span>
-                </button>
-            </Link>
+            {
+                (data && data.length > 5) &&
+                <Link href={"/events"}>
+                    <button
+                        className={"border-2 px-4 py-2 border-black hover:bg-black hover:text-white mt-12 md:mt-24"}>
+                        Show More <span className={"ml-2"}>&#8594;</span>
+                    </button>
+                </Link>}
 
         </div>
     </section>
