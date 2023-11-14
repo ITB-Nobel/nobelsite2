@@ -34,11 +34,11 @@ const menu: MenuType[] = [
                 link: "/sejarah"
             },
             {
-                title: "Visi-Misi",
+                title: "Visi Misi",
                 link: "/visi"
             },
             {
-                title: "NobelValue",
+                title: "Nobel Value",
                 link: "/nobel-value"
             },
             {

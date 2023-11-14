@@ -37,7 +37,7 @@ const SejarahPage = () => {
                         }
 
 
-                        {data[0]?.acf.description && <div className={"text-left  space-y-4 basis-3/4 mt-12"}
+                        {data[0]?.acf.description && <div className={"text-left  space-y-4 basis-3/4 mt-24"}
                                                           dangerouslySetInnerHTML={{__html: data[0]?.acf.description}}/>}
 
 

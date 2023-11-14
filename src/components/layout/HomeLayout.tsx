@@ -37,17 +37,9 @@ const HomeLayout = ({children}: { children: React.ReactNode }) => {
                 >
                     <SwiperSlide><>
                         <div className={"relative w-full h-screen max-h-[450px] lg:max-h-[650px]  xl:max-h-[800px] "}>
-                            <BlurImage image={"/images/slidex.jpg"} alt={"Test"}/>
-                            {/*<Image*/}
-                            {/*    src={"/images/slidex.jpg"}*/}
-                            {/*    alt={"Slider Image"}*/}
-                            {/*    layout={"fill"}*/}
-                            {/*    className={"bg-black brightness-75 "}*/}
-                            {/*    placeholder={"blur"}*/}
-                            {/*    blurDataURL={"/images/slidex.jpg"}*/}
-                            {/*/>*/}
+                            <BlurImage image={"/images/slidex.jpg"} alt={"Default Nobel Image"} className={"brightness-50"}/>
                         </div>
-                        {/*<SliderContent/>*/}
+                        <SliderContent/>
                     </>
                     </SwiperSlide>
                     {/*<SwiperSlide><>*/}
@@ -68,17 +60,6 @@ const HomeLayout = ({children}: { children: React.ReactNode }) => {
     </>
 }
 
-const TestComponent = () => <>
-    <div className={"relative w-full max-h-[450px] lg:max-h-[650px]  xl:max-h-[800px] "}>
-        <Image
-            src={"/images/slidex.jpg"}
-            alt={"Slider Image"}
-            layout={"fill"}
-            className={"bg-black h-auto brightness-75 "}
-        />
-    </div>
-    <SliderContent/>
-</>
 
 
 export default HomeLayout;

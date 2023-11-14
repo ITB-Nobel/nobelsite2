@@ -1,3 +1,5 @@
+'use client'
+
 import React, {useEffect} from "react";
 import TopHeader from "@/components/TopHeader";
 import {Navbar} from "@/components/Navbar";
@@ -27,7 +29,6 @@ export default function GeneralLayout({
             <TopHeader variant={"primary"}/>
             <Navbar/>
             {withFeaturedImage && <div className={"relative max-h-[240px] min-h-[240px] w-full"}>
-
                 <Image className={""}
                        layout={"fill"}
                        src={featuredImage}
