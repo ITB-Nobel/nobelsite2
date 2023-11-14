@@ -14,7 +14,7 @@ type SectionBerandaType = {
     color_title: string
     subtitle: string
 }
-const ExploreDegreesSection = ({title, color_title, subtitle}: SectionBerandaType) => {
+const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaType) => {
     const {data} = useSWR<{
         acf: ProdiACF,
         slug: string,
@@ -58,8 +58,8 @@ const ExploreDegreesSection = ({title, color_title, subtitle}: SectionBerandaTyp
 
                                             }
                                             <div
-                                                className={" text-left absolute top-0 left-36 h-full flex items-center"}>
-                                                <h2 className={"text-xl max-w-[200px] capitalize"}>{item.acf.overview?.jurusan}</h2>
+                                                className={" text-left absolute top-0 left-36 xl:left-44 h-full flex items-center"}>
+                                                <h2 className={"text-xl max-w-[230px] capitalize"}>{item.acf.overview?.jurusan}</h2>
                                             </div>
                                         </motion.div>
                                     </Link>}
@@ -87,4 +87,4 @@ const ButtonFilter = ({type, handleClick}: { type: string, handleClick: (input: 
     </div>
 }
 
-export default ExploreDegreesSection;
+export default SectionExploreDegrees;

@@ -2,7 +2,7 @@
 
 import HomeLayout from "@/components/layout/HomeLayout";
 import SectionJoinUs from "@/app/components/SectionJoinUs";
-import ExploreDegreesSection from "@/app/components/ExploreDegreesSection";
+import SectionExploreDegrees from "@/app/components/SectionExploreDegrees";
 import SectionPodcast from "@/app/components/SectionPodcast";
 import SectionNews from "@/app/components/SectionNews";
 import SectionEvent from "@/app/components/SectionEvent";
@@ -20,7 +20,7 @@ export default function Home() {
                 join_button_link={"https://join.nobel.ac.id"}
             />
 
-            <ExploreDegreesSection
+            <SectionExploreDegrees
                 title={"Explore Our"}
                 color_title={" Degrees"}
                 subtitle={"Information on degrees, requirements, policies"}
