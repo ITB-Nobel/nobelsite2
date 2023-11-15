@@ -17,6 +17,7 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
             data ? data?.map((item, index) => {
                 const temp = item.acf.prodi.find((acf) => acf.ID.toString() === idProdi)
                 if (temp)
+                    console.log(item.acf.photo,'dari sini')
                     return <StaffDialog
                         position={item.acf.position}
                         image={item.acf.photo?.url}

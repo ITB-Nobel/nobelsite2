@@ -1,6 +1,5 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
-import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/HoverCard";
 import Image from "next/image";
 import {
     NavigationMenu, NavigationMenuContent,
@@ -9,6 +8,9 @@ import {
     NavigationMenuTrigger
 } from "@/components/NavigationMenu";
 import {cn} from "@/lib/utils";
+import useSWR from "swr";
+import {ProdiACF, ProdiType} from "@/lib/types";
+import {fetcher} from "@/lib/api";
 
 type MenuType = {
     title: string;
@@ -16,14 +18,22 @@ type MenuType = {
     submenu: {
         title: string;
         link: string
+    }[],
+    submenu_with_header: {
+        header: string;
+        items: {
+            title: string;
+            link: string
+        }[]
     }[]
 }
 
-const menu: MenuType[] = [
+const defaultMenu: MenuType[] = [
     {
         title: 'Home',
         link: '/',
-        submenu: []
+        submenu: [],
+        submenu_with_header: []
     },
     {
         title: 'About',
@@ -45,27 +55,45 @@ const menu: MenuType[] = [
                 title: "Staff",
                 link: "/staff"
             },
-        ]
+        ],
+        submenu_with_header: []
     },
     {
         title: 'Study',
         link: '/study',
-        submenu: []
+        submenu: [],
+        submenu_with_header: [
+            {
+                header: "Fakultas Teknologi dan Bisnis",
+                items: []
+            },
+            {
+                header: "Fakultas Pascasarjana",
+                items: []
+            }
+        ]
     },
     {
         title: 'Research',
         link: '/research',
-        submenu: []
+        submenu: [],
+        submenu_with_header: []
     },
     {
         title: 'International Program',
         link: '/international',
-        submenu: []
+        submenu: [],
+        submenu_with_header: []
     }
 ]
 
+const useNavbar = () => {
+
+}
 
 export const Navbar = () => {
+    const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
+    // const {data} = useSWR<ProdiType[]>('prodi', () => fetcher('prodi?orderby=slug&order=asc&_fields=acf,slug,id'))
     return (<div
         className={"w-full lg:flex border-b-[1px] hidden justify-between px-8 py-8 items-center bg-white text-black"}>
         <div className={"relative w-48 h-24"}>
@@ -73,14 +101,15 @@ export const Navbar = () => {
         </div>
         <div>
             <ul className={"text-md flex gap-14 text-black font-semibold text-md uppercase"}>
-
-
                 {
                     menu.map((props, index) => {
-                        if (props.submenu.length === 0)
+                        if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
                             return <li key={index} className={" pb-2 cursor-pointer hover:text-primary"}>
                                 <Link href={props.link}>{props.title}</Link>
                             </li>
+                        if (props.submenu_with_header.length > 0)
+                            return <SubmenuWithHeader key={index} {...props} type={"general"}/>
+
                         return <SubMenu key={index} {...props} type={"general"}/>
                     })
                 }
@@ -100,6 +129,7 @@ export const Navbar = () => {
 }
 
 export function HomeNavbar() {
+    const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
     return <nav className={"justify-between w-full  flex absolute top-12 px-4 md:px-12 z-50"}>
         <div className={"-mt-4"}>
             <div className={"relative w-[170px] lg:w-[250px] h-20"}>
@@ -110,11 +140,15 @@ export function HomeNavbar() {
             <ul className={"text-md flex gap-14"}>
                 {
                     menu.map((props, index) => {
-                        if (props.submenu.length === 0)
+                        if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
                             return <li key={index} className={"text-white pb-2 cursor-pointer hover:text-primary "}>
                                 <Link href={props.link}>{props.title}</Link>
                             </li>
+                        if (props.submenu_with_header.length > 0)
+                            return <SubmenuWithHeader key={index} {...props} type={"home"}/>
                         return <SubMenu key={index} {...props} type={"home"}/>
+
+
                     })
                 }
             </ul>
@@ -163,6 +197,54 @@ export function SubMenu({submenu, type}: MenuType & { type: 'home' | 'general' }
 
         </NavigationMenuList>
     </NavigationMenu>
+}
+
+
+const SubmenuWithHeader = ({submenu_with_header, type}: MenuType & { type: 'home' | 'general' }) => {
+    if (submenu_with_header.length > 0)
+        return <NavigationMenu>
+            <NavigationMenuList>
+
+                <NavigationMenuItem>
+                    {
+                        type === 'home' ?
+                            <NavigationMenuTrigger
+                                className={`text-white font-medium font-condensed text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
+                                Study
+                            </NavigationMenuTrigger> :
+                            <NavigationMenuTrigger
+                                className={`text-black font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
+                                STUDY
+                            </NavigationMenuTrigger>
+                    }
+
+
+                    <NavigationMenuContent>
+                        <div className={"bg-white  py-2 "}>
+                            <ul className="grid w-[300px] gap-3 p-4 md:grid-cols-1">
+                                {submenu_with_header.map((component, index) => (
+                                    <div key={index}>
+                                        <h4 className={"font-semibold"}>{component.header}</h4>
+                                        {
+                                            component.items.map((item, index) => <ListItem
+                                                key={index}
+                                                title={item.title}
+                                                href={item.link}
+                                            >
+                                            </ListItem>)
+                                        }
+
+                                    </div>
+
+                                ))}
+                            </ul>
+
+                        </div>
+                    </NavigationMenuContent>
+                </NavigationMenuItem>
+
+            </NavigationMenuList>
+        </NavigationMenu>
 }
 
 const ListItem = React.forwardRef<

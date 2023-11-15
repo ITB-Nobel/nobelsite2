@@ -21,6 +21,7 @@ const StaffDialog = (props: StaffACF) => <Dialog>
                             className={"shadow-white shadow-2xl rounded-full "}
                             layout={"fill"}
                             src={props.image}
+                            objectFit={"cover"}
                         />
                     </div>
                 </div>
@@ -63,6 +64,7 @@ const Staff = ({title, position, image, description}: StaffACF) => <div>
                     alt={"Foto Staff"}
                     src={image}
                     layout={"fill"}
+                    objectFit={"cover"}
                 />
             </div>
         </div>
