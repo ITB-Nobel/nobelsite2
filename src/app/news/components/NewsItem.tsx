@@ -1,20 +1,30 @@
-
+'use client'
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import BlurImage from "@/components/BlurImage";
+import {DetailNewsType} from "@/lib/types";
+import {convertDate} from "@/lib/utils";
+import Tags from "@/components/Tags";
 
-export const NewsItem = () => {
-    return <Link href={"/news/123"} >
-            <div className={"min-h-[150px] flex flex-col md:flex-row shadow-md rounded-md"}>
-                <img src={"https://placehold.co/200x150"} className={"h-full w-full md:w-[250px]"} />
-                <div className={"p-4"}>
-                    <h3 className={"text-sm md:text-lg font-semibold"}>Bangga! 5 Anggota BEM Nobel Mendapatkan piala</h3>
-                    <div className={"flex flex-row gap-2 mt-2 text-xs"}>
-                        <button className={"bg-blue-800 p-2 rounded-md text-white"}>Science</button>
-                        <button className={"bg-blue-800 p-2 rounded-md text-white"}>Education</button>
-                        <button className={"bg-blue-800 p-2 rounded-md text-white"}>Lorem Ipsum</button>
-                    </div>
-                    <p className={"mt-2 text-xs"}>2 Days Ago</p>
-                </div>
+export const NewsItem = ({acf, tags, id}: DetailNewsType) => {
+
+    return <Link href={`/news/${id}`}>
+        <div className={"min-h-[200px] flex flex-col md:flex-row shadow-md rounded-md"}>
+            <div>
+                <BlurImage alt={acf.photo.alt} image={acf.photo.url} className={"h-full w-full md:w-[200px]"}/>
             </div>
-        </Link>
+
+            <div className={"p-4"}>
+                <h3 className={"text-sm md:text-lg font-semibold"}>{acf.title}</h3>
+                {
+                    tags.length > 0 &&
+                    <div className={"flex flex-row gap-2 mt-2 text-xs"}>
+                        <Tags key={"tags"} className={"bg-primary text-white rounded-full px-2 py-1"}
+                              ids={tags}/>
+                    </div>}
+                <p className={"mt-2 text-xs"}>{convertDate(acf.date)}</p>
+            </div>
+        </div>
+    </Link>
 }

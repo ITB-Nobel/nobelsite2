@@ -2,7 +2,7 @@
 
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import React from "react";
-import {ClockIcon} from "lucide-react";
+import {ClockIcon, Contact} from "lucide-react";
 import Image from "next/image";
 import useSWR from "swr";
 import {fetcher} from "@/lib/api";
@@ -13,13 +13,18 @@ import {EventType} from "@/lib/types";
 import Tags from "@/components/Tags";
 import {convertDate} from "@/lib/utils";
 import EventCard from "@/app/components/EventCard";
+import {Link1Icon} from "@radix-ui/react-icons";
+
 
 const DetailEventPage = () => {
     const pathname = usePathname()
     const idEvent = pathname.split('/')[2]
     const {data} =
         useSWR<EventType>(`event-${idEvent}`, () => fetcher(`event/${idEvent}`))
-    return <GeneralLayout>
+    return <GeneralLayout
+        withFeaturedImage={true}
+        featuredTitle={"Detail Event"}
+    >
         <main className={"pt-12"}>
             {data ? <>
                     <section data-aos={"fade-in"} className={"container"}>
@@ -35,11 +40,33 @@ const DetailEventPage = () => {
 const DetailEventContent = ({acf, tags}: EventType) =>
     <div className={""}>
         <h1 className={"text-5xl font-semibold "}>{acf.title}</h1>
-        <p className={"mt-4 flex gap-2 items-center"}>
-            <ClockIcon className={"w-4 h-4"}/>
-            {convertDate(acf.end_registration)}
-        </p>
-        <div className={"my-12"}>
+        <div className={"flex mt-6 gap-4"}>
+            <span className={" flex gap-2 items-center"}>
+                <ClockIcon className={"w-4 h-4"}/>
+                {
+                    (convertDate(acf.event_start) === convertDate(acf.event_end)) ? <>
+                        {convertDate(acf.event_start)}
+                    </> : <>
+                        {convertDate(acf.event_start)} - {convertDate(acf.event_end)}
+                    </>
+                }
+            </span>
+            <span className={" flex gap-2 items-center"}>
+                <Contact className={"w-4 h-4"}/>
+                {acf.contact_phone} ({acf.contact_name})
+            </span>
+            <a href={acf.registration_link.url} target={"_blank"}>
+                     <span className={"flex gap-2 items-center bg-primary px-2 rounded-md py-1 text-white"}>
+                    <Link1Icon className={"w-4 h-4"}/>
+                    <button>
+                        {acf.registration_link.title}
+                    </button>
+                </span>
+            </a>
+
+        </div>
+
+        <div className={"mb-12 mt-6"}>
             <div className={"relative w-full aspect-w-2 aspect-h-1"}>
                 <Image
                     src={acf.image.url}
@@ -55,15 +82,32 @@ const DetailEventContent = ({acf, tags}: EventType) =>
         <div className={"space-y-4 text-justify w-full"} dangerouslySetInnerHTML={{__html: acf.description}}/>
 
         <hr className={"my-4"}/>
-        <div className={"capitalize"}>By {acf?.author?.display_name}</div>
-        <div className={"flex gap-2 items-center"}>
-            Tags :
-            <div className={"flex gap-4 items-center"}>
-                {
-                    <Tags key={`tags-detail-event`} ids={tags?.map((item) => item.name)}/>
-                }
+
+        <div className={"flex justify-between items-center"}>
+            <div>
+                <div className={"capitalize"}>Registration Date
+                    : {convertDate(acf?.start_registration)} - {convertDate(acf?.end_registration)}</div>
+                <div className={"capitalize"}>Location : {acf?.place ?? "Unknown"}</div>
+                <div className={"flex gap-2 items-center"}>
+                    Tags :
+                    <div className={"flex gap-4 items-center"}>
+                        {
+                            <Tags key={`tags-detail-event`} ids={tags?.map((item) => item.name)}/>
+                        }
+                    </div>
+                </div>
             </div>
+            <a href={acf.registration_link.url} target={"_blank"}>
+                 <span className={"flex gap-2 items-center bg-primary px-2 rounded-md py-1 text-white"}>
+                <Link1Icon className={"w-4 h-4"}/>
+                <button>
+                    {acf.registration_link.title}
+                </button>
+            </span>
+            </a>
+
         </div>
+
 
         <hr className={"mt-4"}/>
     </div>

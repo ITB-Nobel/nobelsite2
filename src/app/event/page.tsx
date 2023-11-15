@@ -1,8 +1,7 @@
 import React from "react";
 
 import GeneralLayout from "@/components/layout/GeneralLayout";
-import EventSearch from "@/app/event/components/SearchNews";
-import EventList from "@/app/event/components/EventList";
+import SearchEvent from "@/app/event/components/SearchEvent";
 
 
 const EventPage = () => {
@@ -11,8 +10,8 @@ const EventPage = () => {
         featuredTitle={"Event Page"}
     >
         <main>
-            <EventSearch/>
-            <EventList/>
+            <SearchEvent/>
+            {/*<EventList/>*/}
         </main>
     </GeneralLayout>)
 }

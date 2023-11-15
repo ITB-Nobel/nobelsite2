@@ -2,11 +2,11 @@ import React from "react";
 import Link from "next/link";
 import {DetailNewsType} from "@/lib/types";
 import Image from "next/image";
-import Categories from "@/components/Categories";
 import {convertDate} from "@/lib/utils";
+import Tags from "@/components/Tags";
 
 
-const NewsNormalCard = ({slug, acf, id, categories}: DetailNewsType) => {
+const NewsNormalCard = ({slug, acf, id, tags}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
     return <Link
         href={`news/${id}`}
@@ -23,15 +23,15 @@ const NewsNormalCard = ({slug, acf, id, categories}: DetailNewsType) => {
             </article>
         </div>
         <div className={"flex flex-row gap-2 items-center my-4 mx-6 absolute bottom-0"}>
-            <Categories key={slug}
-                        ids={categories?.slice(0, 2)}
-                        className={"mt-12 lg:mt-0 bg-slate-50 text-primary !text-xs rounded-md px-4 py-2 max-w-fit "}
+            <Tags key={slug}
+                  ids={tags?.slice(0, 2)}
+                  className={"mt-12 lg:mt-0 bg-slate-50 text-primary !text-xs rounded-md px-4 py-2 max-w-fit "}
             />
         </div>
     </Link>
 }
 
-const NewsWiderCard = ({acf, id, slug, categories}: DetailNewsType) => {
+const NewsWiderCard = ({acf, id, slug, tags}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
     return <Link href={`news/${id}`} className={"lg:col-span-2 mt-4 lg:row-span-1 "}>
         <div
@@ -58,9 +58,9 @@ const NewsWiderCard = ({acf, id, slug, categories}: DetailNewsType) => {
                     <p className={"!text-sm text-slate-400 !capitalize font-light mt-4 ml-6"}>{convertDate(date)}</p>
                 </article>
                 <div className={"flex flex-row gap-2 items-center mt-8 mb-4 mx-6"}>
-                    <Categories key={slug}
-                                ids={categories?.slice(0, 2)}
-                                className={"mt-12 lg:mt-0 bg-slate-50 text-primary !text-xs rounded-md px-4 py-2 max-w-fit "}
+                    <Tags key={slug}
+                          ids={tags?.slice(0, 2)}
+                          className={"mt-12 lg:mt-0 bg-slate-50 text-primary !text-xs rounded-md px-4 py-2 max-w-fit "}
                     />
                 </div>
             </div>
@@ -68,7 +68,7 @@ const NewsWiderCard = ({acf, id, slug, categories}: DetailNewsType) => {
     </Link>
 }
 
-const NewsWidestCard = ({acf, id, slug, categories}: DetailNewsType) => {
+const NewsWidestCard = ({acf, id, slug, tags}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
     return <Link href={`news/${id}`} className={"col-span-1 lg:col-span-3"}>
         <div
@@ -97,9 +97,9 @@ const NewsWidestCard = ({acf, id, slug, categories}: DetailNewsType) => {
                 </div>
 
                 <div className={"flex flex-row gap-2 items-center"}>
-                    <Categories key={slug}
-                                ids={categories?.slice(0, 2)}
-                                className={"mt-12 lg:mt-0 bg-slate-50 text-primary !text-xs rounded-md px-4 py-2 max-w-fit "}
+                    <Tags key={slug}
+                          ids={tags?.slice(0, 2)}
+                          className={"mt-12 lg:mt-0 bg-slate-50 text-primary !text-xs rounded-md px-4 py-2 max-w-fit "}
                     />
                 </div>
 
@@ -109,7 +109,7 @@ const NewsWidestCard = ({acf, id, slug, categories}: DetailNewsType) => {
     </Link>
 }
 
-const NewsHigherCard = ({acf, slug, id, categories}: DetailNewsType) => {
+const NewsHigherCard = ({acf, slug, id, tags}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
     return <Link href={`news/${id}`} className={"row-span-2"}>
         <div
@@ -134,19 +134,19 @@ const NewsHigherCard = ({acf, slug, id, categories}: DetailNewsType) => {
                 </article>
             </div>
             <div className={"flex flex-row gap-2 items-center mb-4 ml-6"}>
-                <Categories key={slug}
-                            ids={categories?.slice(0, 2)}
-                            className={"mt-12 lg:mt-0 bg-slate-50 text-primary !text-xs rounded-md px-4 py-2 max-w-fit "}
+                <Tags key={slug}
+                      ids={tags?.slice(0, 2)}
+                      className={"mt-12 lg:mt-0 bg-slate-50 text-primary !text-xs rounded-md px-4 py-2 max-w-fit "}
                 />
             </div>
         </div>
     </Link>
 }
 
-const NewsCard = ({acf, slug, id, categories}: DetailNewsType) => {
+const NewsCard = ({acf, slug, id, tags}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
     return <Link href={`/news/${id}`}>
-        <div className={"space-y-4 w-[320px] h-fit  relative bg-white pb-4 rounded-xl card-shadow"}>
+        <div className={"space-y-4 w-[320px] min-h-[420px]  relative bg-white rounded-xl card-shadow"}>
             <div className={"relative h-[270px] w-full"}>
                 {
                     <Image
@@ -162,10 +162,11 @@ const NewsCard = ({acf, slug, id, categories}: DetailNewsType) => {
             <div className={"absolute flex-col top-4 left-4 flex gap-2 text-white text-sm"}
                  style={{marginTop: "0px"}}>
 
-                <Categories key={slug}
-                            ids={categories?.slice(0, 1)}
-                            className={"bg-primary rounded-md py-1 px-2"}
+                <Tags key={slug}
+                      ids={tags?.slice(0, 1)}
+                      className={"bg-primary rounded-md py-1 px-2"}
                 />
+
             </div>
             <div
                 className={"absolute bg-gradient-black   w-full h-[50px] top-[205px] shadow-[inset_-12px_-8px_40px_#46464620] text-left px-4 flex items-center text-white text-2xl font-semibold"}>

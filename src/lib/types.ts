@@ -1,5 +1,3 @@
-
-
 export type EventType = {
     acf: EventACF
     id: string
@@ -67,7 +65,7 @@ export type GeneralPageType = {
     }
 }
 
-export type DetailNewsType = { acf: NewsACF, slug: string, id: string, categories: string[] }
+export type DetailNewsType = { acf: NewsACF, slug: string, id: string, categories: string[], tags: string[] }
 
 export type Category = {
     id: number;

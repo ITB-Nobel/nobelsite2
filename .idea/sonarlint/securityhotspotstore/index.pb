@@ -9,12 +9,6 @@ I
 src/components/Footer.tsx,6/a/6a1906fbef47b21e13258a3accfe644e256f3344
 >
 src/lib/api.ts,d/7/d7dfc37533476949cede1e587aadf89246414b72
-@
-src/lib/utils.ts,b/6/b64d1893e69ac0511cda386a979ec589465b7fe7
-T
-$src/app/news/components/NewsList.tsx,1/c/1c19e3144356ae1d1872d093f73da8fd97574215
-T
-$src/app/news/components/NewsItem.tsx,0/0/00a4d2c0500853dd6129634df97289b1bffbd626
 L
 src/components/Accordion.tsx,9/0/90d967553773d3a87256ee03cf41549b1700eac8
 M

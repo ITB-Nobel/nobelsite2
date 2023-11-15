@@ -12,6 +12,9 @@ import {NewsCard} from "@/app/components/NewsCard";
 import Link from "next/link";
 import Categories from "@/components/Categories";
 import {Skeleton} from "@/components/Skeleton";
+import {convertDate} from "@/lib/utils";
+import {PersonIcon} from "@radix-ui/react-icons";
+import Tags from "@/components/Tags";
 
 const DetailNewsPage = () => {
     const pathname = usePathname()
@@ -21,58 +24,70 @@ const DetailNewsPage = () => {
     return <GeneralLayout>
         <main className={"pt-12"}>
             {data ? <>
-                    <section data-aos={"fade-in"} className={"container"}>
-                        <DetailNewsContent {...data}/>
-                    </section>
-                    <NewsCardList/>
+                    <DetailNewsContent {...data}/>
+                    <NewsCardList exceptID={idNews}/>
                 </>
                 : <Skeleton className={"w-full rounded-xl h-screen"}/>}
         </main>
     </GeneralLayout>
 }
 
-const DetailNewsContent = ({acf, categories}: DetailNewsType) =>
-    <div className={""}>
-        <h1 className={"text-5xl font-semibold "}>{acf.title}</h1>
-        <p className={"mt-4 flex gap-2 items-center"}>
-            <ClockIcon className={"w-4 h-4"}/>
-            {acf.date}
-        </p>
-        <div className={"my-12"}>
-            <div className={"relative w-full h-96"}>
-                <Image
-                    src={acf.photo.url}
-                    alt={acf.deskripsi_gambar}
-                    layout={"fill"}
-                    objectFit={"cover"}
-                />
+const DetailNewsContent = ({acf, tags}: DetailNewsType) =>
+    <section data-aos={"fade-in"} className={"container"}>
+        <div className={""}>
+            <h1 className={"text-5xl font-semibold "}>{acf.title}</h1>
+            <div className={"flex gap-4 items-center text-slate-500"}>
+                <p className={"mt-4 flex gap-2 items-center "}>
+                    <ClockIcon className={"w-4 h-4"}/>
+                    {convertDate(acf.date)}
+                </p>
+                <p className={"mt-4 flex gap-2 items-center capitalize"}>
+                    <PersonIcon className={"w-4 h-4"}/>
+                    {acf.author.display_name}
+                </p>
+
             </div>
-            <p className={"text-sm my-2 text-center"}>{acf.deskripsi_gambar}</p>
-        </div>
 
-        <div className={"space-y-4 text-justify"} dangerouslySetInnerHTML={{__html: acf.description}}/>
-
-        <hr className={"my-4"}/>
-        <div className={"capitalize"}>By {acf.author.display_name}</div>
-        <div className={"flex gap-2 items-center"}>
-            Tags :
-            <div className={"flex gap-4 items-center"}>
-                {
-                    <Categories key={`categories-detail-news`} ids={categories}/>
-                }
+            <div className={"my-12"}>
+                <div className={"relative w-full h-96"}>
+                    <Image
+                        src={acf.photo.url}
+                        alt={acf.deskripsi_gambar}
+                        layout={"fill"}
+                        objectFit={"cover"}
+                    />
+                </div>
+                <p className={"text-sm my-2 text-center"}>{acf.deskripsi_gambar}</p>
             </div>
+
+            <div className={"space-y-4 text-justify"} dangerouslySetInnerHTML={{__html: acf.description}}/>
+            {
+                tags.length > 0 &&
+                <>
+                    <hr className={"my-4"}/>
+                    <div className={"flex gap-2 items-center"}>
+                        Tags :
+                        <div className={"flex gap-4 items-center"}>
+                            {
+                                <Tags  key={`categories-detail-news`} ids={tags}/>
+                            }
+                        </div>
+                    </div>
+                    <hr className={"mt-4"}/>
+                </>
+            }
+
+
         </div>
+    </section>
 
-        <hr className={"mt-4"}/>
-    </div>
-
-const NewsCardList = () => {
+const NewsCardList = ({exceptID}: { exceptID: string }) => {
     const {data} =
         useSWR<DetailNewsType[]>
-        (`latest-news`, () => fetcher(`news?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=5`))
+        (`latest-news`, () => fetcher(`news?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=55&exclude=${exceptID}`))
     return <section className={"py-24 text-center"}>
         <h1 className={"text-4xl font-semibold"}>Berita <span className={"text-primary"}>Lainnya</span></h1>
-        <div className={"overflow-x-scroll snap-x whitespace-nowrap space-x-8 mt-6 px-36 py-6"}>
+        <div className={"overflow-x-scroll snap-x whitespace-nowrap space-x-8 mt-6 px-36 py-6 items-center flex "}>
             {data && data.map((item, index) =>
                 <div className={"inline-block"} key={index}>
                     <NewsCard {...item}/>
