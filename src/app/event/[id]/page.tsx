@@ -92,7 +92,7 @@ const DetailEventContent = ({acf, tags}: EventType) =>
                     Tags :
                     <div className={"flex gap-4 items-center"}>
                         {
-                            <Tags key={`tags-detail-event`} ids={tags?.map((item) => item.name)}/>
+                            <Tags key={`tags-detail-event`} ids={tags}/>
                         }
                     </div>
                 </div>

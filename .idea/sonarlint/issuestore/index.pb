@@ -71,8 +71,6 @@ V
 &src/app/event/components/EventList.tsx,2/c/2cbdb9464154022e51f4e20bd6b23b525b03c7a0
 f
 6src/app/jurusan/[id]/components/TabOverviewJurusan.tsx,f/e/fec4831d4e03bf8454b2872a05a46b33d1ee7458
-P
- src/app/components/EventCard.tsx,9/a/9a3f5303ad5a0b91385490a6954132fa879786aa
 J
 src/components/Popover.tsx,e/0/e08560432fe48dbac7c93e567d0e27eadd5032fe
 I

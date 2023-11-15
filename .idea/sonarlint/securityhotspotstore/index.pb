@@ -33,8 +33,6 @@ Q
 package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
 S
 #src/app/components/SectionEvent.tsx,6/f/6f74d0877619c46bfad7ca2cd96875554da0e5ee
-P
- src/app/components/EventCard.tsx,9/a/9a3f5303ad5a0b91385490a6954132fa879786aa
 U
 %src/app/components/SectionPodcast.tsx,9/7/9728a4f72d4ebef6405f43582ba065fe76b62692
 T
