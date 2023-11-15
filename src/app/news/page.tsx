@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import SearchNews from "@/app/news/components/SearchNews";
@@ -10,15 +10,26 @@ import {fetcher} from "@/lib/api";
 
 
 const NewsPage = () => {
-    const {data} =
+    const [rangeDate, setRangeDate] = useState({
+        start_date: new Date(),
+        end_date: new Date()
+    })
+    const {data, mutate} =
         useSWR<DetailNewsType[]>
-        ('news', () => fetcher('news?_embed&orderby=date&order=desc&per_page=10'))
+        ('news', () => fetcher(`news?_embed&orderby=date&order=desc&per_page=10&start_date=${rangeDate.start_date}&end_date=${rangeDate.end_date}`))
+
+
+    useEffect(() => {
+        (async () => await mutate())()
+    }, [rangeDate, mutate])
+
+
     return (<GeneralLayout
         withFeaturedImage={true}
         featuredTitle={"News Page"}
     >
         <main>
-            <SearchNews/>
+            <SearchNews rangeDate={rangeDate} setRangeDate={setRangeDate}/>
             <NewsList news={data}/>
         </main>
     </GeneralLayout>)

@@ -4,8 +4,8 @@ export type EventType = {
     slug: string
     date: string
     title: string
-    categories: Category[]
-    tags: Tags[]
+    categories: string[]
+    tags: string[]
 }
 
 export type EventACF = {

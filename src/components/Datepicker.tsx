@@ -8,13 +8,11 @@ import { cn } from "@/lib/utils"
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/Popover";
 import {Button} from "@/components/Button";
 import {Calendar} from "@/components/Callendar";
+import {Dispatch} from "react";
 
 
-export function DatePicker() {
-    const [date, setDate] = React.useState<Date| undefined>(new Date())
+export function DatePicker({date,setDate}: {date:Date, setDate: any}) {
 
-
-    // @ts-ignore
     return (
         <Popover>
             <PopoverTrigger asChild>
@@ -41,4 +39,15 @@ export function DatePicker() {
             </PopoverContent>
         </Popover>
     )
+}
+
+
+export function useDatePicker(){
+    const [date, setDate] = React.useState<Date>(new Date())
+    const DatePickerComponent = () => <DatePicker date={date} setDate={setDate} />
+    return {
+        date,
+        setDate,
+        DatePickerComponent
+    }
 }

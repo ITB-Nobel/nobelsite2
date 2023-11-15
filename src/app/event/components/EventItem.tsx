@@ -2,30 +2,29 @@ import React from "react";
 import Link from "next/link";
 import {EventType} from "@/lib/types";
 import Image from "next/image";
+import Tags from "@/components/Tags";
+import {convertDate} from "@/lib/utils";
 
 export const EventItem = ({acf, tags, id}: EventType) => {
-    return <Link href={`/news/${id}`}>
+
+    return <Link href={`/event/${id}`}>
         <div className={"min-h-[150px] flex flex-col md:flex-row shadow-md rounded-md"}>
-            <div className={"relative h-full w-full md:w-[250px]"}>
+            <div className={"relative w-[150px] md:w-[250px] "}>
                 <Image
                     src={acf?.image?.url}
                     layout={"fill"}
                     objectFit={"cover"}
                     alt={acf?.image.alt}
-                    className={"rounded-t-xl brightness-75"}
+                    className={"rounded-tl-md rounded-bl-md brightness-75"}
                 />
             </div>
             <div className={"p-4"}>
                 <h3 className={"text-sm md:text-lg font-semibold"}>{acf.title}</h3>
                 <div className={"flex flex-row gap-2 mt-2 text-xs"}>
-                    {
-                        tags && tags.map((tag, index) => <button
-                            key={index}
-                            className={"bg-blue-800 p-2 rounded-md text-white"}>{tag.name}</button>)
-                    }
+                    <Tags key={"event-tag"} className={"bg-primary py-1 px-2 rounded-full text-white"} ids={tags} />
 
                 </div>
-                <p className={"mt-2 text-xs"}>2 Days Ago</p>
+                <p className={"mt-2 text-xs"}>{convertDate(acf.start_registration)} - {convertDate(acf.end_registration)}</p>
             </div>
         </div>
     </Link>
