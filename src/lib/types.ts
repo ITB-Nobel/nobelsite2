@@ -162,6 +162,7 @@ export type ProdiACF = {
     curriculum: ProdiCurriculum;
     jenjang: string;
     fakultas: string
+    header_image: Photo
 }
 
 export  type ProdiType = {
@@ -198,7 +199,6 @@ export type ProdiStudyPlan = {
 export type NewsACF = {
     title: string;
     description: string;
-    deskripsi_gambar: string;
     date: string;
     photo: Photo;
     author: Author;

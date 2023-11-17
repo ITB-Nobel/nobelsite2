@@ -22,8 +22,8 @@ const JurusanDetailPage = () => {
     }>(`prodi-${idProdi}`, () => fetcher(`prodi/${idProdi}`))
 
     return <GeneralLayout
-        withFeaturedImage={true}
         featuredTitle={data?.title?.rendered}
+        featuredImage={data?.acf?.header_image?.url}
     >
         <main className={"min-h-screen"}>
             <Tabs defaultValue="1" className={"container py-12 text-center "}>

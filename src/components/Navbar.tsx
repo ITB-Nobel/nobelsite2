@@ -95,16 +95,16 @@ export const Navbar = () => {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
     // const {data} = useSWR<ProdiType[]>('prodi', () => fetcher('prodi?orderby=slug&order=asc&_fields=acf,slug,id'))
     return (<div
-        className={"w-full lg:flex border-b-[1px] hidden justify-between px-8 py-8 items-center bg-white text-black"}>
-        <div className={"relative w-48 h-24"}>
-            <Image src={"/images/logo.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
-        </div>
-        <div>
-            <ul className={"text-md flex gap-14 text-black font-semibold text-md uppercase"}>
+        className={"absolute top-0 right-12 z-50  w-full lg:flex  hidden justify-end px-8 py-8 items-center bg-transparent"}>
+        {/*<div className={"relative w-48 h-24"}>*/}
+        {/*    <Image src={"/images/logo.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>*/}
+        {/*</div>*/}
+
+            <ul className={"text-md flex gap-14 font-semibold text-md uppercase "}>
                 {
                     menu.map((props, index) => {
                         if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
-                            return <li key={index} className={" pb-2 cursor-pointer hover:text-primary"}>
+                            return <li key={index} className={" pb-2 cursor-pointer hover:text-primary !text-white"}>
                                 <Link href={props.link}>{props.title}</Link>
                             </li>
                         if (props.submenu_with_header.length > 0)
@@ -115,16 +115,16 @@ export const Navbar = () => {
                 }
 
             </ul>
-        </div>
-        <div>
-            <a href={"https://join.nobel.ac.id"} target={"_blank"}>
-                <button
-                    className={"border-2 font-roboto p-2 px-8 rounded-md border-black hover:bg-black hover:text-white font-semibold"}>
-                    Apply To Study
-                </button>
-            </a>
 
-        </div>
+        {/*<div>*/}
+        {/*    <a href={"https://join.nobel.ac.id"} target={"_blank"}>*/}
+        {/*        <button*/}
+        {/*            className={"border-2 font-roboto p-2 px-8 rounded-md border-black hover:bg-black hover:text-white font-semibold"}>*/}
+        {/*            Apply To Study*/}
+        {/*        </button>*/}
+        {/*    </a>*/}
+
+        {/*</div>*/}
     </div>);
 }
 
@@ -171,7 +171,7 @@ export function SubMenu({submenu, type}: MenuType & { type: 'home' | 'general' }
                             About Us
                         </NavigationMenuTrigger> :
                         <NavigationMenuTrigger
-                            className={`text-black font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
+                            className={`text-white font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
                             ABOUT US
                         </NavigationMenuTrigger>
                 }
@@ -213,7 +213,7 @@ const SubmenuWithHeader = ({submenu_with_header, type}: MenuType & { type: 'home
                                 Study
                             </NavigationMenuTrigger> :
                             <NavigationMenuTrigger
-                                className={`text-black font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
+                                className={`text-white font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
                                 STUDY
                             </NavigationMenuTrigger>
                     }
