@@ -89,8 +89,6 @@ J
 src/app/news/[id]/page.tsx,0/1/0146b5bb3d37cb8cafb31f77b22e6fbd31bc36df
 V
 &src/app/news/components/SearchNews.tsx,8/f/8f6eea12a7d6cc986d05f0592dc2a94672a4c438
-c
-3src/app/jurusan/[id]/components/TabDosenJurusan.tsx,5/0/50917f55da16eacb5fe06c2758999ff478576421
 N
 src/components/StaffDialog.tsx,3/2/3237dc74bebca42a642b78d25f5e323717bea3e0
 F

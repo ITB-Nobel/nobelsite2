@@ -15,9 +15,10 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
         className={"py-12 grid grid-cols-3 text-left w-full"}>
         {
             data ? data?.map((item, index) => {
-                const temp = item.acf.prodi.find((acf) => acf.ID.toString() === idProdi)
-                if (temp)
-                    console.log(item.acf.photo,'dari sini')
+                const prodis = item.acf.prodi.map(prodi => prodi.ID)
+                console.log(prodis,item.acf.name,prodis.includes(Number(idProdi)))
+                // const temp = item.acf.prodi.find((acf) => acf.ID.toString() === idProdi.toString())
+                if (prodis.includes(Number(idProdi)))
                     return <StaffDialog
                         position={item.acf.position}
                         image={item.acf.photo?.url}

@@ -87,34 +87,53 @@ const defaultMenu: MenuType[] = [
     }
 ]
 
-const useNavbar = () => {
-
+const useProdi = () => {
+    const [fakultasArray, setFakultasArray] = useState<string[]>([])
+    const [jurusanArray, setJurusanArray] = useState<ProdiType[]>([])
+    const {data} = useSWR<ProdiType[]>('prodi', () => fetcher('prodi?orderby=slug&order=asc&_fields=acf,slug,id'))
+    useEffect(() => {
+        if (data) {
+            let items = data.map(item => item.acf.fakultas)
+            items = Array.from(new Set(items))
+            setFakultasArray(items)
+            setJurusanArray(data)
+        }
+    }, [data]);
+    return {
+        fakultasArray,
+        setFakultasArray,
+        jurusanArray,
+        setJurusanArray
+    }
 }
 
 export const Navbar = () => {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
-    // const {data} = useSWR<ProdiType[]>('prodi', () => fetcher('prodi?orderby=slug&order=asc&_fields=acf,slug,id'))
+    const {fakultasArray, jurusanArray} = useProdi()
+    console.log(fakultasArray,'fakultas')
+    console.log(jurusanArray,'jurusan')
     return (<div
         className={"absolute top-0 right-12 z-50  w-full lg:flex  hidden justify-end px-8 py-8 items-center bg-transparent"}>
         {/*<div className={"relative w-48 h-24"}>*/}
         {/*    <Image src={"/images/logo.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>*/}
         {/*</div>*/}
 
-            <ul className={"text-md flex gap-14 font-semibold text-md uppercase "}>
-                {
-                    menu.map((props, index) => {
-                        if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
-                            return <li key={index} className={" pb-2 cursor-pointer hover:text-primary !text-white"}>
-                                <Link href={props.link}>{props.title}</Link>
-                            </li>
-                        if (props.submenu_with_header.length > 0)
-                            return <SubmenuWithHeader key={index} {...props} type={"general"}/>
+        <ul className={"text-md flex gap-14 font-semibold text-md uppercase "}>
+            {
+                menu.map((props, index) => {
+                    if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
+                        return <li key={index} className={" pb-2 cursor-pointer hover:text-primary !text-white"}>
+                            <Link href={props.link}>{props.title}</Link>
+                        </li>
+                    if (props.submenu_with_header.length > 0)
+                        return <SubmenuWithHeader key={index} acf={jurusanArray}
+                                                  fakultasArray={fakultasArray} {...props} type={"general"}/>
 
-                        return <SubMenu key={index} {...props} type={"general"}/>
-                    })
-                }
+                    return <SubMenu key={index} {...props} type={"general"}/>
+                })
+            }
 
-            </ul>
+        </ul>
 
         {/*<div>*/}
         {/*    <a href={"https://join.nobel.ac.id"} target={"_blank"}>*/}
@@ -130,6 +149,7 @@ export const Navbar = () => {
 
 export function HomeNavbar() {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
+    const {jurusanArray, fakultasArray} = useProdi()
     return <nav className={"justify-between w-full  flex absolute top-12 px-4 md:px-12 z-50"}>
         <div className={"-mt-4"}>
             <div className={"relative w-[170px] lg:w-[250px] h-20"}>
@@ -145,7 +165,8 @@ export function HomeNavbar() {
                                 <Link href={props.link}>{props.title}</Link>
                             </li>
                         if (props.submenu_with_header.length > 0)
-                            return <SubmenuWithHeader key={index} {...props} type={"home"}/>
+                            return <SubmenuWithHeader fakultasArray={fakultasArray} acf={jurusanArray}
+                                                      key={index} {...props} type={"home"}/>
                         return <SubMenu key={index} {...props} type={"home"}/>
 
 
@@ -200,11 +221,14 @@ export function SubMenu({submenu, type}: MenuType & { type: 'home' | 'general' }
 }
 
 
-const SubmenuWithHeader = ({submenu_with_header, type}: MenuType & { type: 'home' | 'general' }) => {
+const SubmenuWithHeader = ({submenu_with_header, type, acf, fakultasArray}: MenuType & {
+    type: 'home' | 'general',
+    acf: ProdiType[],
+    fakultasArray: string[]
+}) => {
     if (submenu_with_header.length > 0)
         return <NavigationMenu>
             <NavigationMenuList>
-
                 <NavigationMenuItem>
                     {
                         type === 'home' ?
@@ -222,20 +246,22 @@ const SubmenuWithHeader = ({submenu_with_header, type}: MenuType & { type: 'home
                     <NavigationMenuContent>
                         <div className={"bg-white  py-2 "}>
                             <ul className="grid w-[300px] gap-3 p-4 md:grid-cols-1">
-                                {submenu_with_header.map((component, index) => (
-                                    <div key={index}>
-                                        <h4 className={"font-semibold"}>{component.header}</h4>
+                                {fakultasArray.map((component, index) => (
+                                    <>
+                                    <h4 className={"font-semibold capitalize"}>{component}</h4>
+                                    <div key={index} className={"space-y-2"}>
                                         {
-                                            component.items.map((item, index) => <ListItem
-                                                key={index}
-                                                title={item.title}
-                                                href={item.link}
-                                            >
-                                            </ListItem>)
+                                            acf.filter((item) => item.acf.fakultas === component)
+                                                .map((item, index) =>
+                                                <ListItem
+                                                    key={index}
+                                                    title={item.acf.overview.jurusan}
+                                                    href={`jurusan/${item.id}`}
+                                                />
+                                            )
                                         }
-
                                     </div>
-
+                                    </>
                                 ))}
                             </ul>
 
@@ -262,10 +288,10 @@ const ListItem = React.forwardRef<
                     )}
                     {...props}
                 >
-                    <div className="text-sm font-medium leading-none hover:text-primary">{title}</div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        {children}
-                    </p>
+                    <div className="text-sm capitalize font-medium leading-none hover:text-primary">{title}</div>
+                    {/*<p className="line-clamp-2 text-sm leading-snug text-muted-foreground">*/}
+                    {/*    {children}*/}
+                    {/*</p>*/}
                 </a>
             </NavigationMenuLink>
         </li>

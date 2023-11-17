@@ -52,7 +52,7 @@ const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaTyp
                                                            src={item.acf.overview.image}
                                                            layout={"fill"}
                                                            className={"rounded-xl"}
-
+                                                           objectFit={"cover"}
                                                     />
                                                 </div>
 

@@ -35,7 +35,7 @@ export default function GeneralLayout({
                 />}
 
                 <h1 className={"absolute px-24 text-white text-5xl font-semibold tracking-widest top-52 left-12"}>{featuredTitle}</h1>
-                <Image src={"/images/logo_putih.png"} alt={"logo"} width={300} height={100}
+                <Image src={"/images/logo_putih.png"} alt={"logo"} width={300} height={100} objectFit={"cover"}
                        className={"absolute top-8 z-50 left-12"}/>
 
             </div>
