@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import SearchEvent from "@/app/event/components/SearchEvent";
-import useSWR, {mutate} from "swr";
+import useSWR from "swr";
 import {EventType} from "@/lib/types";
 import {fetcher} from "@/lib/api";
 import EventList from "@/app/event/components/EventList";
@@ -14,13 +14,13 @@ const EventPage = () => {
         end_date: new Date()
     })
 
-    const {data,mutate} =
+    const {data, mutate} =
         useSWR<EventType[]>
         ('event', () => fetcher(`event?_embed&orderby=date&order=desc&per_page=10&start_date=${rangeDate.start_date}&end_date=${rangeDate.end_date}`))
 
     useEffect(() => {
-        (async()=> await mutate())()
-    }, [rangeDate,mutate])
+        (async () => await mutate())()
+    }, [rangeDate, mutate])
 
     return (<GeneralLayout
         withFeaturedImage={true}

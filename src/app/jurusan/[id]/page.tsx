@@ -23,7 +23,7 @@ const JurusanDetailPage = () => {
 
     return <GeneralLayout
         withFeaturedImage={true}
-        featuredTitle={"Prodi Detail"}
+        featuredTitle={data?.title?.rendered}
     >
         <main className={"min-h-screen"}>
             <Tabs defaultValue="1" className={"container py-12 text-center "}>
