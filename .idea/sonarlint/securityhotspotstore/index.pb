@@ -35,10 +35,6 @@ B
 src/app/layout.tsx,c/f/cfb47de6ae0cae626eed46461300112ef521d977
 C
 src/app/globals.css,d/a/da1d6f21d01d0f36b5501dffcf7fd160ffcb290d
-q
-Asrc/app/jurusan/[id]/components/SectionCurriculumStudyJurusan.tsx,d/9/d9cbc49c3fdc29e5e45642deab84684a74a341a6
-i
-9src/app/jurusan/[id]/components/TableKurikulumJurusan.tsx,d/d/dd549e6348a467c16ca6b5684935dc41f8c5f8ad
 B
 tailwind.config.ts,5/2/52c961376029165b06e7861b1dc68c3b2455eeff
 K

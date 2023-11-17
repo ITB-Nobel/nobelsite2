@@ -11,6 +11,9 @@ const TableKurikulumJurusan = ({items} : { items: SectionCurriculumStudyJurusanT
                 Matakuliah
             </th>
             <th scope="col" className="px-6 py-3">
+                Semester
+            </th>
+            <th scope="col" className="px-6 py-3">
                 SKS
             </th>
         </tr>
@@ -25,6 +28,9 @@ const TableKurikulumJurusan = ({items} : { items: SectionCurriculumStudyJurusanT
                 </th>
                 <td className="px-6 py-4">
                     {item.acf.semester}
+                </td>
+                <td className="px-6 py-4">
+                    {item.acf.sks}
                 </td>
             </tr>)
         }
