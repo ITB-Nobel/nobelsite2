@@ -110,8 +110,6 @@ const useProdi = () => {
 export const Navbar = () => {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
     const {fakultasArray, jurusanArray} = useProdi()
-    console.log(fakultasArray,'fakultas')
-    console.log(jurusanArray,'jurusan')
     return (<div
         className={"absolute top-0 right-12 z-50  w-full lg:flex  hidden justify-end px-8 py-8 items-center bg-transparent"}>
         {/*<div className={"relative w-48 h-24"}>*/}

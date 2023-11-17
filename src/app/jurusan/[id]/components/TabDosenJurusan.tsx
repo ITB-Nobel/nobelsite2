@@ -16,8 +16,6 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
         {
             data ? data?.map((item, index) => {
                 const prodis = item.acf.prodi.map(prodi => prodi.ID)
-                console.log(prodis,item.acf.name,prodis.includes(Number(idProdi)))
-                // const temp = item.acf.prodi.find((acf) => acf.ID.toString() === idProdi.toString())
                 if (prodis.includes(Number(idProdi)))
                     return <StaffDialog
                         position={item.acf.position}
