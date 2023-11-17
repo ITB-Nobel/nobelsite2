@@ -254,7 +254,7 @@ const SubmenuWithHeader = ({submenu_with_header, type, acf, fakultasArray}: Menu
                                                 <ListItem
                                                     key={index}
                                                     title={item.acf.overview.jurusan}
-                                                    href={`jurusan/${item.id}`}
+                                                    href={`/jurusan/${item.id}`}
                                                 />
                                             )
                                         }
