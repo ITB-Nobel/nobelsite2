@@ -9,7 +9,7 @@ import {GeneralPageType} from "@/lib/types";
 const AchievementPage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-achievement', () => fetcher('pages?slug=achievement'))
     return <GeneralLayout
-        withFeaturedImage={true}
+        
         featuredTitle={"Achievement Page"}
     >
         {

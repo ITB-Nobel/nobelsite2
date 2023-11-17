@@ -15,12 +15,8 @@ M
 src/components/Categories.tsx,3/1/314497ac89794b63d740e3a82a1abae1f75f507c
 L
 src/components/TopHeader.tsx,1/3/136d1e6488b4fd4d870e264096cca1666e429da4
-L
-src/app/achievement/page.tsx,d/2/d2de253775f16b192113d8ecc117f151a73b1f34
 I
 src/app/research/page.tsx,1/4/14501242825fc3072fc489fdfc3d685982a1f419
-N
-src/app/international/page.tsx,4/d/4d7c61e1be6372514bda9e68cfbc12984dc5cdaf
 C
 src/store/global.ts,1/3/1313745b55da546d798b10a8d80ad36282d975b7
 Q
@@ -49,8 +45,6 @@ K
 src/components/Skeleton.tsx,7/d/7d0ca8af0154fc069d1af8da435e08b288f58306
 F
 src/app/staff/page.tsx,4/9/4905b5e92be78b3503b996380b857209731eb0ba
-F
-src/app/study/page.tsx,7/c/7ca7aaedd3114b6f73804a376e4985d67ab7a22a
 L
 src/components/BlurImage.tsx,7/7/77ee77cb75ddda8a919f393edbde839fbe11bf72
 H
@@ -85,8 +79,6 @@ G
 src/components/Tags.tsx,d/5/d5bc5b79d075c3486be9fcc5a4bf3c50fb818b87
 O
 src/app/components/NewsCard.tsx,a/5/a5f4fc74a9b92da056241004e32f52088de1cba0
-J
-src/app/news/[id]/page.tsx,0/1/0146b5bb3d37cb8cafb31f77b22e6fbd31bc36df
 V
 &src/app/news/components/SearchNews.tsx,8/f/8f6eea12a7d6cc986d05f0592dc2a94672a4c438
 F

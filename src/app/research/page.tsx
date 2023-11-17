@@ -9,7 +9,7 @@ import {GeneralPageType} from "@/lib/types";
 const ResearchPage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-research', () => fetcher('pages?slug=research'))
     return <GeneralLayout
-        withFeaturedImage={true}
+        
         featuredTitle={"Research Page"}
     >
         {

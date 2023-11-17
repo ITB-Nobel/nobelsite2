@@ -10,7 +10,7 @@ import {Skeleton} from "@/components/Skeleton";
 const StudyPage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-study', () => fetcher('pages?slug=study'))
     return <GeneralLayout
-        withFeaturedImage={true}
+        
         featuredTitle={"Study Page"}
     >
         {

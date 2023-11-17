@@ -23,7 +23,7 @@ const EventPage = () => {
     }, [rangeDate, mutate])
 
     return (<GeneralLayout
-        withFeaturedImage={true}
+        
         featuredTitle={"Event Page"}
     >
         <main>

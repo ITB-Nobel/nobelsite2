@@ -52,12 +52,12 @@ const DetailNewsContent = ({acf, tags}: DetailNewsType) =>
                 <div className={"relative w-full h-96"}>
                     <Image
                         src={acf.photo.url}
-                        alt={acf.deskripsi_gambar}
+                        alt={acf.photo.alt}
                         layout={"fill"}
                         objectFit={"cover"}
                     />
                 </div>
-                <p className={"text-sm my-2 text-center"}>{acf.deskripsi_gambar}</p>
+                <p className={"text-sm my-2 text-center"}>{acf.photo.description}</p>
             </div>
 
             <div className={"space-y-4 text-justify"} dangerouslySetInnerHTML={{__html: acf.description}}/>

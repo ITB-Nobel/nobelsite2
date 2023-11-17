@@ -25,7 +25,7 @@ const NewsPage = () => {
 
 
     return (<GeneralLayout
-        withFeaturedImage={true}
+        
         featuredTitle={"News Page"}
     >
         <main>

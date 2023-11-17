@@ -11,7 +11,7 @@ const VisiPage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-visi-misi', () => fetcher('pages?slug=visi-misi'))
 
     return <GeneralLayout
-        withFeaturedImage={true}
+        
         featuredTitle={"Visi Misi Nobel Institut"}
     >
         {

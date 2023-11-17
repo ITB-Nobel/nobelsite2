@@ -22,7 +22,7 @@ const DetailEventPage = () => {
     const {data} =
         useSWR<EventType>(`event-${idEvent}`, () => fetcher(`event/${idEvent}`))
     return <GeneralLayout
-        withFeaturedImage={true}
+        
         featuredTitle={"Detail Event"}
     >
         <main className={"pt-12"}>

@@ -20,7 +20,7 @@ const InternationalPage = () => {
     }>(`prodi-${idProdi}`, () => fetcher(`prodi/${idProdi}`))
 
     return <GeneralLayout
-        withFeaturedImage={true}
+        
         featuredTitle={data?.title?.rendered}
     >
         <main className={"min-h-screen"}>

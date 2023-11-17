@@ -11,7 +11,7 @@ const NobelValuePage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-nobel-value', () => fetcher('pages?slug=nobel-value'))
 
     return <GeneralLayout
-        withFeaturedImage={true}
+        
         featuredTitle={"Nobel Value"}
     >
         {
