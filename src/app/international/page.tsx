@@ -1,49 +1,60 @@
 'use client'
+
 import React from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
-import Image from "next/image";
-import useSWR from "swr";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/Tabs";
+import {usePathname} from 'next/navigation'
 import {fetcher} from "@/lib/api";
-import {GeneralPageType} from "@/lib/types";
+import useSWR from "swr";
+import {ProdiACF} from "@/lib/types";
+import TabOVerviewInternational from "@/app/international/components/TabOVerviewInternational";
+import TabAktivitasInternational from "@/app/international/components/TabAktivitasInterational";
+
 
 const InternationalPage = () => {
-    const {data} = useSWR<GeneralPageType[]>('page-international', () => fetcher('pages?slug=international'))
+    const pathname = usePathname()
+    const idProdi = pathname.split('/')[2]
+    const {data} = useSWR<{
+        acf: ProdiACF,
+        title: { rendered: string }
+    }>(`prodi-${idProdi}`, () => fetcher(`prodi/${idProdi}`))
+
     return <GeneralLayout
         withFeaturedImage={true}
-        featuredTitle={"International Program"}
+        featuredTitle={data?.title?.rendered}
     >
-        {
-            data &&
-            <main>
-                <section className={"container py-24 text-center "}>
-                    <h1 className={"text-4xl font-semibold"}>{data[0]?.acf.title} <span
-                        className={"text-primary"}>{data[0]?.acf.color_title}</span></h1>
-                    <p className={"text-slate-500 text-lg mt-2"}>{data[0]?.acf.subtitle}</p>
+        <main className={"min-h-screen"}>
+            <Tabs defaultValue="1" className={"container py-12 text-center "}>
+                <TabsList className="grid w-full grid-cols-4 border-b-2 pb-10">
+                    <TabsTrigger value="1">
+                        OVERVIEW
+                    </TabsTrigger>
+                    <TabsTrigger value="2">
+                        OUR TEAM
+                    </TabsTrigger>
+                    <TabsTrigger value="3">
+                        OUR PROGRAM
+                    </TabsTrigger>
+                    <TabsTrigger value="4">
+                        ACTIVITY
+                    </TabsTrigger>
+                </TabsList>
+                <TabsContent value="1">
+                    {data?.acf?.overview && <TabOVerviewInternational {...data?.acf.overview}/>}
+                </TabsContent>
+                <TabsContent value="2">
+                    {/*{(data?.acf?.curriculum) && <TabOurTeam {...data.acf.curriculum} idProdi={idProdi}/>}*/}
+                </TabsContent>
+                <TabsContent value="3">
+                    {/*<TabOurProgram idProdi={idProdi}/>*/}
+                </TabsContent>
+                <TabsContent value="4">
+                    {data && <TabAktivitasInternational idProdi={idProdi} {...data?.acf.activity_news_category} />}
+                </TabsContent>
+            </Tabs>
 
-                    {
-                        data[0]?.acf.image &&
-                        <div className={"relative w-full h-96"}>
-
-                            <Image
-                                src={data[0]?.acf.image.url}
-                                alt={data[0]?.acf.image.title}
-                                layout={"fill"}
-                                objectFit={"cover"}
-                                className={"  my-16 object-center"}
-                            />
-
-                        </div>
-                    }
-
-
-                    {data[0]?.acf.description && <div className={"text-left  space-y-4 basis-3/4 mt-24"} dangerouslySetInnerHTML={{__html: data[0]?.acf.description}}/>}
-
-
-
-                </section>
-            </main>}
+        </main>
     </GeneralLayout>
-
 }
 
 export default InternationalPage;
