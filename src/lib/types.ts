@@ -161,6 +161,13 @@ export type ProdiACF = {
     overview: ProdiOverview;
     curriculum: ProdiCurriculum;
     jenjang: string;
+    fakultas: string
+}
+
+export  type ProdiType = {
+    acf: ProdiACF
+    slug: string,
+    id: string
 }
 
 export type ProdiCurriculum = {

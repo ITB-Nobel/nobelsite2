@@ -49,7 +49,7 @@ const EventCard = ({acf, tags, id}: EventType) => {
             <div className={"absolute top-4 left-4 flex gap-2 text-white text-sm"} style={{marginTop: "0px"}}>
                 <Tags
                     key={"event"}
-                    ids={tags?.map((item) => item.id.toString())}
+                    ids={tags}
                     className={"bg-primary rounded-md py-1 px-2"}
                 />
             </div>
