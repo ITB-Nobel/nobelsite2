@@ -1,6 +1,6 @@
 'use client'
 import React from "react"
-import {ActivityProdiCategory, NewsACF} from "@/lib/types";
+import {ActivityNewsCategory, NewsACF} from "@/lib/types";
 import useSWR from "swr";
 import {fetcherAcf} from "@/lib/api";
 import Image from "next/image";
@@ -8,7 +8,7 @@ import Link from "next/link";
 import BlurImage from "@/components/BlurImage";
 
 
-const TabAktivitasInternational = ({term_id, idProdi}: Activity & { idProdi: string }) => {
+const TabAktivitasInternational = ({term_id, idProdi}:  ActivityNewsCategory & { idProdi: number }) => {
     const {data} = useSWR<{
         acf: NewsACF, id: string
     }[]>(`news-${idProdi}/${term_id}`, () => fetcherAcf(`news?categories=${term_id}`))

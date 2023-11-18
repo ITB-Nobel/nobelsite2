@@ -48,7 +48,7 @@ const InternationalPage = () => {
                         <TabOurProgram {...tempData.acf.our_program} />
                     </TabsContent>
                     <TabsContent value="4">
-                        {data && <TabAktivitasInternational {...tempData?.acf.activity_news_category} />}
+                        {data && <TabAktivitasInternational idProdi={0} {...tempData?.acf.activity_news_category} />}
                     </TabsContent>
                 </Tabs>
 
