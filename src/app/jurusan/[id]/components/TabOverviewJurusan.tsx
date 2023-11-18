@@ -11,7 +11,7 @@ const TabOverviewJurusan = ({jurusan, image, description, image_detail}: ProdiOv
             <h1 className={"text-5xl font-semibold text-primary"}>{jurusan}</h1>
             <article>
                 <div className={"text-left mt-10 "}>
-                    <div className={"!items-stretch relative flex"} dangerouslySetInnerHTML={{__html: description as string}}/>
+                    <div className={"!items-stretch relative "} dangerouslySetInnerHTML={{__html: description as string}}/>
                 </div>
             </article>
         </div>

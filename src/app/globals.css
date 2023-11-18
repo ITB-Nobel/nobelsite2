@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 @import 'aos/dist/aos.css';
+ul{
+  @apply list-outside list-none
+}
 body{
   font-family: 'Roboto Condensed', sans-serif;
 }

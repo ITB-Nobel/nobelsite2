@@ -94,7 +94,7 @@ const useProdi = () => {
     useEffect(() => {
         if (data) {
             let items = data.map(item => item.acf.fakultas)
-            items = Array.from(new Set(items))
+            items = Array.from(new Set(items)).reverse()
             setFakultasArray(items)
             setJurusanArray(data)
         }

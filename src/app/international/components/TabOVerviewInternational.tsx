@@ -1,14 +1,14 @@
 'use client'
 import React from "react";
-import {ProdiOverview} from "@/lib/types";
+import {InternationalOverview, ProdiOverview} from "@/lib/types";
 import BlurImage from "@/components/BlurImage";
 
 
-const TabOverviewJurusan = ({jurusan, image, description, image_detail}: ProdiOverview) => {
+const TabOverviewJurusan = ({image, description, judul}: InternationalOverview) => {
     return <section data-aos={"zoom-in"}
                     className={"py-12 text-left flex flex-col lg:flex-row gap-12 items-center justify-between w-full"}>
         <div className={""}>
-            <h1 className={"text-5xl font-semibold text-primary"}>{jurusan}</h1>
+            <h1 className={"text-5xl font-semibold text-primary"}>{judul}</h1>
             <article>
                 <div className={"text-left mt-10 "}>
                     <div className={"!items-stretch relative flex"}
@@ -20,7 +20,7 @@ const TabOverviewJurusan = ({jurusan, image, description, image_detail}: ProdiOv
         <div className={" flex justify-end"}>
             <div className={'relative w-[430px] h-[430px]'}>
                 <BlurImage
-                    image={image_detail}
+                    image={image}
                     alt={"Overview Jurusan"}
                 />
                 <div className={"absolute bg-black w-[445px] h-full -bottom-3 -z-10"}/>

@@ -8,7 +8,7 @@ import Link from "next/link";
 import BlurImage from "@/components/BlurImage";
 
 
-const TabAktivitasInternational = ({term_id, idProdi}: ActivityProdiCategory & { idProdi: string }) => {
+const TabAktivitasInternational = ({term_id, idProdi}: Activity & { idProdi: string }) => {
     const {data} = useSWR<{
         acf: NewsACF, id: string
     }[]>(`news-${idProdi}/${term_id}`, () => fetcherAcf(`news?categories=${term_id}`))

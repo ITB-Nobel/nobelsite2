@@ -1,3 +1,47 @@
+export type OurProgramType = {
+    title: string,
+    image: Photo,
+    description: string
+}
+
+export interface InternationalACF {
+    header_image: Photo;
+    overview: InternationalOverview;
+    activity_news_category: ActivityNewsCategory;
+    staff: {ID: string,title:string}[];
+    our_program: OurProgramType
+}
+
+export interface ActivityNewsCategory {
+    term_id: number;
+    name: string;
+    slug: string;
+    term_group: number;
+    term_taxonomy_id: number;
+    taxonomy: string;
+    description: string;
+    parent: number;
+    count: number;
+    filter: string;
+}
+
+export interface InternationalOverview {
+    judul: string;
+    image: string;
+    description: string;
+}
+
+export type InternationalType = {
+    acf: InternationalACF,
+    id: string
+    slug: string
+    date: string
+    title: {
+        rendered: string
+    }
+    categories: string[]
+}
+
 export type EventType = {
     acf: EventACF
     id: string

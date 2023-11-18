@@ -2,30 +2,31 @@
 import React from "react";
 import SectionCurriculumJurusan from "@/app/jurusan/[id]/components/SectionCurriculumJurusan";
 import SectionCurriculumStudyJurusan from "@/app/jurusan/[id]/components/SectionCurriculumStudyJurusan";
-import {ProdiCurriculum, ProdiStudyPlan} from "@/lib/types";
+import {OurProgramType, ProdiCurriculum, ProdiStudyPlan} from "@/lib/types";
 import BlurImage from "@/components/BlurImage";
 
 
-const TabOurProgram  = ({description, title, image}: ProdiCurriculum) => <section
-    data-aos={"zoom-in"}
-    className={"py-12 text-left flex flex-col lg:flex-row items-center justify-between w-full gap-12 ju"}>
-    <div className={""}>
-        <h1 className={"text-5xl font-semibold text-primary"}>{title}</h1>
-        <article>
-            <div className={"text-left mt-10 "}>
-                <div className={"!items-stretch relative flex"} dangerouslySetInnerHTML={{__html: description as string}}/>
-            </div>
-        </article>
-    </div>
-    <div className={" flex justify-end"}>
-        <div className={'relative w-[430px] h-[430px]'}>
+const TabOurProgram = ({description, title, image}: OurProgramType) =>
+    <section
+        data-aos={"zoom-in"}
+        className={"py-6 text-left"}>
+        <div className={'relative w-full mb-12 '}>
             <BlurImage
-                image={image}
+                image={image.url}
                 alt={"Overview Jurusan"}
+                className={"aspect-w-4 aspect-h1 object-cover"}
             />
-            <div className={"absolute bg-primary w-[445px] h-full -bottom-3 -z-10"}/>
         </div>
-    </div>
-</section>
+        <div className={""}>
+            <h1 className={"text-5xl font-semibold text-primary"}>{title}</h1>
+            <article>
+                <div className={"text-left mt-10 "}>
+                    <div className={"!items-stretch relative flex"}
+                         dangerouslySetInnerHTML={{__html: description as string}}/>
+                </div>
+            </article>
+        </div>
+
+    </section>
 
 export default TabOurProgram

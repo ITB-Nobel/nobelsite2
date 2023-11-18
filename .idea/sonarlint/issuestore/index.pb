@@ -11,8 +11,6 @@ I
 src/lib/api.ts,d/7/d7dfc37533476949cede1e587aadf89246414b72
 L
 src/components/Accordion.tsx,9/0/90d967553773d3a87256ee03cf41549b1700eac8
-M
-src/components/Categories.tsx,3/1/314497ac89794b63d740e3a82a1abae1f75f507c
 L
 src/components/TopHeader.tsx,1/3/136d1e6488b4fd4d870e264096cca1666e429da4
 I
@@ -33,14 +31,10 @@ T
 $src/app/components/SectionJoinUs.tsx,d/6/d6987217c525ff85c04e231eb11e28b2f1ea0ba1
 B
 src/app/layout.tsx,c/f/cfb47de6ae0cae626eed46461300112ef521d977
-C
-src/app/globals.css,d/a/da1d6f21d01d0f36b5501dffcf7fd160ffcb290d
 B
 tailwind.config.ts,5/2/52c961376029165b06e7861b1dc68c3b2455eeff
 K
 src/components/Skeleton.tsx,7/d/7d0ca8af0154fc069d1af8da435e08b288f58306
-F
-src/app/staff/page.tsx,4/9/4905b5e92be78b3503b996380b857209731eb0ba
 L
 src/components/BlurImage.tsx,7/7/77ee77cb75ddda8a919f393edbde839fbe11bf72
 L
@@ -55,8 +49,6 @@ l
 <src/app/jurusan/[id]/components/SectionCurriculumJurusan.tsx,8/e/8e4ecb4f2da0001a2e70da131f1ddf18b649072f
 V
 &src/app/event/components/EventList.tsx,2/c/2cbdb9464154022e51f4e20bd6b23b525b03c7a0
-f
-6src/app/jurusan/[id]/components/TabOverviewJurusan.tsx,f/e/fec4831d4e03bf8454b2872a05a46b33d1ee7458
 J
 src/components/Popover.tsx,e/0/e08560432fe48dbac7c93e567d0e27eadd5032fe
 I
