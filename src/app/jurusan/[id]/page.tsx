@@ -41,7 +41,11 @@ const JurusanDetailPage = () => {
                         AKTIVITAS</TabsTrigger>
                 </TabsList>
                 <TabsContent value="1">
-                    {data?.acf?.overview && <TabOverviewJurusan {...data?.acf.overview}/>}
+                    {data?.acf?.overview && <TabOverviewJurusan {...data?.acf.overview}
+                                                                videoProfil={data?.acf.video_profil}
+                                                                profil_lulusan={data?.acf.profil_lulusan}
+
+                    />}
                 </TabsContent>
                 <TabsContent value="2">
                     {(data?.acf?.curriculum) && <TabCurriculumJurusan {...data.acf.curriculum} idProdi={idProdi}/>}

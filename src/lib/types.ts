@@ -199,6 +199,11 @@ export type Sizes = {
     "post-thumbnail-height": number;
 }
 
+export type ProfilLulusanType = {
+    judul: string,
+    image: string,
+    description: string
+}
 // PRODI
 export type ProdiACF = {
     activity_news_category: ActivityProdiCategory
@@ -207,6 +212,8 @@ export type ProdiACF = {
     jenjang: string;
     fakultas: string
     header_image: Photo
+    profil_lulusan: ProfilLulusanType,
+    video_profil: string
 }
 
 export  type ProdiType = {
