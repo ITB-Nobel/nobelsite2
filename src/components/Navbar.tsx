@@ -150,7 +150,7 @@ export function HomeNavbar() {
     const {jurusanArray, fakultasArray} = useProdi()
     return <nav className={"justify-between w-full  flex absolute top-12 px-4 md:px-12 z-50"}>
         <div className={"-mt-4"}>
-            <div className={"relative w-[170px] lg:w-[250px] h-20"}>
+            <div className={"relative w-[250px] h-20"}>
                 <Image src={"/images/logo_putih.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
             </div>
         </div>

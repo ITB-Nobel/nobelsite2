@@ -52,10 +52,11 @@ const Footer = () => {
         {
             data && data.length > 0 &&
             <div className={"container items-start grid grid-cols-1 lg:grid-cols-6 gap-8 "}>
-                <div className={"mx-auto col-span-1 relative h-24 lg:h-20 w-1/2 lg:w-full"}>
+                <div className={"mx-auto col-span-1 relative h-20 lg:h-12 w-full"}>
                     <Image src={data[0]?.acf.logo.url}
                            layout={"fill"}
                            alt={"Logo"}
+                           objectFit={"cover"}
                            className={"h-auto"}
                     />
                 </div>

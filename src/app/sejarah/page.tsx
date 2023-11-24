@@ -10,7 +10,7 @@ import BlurImage from "@/components/BlurImage";
 const SejarahPage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-sejarah', () => fetcher('pages?slug=sejarah'))
     return <GeneralLayout
-        
+
         featuredTitle={"Sejarah Nobel"}
     >
         {
@@ -23,7 +23,7 @@ const SejarahPage = () => {
 
                         {
                             data[0]?.acf.image &&
-                            <div className={"relative w-full h-96"}>
+                            <div className={"relative w-full h-16 lg:h-64"}>
 
                                 <BlurImage
                                     image={data[0]?.acf.image.url}

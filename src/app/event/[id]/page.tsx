@@ -22,7 +22,7 @@ const DetailEventPage = () => {
     const {data} =
         useSWR<EventType>(`event-${idEvent}`, () => fetcher(`event/${idEvent}`))
     return <GeneralLayout
-        
+
         featuredTitle={"Detail Event"}
     >
         <main className={"pt-12"}>
@@ -39,8 +39,8 @@ const DetailEventPage = () => {
 
 const DetailEventContent = ({acf, tags}: EventType) =>
     <div className={""}>
-        <h1 className={"text-5xl font-semibold "}>{acf.title}</h1>
-        <div className={"flex mt-6 gap-4"}>
+        <h1 className={"text-3xl lg:text-5xl font-semibold "}>{acf.title}</h1>
+        <div className={"flex flex-col lg:flex-row mt-6 gap-4"}>
             <span className={" flex gap-2 items-center"}>
                 <ClockIcon className={"w-4 h-4"}/>
                 {
@@ -55,7 +55,7 @@ const DetailEventContent = ({acf, tags}: EventType) =>
                 <Contact className={"w-4 h-4"}/>
                 {acf.contact_phone} ({acf.contact_name})
             </span>
-            <a href={acf.registration_link.url} target={"_blank"}>
+            <a href={acf.registration_link.url} target={"_blank"} className={"w-fit"}>
                      <span className={"flex gap-2 items-center bg-primary px-2 rounded-md py-1 text-white"}>
                     <Link1Icon className={"w-4 h-4"}/>
                     <button>
@@ -83,7 +83,7 @@ const DetailEventContent = ({acf, tags}: EventType) =>
 
         <hr className={"my-4"}/>
 
-        <div className={"flex justify-between items-center"}>
+        <div className={"flex flex-col lg:flex-row justify-between lg:items-center"}>
             <div>
                 <div className={"capitalize"}>Registration Date
                     : {convertDate(acf?.start_registration)} - {convertDate(acf?.end_registration)}</div>
@@ -97,7 +97,7 @@ const DetailEventContent = ({acf, tags}: EventType) =>
                     </div>
                 </div>
             </div>
-            <a href={acf.registration_link.url} target={"_blank"}>
+            <a href={acf.registration_link.url} target={"_blank"} className={"my-8 w-fit"}>
                  <span className={"flex gap-2 items-center bg-primary px-2 rounded-md py-1 text-white"}>
                 <Link1Icon className={"w-4 h-4"}/>
                 <button>

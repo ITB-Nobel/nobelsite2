@@ -11,7 +11,7 @@ const SearchNews =  ({rangeDate, setRangeDate}: {
     const {date: date2, DatePickerComponent: DatePickerComponent2} = useDatePicker()
 
     return <section className={"container py-12 pt-12  "}>
-        <div className={"flex flex-row  items-end justify-end gap-4"}>
+        <div className={"flex flex-col lg:flex-row  lg:items-end lg:justify-end gap-4"}>
             <div>
                 <label className={"block mb-2 font-semibold"}>Start Date:</label>
                 <DatePickerComponent/>
@@ -21,12 +21,12 @@ const SearchNews =  ({rangeDate, setRangeDate}: {
                 <DatePickerComponent2/>
             </div>
 
-
             <button onClick={() => setRangeDate({
                 start_date: date,
                 end_date: date2
-            })} className={"bg-primary text-white rounded-md  py-2 px-3"}>
+            })} className={"bg-primary w-fit text-white rounded-md  py-2 px-3 flex gap-2"}>
                 <MagnifyingGlassIcon className={"w-6 h-6"}/>
+                Search
             </button>
 
 

@@ -11,7 +11,7 @@ const NobelValuePage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-nobel-value', () => fetcher('pages?slug=nobel-value'))
 
     return <GeneralLayout
-        
+
         featuredTitle={"Nobel Value"}
     >
         {
@@ -23,7 +23,7 @@ const NobelValuePage = () => {
                         <p className={"text-slate-500 text-lg mt-2"}>{data[0]?.acf.subtitle}</p>
                         {
                             data[0]?.acf.image &&
-                            <div className={"relative w-full h-96"}>
+                            <div className={"relative w-full h-32 lg:h-64"}>
 
                                 <Image
                                     src={data[0]?.acf.image.url}

@@ -24,7 +24,7 @@ const InternationalPage = () => {
         >
             <main className={"min-h-screen"}>
                 <Tabs defaultValue="1" className={"container py-12 text-center "}>
-                    <TabsList className="grid w-full grid-cols-4 border-b-2 pb-10">
+                    <TabsList className="hidden lg:grid w-full grid-cols-4 border-b-2 pb-10">
                         <TabsTrigger value="1">
                             OVERVIEW
                         </TabsTrigger>

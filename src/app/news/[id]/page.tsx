@@ -87,7 +87,7 @@ const NewsCardList = ({exceptID}: { exceptID: string }) => {
         (`latest-news`, () => fetcher(`news?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=55&exclude=${exceptID}`))
     return <section className={"py-24 text-center"}>
         <h1 className={"text-4xl font-semibold"}>Berita <span className={"text-primary"}>Lainnya</span></h1>
-        <div className={"overflow-x-scroll snap-x whitespace-nowrap space-x-8 mt-6 px-36 py-6 items-center flex "}>
+        <div className={"overflow-x-scroll snap-x whitespace-nowrap space-x-8 mt-6 px-12 lg:px-36 py-6 items-center flex "}>
             {data && data.map((item, index) =>
                 <div className={"inline-block"} key={index}>
                     <NewsCard {...item}/>

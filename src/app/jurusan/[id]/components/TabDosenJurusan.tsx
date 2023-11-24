@@ -12,7 +12,7 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
 
     return <section
         data-aos={"zoom-in"}
-        className={"py-12 grid grid-cols-3 text-left w-full"}>
+        className={"py-12 grid grid-cols-1 lg:grid-cols-3 text-left w-full"}>
         {
             data ? data?.map((item, index) => {
                 const prodis = item.acf.prodi.map(prodi => prodi.ID)

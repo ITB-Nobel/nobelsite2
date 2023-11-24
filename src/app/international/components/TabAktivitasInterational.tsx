@@ -16,7 +16,7 @@ const TabAktivitasInternational = ({term_id, idProdi}:  ActivityNewsCategory & {
     return <>
         <section
             data-aos={"zoom-in"}
-            className={"py-12 text-left w-full flex flex-row gap-12 items-center"}>
+            className={"py-12 text-left w-full flex flex-col lg:flex-row gap-12 items-center"}>
             {
                 (data && data.length > 0) && <>
                     <div className={"basis-3/4 space-y-4"}>
@@ -29,7 +29,7 @@ const TabAktivitasInternational = ({term_id, idProdi}:  ActivityNewsCategory & {
                                 selengkapnya</p></Link>
                         </article>
                     </div>
-                    <div className={"relative w-[450px]"}>
+                    <div className={"relative  w-[350px] lg:w-[450px]"}>
                         <BlurImage
                             image={data[0]?.acf.photo.url}
                             alt={"Image"}
@@ -42,7 +42,7 @@ const TabAktivitasInternational = ({term_id, idProdi}:  ActivityNewsCategory & {
             }
 
         </section>
-        <section className={"grid grid-cols-3 gap-4"}>
+        <section className={"grid grid-cols-1 lg:grid-cols-3 gap-4"}>
             {
                 data && data.map((news, index) => <AktivitasJurusanNews idNews={news.id} index={index} {...news.acf}
                                                                         key={index}/>)

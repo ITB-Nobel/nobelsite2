@@ -27,18 +27,19 @@ const JurusanDetailPage = () => {
     >
         <main className={"min-h-screen"}>
             <Tabs defaultValue="1" className={"container py-12 text-center "}>
-                <TabsList className="grid w-full grid-cols-4 border-b-2 pb-10">
-                    <TabsTrigger value="1">
+                <TabsList className="hidden  lg:grid lg:grid-cols-4 border-b-2 py-12 ">
+                    <TabsTrigger   value="1">
                         OVERVIEW
                     </TabsTrigger>
-                    <TabsTrigger value="2">
+                    <TabsTrigger  value="2">
                         KURIKULUM
                     </TabsTrigger>
                     <TabsTrigger value="3">
                         DOSEN
                     </TabsTrigger>
-                    <TabsTrigger value="4">
-                        AKTIVITAS</TabsTrigger>
+                    <TabsTrigger   value="4">
+                        AKTIVITAS
+                    </TabsTrigger>
                 </TabsList>
                 <TabsContent value="1">
                     {data?.acf?.overview && <TabOverviewJurusan {...data?.acf.overview}

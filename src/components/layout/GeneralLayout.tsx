@@ -34,7 +34,7 @@ export default function GeneralLayout({
                             className={"brightness-75 aspect-none w-full h-[400px]"}
                 />}
 
-                <h1 className={"absolute px-24 text-white text-5xl font-semibold tracking-widest top-52 left-12"}>{featuredTitle}</h1>
+                <h1 className={"absolute  lg:px-24 text-white text-4xl lg:text-5xl font-semibold tracking-widest top-52 left-12"}>{featuredTitle}</h1>
                 <Image src={"/images/logo_putih.png"} alt={"logo"} width={300} height={100} objectFit={"cover"}
                        className={"absolute top-8 z-50 left-12"}/>
 

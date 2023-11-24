@@ -213,7 +213,9 @@ export type ProdiACF = {
     fakultas: string
     header_image: Photo
     profil_lulusan: ProfilLulusanType,
-    video_profil: string
+    video_profil: {
+        url: string
+    }
 }
 
 export  type ProdiType = {

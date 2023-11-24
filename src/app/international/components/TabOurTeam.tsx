@@ -12,10 +12,9 @@ import {Skeleton} from "@/components/Skeleton";
 
 const TabOurTeam = ({staffIDs}:{staffIDs: string[]}) => {
     const {data} = useSWR<StaffType[]>(`staff-international`, () => fetcher(`staff?include=${staffIDs.toString()}`))
-    console.log(data,'international-staff')
     return <section
         data-aos={"zoom-in"}
-        className={"py-12 grid grid-cols-3 text-left w-full"}>
+        className={"py-12 grid grid-cols-1 lg:grid-cols-3 text-left w-full"}>
         {
             data ? data?.map((item, index) => {
                 return <StaffDialog
