@@ -2,14 +2,16 @@ import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-    NavigationMenu, NavigationMenuContent,
-    NavigationMenuItem, NavigationMenuLink,
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuItem,
+    NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger
 } from "@/components/NavigationMenu";
 import {cn} from "@/lib/utils";
 import useSWR from "swr";
-import {ProdiACF, ProdiType} from "@/lib/types";
+import {ProdiType} from "@/lib/types";
 import {fetcher} from "@/lib/api";
 
 type MenuType = {
@@ -149,11 +151,13 @@ export function HomeNavbar() {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
     const {jurusanArray, fakultasArray} = useProdi()
     return <nav className={"justify-between w-full  flex absolute top-12 px-4 md:px-12 z-50"}>
-        <div className={"-mt-4"}>
-            <div className={"relative w-[250px] h-20"}>
-                <Image src={"/images/logo_putih.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
+        <Link href={"/"}>
+            <div className={"-mt-4"}>
+                <div className={"relative w-[250px] h-20"}>
+                    <Image src={"/images/logo_putih.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
+                </div>
             </div>
-        </div>
+        </Link>
         <div className={"hidden lg:block"}>
             <ul className={"text-md flex gap-14"}>
                 {
@@ -246,19 +250,19 @@ const SubmenuWithHeader = ({submenu_with_header, type, acf, fakultasArray}: Menu
                             <ul className="grid w-[300px] gap-3 p-4 md:grid-cols-1">
                                 {fakultasArray.map((component, index) => (
                                     <>
-                                    <h4 className={"font-semibold capitalize"}>{component}</h4>
-                                    <div key={index} className={"space-y-2"}>
-                                        {
-                                            acf.filter((item) => item.acf.fakultas === component)
-                                                .map((item, index) =>
-                                                <ListItem
-                                                    key={index}
-                                                    title={item.acf.overview.jurusan}
-                                                    href={`/jurusan/${item.id}`}
-                                                />
-                                            )
-                                        }
-                                    </div>
+                                        <h4 className={"font-semibold capitalize"}>{component}</h4>
+                                        <div key={index} className={"space-y-2"}>
+                                            {
+                                                acf.filter((item) => item.acf.fakultas === component)
+                                                    .map((item, index) =>
+                                                        <ListItem
+                                                            key={index}
+                                                            title={item.acf.overview.jurusan}
+                                                            href={`/jurusan/${item.id}`}
+                                                        />
+                                                    )
+                                            }
+                                        </div>
                                     </>
                                 ))}
                             </ul>

@@ -1,17 +1,12 @@
-'use client'
 import React from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import Image from "next/image";
-import useSWR from "swr";
 import {fetcher} from "@/lib/api";
-import {GeneralPageType} from "@/lib/types";
 import {Skeleton} from "@/components/Skeleton";
 
-const VisiPage = () => {
-    const {data} = useSWR<GeneralPageType[]>('page-visi-misi', () => fetcher('pages?slug=visi-misi'))
-
+const VisiPage = async() => {
+    const data = await fetcher('pages?slug=visi-misi')
     return <GeneralLayout
-
         featuredTitle={"Visi Misi Nobel Institut"}
     >
         {

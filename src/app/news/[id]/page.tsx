@@ -21,7 +21,7 @@ const DetailNewsPage = () => {
     const idNews = pathname.split('/')[2]
     const {data} =
         useSWR<DetailNewsType>(`news-${idNews}`, () => fetcher(`news/${idNews}`))
-    return <GeneralLayout>
+    return <GeneralLayout featuredTitle={"Detail News"}>
         <main className={"pt-12"}>
             {data ? <>
                     <DetailNewsContent {...data}/>

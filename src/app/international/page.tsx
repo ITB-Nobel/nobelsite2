@@ -1,21 +1,17 @@
-'use client'
+// 'use client'
 
 import React from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/Tabs";
-import {usePathname} from 'next/navigation'
 import {fetcher} from "@/lib/api";
-import useSWR from "swr";
-import {InternationalType, ProdiACF} from "@/lib/types";
 import TabOVerviewInternational from "@/app/international/components/TabOVerviewInternational";
 import TabAktivitasInternational from "@/app/international/components/TabAktivitasInterational";
 import TabOurTeam from "@/app/international/components/TabOurTeam";
 import TabOurProgram from "@/app/international/components/TabOurProgram";
 
 
-const InternationalPage = () => {
-
-    const {data} = useSWR<InternationalType[]>(`international-program`, () => fetcher(`pages?slug=international-program`))
+const InternationalPage = async() => {
+    const data = await fetcher(`pages?slug=international-program`)
     if (data && data.length > 0) {
         const tempData = data[0]
         return <GeneralLayout
@@ -42,7 +38,7 @@ const InternationalPage = () => {
                         {tempData?.acf?.overview && <TabOVerviewInternational {...tempData?.acf.overview}/>}
                     </TabsContent>
                     <TabsContent value="2">
-                        {(tempData?.acf?.staff) && <TabOurTeam staffIDs={tempData.acf.staff.map(item => item.ID)}/>}
+                        {(tempData?.acf?.staff) && <TabOurTeam staffIDs={tempData.acf.staff.map((item: { ID: any; }) => item?.ID)}/>}
                     </TabsContent>
                     <TabsContent value="3">
                         <TabOurProgram {...tempData.acf.our_program} />

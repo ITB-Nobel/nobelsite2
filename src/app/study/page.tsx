@@ -1,16 +1,15 @@
-'use client'
+// 'use client'
 import React from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import Image from "next/image";
-import useSWR from "swr";
 import {fetcher} from "@/lib/api";
-import {GeneralPageType} from "@/lib/types";
 import {Skeleton} from "@/components/Skeleton";
 
-const StudyPage = () => {
-    const {data} = useSWR<GeneralPageType[]>('page-study', () => fetcher('pages?slug=study'))
+const StudyPage = async () => {
+    // const {data} = useSWR<GeneralPageType[]>('page-study', () => fetcher('pages?slug=study'))
+    const data = await fetcher('pages?slug=study')
     return <GeneralLayout
-        
+
         featuredTitle={"Study Page"}
     >
         {

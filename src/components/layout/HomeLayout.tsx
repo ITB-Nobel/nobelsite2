@@ -7,7 +7,6 @@ import TopHeader from "@/components/TopHeader";
 import SliderContent from "@/app/components/SliderContent";
 import Footer from "@/components/Footer";
 import {HomeNavbar} from "@/components/Navbar";
-import Image from "next/image";
 import BlurImage from "@/components/BlurImage";
 import AOS from "aos";
 

@@ -1,14 +1,11 @@
-'use client'
 import React from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import Image from "next/image";
-import useSWR from "swr";
 import {fetcher} from "@/lib/api";
-import {GeneralPageType} from "@/lib/types";
 import {Skeleton} from "@/components/Skeleton";
 
-const NobelValuePage = () => {
-    const {data} = useSWR<GeneralPageType[]>('page-nobel-value', () => fetcher('pages?slug=nobel-value'))
+const NobelValuePage = async() => {
+    const data = await fetcher('pages?slug=nobel-value')
 
     return <GeneralLayout
 

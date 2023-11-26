@@ -1,4 +1,3 @@
-'use client'
 import React from "react";
 
 import {Facebook, Instagram, Youtube} from "lucide-react";
@@ -46,7 +45,7 @@ export type Group3 = {
     whatsapp: string;
 }
 
-const Footer = () => {
+const Footer =  () => {
     const {data} = useSWR<{ acf: Acf }[]>('footer', () => fetcher('footer?_fields=acf'))
     return <footer className={" pt-12 bg-black text-white "}>
         {

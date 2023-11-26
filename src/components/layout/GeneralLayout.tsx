@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import AOS from "aos";
 import BlurImage from "@/components/BlurImage";
+import Link from "next/link";
 
 
 type GeneralLayoutType = {
@@ -29,14 +30,16 @@ export default function GeneralLayout({
 
             <div className={"relative max-h-[240px] min-h-[400px] w-full "}>
                 <Navbar/>
-                {featuredImage && <BlurImage image={featuredImage}
+                {featuredImage &&  <BlurImage image={featuredImage}
                             alt={featuredTitle}
                             className={"brightness-75 aspect-none w-full h-[400px]"}
                 />}
 
                 <h1 className={"absolute  lg:px-24 text-white text-4xl lg:text-5xl font-semibold tracking-widest top-52 left-12"}>{featuredTitle}</h1>
+                <Link href={"/"}>
                 <Image src={"/images/logo_putih.png"} alt={"logo"} width={300} height={100} objectFit={"cover"}
                        className={"absolute top-8 z-50 left-12"}/>
+                </Link>
 
             </div>
 

@@ -11,28 +11,20 @@ L
 src/components/Accordion.tsx,9/0/90d967553773d3a87256ee03cf41549b1700eac8
 L
 src/components/TopHeader.tsx,1/3/136d1e6488b4fd4d870e264096cca1666e429da4
-I
-src/app/research/page.tsx,1/4/14501242825fc3072fc489fdfc3d685982a1f419
 C
 src/store/global.ts,1/3/1313745b55da546d798b10a8d80ad36282d975b7
 Q
 !src/components/NavigationMenu.tsx,b/6/b68146596ce2d8165f12afb4ad5b65650595c70a
->
-next.config.js,8/1/811a6d5a2e04fadb44d8eec365f2fa8af5c4facf
 <
 package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
 S
 #src/app/components/SectionEvent.tsx,6/f/6f74d0877619c46bfad7ca2cd96875554da0e5ee
-T
-$src/app/components/SectionJoinUs.tsx,d/6/d6987217c525ff85c04e231eb11e28b2f1ea0ba1
 B
 src/app/layout.tsx,c/f/cfb47de6ae0cae626eed46461300112ef521d977
 B
 tailwind.config.ts,5/2/52c961376029165b06e7861b1dc68c3b2455eeff
 K
 src/components/Skeleton.tsx,7/d/7d0ca8af0154fc069d1af8da435e08b288f58306
-L
-src/components/BlurImage.tsx,7/7/77ee77cb75ddda8a919f393edbde839fbe11bf72
 h
 8src/app/jurusan/[id]/components/TabCurriculumJurusan.tsx,5/e/5e1f6f6b909f4a605564661dda6b351338df0931
 l
@@ -57,8 +49,6 @@ O
 src/app/components/NewsCard.tsx,a/5/a5f4fc74a9b92da056241004e32f52088de1cba0
 N
 src/components/StaffDialog.tsx,3/2/3237dc74bebca42a642b78d25f5e323717bea3e0
-F
-src/app/event/page.tsx,0/1/01ebb750677351ba1e37c16496bcea1dbdc820a5
 T
 $src/app/news/components/NewsItem.tsx,0/0/00a4d2c0500853dd6129634df97289b1bffbd626
 R
@@ -71,11 +61,25 @@ P
 ,src/app/components/SectionExploreDegrees.tsx,6/2/6287806e6db1757d9a79ea9d34e2ede5536ea7f5
 L
 src/app/achievement/page.tsx,d/2/d2de253775f16b192113d8ecc117f151a73b1f34
-F
-src/app/study/page.tsx,7/c/7ca7aaedd3114b6f73804a376e4985d67ab7a22a
 q
 Asrc/app/jurusan/[id]/components/SectionCurriculumStudyJurusan.tsx,d/9/d9cbc49c3fdc29e5e45642deab84684a74a341a6
 i
 9src/app/jurusan/[id]/components/TableKurikulumJurusan.tsx,d/d/dd549e6348a467c16ca6b5684935dc41f8c5f8ad
 C
 src/app/globals.css,d/a/da1d6f21d01d0f36b5501dffcf7fd160ffcb290d
+b
+2src/app/international/components/TabOurProgram.tsx,3/f/3f3679d97371a4b77b908d55d0df201e9a2125b5
+M
+src/components/Categories.tsx,3/1/314497ac89794b63d740e3a82a1abae1f75f507c
+G
+src/components/Tabs.tsx,1/c/1c26136b6ece99f2896611d5b62ae93664a001db
+U
+%src/app/components/SectionPodcast.tsx,9/7/9728a4f72d4ebef6405f43582ba065fe76b62692
+f
+6src/app/jurusan/[id]/components/TabOverviewJurusan.tsx,f/e/fec4831d4e03bf8454b2872a05a46b33d1ee7458
+c
+3src/app/jurusan/[id]/components/TabDosenJurusan.tsx,5/0/50917f55da16eacb5fe06c2758999ff478576421
+g
+7src/app/jurusan/[id]/components/TabAktivitasJurusan.tsx,5/d/5d301944349d8db315e775684b93850245e961ff
+T
+$src/app/news/components/NewsList.tsx,1/c/1c19e3144356ae1d1872d093f73da8fd97574215
