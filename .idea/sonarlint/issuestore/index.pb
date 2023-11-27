@@ -83,12 +83,8 @@ T
 $src/app/news/components/NewsList.tsx,1/c/1c19e3144356ae1d1872d093f73da8fd97574215
 m
 =src/app/international/components/TabAktivitasInterational.tsx,8/6/862d69c1f0878a6bbffadeccbc2ed0258855c18b
-_
-/src/app/international/components/TabOurTeam.tsx,8/f/8f30bdec066374c7249e84cfe9d9be6abc055376
 V
 &src/app/news/components/SearchNews.tsx,8/f/8f6eea12a7d6cc986d05f0592dc2a94672a4c438
-m
-=src/app/international/components/TabOVerviewInternational.tsx,c/a/cab28f4914a502263c1f33534db3e036135aee5c
 E
 src/app/news/page.tsx,f/6/f6d864abf4afd5ebdff8a66cde60eb114f71252b
 L
@@ -105,8 +101,6 @@ F
 src/app/event/page.tsx,0/1/01ebb750677351ba1e37c16496bcea1dbdc820a5
 K
 src/app/event/[id]/page.tsx,c/f/cff333b9d9031543a090cccfc2b2744a9af89dd5
-N
-src/app/international/page.tsx,4/d/4d7c61e1be6372514bda9e68cfbc12984dc5cdaf
 F
 src/app/staff/page.tsx,4/9/4905b5e92be78b3503b996380b857209731eb0ba
 F

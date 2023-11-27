@@ -6,7 +6,7 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/Tabs";
 import {fetcher} from "@/lib/api";
 import TabOVerviewInternational from "@/app/international/components/TabOVerviewInternational";
 import TabAktivitasInternational from "@/app/international/components/TabAktivitasInterational";
-import TabOurTeam from "@/app/international/components/TabOurTeam";
+import TabExploreMakassar from "@/app/international/components/TabExploreMakassar";
 import TabOurProgram from "@/app/international/components/TabOurProgram";
 
 
@@ -25,7 +25,7 @@ const InternationalPage = async() => {
                             OVERVIEW
                         </TabsTrigger>
                         <TabsTrigger value="2">
-                            OUR TEAM
+                            EXPLORE MAKASSAR
                         </TabsTrigger>
                         <TabsTrigger value="3">
                             OUR PROGRAM
@@ -38,7 +38,7 @@ const InternationalPage = async() => {
                         {tempData?.acf?.overview && <TabOVerviewInternational {...tempData?.acf.overview}/>}
                     </TabsContent>
                     <TabsContent value="2">
-                        {(tempData?.acf?.staff) && <TabOurTeam staffIDs={tempData.acf.staff.map((item: { ID: any; }) => item?.ID)}/>}
+                        {(tempData?.acf?.staff) && <TabExploreMakassar />}
                     </TabsContent>
                     <TabsContent value="3">
                         <TabOurProgram {...tempData.acf.our_program} />
