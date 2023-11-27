@@ -39,11 +39,11 @@ const TabOverviewJurusan = ({jurusan, image, description, image_detail, videoPro
                     title="How to improve our English speaking skills NIOUS episode #2"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
-                    className={"rounded-xl w-full h-[250px]  border-gray-500  md:w-[950px] md:h-[300px]"}
+                    className={"rounded-xl w-full h-[250px]  border-gray-500  md:w-[650px] md:h-[400px]"}
                 />
             }
             {videoProfil &&
-                <h1 className={"text-5xl px-12 py-12"}>Video <span className={"text-primary"}>Profil</span></h1>}
+                <h1 className={"text-5xl mx-auto py-12"}>Video <span className={"text-primary"}>Profil</span></h1>}
         </section>
 
 
