@@ -3,9 +3,10 @@ import GeneralLayout from "@/components/layout/GeneralLayout";
 import Image from "next/image";
 import {fetcher} from "@/lib/api";
 import {Skeleton} from "@/components/Skeleton";
+import {GeneralPageType} from "@/lib/types";
 
-const NobelValuePage = async() => {
-    const data = await fetcher('pages?slug=nobel-value')
+const NobelValuePage = async () => {
+    const data = await fetcher<GeneralPageType[]>('pages?slug=nobel-value')
 
     return <GeneralLayout
 

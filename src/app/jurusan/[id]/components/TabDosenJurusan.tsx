@@ -2,13 +2,15 @@
 import React from "react";
 import StaffDialog from "@/components/StaffDialog";
 import useSWR from "swr";
-import {fetcher, fetcherAcf} from "@/lib/api";
+import {fetcherAcf} from "@/lib/api";
 import {Dosen} from "@/lib/types";
 import {Skeleton} from "@/components/Skeleton";
 
 const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
 
-    const {data} = useSWR<{ acf: Dosen }[]>(`dosen-prodi-${idProdi}`, () => fetcherAcf('dosen?per_page=500'))
+    const {data} = useSWR<{ acf: Dosen }[]>(`dosen-prodi-${idProdi}`, () => fetcherAcf<{
+        acf: Dosen
+    }[]>('dosen?per_page=500'))
 
     return <section
         data-aos={"zoom-in"}
@@ -29,7 +31,6 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
         }
     </section>
 }
-
 
 
 export default TabDosenJurusan;

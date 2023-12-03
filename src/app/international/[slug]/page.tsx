@@ -8,7 +8,7 @@ import {Skeleton} from "@/components/Skeleton";
 import BlurImage from "@/components/BlurImage";
 
 const SejarahPage = () => {
-    const {data} = useSWR<GeneralPageType[]>('page-sejarah', () => fetcher('pages?slug=sejarah'))
+    const {data} = useSWR<GeneralPageType[]>('page-sejarah', () => fetcher<GeneralPageType[]>('pages?slug=sejarah'))
     return <GeneralLayout
 
         featuredTitle={"Sejarah Nobel"}

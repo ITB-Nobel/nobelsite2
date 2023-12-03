@@ -14,7 +14,7 @@ type SectionNewsType = {
 const SectionNews = ({title, color_title, subtitle}: SectionNewsType) => {
     const {data} =
         useSWR<DetailNewsType[]>
-        ('news', () => fetcher('news?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,tags&per_page=5'))
+        ('news', () => fetcher<DetailNewsType[]>('news?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,tags&per_page=5'))
 
     return (<section  id={"news-section"} className={"container pt-12 lg:pt-24 pb-12 md:pb-24 text-center "}>
         <h1 className={"text-2xl lg:text-4xl font-semibold"}>{title} <span

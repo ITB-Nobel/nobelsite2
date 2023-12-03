@@ -9,7 +9,7 @@ import StaffDialog from "@/components/StaffDialog";
 import {Skeleton} from "@/components/Skeleton";
 
 const StaffPage = () => {
-    const {data} = useSWR<StaffType[]>('staff', () => fetcher('staff'))
+    const {data} = useSWR<StaffType[]>('staff', () => fetcher<StaffType[]>('staff'))
     const [filter, setFilter] = useState<string>("rektorat")
     const handleClick = (value: string) => setFilter(value)
     return <GeneralLayout>

@@ -4,10 +4,11 @@ import GeneralLayout from "@/components/layout/GeneralLayout";
 import Image from "next/image";
 import {fetcher} from "@/lib/api";
 import {Skeleton} from "@/components/Skeleton";
+import {GeneralPageType} from "@/lib/types";
 
 const StudyPage = async () => {
     // const {data} = useSWR<GeneralPageType[]>('page-study', () => fetcher('pages?slug=study'))
-    const data = await fetcher('pages?slug=study')
+    const data = await fetcher<GeneralPageType[]>('pages?slug=study')
     return <GeneralLayout
 
         featuredTitle={"Study Page"}

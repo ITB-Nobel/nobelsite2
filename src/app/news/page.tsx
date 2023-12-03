@@ -16,7 +16,7 @@ const NewsPage = () => {
     })
     const {data, mutate} =
         useSWR<DetailNewsType[]>
-        ('news', () => fetcher(`news?_embed&orderby=date&order=desc&per_page=10&start_date=${rangeDate.start_date}&end_date=${rangeDate.end_date}`))
+        ('news', () => fetcher<DetailNewsType[]>(`news?_embed&orderby=date&order=desc&per_page=10&start_date=${rangeDate.start_date}&end_date=${rangeDate.end_date}`))
 
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const NewsPage = () => {
 
 
     return (<GeneralLayout
-        
+
         featuredTitle={"News Page"}
     >
         <main>

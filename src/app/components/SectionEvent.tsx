@@ -14,7 +14,7 @@ type SectionEventType = {
 const SectionEvent = ({title, subtitle, color_title}: SectionEventType) => {
     const {data} =
         useSWR<EventType[]>
-        ('events', () => fetcher('event?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=5'))
+        ('events', () => fetcher<EventType[]>('event?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=5'))
 
     return <section className={" text-center bg-slate-100 "}>
         <div className={"container py-12 md:py-24"}>

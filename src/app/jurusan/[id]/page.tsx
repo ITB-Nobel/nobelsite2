@@ -19,7 +19,10 @@ const JurusanDetailPage = () => {
     const {data} = useSWR<{
         acf: ProdiACF,
         title: { rendered: string }
-    }>(`prodi-${idProdi}`, () => fetcher(`prodi/${idProdi}`))
+    }>(`prodi-${idProdi}`, () => fetcher<{
+        acf: ProdiACF,
+        title: { rendered: string }
+    }>(`prodi/${idProdi}`))
 
     return <GeneralLayout
         featuredTitle={data?.title?.rendered}

@@ -92,7 +92,7 @@ const defaultMenu: MenuType[] = [
 const useProdi = () => {
     const [fakultasArray, setFakultasArray] = useState<string[]>([])
     const [jurusanArray, setJurusanArray] = useState<ProdiType[]>([])
-    const {data} = useSWR<ProdiType[]>('prodi', () => fetcher('prodi?orderby=slug&order=asc&_fields=acf,slug,id'))
+    const {data} = useSWR<ProdiType[]>('prodi', () => fetcher<ProdiType[]>('prodi?orderby=slug&order=asc&_fields=acf,slug,id'))
     useEffect(() => {
         if (data) {
             let items = data.map(item => item.acf.fakultas)

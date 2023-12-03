@@ -1,6 +1,6 @@
 'use client'
 import React from "react"
-import {ActivityProdiCategory, NewsACF} from "@/lib/types";
+import {ActivityProdiCategory, DetailNewsType, NewsACF} from "@/lib/types";
 import useSWR from "swr";
 import {fetcherAcf} from "@/lib/api";
 import Image from "next/image";
@@ -9,9 +9,7 @@ import BlurImage from "@/components/BlurImage";
 
 
 const TabAktivitasJurusan = ({term_id, idProdi}: ActivityProdiCategory & { idProdi: string }) => {
-    const {data} = useSWR<{
-        acf: NewsACF, id: string
-    }[]>(`news-${idProdi}/${term_id}`, () => fetcherAcf(`news?categories=${term_id}`))
+    const {data} = useSWR<DetailNewsType[]>(`news-${idProdi}/${term_id}`, () => fetcherAcf<DetailNewsType[]>(`news?categories=${term_id}`))
 
     return <>
         <section

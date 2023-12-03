@@ -7,9 +7,9 @@ import {fetcher} from "@/lib/api";
 import {GeneralPageType} from "@/lib/types";
 
 const ResearchPage = () => {
-    const {data} = useSWR<GeneralPageType[]>('page-research', () => fetcher('pages?slug=research'))
+    const {data} = useSWR<GeneralPageType[]>('page-research', () => fetcher<GeneralPageType[]>('pages?slug=research'))
     return <GeneralLayout
-        
+
         featuredTitle={"Research Page"}
     >
         {

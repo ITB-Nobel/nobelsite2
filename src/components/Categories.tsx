@@ -11,7 +11,7 @@ type CategoriesType = {
 const Categories = ({key, ids, className}: CategoriesType) => {
     const idsString = ids?.toString()
     const {data} =
-        useSWR<Category[]>(`${key}-${idsString}`, () => fetcher(`categories?include=${idsString}`))
+        useSWR<Category[]>(`${key}-${idsString}`, () => fetcher<Category[]>(`categories?include=${idsString}`))
     if (data)
         return <> {data.map((item, index) => <div className={className} key={index}>{item.name}</div>)} </>
 }

@@ -16,14 +16,14 @@ const EventPage = () => {
 
     const {data, mutate} =
         useSWR<EventType[]>
-        ('event', () => fetcher(`event?_embed&orderby=date&order=desc&per_page=10&start_date=${rangeDate.start_date}&end_date=${rangeDate.end_date}`))
+        ('event', () => fetcher<EventType[]>(`event?_embed&orderby=date&order=desc&per_page=10&start_date=${rangeDate.start_date}&end_date=${rangeDate.end_date}`))
 
     useEffect(() => {
         (async () => await mutate())()
     }, [rangeDate, mutate])
 
     return (<GeneralLayout
-        
+
         featuredTitle={"Event Page"}
     >
         <main>

@@ -20,7 +20,7 @@ const DetailNewsPage = () => {
     const pathname = usePathname()
     const idNews = pathname.split('/')[2]
     const {data} =
-        useSWR<DetailNewsType>(`news-${idNews}`, () => fetcher(`news/${idNews}`))
+        useSWR<DetailNewsType>(`news-${idNews}`, () => fetcher<DetailNewsType>(`news/${idNews}`))
     return <GeneralLayout featuredTitle={"Detail News"}>
         <main className={"pt-12"}>
             {data ? <>
@@ -84,7 +84,7 @@ const DetailNewsContent = ({acf, tags}: DetailNewsType) =>
 const NewsCardList = ({exceptID}: { exceptID: string }) => {
     const {data} =
         useSWR<DetailNewsType[]>
-        (`latest-news`, () => fetcher(`news?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=55&exclude=${exceptID}`))
+        (`latest-news`, () => fetcher<DetailNewsType[]>(`news?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=55&exclude=${exceptID}`))
     return <section className={"py-24 text-center"}>
         <h1 className={"text-4xl font-semibold"}>Berita <span className={"text-primary"}>Lainnya</span></h1>
         <div className={"overflow-x-scroll snap-x whitespace-nowrap space-x-8 mt-6 px-12 lg:px-36 py-6 items-center flex "}>

@@ -7,9 +7,9 @@ import {fetcher} from "@/lib/api";
 import {GeneralPageType} from "@/lib/types";
 
 const AchievementPage = () => {
-    const {data} = useSWR<GeneralPageType[]>('page-achievement', () => fetcher('pages?slug=achievement'))
+    const {data} = useSWR<GeneralPageType[]>('page-achievement', () => fetcher<GeneralPageType[]>('pages?slug=achievement'))
     return <GeneralLayout
-        
+
         featuredTitle={"Achievement Page"}
     >
         {

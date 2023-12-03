@@ -3,9 +3,10 @@ import GeneralLayout from "@/components/layout/GeneralLayout";
 import Image from "next/image";
 import {fetcher} from "@/lib/api";
 import {Skeleton} from "@/components/Skeleton";
+import {GeneralPageType} from "@/lib/types";
 
 const VisiPage = async() => {
-    const data = await fetcher('pages?slug=visi-misi')
+    const data = await fetcher<GeneralPageType[]>('pages?slug=visi-misi')
     return <GeneralLayout
         featuredTitle={"Visi Misi Nobel Institut"}
     >

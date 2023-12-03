@@ -46,7 +46,7 @@ export type Group3 = {
 }
 
 const Footer =  () => {
-    const {data} = useSWR<{ acf: Acf }[]>('footer', () => fetcher('footer?_fields=acf'))
+    const {data} = useSWR<{ acf: Acf }[]>('footer', () => fetcher<{ acf: Acf }[]>('footer?_fields=acf'))
     return <footer className={" pt-12 bg-black text-white "}>
         {
             data && data.length > 0 &&

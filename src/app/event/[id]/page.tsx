@@ -20,7 +20,7 @@ const DetailEventPage = () => {
     const pathname = usePathname()
     const idEvent = pathname.split('/')[2]
     const {data} =
-        useSWR<EventType>(`event-${idEvent}`, () => fetcher(`event/${idEvent}`))
+        useSWR<EventType>(`event-${idEvent}`, () => fetcher<EventType>(`event/${idEvent}`))
     return <GeneralLayout
 
         featuredTitle={"Detail Event"}
@@ -115,7 +115,7 @@ const DetailEventContent = ({acf, tags}: EventType) =>
 const EventCardList = ({exceptID}: { exceptID: string }) => {
     const {data} =
         useSWR<EventType[]>
-        (`latest-event`, () => fetcher(`event?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=5&exclude=${exceptID}`))
+        (`latest-event`, () => fetcher<EventType[]>(`event?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=5&exclude=${exceptID}`))
     if (data && data.length > 0)
         return <section className={"py-24 text-center"}>
             <h1 className={"text-4xl font-semibold"}>Event <span className={"text-primary"}>Lainnya</span></h1>

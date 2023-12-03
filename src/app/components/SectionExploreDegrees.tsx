@@ -5,7 +5,7 @@ import {motion} from 'framer-motion'
 import Link from "next/link";
 import useSWR from "swr";
 import {fetcher} from "@/lib/api";
-import {ProdiACF} from "@/lib/types";
+import {ProdiACF, ProdiType} from "@/lib/types";
 import Image from "next/image";
 
 
@@ -15,11 +15,7 @@ type SectionBerandaType = {
     subtitle: string
 }
 const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaType) => {
-    const {data} = useSWR<{
-        acf: ProdiACF,
-        slug: string,
-        id: string
-    }[]>('prodi', () => fetcher('prodi?orderby=slug&order=asc&_fields=acf,slug,id'))
+    const {data} = useSWR<ProdiType[]>('prodi', () => fetcher<ProdiType[]>('prodi?orderby=slug&order=asc&_fields=acf,slug,id'))
     const [filter, setFilter] = useState<"sarjana" | "magister" | string>("sarjana")
         return (
             <section className={"container relative py-12 md:py-24 text-center  "}>
