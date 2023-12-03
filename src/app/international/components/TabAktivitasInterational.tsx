@@ -11,7 +11,7 @@ import BlurImage from "@/components/BlurImage";
 const TabAktivitasInternational = ({term_id, idProdi}:  ActivityNewsCategory & { idProdi: number }) => {
     const {data} = useSWR<{
         acf: NewsACF, id: string
-    }[]>(`news-${idProdi}/${term_id}`, () => fetcherAcf(`news?categories=${term_id}`))
+    }[]>(`news-${idProdi}/${term_id}`, () => fetcherAcf<any>(`news?categories=${term_id}`))
 
     return <>
         <section

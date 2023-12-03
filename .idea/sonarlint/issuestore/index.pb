@@ -5,8 +5,6 @@ M
 src/components/ScrollArea.tsx,3/d/3d7ff28ebfe4224fdcca34781e8ca36481a5cd35
 I
 src/components/Dialog.tsx,7/0/7015e86c6dbd2fb0770e88a6790c450480fde9b8
->
-src/lib/api.ts,d/7/d7dfc37533476949cede1e587aadf89246414b72
 L
 src/components/Accordion.tsx,9/0/90d967553773d3a87256ee03cf41549b1700eac8
 L
@@ -17,10 +15,6 @@ Q
 !src/components/NavigationMenu.tsx,b/6/b68146596ce2d8165f12afb4ad5b65650595c70a
 <
 package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
-S
-#src/app/components/SectionEvent.tsx,6/f/6f74d0877619c46bfad7ca2cd96875554da0e5ee
-B
-src/app/layout.tsx,c/f/cfb47de6ae0cae626eed46461300112ef521d977
 B
 tailwind.config.ts,5/2/52c961376029165b06e7861b1dc68c3b2455eeff
 K
@@ -57,8 +51,6 @@ X
 (src/app/event/components/SearchEvent.tsx,6/e/6e42e651da264ab3d86098b3c3e08b70f3a365df
 P
  src/app/components/EventCard.tsx,9/a/9a3f5303ad5a0b91385490a6954132fa879786aa
-\
-,src/app/components/SectionExploreDegrees.tsx,6/2/6287806e6db1757d9a79ea9d34e2ede5536ea7f5
 L
 src/app/achievement/page.tsx,d/2/d2de253775f16b192113d8ecc117f151a73b1f34
 q
@@ -67,8 +59,6 @@ i
 9src/app/jurusan/[id]/components/TableKurikulumJurusan.tsx,d/d/dd549e6348a467c16ca6b5684935dc41f8c5f8ad
 C
 src/app/globals.css,d/a/da1d6f21d01d0f36b5501dffcf7fd160ffcb290d
-b
-2src/app/international/components/TabOurProgram.tsx,3/f/3f3679d97371a4b77b908d55d0df201e9a2125b5
 M
 src/components/Categories.tsx,3/1/314497ac89794b63d740e3a82a1abae1f75f507c
 G
@@ -81,8 +71,6 @@ g
 7src/app/jurusan/[id]/components/TabAktivitasJurusan.tsx,5/d/5d301944349d8db315e775684b93850245e961ff
 T
 $src/app/news/components/NewsList.tsx,1/c/1c19e3144356ae1d1872d093f73da8fd97574215
-m
-=src/app/international/components/TabAktivitasInterational.tsx,8/6/862d69c1f0878a6bbffadeccbc2ed0258855c18b
 V
 &src/app/news/components/SearchNews.tsx,8/f/8f6eea12a7d6cc986d05f0592dc2a94672a4c438
 E
@@ -105,3 +93,19 @@ F
 src/app/staff/page.tsx,4/9/4905b5e92be78b3503b996380b857209731eb0ba
 F
 src/app/study/page.tsx,7/c/7ca7aaedd3114b6f73804a376e4985d67ab7a22a
+I
+src/components/Footer.tsx,6/a/6a1906fbef47b21e13258a3accfe644e256f3344
+T
+$src/app/components/SliderContent.tsx,7/2/72bce3bb3719285dc1c9431b211cfd7afd70ab17
+T
+$src/app/components/SectionJoinUs.tsx,d/6/d6987217c525ff85c04e231eb11e28b2f1ea0ba1
+f
+6src/app/jurusan/[id]/components/TabOverviewJurusan.tsx,f/e/fec4831d4e03bf8454b2872a05a46b33d1ee7458
+I
+src/components/Navbar.tsx,d/b/dbf6f648b7a7ab0750c83f8a1ea7790c0c7e10cf
+J
+src/app/news/[id]/page.tsx,0/1/0146b5bb3d37cb8cafb31f77b22e6fbd31bc36df
+W
+'src/components/layout/GeneralLayout.tsx,8/1/81ed61a62eded77885287693a396045a4c8db1aa
+M
+src/app/jurusan/[id]/page.tsx,c/4/c43f62a12760112fc1f8485d0c867364c7510f4d

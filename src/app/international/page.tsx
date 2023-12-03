@@ -7,11 +7,13 @@ import {fetcher} from "@/lib/api";
 import TabOVerviewInternational from "@/app/international/components/TabOVerviewInternational";
 import TabAktivitasInternational from "@/app/international/components/TabAktivitasInterational";
 import TabExploreMakassar from "@/app/international/components/TabExploreMakassar";
-import TabOurProgram from "@/app/international/components/TabOurProgram";
+
+import {InternationalType} from "@/lib/types";
+import TabOurProgram from "@/app/international/components/tab-our-program/TabOurProgram";
 
 
-const InternationalPage = async() => {
-    const data = await fetcher(`pages?slug=international-program`)
+const InternationalPage = async () => {
+    const data = await fetcher<InternationalType[]>(`pages?slug=international-program`)
     if (data && data.length > 0) {
         const tempData = data[0]
         return <GeneralLayout
@@ -38,7 +40,8 @@ const InternationalPage = async() => {
                         {tempData?.acf?.overview && <TabOVerviewInternational {...tempData?.acf.overview}/>}
                     </TabsContent>
                     <TabsContent value="2">
-                        {(tempData?.acf?.staff) && <TabExploreMakassar />}
+                        {(tempData?.acf?.explore_makassar) &&
+                            <TabExploreMakassar explore_makassar={tempData.acf.explore_makassar}/>}
                     </TabsContent>
                     <TabsContent value="3">
                         <TabOurProgram {...tempData.acf.our_program} />

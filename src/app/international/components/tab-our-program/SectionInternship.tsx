@@ -1,18 +1,17 @@
-'use client'
-import React from "react";
-import {InternationalACF} from "@/lib/types";
 import BlurImage from "@/components/BlurImage";
+import React from "react";
+import {OurProgramType} from "@/lib/types";
 
 
-const TabExploreMakassar = ({
-                                explore_makassar: {
-                                    image,
-                                    title,
-                                    description
-                                }
-                            }: Pick<InternationalACF, "explore_makassar">) => {
+export default function SectionInternship({
+                                        internship: {
+                                            image,
+                                            title,
+                                            description
+                                        }
+                                    }: Pick<OurProgramType, "internship">) {
     return <section data-aos={"zoom-in"}
-                    className={"py-4 lg:py-12 text-left flex flex-col lg:flex-row gap-12 items-center justify-between w-full"}>
+                    className={"py-4 lg:py-12 text-left flex flex-col lg:flex-row-reverse gap-12 items-center justify-between w-full"}>
         <div className={""}>
             <h1 className={"text-5xl font-semibold text-primary"}>{title}</h1>
             <article>
@@ -35,6 +34,3 @@ const TabExploreMakassar = ({
 
     </section>
 }
-
-
-export default TabExploreMakassar

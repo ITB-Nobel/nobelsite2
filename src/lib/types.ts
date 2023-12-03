@@ -1,14 +1,26 @@
-export type OurProgramType = {
+export type GeneralContentType = {
     title: string,
-    image: Photo,
+    image: string,
     description: string
+}
+
+export type OurProgramType = {
+    full_degree: GeneralContentType,
+    international_class: GeneralContentType,
+    study_visit: GeneralContentType,
+    course: GeneralContentType,
+    short_program: GeneralContentType,
+    internship: GeneralContentType,
+    volunteer: GeneralContentType,
+    neon: GeneralContentType,
+    schoolarship: GeneralContentType
 }
 
 export interface InternationalACF {
     header_image: Photo;
     overview: InternationalOverview;
     activity_news_category: ActivityNewsCategory;
-    staff: {ID: string,title:string}[];
+    explore_makassar: GeneralContentType;
     our_program: OurProgramType
 }
 
