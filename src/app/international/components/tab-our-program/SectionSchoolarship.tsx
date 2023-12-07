@@ -16,7 +16,7 @@ export default function SectionSchoolarship({
             <h1 className={"text-5xl font-semibold text-primary"}>{title}</h1>
             <article>
                 <div className={"text-left mt-10 "}>
-                    <div className={"!items-stretch relative flex"}
+                    <div className={"!items-stretch relative"}
                          dangerouslySetInnerHTML={{__html: description as string}}/>
                 </div>
             </article>
