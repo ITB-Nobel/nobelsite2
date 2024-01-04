@@ -125,12 +125,12 @@ export default function ApplicationPage() {
                                 />
                         </div>
 
-                        <h2 className={"my-8 font-bold text-2xl"}>CRITERIA OF REQUIREMENTS</h2>
+                        <h2 className={"my-8 font-bold text-2xl"}>CRITERIA AND REQUIREMENTS</h2>
                         <div className={"grid grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-2"}>
 
                                 <FormInput
                                     control={form.control}
-                                    label={"Academic transcripts and high school / MK,  diploma, or equivalent"}
+                                    label={"Academic transcripts of high school / MK,  diploma, or equivalent"}
                                     name={"transcript"}
                                     type={"file"}
                                     required={true}
