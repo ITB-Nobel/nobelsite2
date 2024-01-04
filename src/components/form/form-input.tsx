@@ -20,7 +20,7 @@ export default function FormInput({required = false,control, description, placeh
         name={name}
         render={({field}) => (
             <FormItem>
-                <FormLabel>{label} {required && <span className={"ml-1 text-red-700"}>*</span>} </FormLabel>
+                <FormLabel>{label} {required && <span className={"ml-0.2 font-medium text-red-700"}>*</span>} </FormLabel>
                 <FormControl>
                     <Input placeholder={placeholder} {...field} type={type}/>
                 </FormControl>

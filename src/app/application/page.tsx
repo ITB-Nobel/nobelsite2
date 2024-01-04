@@ -26,11 +26,11 @@ const formSchema = zod.object({
     birthday: zod.string(),
     country: zod.string(),
     identity: zod.string(),
-    identity_number: zod.number(),
-    expiration_date: zod.date(),
+    identity_number: zod.string(),
+    expiration_date: zod.string(),
     faculty_objectives: zod.string(),
     study_program: zod.string(),
-    phone: zod.number(),
+    phone: zod.string(),
     transcript: zod.string(),
     certificate:zod.string(),
     certificate_birthday:zod.string(),
@@ -82,6 +82,7 @@ export default function ApplicationPage() {
                             control={form.control}
                             label={"IDENTITY CARD"}
                             name={"identity"}
+                            type={"number"}
                             required={true}
                         />
 
