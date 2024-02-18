@@ -19,7 +19,7 @@ const StaffPage = () => {
                 <Filter handleClick={handleClick} filter={filter}/>
                 <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 "}>
                     {data ? data.map((props, index) => {
-                        return filter === props?.acf.group && <StaffDialog {...props.acf} key={index}/>
+                        return filter?.toLowerCase() === props?.acf?.group?.toLowerCase() && <StaffDialog {...props.acf} key={index}/>
                     }) : <Skeleton className={"w-full rounded-xl h-screen"}/>}
                 </div>
 
