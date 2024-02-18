@@ -22,7 +22,7 @@ const JurusanDetailPage = () => {
     }>(`prodi-${idProdi}`, () => fetcher<{
         acf: ProdiACF,
         title: { rendered: string }
-    }>(`prodi/${idProdi}`))
+    }>(`prodi/${idProdi}?per_page=1000`))
 
     return <GeneralLayout
         featuredTitle={data?.title?.rendered}

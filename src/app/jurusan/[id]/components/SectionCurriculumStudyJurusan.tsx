@@ -16,7 +16,7 @@ export type SectionCurriculumStudyJurusanType = {
 const SectionCurriculumStudyJurusan = ({idProdi}: ProdiCurriculum & { idProdi: string }) => {
     const [matakuliahArray, setMatakuliahArray] = useState<SectionCurriculumStudyJurusanType[]>([])
     const [semesterArray, setSemesterArray] = useState<string[]>([])
-    const {data} = useSWR<SectionCurriculumStudyJurusanType[]>(`matakuliah-${idProdi}`, () => fetcherAcf<SectionCurriculumStudyJurusanType[]>(`mata_kuliah?prodi=${idProdi}`))
+    const {data} = useSWR<SectionCurriculumStudyJurusanType[]>(`matakuliah-${idProdi}`, () => fetcherAcf<SectionCurriculumStudyJurusanType[]>(`mata_kuliah?prodi=${idProdi}&per_page=1000`))
     useEffect(() => {
         if (data) {
             let tempSemesterArray: string[] = [];
