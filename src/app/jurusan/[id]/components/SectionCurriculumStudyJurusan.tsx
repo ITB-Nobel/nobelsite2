@@ -16,24 +16,25 @@ export type SectionCurriculumStudyJurusanType = {
 const SectionCurriculumStudyJurusan = ({idProdi}: ProdiCurriculum & { idProdi: string }) => {
     const [matakuliahArray, setMatakuliahArray] = useState<SectionCurriculumStudyJurusanType[]>([])
     const [semesterArray, setSemesterArray] = useState<string[]>([])
-    const {data} = useSWR<SectionCurriculumStudyJurusanType[]>(`matakuliah-${idProdi}`, () => fetcherAcf<SectionCurriculumStudyJurusanType[]>(`mata_kuliah?prodi=${idProdi}&per_page=1000`))
+    const {data} = useSWR<SectionCurriculumStudyJurusanType[]>(`matakuliah-${idProdi}`, () => fetcherAcf<SectionCurriculumStudyJurusanType[]>(`mata_kuliah?prodi=${idProdi}&per_page=100000`))
     useEffect(() => {
         if (data) {
             let tempSemesterArray: string[] = [];
-            data.map((item) => {
-                tempSemesterArray.push(item.acf.semester)
-            })
+            const tempData = data
+                .filter((item) => item.acf.prodi[0].ID.toString() === idProdi)
+                .map((item) => {
+                    tempSemesterArray.push(item.acf.semester)
+                    return item
+                })
 
             // @ts-ignore
             let tempArray: string[] = uniqueArray(tempSemesterArray).sort((a, b) => a - b);
-            // const firstElement = tempArray.shift();
-            // tempArray.push(firstElement as string)
             setSemesterArray(tempArray)
-            setMatakuliahArray(data)
+            setMatakuliahArray(tempData)
         }
     }, [data])
 
-    return <section
+    return matakuliahArray?.length > 0 && <section
         data-aos={"zoom-in"}
         className={"py-12 space-y-12 text-left w-full"}>
         <h1 className={"text-5xl font-semibold text-primary"}>Study Plan</h1>
