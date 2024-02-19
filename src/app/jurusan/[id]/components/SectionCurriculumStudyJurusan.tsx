@@ -23,10 +23,11 @@ const SectionCurriculumStudyJurusan = ({idProdi}: ProdiCurriculum & { idProdi: s
             data.map((item) => {
                 tempSemesterArray.push(item.acf.semester)
             })
+
             // @ts-ignore
             let tempArray: string[] = uniqueArray(tempSemesterArray).sort((a, b) => a - b);
-            const firstElement = tempArray.shift();
-            tempArray.push(firstElement as string)
+            // const firstElement = tempArray.shift();
+            // tempArray.push(firstElement as string)
             setSemesterArray(tempArray)
             setMatakuliahArray(data)
         }
