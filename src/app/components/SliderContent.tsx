@@ -39,9 +39,9 @@ const PlayButtonDialog = () => <Dialog>
     <DialogContent className="max-w-fit p-0 border-0 bg-none">
         <DialogDescription>
             <iframe
-                className={"rounded-lg w-[350px] h-[250px] md:w-[600px] lg:w-[900px] md:h-[400px] lg:h-[500px]"}
-                src="https://www.youtube.com/embed/l_gj2GHCkY8?autoplay=1"
-                title="How To Get Rich" frameBorder="0"
+                className={"rounded-lg w-[350px] h-[250px] md:w-[600px] lg:w-[850px] md:h-[400px] lg:h-[500px]"}
+                src="https://www.youtube.com/embed/7z2TlZXvvEk?autoplay=1"
+                title="How To Get Rich"
                 allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
 
