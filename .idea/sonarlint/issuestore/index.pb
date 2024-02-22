@@ -213,3 +213,11 @@ c
 3src/components/tabs/tab-our-program/SectionNeon.tsx,0/1/01588eb7a2dc71da88501f8d53d7ccc304e36781
 k
 ;src/components/tabs/tab-our-program/SectionSchoolarship.tsx,1/3/133e15b85718504fbe16c2a084c8344997e79e1c
+f
+6src/app/nobel-indonesia-digital-creative-nidc/page.tsx,b/1/b1671e97e70bfa573883ee82f83887e9990330e9
+Z
+*src/app/nobel-language-center-nlc/page.tsx,8/9/89ef7a3d1e2fd952e1e9729453bcb3c2d3c8c3a1
+}
+Msrc/app/mubyl-handaling-center-for-entrepreneurship-economic-studies/page.tsx,0/7/0726e738dfa1624a24edafbece18451f20fdbc36
+o
+?src/app/career-center-and-industry-relation-specialist/page.tsx,e/e/ee4e83880d207d5b12ef640c05c4ee9f0f5b5268
