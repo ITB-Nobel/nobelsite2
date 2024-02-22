@@ -1,3 +1,6 @@
+import {TabOverviewType} from "@/components/tabs/TabOverview";
+import {TabAktivitasType} from "@/components/tabs/TabAktivitas";
+
 export type GeneralContentType = {
     title: string,
     image: string,
@@ -52,6 +55,25 @@ export type InternationalType = {
         rendered: string
     }
     categories: string[]
+}
+
+export type CustomPageType = {
+    acf: CustomPageACF,
+    id: string,
+    slug: string,
+    date: string,
+    title: {
+        rendered: string
+    }
+}
+
+export type CustomPageACF = {
+    header_image: Photo;
+    overview: TabOverviewType;
+    activity: TabAktivitasType;
+    gallery: ActivityNewsCategory;
+    our_program: OurProgramType
+
 }
 
 export type EventType = {
