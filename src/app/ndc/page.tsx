@@ -10,7 +10,7 @@ import TabOurProgram from "@/components/tabs/tab-our-program/TabOurProgram";
 
 
 const NobelDevelopmentCareerNDCPage = async () => {
-    const data = await fetcher<CustomPageType[]>(`pages?slug=nobel-development-career-ndc`)
+    const data = await fetcher<CustomPageType[]>(`pages?slug=ndc`)
 
     if (data && data.length > 0) {
         const tempData = data[0]

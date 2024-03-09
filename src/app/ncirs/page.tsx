@@ -10,7 +10,7 @@ import TabOurProgram from "@/components/tabs/tab-our-program/TabOurProgram";
 
 
 const CareerCenterAndIndustryRelationSpecialist = async () => {
-    const data = await fetcher<CustomPageType[]>(`pages?slug=career-center-and-industry-relation-specialist`)
+    const data = await fetcher<CustomPageType[]>(`pages?slug=ncirs`)
 
     if (data && data.length > 0) {
         const tempData = data[0]

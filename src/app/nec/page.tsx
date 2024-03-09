@@ -9,9 +9,9 @@ import TabOVerview from "@/components/tabs/TabOverview";
 import TabOurProgram from "@/components/tabs/tab-our-program/TabOurProgram";
 
 
-const NobelEntrepreneurshipCenterPage = async () => {
-    const data = await fetcher<CustomPageType[]>(`pages?slug=nobel-entrepreneurship-center-nec`)
+const NECPage = async () => {
 
+    const data = await fetcher<CustomPageType[]>(`pages?slug=nec`)
     if (data && data.length > 0) {
         const tempData = data[0]
         console.log(tempData?.acf,'dataku')
@@ -55,4 +55,4 @@ const NobelEntrepreneurshipCenterPage = async () => {
     }
 }
 
-export default NobelEntrepreneurshipCenterPage;
+export default NECPage;

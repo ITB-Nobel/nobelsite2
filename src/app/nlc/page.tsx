@@ -10,7 +10,7 @@ import TabOurProgram from "@/components/tabs/tab-our-program/TabOurProgram";
 
 
 export default async  function NobelLanguageCenterNLCPage(){
-    const data = await fetcher<CustomPageType[]>(`pages?slug=nobel-language-center-nlc`)
+    const data = await fetcher<CustomPageType[]>(`pages?slug=nlc`)
     if (data && data.length > 0) {
         const tempData = data[0]
         return <GeneralLayout

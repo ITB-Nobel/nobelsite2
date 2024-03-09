@@ -10,7 +10,7 @@ import TabOurProgram from "@/components/tabs/tab-our-program/TabOurProgram";
 
 
 export default async  function MubylHandalingCenterForEntrepreneurshipEconomicStudiesPage(){
-    const data = await fetcher<CustomPageType[]>(`pages?slug=mubyl-handaling-center-for-entrepreneurship-economic-studies`)
+    const data = await fetcher<CustomPageType[]>(`pages?slug=mhcees`)
     if (data && data.length > 0) {
         const tempData = data[0]
         return <GeneralLayout

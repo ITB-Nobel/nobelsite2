@@ -10,7 +10,7 @@ import TabOurProgram from "@/components/tabs/tab-our-program/TabOurProgram";
 
 
 export default async  function NobelIndonesiaDigitalCreativeNIDCPage(){
-    const data = await fetcher<CustomPageType[]>(`pages?slug=nobel-indonesia-digital-creative-nidc`)
+    const data = await fetcher<CustomPageType[]>(`pages?slug=nidc`)
     if (data && data.length > 0) {
         const tempData = data[0]
         return <GeneralLayout
