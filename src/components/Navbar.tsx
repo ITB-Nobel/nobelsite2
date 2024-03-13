@@ -13,6 +13,18 @@ import {cn} from "@/lib/utils";
 import useSWR from "swr";
 import {ProdiType} from "@/lib/types";
 import {fetcher} from "@/lib/api";
+import {Button} from "@/components/Button";
+import {
+    Drawer, DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger
+} from "@/components/Drawer";
+import {HamburgerMenuIcon} from "@radix-ui/react-icons";
+import {CloseIcon} from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon";
 
 type MenuType = {
     title: string;
@@ -153,7 +165,7 @@ export function HomeNavbar() {
     return <nav className={"justify-between w-full  flex absolute top-12 px-4 md:px-12 z-50"}>
         <Link href={"/"}>
             <div className={"-mt-4"}>
-                <div className={"relative w-[250px] h-20"}>
+                <div className={"relative w-[150px] h-12 lg:w-[250px] lg:h-20"}>
                     <Image src={"/images/logo_putih.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
                 </div>
             </div>
@@ -176,7 +188,60 @@ export function HomeNavbar() {
                 }
             </ul>
         </div>
+        <div className={"lg:hidden"}>
+            <MobileNavbar />
+        </div>
+
     </nav>
+}
+
+export function MobileNavbar() {
+    const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
+    const {jurusanArray, fakultasArray} = useProdi()
+    return <Drawer  >
+        <DrawerTrigger className={"absolute right-6 -top-2"}>
+            <HamburgerMenuIcon  color={"white"}  width={"24px"} height={"24px"} />
+        </DrawerTrigger>
+        <DrawerContent className={"bg-white h-screen"}>
+            <DrawerHeader className={"text-left"}>
+                <DrawerTitle className={"text-3xl"}>Menu</DrawerTitle>
+                {/*<DrawerDescription>This action cannot be undone.</DrawerDescription>*/}
+            </DrawerHeader>
+
+            <div className={"py-12"}>
+                <div className={"text-md px-4 space-y-4 font-semibold text-md uppercase "}>
+                    {
+                        menu.map((props, index) => {
+                            return <div key={index}>
+                                <h4 className={"bg-slate-100 py-1 px-2 rounded-md"}>{props.title}</h4>
+                                <div>
+
+                                    {props.submenu_with_header.map((item,index) => {
+                                        return <div key={index} className={"px-6"}>
+                                            <h6 className={"text-md font-medium"}>{item.header}</h6>
+                                            {
+                                                item.items.map((subitem,index) => {
+                                                    return <div key={index} >
+                                                        {subitem.title}
+                                                    </div>
+                                                })
+                                            }
+                                        </div>
+                                    })}
+                                </div>
+                            </div>
+                        })
+                    }
+
+                </div>
+            </div>
+
+
+            <DrawerClose className={"absolute top-4 right-4"}>
+                <CloseIcon/>
+            </DrawerClose>
+        </DrawerContent>
+    </Drawer>
 }
 
 export function SubMenu({submenu, type}: MenuType & { type: 'home' | 'general' }) {
