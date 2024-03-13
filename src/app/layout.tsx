@@ -7,7 +7,7 @@ import Head from "next/head";
 const roboto = Roboto({weight: ["400", "500", "700"], subsets: ['latin']})
 const robotoCondensed = Roboto_Condensed({weight: ["400", "300", "700"], subsets: ['latin']})
 export const metadata: Metadata = {
-    title: 'Nobel Institut',
+    title: 'Nobel Institute',
     description: 'Start Here Go Anywhere',
 }
 
