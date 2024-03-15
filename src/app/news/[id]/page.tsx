@@ -57,7 +57,7 @@ const DetailNewsContent = ({acf, tags}: DetailNewsType) =>
                         objectFit={"cover"}
                     />
                 </div>
-                <p className={"text-sm my-2 text-center"}>{acf.photo.description}</p>
+                <p className={"text-xs my-2 text-left"}>{acf.photo.description}</p>
             </div>
 
             <div className={"space-y-4 text-justify"} dangerouslySetInnerHTML={{__html: acf.description}}/>
@@ -66,8 +66,8 @@ const DetailNewsContent = ({acf, tags}: DetailNewsType) =>
                 <>
                     <hr className={"my-4"}/>
                     <div className={"flex gap-2 items-center"}>
-                        Tags :
-                        <div className={"flex gap-4 items-center"}>
+                        <div className={"min-w-[30px]"}>Tags :</div>
+                        <div className={"flex flex-wrap gap-x-0 gap-y-1 items-center text-sm"}>
                             {
                                 <Tags  key={`categories-detail-news`} ids={tags}/>
                             }
