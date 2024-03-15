@@ -8,7 +8,7 @@ import {GeneralPageType} from "@/lib/types";
 const VisiPage = async() => {
     const data = await fetcher<GeneralPageType[]>('pages?slug=visi-misi')
     return <GeneralLayout
-        featuredTitle={"Visi Misi Nobel Institut"}
+        featuredTitle={"Visi Misi Nobel Institute"}
     >
         {
             data ?
