@@ -54,7 +54,7 @@ const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaTyp
 
                                             }
                                             <div
-                                                className={" text-left absolute top-0 left-36 lg:left-40 xl:left-44 h-full flex items-center"}>
+                                                className={" text-left absolute top-0 left-36  2xl:left-44 h-full flex items-center"}>
                                                 <h2 className={"text-xl max-w-[200px] capitalize"}>{item.acf.overview?.jurusan}</h2>
                                             </div>
                                         </motion.div>
