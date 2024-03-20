@@ -136,29 +136,29 @@ export default function ApplicationPage() {
                                     required={true}
                                 />
 
-                                <FormInput
-                                    control={form.control}
-                                    label={"Certificate of academic achievement and/or non-academic achievement (if Any)"}
-                                    name={"certificate"}
-                                    type={"file"}
-                                    required={true}
-                                />
+                                {/*<FormInput*/}
+                                {/*    control={form.control}*/}
+                                {/*    label={"Certificate of academic achievement and/or non-academic achievement (if Any)"}*/}
+                                {/*    name={"certificate"}*/}
+                                {/*    type={"file"}*/}
+                                {/*    required={true}*/}
+                                {/*/>*/}
 
-                                <FormInput
-                                    control={form.control}
-                                    label={"Maximum age 35 years (Proved by Birth Certificate)"}
-                                    name={"certificate_birthday"}
-                                    type={"file"}
-                                    required={true}
-                                />
+                                {/*<FormInput*/}
+                                {/*    control={form.control}*/}
+                                {/*    label={"Maximum age 35 years (Proved by Birth Certificate)"}*/}
+                                {/*    name={"certificate_birthday"}*/}
+                                {/*    type={"file"}*/}
+                                {/*    required={true}*/}
+                                {/*/>*/}
 
-                                <FormInput
-                                    control={form.control}
-                                    label={"Motivation Letter (Ms. Word or PDF)"}
-                                    name={"motivation_letter"}
-                                    type={"file"}
-                                    required={true}
-                                />
+                                {/*<FormInput*/}
+                                {/*    control={form.control}*/}
+                                {/*    label={"Motivation Letter (Ms. Word or PDF)"}*/}
+                                {/*    name={"motivation_letter"}*/}
+                                {/*    type={"file"}*/}
+                                {/*    required={true}*/}
+                                {/*/>*/}
 
                                 <FormInput
                                     control={form.control}
@@ -173,7 +173,7 @@ export default function ApplicationPage() {
                                     label={"Medical certificate"}
                                     name={"medical_certificate"}
                                     type={"file"}
-                                    required={true}
+                                    required={false}
                                 />
 
                                 <FormInput
@@ -184,13 +184,13 @@ export default function ApplicationPage() {
                                     required={true}
                                 />
 
-                                <FormInput
-                                    control={form.control}
-                                    label={"English Proficiency Certificate: TOEFL/TOEIC/IELTS or other valid certificate)"}
-                                    name={"english_certificate"}
-                                    type={"file"}
-                                    required={true}
-                                />
+                                {/*<FormInput*/}
+                                {/*    control={form.control}*/}
+                                {/*    label={"English Proficiency Certificate: TOEFL/TOEIC/IELTS or other valid certificate)"}*/}
+                                {/*    name={"english_certificate"}*/}
+                                {/*    type={"file"}*/}
+                                {/*    required={true}*/}
+                                {/*/>*/}
                         </div>
                         <Button type={"submit"} className={"mt-4 w-24 text-white"}>Submit</Button>
                     </form>
