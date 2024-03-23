@@ -9,6 +9,7 @@ import {Form} from "@/components/Form";
 import {Button} from "@/components/Button";
 import {useState} from "react";
 import swal from "sweetalert";
+import FormSelect from "@/components/form/form-select";
 
 {/*
     Upload Attached Document :
@@ -59,11 +60,11 @@ export default function ApplicationPage() {
             passport2: "",
         }
     })
-
+    const faculty_objectives = form.watch('faculty_objectives')
 
     const handleFormSubmit = async (data: any, e: any) => {
         setLoading(true)
-        await fetch("https://hris.nobel.ac.id/api/application", {
+        await fetch("https://join1.nobel.ac.id/api/v1/foreign", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -119,7 +120,34 @@ export default function ApplicationPage() {
         });
     };
 
-
+    function filterProdi(){
+        if(faculty_objectives === "Faculty of Technology and Business")
+        return [
+            {
+                text: "Management Department",
+                value: "Management Department"
+            },
+            {
+                text: "Sistem Information and Technology Department",
+                value: "Sistem Information and Technology Department"
+            },
+        ]
+        else
+            return [
+                {
+                    text: "Magister of Management",
+                    value: "Magister of Management"
+                },
+                {
+                    text: "Magister of Public Financial",
+                    value: "Magister of Public Financial"
+                },
+                {
+                    text: "Magister of Entrepreneurial and Business Management",
+                    value: "Magister of Entrepreneurial and Business Management"
+                },
+            ]
+    }
     return <GeneralLayout featuredTitle={"APPLICATION FORM"}>
         <main className={"bg-slate-50"}>
             <section className={" mx-auto py-12 items-center container"}>
@@ -154,7 +182,7 @@ export default function ApplicationPage() {
                                 control={form.control}
                                 label={"IDENTITY CARD"}
                                 name={"identity_card"}
-                                type={"number"}
+                                type={"text"}
                                 required={true}
                             />
 
@@ -174,18 +202,31 @@ export default function ApplicationPage() {
                                 required={true}
                             />
 
-                            <FormInput
+
+
+                            <FormSelect
                                 control={form.control}
                                 label={"FACULTY OBJECTIVES"}
                                 name={"faculty_objectives"}
                                 required={true}
+                                items={[
+                                    {
+                                        text: "Faculty of Technology and Business",
+                                        value: "Faculty of Technology and Business"
+                                    },
+                                    {
+                                        text: "Faculty of Post Graduate",
+                                        value: "Faculty of Post Graduate"
+                                    },
+                                ]}
                             />
 
-                            <FormInput
+                            <FormSelect
                                 control={form.control}
                                 label={"STUDY PROGRAM"}
                                 name={"study_program"}
                                 required={true}
+                                items={filterProdi()}
                             />
 
                             <FormInput

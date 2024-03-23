@@ -2,7 +2,7 @@
 
 import {FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@/components/Form";
 import {Input} from "@/components/input";
-import {Control, FieldValues} from "react-hook-form";
+import {Control} from "react-hook-form";
 
 
 type FormInputType = {
@@ -14,13 +14,22 @@ type FormInputType = {
     name: string,
     type?: "text" | "number" | "email" | "date" | "file"
 }
-export default function FormInput({required = false,control, description, placeholder, label, name, type = 'text'}: FormInputType) {
+export default function FormInput({
+                                      required = false,
+                                      control,
+                                      description,
+                                      placeholder,
+                                      label,
+                                      name,
+                                      type = 'text'
+                                  }: FormInputType) {
     return <FormField
         control={control}
         name={name}
         render={({field}) => (
             <FormItem>
-                <FormLabel>{label} {required && <span className={"ml-0.2 font-medium text-red-700"}>*</span>} </FormLabel>
+                <FormLabel>{label} {required &&
+                    <span className={"ml-0.2 font-medium text-red-700"}>*</span>} </FormLabel>
                 <FormControl>
                     <Input placeholder={placeholder} {...field} type={type}/>
                 </FormControl>
