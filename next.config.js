@@ -8,6 +8,9 @@ const nextConfig = {
         remotePatterns:[{
             protocol: 'https',
             hostname: 'nobel.nobelcodelabs.com'
+        },{
+            protocol: 'https',
+            hostname: 'siakad1.nobel.ac.id'
         }]
     }
 }
