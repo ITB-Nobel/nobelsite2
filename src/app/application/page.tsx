@@ -11,19 +11,8 @@ import {useState} from "react";
 import swal from "sweetalert";
 import FormSelect from "@/components/form/form-select";
 
-{/*
-    Upload Attached Document :
-    - Academic transcripts and high school / MK,  diploma, or equivalent
-    - Certificate of academic achievement and/or non-academic achievement (if Any)
-    - Maximum age 35 years (Proved by Birth Certificate)
-    - Motivation Letter (Ms. Word or PDF)
-    - Passport (min. 30 months after entering college)
-    - Medical certificate
-    - Passport-sized photo
-    - English Proficiency Certificate: TOEFL/TOEIC/IELTS or other valid certificate)
-*/
-}
 
+// const MAX_FILE_SIZE = 2000000;
 const formSchema = zod.object({
     name: zod.string(),
     birthday: zod.string(),
@@ -34,15 +23,31 @@ const formSchema = zod.object({
     faculty_objectives: zod.string(),
     study_program: zod.string(),
     phone: zod.string(),
-    transcript: zod.string(),
-    medical_certificate: zod.string(),
-    passport1: zod.string(),
-    passport2: zod.string(),
+    transcript: zod.any(),
+    medical_certificate: zod.any(),
+    passport1: zod.any(),
+    passport2: zod.any(),
 })
-export type FormData = zod.infer<typeof formSchema>
+// export type FormSchema = zod.infer<typeof formSchema>
+
+interface FormData{
+    name: string
+    birthday: string
+    country_origin: string
+    identity_card: string
+    identity_number: string
+    expired_date: string
+    faculty_objectives: string
+    study_program: string
+    phone: string
+    transcript: FileList
+    medical_certificate: FileList
+    passport1: FileList
+    passport2: FileList
+}
 export default function ApplicationPage() {
     const [loading, setLoading] = useState(false)
-    const form = useForm<FormData>({
+    const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
@@ -54,22 +59,37 @@ export default function ApplicationPage() {
             faculty_objectives: "",
             study_program: "",
             phone: "",
-            transcript: "",
-            medical_certificate: "",
-            passport1: "",
-            passport2: "",
+            transcript: null,
+            medical_certificate: null,
+            passport1: null,
+            passport2: null,
         }
     })
     const faculty_objectives = form.watch('faculty_objectives')
 
-    const handleFormSubmit = async (data: any, e: any) => {
+    const handleFormSubmit = async (data: FormData) => {
+        const formDataToSend = new FormData();
+        formDataToSend.append('transcript', data.transcript[0]);
+        formDataToSend.append('passport1', data.passport1[0]);
+        formDataToSend.append('passport2', data.passport2[0]);
+        formDataToSend.append('medical_certificate', data.medical_certificate[0]);
+        formDataToSend.append('name', data.name);
+        formDataToSend.append('birthday', data.birthday);
+        formDataToSend.append('country_origin', data.country_origin);
+        formDataToSend.append('identity_card', data.identity_card);
+        formDataToSend.append('identity_number', data.identity_number);
+        formDataToSend.append('expired_date', data.expired_date);
+        formDataToSend.append('faculty_objectives', data.faculty_objectives);
+        formDataToSend.append('study_program', data.study_program);
+        formDataToSend.append('phone', data.phone);
+
         setLoading(true)
         await fetch("https://join1.nobel.ac.id/api/v1/foreign", {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
+            // headers: {
+            //     'Content-Type': 'application/json',
+            // },
+            body: formDataToSend,
         }).catch(() => {
             swal({
                 title: "Application form error, please try again",
@@ -99,26 +119,26 @@ export default function ApplicationPage() {
         }
     }
 
-    async function handleFile(e: any,
-                              fieldName: "transcript" | "medical_certificate" | "passport1" | "passport2") {
-        const image = e.target.files[0];
-        const imageBase64 = await convertToBase64(image);
-        if (imageBase64)
-            form.setValue(fieldName, imageBase64 as string)
-    }
+    // async function handleFile(e: any,
+    //                           fieldName: "transcript" | "medical_certificate" | "passport1" | "passport2") {
+    //     const image = e.target.files[0];
+    //     const imageBase64 = await convertToBase64(image);
+    //     if (imageBase64)
+    //         form.setValue(fieldName, imageBase64 as string)
+    // }
 
-    const convertToBase64 = (file: any) => {
-        return new Promise((resolve, reject) => {
-            const fileReader = new FileReader();
-            fileReader.readAsDataURL(file);
-            fileReader.onload = () => {
-                resolve(fileReader.result);
-            };
-            fileReader.onerror = (error) => {
-                reject(error);
-            };
-        });
-    };
+    // const convertToBase64 = (file: any) => {
+    //     return new Promise((resolve, reject) => {
+    //         const fileReader = new FileReader();
+    //         fileReader.readAsDataURL(file);
+    //         fileReader.onload = () => {
+    //             resolve(fileReader.result);
+    //         };
+    //         fileReader.onerror = (error) => {
+    //             reject(error);
+    //         };
+    //     });
+    // };
 
     function filterProdi(){
         if(faculty_objectives === "Faculty of Technology and Business")
@@ -148,6 +168,7 @@ export default function ApplicationPage() {
                 },
             ]
     }
+    // @ts-ignore
     return <GeneralLayout featuredTitle={"APPLICATION FORM"}>
         <main className={"bg-slate-50"}>
             <section className={" mx-auto py-12 items-center container"}>
@@ -243,44 +264,48 @@ export default function ApplicationPage() {
                             <label className={"text-md space-y-3 flex flex-col"}>
                                 <span>Academic transcripts of high school / MK,  diploma, or equivalent</span>
                                 <input
-                                    id={"file1"}
+                                    id={"transcript"}
                                     type='file'
+                                    {...form.register("transcript")}
                                     // accept="image/*"
                                     className=""
-                                    onChange={e => handleFile(e, "transcript")}
+                                    // onChange={e => handleFile(e, "transcript")}
                                 />
                             </label>
 
                             <label className={"text-md space-y-3  flex flex-col"}>
                                 <span>Medical certificate</span>
                                 <input
-                                    id={"file2"}
+                                    id={"medical_certificate"}
                                     type='file'
+                                    {...form.register("medical_certificate")}
                                     // accept="image/*"
                                     className=""
-                                    onChange={e => handleFile(e, "medical_certificate")}
+                                    // onChange={e => handleFile(e, "medical_certificate")}
                                 />
                             </label>
 
                             <label className={"text-md space-y-3  flex flex-col"}>
                                 <span>Passport (min. 30 months after entering college)</span>
                                 <input
-                                    id={"file3"}
+                                    id={"passport1"}
                                     type='file'
+                                    {...form.register("passport1")}
                                     // accept="image/*"
                                     className=""
-                                    onChange={e => handleFile(e, "passport1")}
+                                    // onChange={e => handleFile(e, "passport1")}
                                 />
                             </label>
 
                             <label className={"text-md space-y-3  flex flex-col"}>
                                 <span>Passport-sized photo</span>
                                 <input
-                                    id={"file4"}
+                                    id={"passport2"}
                                     type='file'
                                     // accept="image/*"
+                                    {...form.register("passport2")}
                                     className=""
-                                    onChange={e => handleFile(e, "passport2")}
+                                    // onChange={e => handleFile(e, "passport2")}
                                 />
                             </label>
 
