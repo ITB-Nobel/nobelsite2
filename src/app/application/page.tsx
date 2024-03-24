@@ -33,6 +33,7 @@ const formSchema = zod.object({
 interface FormData{
     name: string
     birthday: string
+    birth_place: string
     country_origin: string
     identity_card: string
     identity_number: string
@@ -52,6 +53,7 @@ export default function ApplicationPage() {
         defaultValues: {
             name: "",
             birthday: "",
+            birth_place: "",
             country_origin: "",
             identity_card: "",
             identity_number: "",
@@ -186,18 +188,28 @@ export default function ApplicationPage() {
 
                             <FormInput
                                 control={form.control}
-                                label={"PLACE AND DATE OF BIRTH"}
-                                name={"birthday"}
-                                type={"date"}
+                                label={"COUNTRY OF ORIGIN"}
+                                name={"country_origin"}
                                 required={true}
                             />
 
                             <FormInput
                                 control={form.control}
-                                label={"COUNTRY OF ORIGIN"}
-                                name={"country_origin"}
+                                label={"PLACE OF BIRTH"}
+                                name={"birth_place"}
+                                type={"text"}
                                 required={true}
                             />
+
+                            <FormInput
+                                control={form.control}
+                                label={"DATE OF BIRTH"}
+                                name={"birthday"}
+                                type={"date"}
+                                required={true}
+                            />
+
+
 
                             <FormInput
                                 control={form.control}
