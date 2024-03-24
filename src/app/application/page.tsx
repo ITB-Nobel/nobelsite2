@@ -40,10 +40,10 @@ interface FormData{
     faculty_objectives: string
     study_program: string
     phone: string
-    transcript: FileList
-    medical_certificate: FileList
-    passport1: FileList
-    passport2: FileList
+    transcript: any
+    medical_certificate: any
+    passport1: any
+    passport2: any
 }
 export default function ApplicationPage() {
     const [loading, setLoading] = useState(false)
