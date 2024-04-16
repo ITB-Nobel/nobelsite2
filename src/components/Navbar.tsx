@@ -13,16 +13,7 @@ import {cn} from "@/lib/utils";
 import useSWR from "swr";
 import {ProdiType} from "@/lib/types";
 import {fetcher} from "@/lib/api";
-import {Button} from "@/components/Button";
-import {
-    Drawer, DrawerClose,
-    DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger
-} from "@/components/Drawer";
+import {Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger} from "@/components/Drawer";
 import {HamburgerMenuIcon} from "@radix-ui/react-icons";
 import {CloseIcon} from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon";
 
@@ -31,7 +22,8 @@ type MenuType = {
     link: string;
     submenu: {
         title: string;
-        link: string
+        link: string,
+        target?: React.HTMLAttributeAnchorTarget
     }[],
     submenu_with_header: {
         header: string;
@@ -91,6 +83,22 @@ const defaultMenu: MenuType[] = [
         title: 'Research',
         link: '/research',
         submenu: [],
+        submenu_with_header: []
+    },
+    {
+        title: 'Academic Support',
+        link: '#',
+        submenu: [
+            {
+                title: "LPMI",
+                link: "https://lpmi.nobel.ac.id",
+                target: "_blank"
+            },
+            {
+                title: "LP3M",
+                link: "https://lp3m.nobel.ac.id/",
+                target: "_blank"
+            }],
         submenu_with_header: []
     },
     {
@@ -189,7 +197,7 @@ export function HomeNavbar() {
             </ul>
         </div>
         <div className={"lg:hidden"}>
-            <MobileNavbar />
+            <MobileNavbar/>
         </div>
 
     </nav>
@@ -198,9 +206,9 @@ export function HomeNavbar() {
 export function MobileNavbar() {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
     const {jurusanArray, fakultasArray} = useProdi()
-    return <Drawer  >
+    return <Drawer>
         <DrawerTrigger className={"absolute right-6 -top-2"}>
-            <HamburgerMenuIcon  color={"white"}  width={"24px"} height={"24px"} />
+            <HamburgerMenuIcon color={"white"} width={"24px"} height={"24px"}/>
         </DrawerTrigger>
         <DrawerContent className={"bg-white h-screen"}>
             <DrawerHeader className={"text-left"}>
@@ -216,12 +224,12 @@ export function MobileNavbar() {
                                 <h4 className={"bg-slate-100 py-1 px-2 rounded-md"}>{props.title}</h4>
                                 <div>
 
-                                    {props.submenu_with_header.map((item,index) => {
+                                    {props.submenu_with_header.map((item, index) => {
                                         return <div key={index} className={"px-6"}>
                                             <h6 className={"text-md font-medium"}>{item.header}</h6>
                                             {
-                                                item.items.map((subitem,index) => {
-                                                    return <div key={index} >
+                                                item.items.map((subitem, index) => {
+                                                    return <div key={index}>
                                                         {subitem.title}
                                                     </div>
                                                 })
@@ -244,7 +252,10 @@ export function MobileNavbar() {
     </Drawer>
 }
 
-export function SubMenu({submenu, type}: MenuType & { type: 'home' | 'general' }) {
+export function SubMenu({submenu, type, title, target}: MenuType & {
+    type: 'home' | 'general',
+    target?: React.HTMLAttributeAnchorTarget
+}) {
     const styles = {
         menu: `hover:text-primary   cursor-pointer text-sm`
     }
@@ -256,11 +267,11 @@ export function SubMenu({submenu, type}: MenuType & { type: 'home' | 'general' }
                     type === 'home' ?
                         <NavigationMenuTrigger
                             className={`text-white font-medium font-condensed text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
-                            About Us
+                            {title}
                         </NavigationMenuTrigger> :
                         <NavigationMenuTrigger
                             className={`text-white font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
-                            ABOUT US
+                            {title}
                         </NavigationMenuTrigger>
                 }
 
@@ -273,9 +284,8 @@ export function SubMenu({submenu, type}: MenuType & { type: 'home' | 'general' }
                                     key={component.title}
                                     title={component.title}
                                     href={component.link}
-                                >
-                                    {/*{component.title}*/}
-                                </ListItem>
+                                    target={target}
+                                />
                             ))}
                         </ul>
 
