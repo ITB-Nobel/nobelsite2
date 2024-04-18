@@ -43,7 +43,7 @@ const Filter = ({handleClick, filter}: { handleClick: (input: string) => void, f
             className={`!capitalize min-w-fit  ${filter === 'teknologi' && activeClass}`}
             onClick={() => handleClick('teknologi')}
         >
-            Fakultas Teknoligi dan Bisnis
+            Fakultas Teknologi dan Bisnis
         </button>
         <button
             className={`!capitalize min-w-fit ${filter === "fakultas pascasarjana" && activeClass}`}

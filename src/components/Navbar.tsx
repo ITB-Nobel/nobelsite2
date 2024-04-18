@@ -142,7 +142,7 @@ export const Navbar = () => {
             {
                 menu.map((props, index) => {
                     if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
-                        return <li key={index} className={" pb-2 cursor-pointer hover:text-primary !text-white"}>
+                        return <li key={index} className={" pb-2 cursor-pointer hover:text-primary !text-white capitalize"}>
                             <Link href={props.link}>{props.title}</Link>
                         </li>
                     if (props.submenu_with_header.length > 0)
@@ -310,12 +310,12 @@ const SubmenuWithHeader = ({submenu_with_header, type, acf, fakultasArray}: Menu
                     {
                         type === 'home' ?
                             <NavigationMenuTrigger
-                                className={`text-white font-medium font-condensed text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
+                                className={`text-white font-medium font-condensed text-md py-0 pb-4 cursor-pointer hover:text-primary !capitalize`}>
                                 Study
                             </NavigationMenuTrigger> :
                             <NavigationMenuTrigger
-                                className={`text-white font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
-                                STUDY
+                                className={`text-white font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary !capitalize`}>
+                                Study
                             </NavigationMenuTrigger>
                     }
 
