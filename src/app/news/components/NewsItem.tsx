@@ -7,9 +7,9 @@ import {DetailNewsType} from "@/lib/types";
 import {convertDate} from "@/lib/utils";
 import Tags from "@/components/Tags";
 
-export const NewsItem = ({acf, tags, id}: DetailNewsType) => {
+export const NewsItem = ({acf, tags, id,slug}: DetailNewsType) => {
 
-    return <Link href={`/news/${id}`}>
+    return <Link href={`/news/${slug}`}>
         <div className={"min-h-[200px] flex flex-col md:flex-row shadow-md rounded-md"}>
             <div>
                 <BlurImage alt={acf.photo.alt} image={acf.photo.url} className={"h-full w-full md:w-[200px]"}/>

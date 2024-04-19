@@ -15,16 +15,20 @@ import {Skeleton} from "@/components/Skeleton";
 import {convertDate} from "@/lib/utils";
 import {PersonIcon} from "@radix-ui/react-icons";
 import Tags from "@/components/Tags";
+import {useRouter} from "next/router";
 
 const DetailNewsPage = () => {
     const pathname = usePathname()
+
     const idNews = pathname.split('/')[2]
+
     const {data} =
-        useSWR<DetailNewsType>(`news-${idNews}`, () => fetcher<DetailNewsType>(`news/${idNews}`))
+        useSWR<DetailNewsType[]>(`news-${idNews}`, () => fetcher<DetailNewsType>(`news?slug=${idNews}`))
+
     return <GeneralLayout featuredTitle={"Detail News"}>
         <main className={"pt-12"}>
             {data ? <>
-                    <DetailNewsContent {...data}/>
+                    <DetailNewsContent {...data[0]}/>
                     <NewsCardList exceptID={idNews}/>
                 </>
                 : <Skeleton className={"w-full rounded-xl h-screen"}/>}
@@ -84,11 +88,13 @@ const DetailNewsContent = ({acf, tags}: DetailNewsType) =>
 const NewsCardList = ({exceptID}: { exceptID: string }) => {
     const {data} =
         useSWR<DetailNewsType[]>
-        (`latest-news`, () => fetcher<DetailNewsType[]>(`news?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=55&exclude=${exceptID}`))
+        (`latest-news`, () => fetcher<DetailNewsType[]>(`news?_embed&orderby=date&order=desc&_fields=id,acf,slug,title,categories&per_page=55`))
     return <section className={"py-24 text-center"}>
         <h1 className={"text-4xl font-semibold"}>Berita <span className={"text-primary"}>Lainnya</span></h1>
         <div className={"overflow-x-scroll snap-x whitespace-nowrap space-x-8 mt-6 px-12 lg:px-36 py-6 items-center flex "}>
-            {data && data.map((item, index) =>
+            {data && data
+                .filter(item => item.slug !== exceptID)
+                .map((item, index) =>
                 <div className={"inline-block"} key={index}>
                     <NewsCard {...item}/>
                 </div>)}

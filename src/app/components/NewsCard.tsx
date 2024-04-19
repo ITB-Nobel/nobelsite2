@@ -9,7 +9,7 @@ import Tags from "@/components/Tags";
 const NewsNormalCard = ({slug, acf, id, tags}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
     return <Link
-        href={`news/${id}`}
+        href={`news/${slug}`}
         data-aos={"fade-up"}
         className={"max-h-fit card-shadow rounded-xl text-left row-span-1 relative pb-24"}>
         <div>
@@ -33,7 +33,7 @@ const NewsNormalCard = ({slug, acf, id, tags}: DetailNewsType) => {
 
 const NewsWiderCard = ({acf, id, slug, tags}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
-    return <Link href={`news/${id}`} className={"lg:col-span-2 mt-4 lg:row-span-1 "}>
+    return <Link href={`news/${slug}`} className={"lg:col-span-2 mt-4 lg:row-span-1 "}>
         <div
             data-aos={"fade-up"}
             className={"card-shadow rounded-xl text-left flex flex-col lg:flex-row  "}>
@@ -70,7 +70,7 @@ const NewsWiderCard = ({acf, id, slug, tags}: DetailNewsType) => {
 
 const NewsWidestCard = ({acf, id, slug, tags}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
-    return <Link href={`news/${id}`} className={"col-span-1 lg:col-span-3"}>
+    return <Link href={`news/${slug}`} className={"col-span-1 lg:col-span-3"}>
         <div
             data-aos={"fade-left"}
             className={"flex flex-col lg:flex-row  gap-8  card-shadow rounded-xl"}>
@@ -111,7 +111,7 @@ const NewsWidestCard = ({acf, id, slug, tags}: DetailNewsType) => {
 
 const NewsHigherCard = ({acf, slug, id, tags}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
-    return <Link href={`news/${id}`} className={"row-span-2"}>
+    return <Link href={`news/${slug}`} className={"row-span-2"}>
         <div
             data-aos={"fade-right"}
             className={"h-full  card-shadow rounded-xl text-left  flex flex-col justify-between "}>
@@ -145,7 +145,7 @@ const NewsHigherCard = ({acf, slug, id, tags}: DetailNewsType) => {
 
 const NewsCard = ({acf, slug, id, tags}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
-    return <Link href={`/news/${id}`}>
+    return <Link href={`/news/${slug}`}>
         <div className={"space-y-4 w-[320px] min-h-[420px]  relative bg-white rounded-xl card-shadow"}>
             <div className={"relative h-[270px] w-full"}>
                 {
