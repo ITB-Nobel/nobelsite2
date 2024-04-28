@@ -39,15 +39,15 @@ const DetailNewsPage = () => {
 const DetailNewsContent = ({acf, tags}: DetailNewsType) =>
     <section data-aos={"fade-in"} className={"container"}>
         <div className={""}>
-            <h1 className={"text-5xl font-semibold "}>{acf.title}</h1>
+            <h1 className={"text-5xl font-semibold "}>{acf?.title}</h1>
             <div className={"flex gap-4 items-center text-slate-500"}>
                 <p className={"mt-4 flex gap-2 items-center "}>
                     <ClockIcon className={"w-4 h-4"}/>
-                    {convertDate(acf.date)}
+                    {convertDate(acf?.date)}
                 </p>
                 <p className={"mt-4 flex gap-2 items-center capitalize"}>
                     <PersonIcon className={"w-4 h-4"}/>
-                    {acf.author.display_name}
+                    {acf?.author?.display_name}
                 </p>
 
             </div>
@@ -55,18 +55,18 @@ const DetailNewsContent = ({acf, tags}: DetailNewsType) =>
             <div className={"my-12"}>
                 <div className={"relative w-full h-96"}>
                     <Image
-                        src={acf.photo.url}
-                        alt={acf.photo.alt}
+                        src={acf?.photo?.url}
+                        alt={acf?.photo?.alt}
                         layout={"fill"}
                         objectFit={"cover"}
                     />
                 </div>
-                <p className={"text-xs my-2 text-left"}>{acf.photo.description}</p>
+                <p className={"text-xs my-2 text-left"}>{acf?.photo?.description}</p>
             </div>
 
-            <div className={"space-y-4 text-justify"} dangerouslySetInnerHTML={{__html: acf.description}}/>
+            <div className={"space-y-4 text-justify"} dangerouslySetInnerHTML={{__html: acf?.description}}/>
             {
-                tags.length > 0 &&
+                tags?.length > 0 &&
                 <>
                     <hr className={"my-4"}/>
                     <div className={"flex gap-2 items-center"}>

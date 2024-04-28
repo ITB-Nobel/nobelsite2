@@ -58,7 +58,7 @@ const JurusanDetailPage = () => {
                     <TabDosenJurusan idProdi={idProdi}/>
                 </TabsContent>
                 <TabsContent value="4">
-                    {data && <TabAktivitasJurusan idProdi={idProdi} {...data?.acf.activity_news_category} />}
+                    {data && <TabAktivitasJurusan idProdi={idProdi} {...data?.acf?.activity_news_category} />}
                 </TabsContent>
             </Tabs>
 

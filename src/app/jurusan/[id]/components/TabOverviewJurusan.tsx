@@ -32,18 +32,18 @@ const TabOverviewJurusan = ({jurusan, image, description, image_detail, videoPro
             </div>
 
         </section>
-        <section data-aos={"zoom-in"} className={"flex flex-col-reverse lg:flex-row items-center py-8 lg:py-20"}>
+        <section data-aos={"zoom-in"} className={"w-full lg:flex-row items-center py-8 lg:py-20"}>
             {videoProfil &&
                 <iframe
                     src={videoProfil.url}
                     title="How to improve our English speaking skills NIOUS episode #2"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
-                    className={"rounded-xl w-full h-[250px]  border-gray-500  md:w-[650px] md:h-[400px]"}
+                    className={"rounded-xl mx-auto w-full h-[250px]  border-gray-500  md:w-full md:h-[500px]"}
                 />
             }
-            {videoProfil &&
-                <h1 className={"text-5xl mx-auto py-12"}>Video <span className={"text-primary"}>Profil</span></h1>}
+            {/*{videoProfil &&*/}
+            {/*    <h1 className={"text-5xl mx-auto py-12"}>Video <span className={"text-primary"}>Profil</span></h1>}*/}
         </section>
 
 

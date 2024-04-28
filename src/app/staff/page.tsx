@@ -61,7 +61,7 @@ const Filter = ({handleClick, filter}: { handleClick: (input: string) => void, f
             className={`!capitalize min-w-fit  ${filter === "Bagian" && activeClass}`}
             onClick={() => handleClick('Bagian')}
         >
-            Bagian
+            Divisi
         </button>
         {/*<button*/}
         {/*    className={`!capitalize min-w-fit  ${filter === "Yayasan" && activeClass}`}*/}

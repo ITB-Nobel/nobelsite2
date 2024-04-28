@@ -15,15 +15,15 @@ const SectionCurriculumJurusan = ({description, title, image}: ProdiCurriculum) 
             </div>
         </article>
     </div>
-    <div className={" flex justify-end"}>
-        <div className={'relative w-[430px] h-[430px]'}>
-            <BlurImage
-                image={image}
-                alt={"Overview Jurusan"}
-            />
-            <div className={"absolute bg-primary w-[445px] h-full -bottom-3 -z-10"}/>
-        </div>
-    </div>
+    {/*<div className={" flex justify-end"}>*/}
+    {/*    <div className={'relative w-[430px] h-[430px]'}>*/}
+    {/*        <BlurImage*/}
+    {/*            image={image}*/}
+    {/*            alt={"Overview Jurusan"}*/}
+    {/*        />*/}
+    {/*        <div className={"absolute bg-primary w-[445px] h-full -bottom-3 -z-10"}/>*/}
+    {/*    </div>*/}
+    {/*</div>*/}
 </section>
 
 export default SectionCurriculumJurusan

@@ -129,8 +129,6 @@ i
 9src/app/jurusan/[id]/components/TableKurikulumJurusan.tsx,d/d/dd549e6348a467c16ca6b5684935dc41f8c5f8ad
 f
 6src/app/jurusan/[id]/components/TabOverviewJurusan.tsx,f/e/fec4831d4e03bf8454b2872a05a46b33d1ee7458
-J
-src/app/news/[id]/page.tsx,0/1/0146b5bb3d37cb8cafb31f77b22e6fbd31bc36df
 E
 src/app/news/page.tsx,f/6/f6d864abf4afd5ebdff8a66cde60eb114f71252b
 L
@@ -209,3 +207,9 @@ I
 src/components/Drawer.tsx,0/a/0a89acea3efe22f0f052ff77b9e2a1e0d297b332
 S
 #src/components/form/form-select.tsx,0/1/019b009c7ba2183c91e202fa173ca8099c426ba5
+L
+src/app/news/[slug]/page.tsx,e/6/e653ad63c1f12a466666f74e27fcf9eb9bcf59d2
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
