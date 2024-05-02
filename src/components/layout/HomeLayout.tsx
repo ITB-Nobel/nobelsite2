@@ -7,7 +7,7 @@ import TopHeader from "@/components/TopHeader";
 import SliderContent from "@/app/components/SliderContent";
 import Footer from "@/components/Footer";
 import {HomeNavbar} from "@/components/Navbar";
-import BlurImage from "@/components/BlurImage";
+import {BlurImage2} from "@/components/BlurImage";
 import AOS from "aos";
 
 
@@ -35,8 +35,10 @@ const HomeLayout = ({children}: { children: React.ReactNode }) => {
                     className="mySwiper text-white bg-black lg:min-h-screen"
                 >
                     <SwiperSlide><>
+                        {/**/}
                         <div className={"relative w-full h-screen max-h-[450px] lg:max-h-[650px]  xl:max-h-[800px] "}>
-                            <BlurImage image={"/images/slidex.jpg"} alt={"Default Nobel Image"} className={"brightness-50"}/>
+                            <BlurImage2 image={"/images/slidex.jpg"} alt={"Default Nobel Image"}
+                                        className={"brightness-50"}/>
                         </div>
                         <SliderContent/>
                     </>
@@ -58,7 +60,6 @@ const HomeLayout = ({children}: { children: React.ReactNode }) => {
         <Footer/>
     </>
 }
-
 
 
 export default HomeLayout;
