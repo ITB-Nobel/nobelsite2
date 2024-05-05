@@ -10,7 +10,7 @@ import BlurImage from "@/components/BlurImage";
 const SejarahPage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-sejarah', () => fetcher<GeneralPageType[]>('pages?slug=sejarah'))
     return <GeneralLayout
-
+        featuredImage={"/images/header_new.jpg"}
         featuredTitle={"Sejarah Nobel"}
     >
         {

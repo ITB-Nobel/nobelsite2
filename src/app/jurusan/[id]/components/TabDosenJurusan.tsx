@@ -1,6 +1,6 @@
 'use client'
 import React from "react";
-import StaffDialog from "@/components/StaffDialog";
+import StaffDialog, {StaffDialog2} from "@/components/StaffDialog";
 import useSWR from "swr";
 import {fetcherAcf} from "@/lib/api";
 import {Dosen} from "@/lib/types";
@@ -14,12 +14,12 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
 
     return <section
         data-aos={"zoom-in"}
-        className={"py-12 grid grid-cols-1 lg:grid-cols-3 text-left w-full"}>
+        className={"py-12 grid grid-cols-1 lg:grid-cols-4 text-left w-full"}>
         {
             data ? data?.map((item, index) => {
                 const prodis = item.acf.prodi.map(prodi => prodi.ID)
                 if (prodis.includes(Number(idProdi)))
-                    return <StaffDialog
+                    return <StaffDialog2
                         position={item.acf.position}
                         image={item.acf.photo?.url}
                         key={index}
