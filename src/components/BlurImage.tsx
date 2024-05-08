@@ -7,7 +7,7 @@ export default function BlurImage({image, alt, className}: { image: string, alt:
     return (
 
         <div
-            className={`${className} aspect-w-1 aspect-h-1 overflow-hidden  bg-gray-200 `}>
+            className={`${className} aspect-w-1 aspect-h-1 overflow-hidden `}>
             <Image
                 alt={alt}
                 src={image}
