@@ -57,14 +57,14 @@ const Staff = ({title, position, image, description}: StaffACF) => <div>
     <div
         className={"text-center px-2 py-4 hover:rounded-xl"}>
         <div
-            className={"bg-[url('/images/tim.png')] bg-center bg-cover bg-opacity-80 hover:scale-110 max-w-fit max-h-fit mx-auto px-[20px] "}>
-            <div className={"relative w-[210px] h-[210px]"}>
+            className={"hover:scale-110 max-w-fit max-h-fit mx-auto px-[20px] "}>
+            <div className={"relative w-[250px] h-[310px]"}>
                 <Image
-                    className={" rounded-full bg-center"}
+                    className={""}
                     alt={"Foto Staff"}
                     src={image}
                     layout={"fill"}
-                    objectFit={"cover"}
+                    // objectFit={"contain"}
                 />
             </div>
         </div>
