@@ -18,16 +18,14 @@ const NobelValuePage = async () => {
                         <p className={"text-slate-500 text-lg mt-2"}>{data[0]?.acf.subtitle}</p>
                         {
                             data[0]?.acf.image &&
-                            <div className={"relative w-full h-32 lg:h-64"}>
-
+                            <div className={"relative w-full h-32 lg:h-72"}>
                                 <Image
                                     src={data[0]?.acf.image.url}
                                     alt={data[0]?.acf.image.title}
                                     layout={"fill"}
-                                    objectFit={"cover"}
+                                    objectFit={"fill"}
                                     className={"  my-16 object-center"}
                                 />
-
                             </div>
                         }
 

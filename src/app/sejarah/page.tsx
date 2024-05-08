@@ -6,6 +6,7 @@ import {fetcher} from "@/lib/api";
 import {GeneralPageType} from "@/lib/types";
 import {Skeleton} from "@/components/Skeleton";
 import BlurImage from "@/components/BlurImage";
+import Image from "next/image";
 
 const SejarahPage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-sejarah', () => fetcher<GeneralPageType[]>('pages?slug=sejarah'))
@@ -20,19 +21,16 @@ const SejarahPage = () => {
                         <h1 className={"text-4xl font-semibold"}>{data[0]?.acf.title} <span
                             className={"text-primary"}>{data[0]?.acf.color_title}</span></h1>
                         <p className={"text-slate-500 text-lg mt-2"}>{data[0]?.acf.subtitle}</p>
-
                         {
                             data[0]?.acf.image &&
-                            <div className={"relative w-full h-16 lg:h-64"}>
-
-                                <BlurImage
-                                    image={data[0]?.acf.image.url}
+                            <div className={"relative w-full h-32 lg:h-72"}>
+                                <Image
+                                    src={data[0]?.acf.image.url}
                                     alt={data[0]?.acf.image.title}
-                                    // layout={"fill"}
-                                    // objectFit={"cover"}
-                                    className={" !aspect-w-3 !aspect-h-1  my-16 object-center"}
+                                    layout={"fill"}
+                                    objectFit={"fill"}
+                                    className={"  my-16 object-center"}
                                 />
-
                             </div>
                         }
 

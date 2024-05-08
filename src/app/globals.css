@@ -21,6 +21,10 @@ h1.title{
   @apply text-6xl md:text-5xl
 }
 
+h2.title{
+  @apply font-semibold text-xl
+}
+
 .card-shadow{
   @apply shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] hover:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]
 }
