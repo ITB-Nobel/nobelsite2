@@ -8,10 +8,7 @@ import {GeneralPageType} from "@/lib/types";
 const NobelValuePage = async () => {
     const data = await fetcher<GeneralPageType[]>('pages?slug=nobel-value')
 
-    return <GeneralLayout
-
-        featuredTitle={"Nobel Value"}
-    >
+    return <GeneralLayout featuredTitle={"Nobel Value"}>
         {
             data ?
                 <main>
@@ -37,7 +34,6 @@ const NobelValuePage = async () => {
 
                         {data[0]?.acf.description && <div className={"text-left  space-y-4 basis-3/4 mt-24"}
                                                           dangerouslySetInnerHTML={{__html: data[0]?.acf.description}}/>}
-
 
                     </section>
                 </main> : <Skeleton className={"w-full rounded-xl h-screen"}/>}

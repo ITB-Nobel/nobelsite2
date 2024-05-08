@@ -27,19 +27,20 @@ const TabOverviewJurusan = ({jurusan, image, description, image_detail, videoPro
                         image={image_detail}
                         alt={"Overview Jurusan"}
                     />
-                    <div className={"absolute hidden lg:block bg-black w-[445px] h-full -bottom-3 -z-10"}/>
+                    <div className={"absolute hidden lg:block w-[445px] h-full -bottom-3 -z-10"}/>
                 </div>
             </div>
 
         </section>
-        <section data-aos={"zoom-in"} className={"w-full lg:flex-row items-center py-8 lg:py-20"}>
+        
+        <section data-aos={"zoom-in"} className={"w-full items-center py-8 lg:py-20"}>
             {videoProfil &&
                 <iframe
                     src={videoProfil.url}
                     title="How to improve our English speaking skills NIOUS episode #2"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
-                    className={"rounded-xl mx-auto w-full h-[250px]  border-gray-500  md:w-full md:h-[500px]"}
+                    className={"rounded-xl mx-auto h-[250px] md:w-[70%] lg:w-[80%] md:h-[500px]"}
                 />
             }
             {/*{videoProfil &&*/}
@@ -65,7 +66,7 @@ const TabOverviewJurusan = ({jurusan, image, description, image_detail, videoPro
                             image={profil_lulusan.image}
                             alt={"Overview Jurusan"}
                         />
-                        <div className={"absolute hidden lg:block bg-black w-[445px] h-full -bottom-3 -z-10"}/>
+                        <div className={"absolute hidden lg:block w-[445px] h-full -bottom-3 -z-10"}/>
                     </div>
                 </div>
 
