@@ -40,7 +40,7 @@ const TabOverviewJurusan = ({jurusan, image, description, image_detail, videoPro
                     title="How to improve our English speaking skills NIOUS episode #2"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
-                    className={"rounded-xl mx-auto h-[250px] md:w-[70%] lg:w-[80%] md:h-[500px]"}
+                    className={"rounded-xl mx-auto h-[250px] md:w-[70%] lg:w-[80%] xl:w-[80%] md:h-[500px]"}
                 />
             }
             {/*{videoProfil &&*/}
