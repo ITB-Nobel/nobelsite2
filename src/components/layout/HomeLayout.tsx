@@ -12,6 +12,18 @@ import AOS from "aos";
 
 
 const HomeLayout = ({children}: { children: React.ReactNode }) => {
+    const googleTranslateElementInit = () => {
+        if (typeof window !== 'undefined') {
+            // @ts-ignore
+            new window.google.translate.TranslateElement(
+                {
+                    pageLanguage: "id",
+                    autoDisplay: false
+                },
+                "google_translate_element"
+            );
+        }
+    };
     useEffect(() => {
         AOS.init();
         var addScript = document.createElement("script");

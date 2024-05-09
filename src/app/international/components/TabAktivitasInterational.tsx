@@ -71,10 +71,10 @@ const AktivitasJurusanNews = ({title, photo, description, index, idNews}: NewsAC
 
                 <div className={"absolute bottom-0 !text-white text-left px-8 py-4 space-y-4"}>
                     <h4 className={"text-xl font-semibold"}>{title}</h4>
-                    <article>
-                        <div className={"text-sm"}
-                             dangerouslySetInnerHTML={{__html: description.split('<p>')[1] as string}}/>
-                    </article>
+                    {/*<article>*/}
+                    {/*    <div className={"text-sm"}*/}
+                    {/*         dangerouslySetInnerHTML={{__html: description.split('<p>')[1] as string}}/>*/}
+                    {/*</article>*/}
                 </div>
             </div>
         </Link>

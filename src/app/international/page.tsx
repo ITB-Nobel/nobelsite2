@@ -18,7 +18,7 @@ const InternationalPage = async () => {
         const tempData = data[0]
         return <GeneralLayout
             featuredTitle={tempData?.title?.rendered}
-            featuredImage={tempData?.acf.header_image.url}
+            // featuredImage={tempData?.acf.header_image.url}
         >
             <main className={"min-h-screen"}>
                 <Tabs defaultValue="1" className={"container py-12 text-center "}>
