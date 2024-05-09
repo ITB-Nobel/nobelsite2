@@ -18,7 +18,8 @@ const HomeLayout = ({children}: { children: React.ReactNode }) => {
             new window.google.translate.TranslateElement(
                 {
                     pageLanguage: "id",
-                    autoDisplay: false
+                    autoDisplay: false,
+                    includedLanguages : 'id,en,us,es,th,ar,zh-CN,zh-TW,de'
                 },
                 "google_translate_element"
             );
