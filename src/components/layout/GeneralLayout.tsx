@@ -16,13 +16,37 @@ type GeneralLayoutType = {
     featuredImage?: string
 }
 
+
+
 export default function GeneralLayout({
                                           children,
                                           featuredTitle = "Nobel Page",
                                           featuredImage = "/images/banner.jpeg"
                                       }: GeneralLayoutType) {
+    const googleTranslateElementInit = () => {
+        if (typeof window !== 'undefined') {
+            // @ts-ignore
+            new window.google.translate.TranslateElement(
+                {
+                    pageLanguage: "id",
+                    autoDisplay: false
+                },
+                "google_translate_element"
+            );
+        }
+    };
     useEffect(() => {
         AOS.init();
+        var addScript = document.createElement("script");
+        addScript.setAttribute(
+            "src",
+            "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        );
+        document.body.appendChild(addScript);
+        if (typeof window !== 'undefined') {
+            // @ts-ignore
+            window.googleTranslateElementInit = googleTranslateElementInit;
+        }
     }, [])
     return (
         <>

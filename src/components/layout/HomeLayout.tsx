@@ -14,9 +14,21 @@ import AOS from "aos";
 const HomeLayout = ({children}: { children: React.ReactNode }) => {
     useEffect(() => {
         AOS.init();
+        var addScript = document.createElement("script");
+        addScript.setAttribute(
+            "src",
+            "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        );
+        document.body.appendChild(addScript);
+        if (typeof window !== 'undefined') {
+            // @ts-ignore
+            window.googleTranslateElementInit = googleTranslateElementInit;
+        }
     }, [])
+
     return <>
         <TopHeader variant={"white"}/>
+
         <main className={"overflow-x-hidden"}>
             <div className={"relative"}>
                 <HomeNavbar/>
