@@ -16,19 +16,24 @@ type GeneralLayoutType = {
     featuredImage?: string
 }
 
+
+
 export default function GeneralLayout({
                                           children,
                                           featuredTitle = "Nobel Page",
                                           featuredImage = "/images/banner.jpeg"
                                       }: GeneralLayoutType) {
     const googleTranslateElementInit = () => {
-        new window.google.translate.TranslateElement(
-            {
-                pageLanguage: "id",
-                autoDisplay: false
-            },
-            "google_translate_element"
-        );
+        if (typeof window !== 'undefined') {
+            // @ts-ignore
+            new window.google.translate.TranslateElement(
+                {
+                    pageLanguage: "id",
+                    autoDisplay: false
+                },
+                "google_translate_element"
+            );
+        }
     };
     useEffect(() => {
         AOS.init();
@@ -38,7 +43,10 @@ export default function GeneralLayout({
             "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
         );
         document.body.appendChild(addScript);
-        window.googleTranslateElementInit = googleTranslateElementInit;
+        if (typeof window !== 'undefined') {
+            // @ts-ignore
+            window.googleTranslateElementInit = googleTranslateElementInit;
+        }
     }, [])
     return (
         <>

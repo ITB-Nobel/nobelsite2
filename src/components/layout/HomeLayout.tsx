@@ -12,16 +12,6 @@ import AOS from "aos";
 
 
 const HomeLayout = ({children}: { children: React.ReactNode }) => {
-    const googleTranslateElementInit = () => {
-        new window.google.translate.TranslateElement(
-            {
-                pageLanguage: "id",
-                autoDisplay: false,
-                includedLanguages : 'id,en,us,es,th,ar,zh-CN,zh-TW,de'
-            },
-            "google_translate_element"
-        );
-    };
     useEffect(() => {
         AOS.init();
         var addScript = document.createElement("script");
@@ -30,9 +20,11 @@ const HomeLayout = ({children}: { children: React.ReactNode }) => {
             "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
         );
         document.body.appendChild(addScript);
-        window.googleTranslateElementInit = googleTranslateElementInit;
+        if (typeof window !== 'undefined') {
+            // @ts-ignore
+            window.googleTranslateElementInit = googleTranslateElementInit;
+        }
     }, [])
-
 
     return <>
         <TopHeader variant={"white"}/>
