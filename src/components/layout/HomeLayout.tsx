@@ -61,7 +61,7 @@ const HomeLayout = ({children}: { children: React.ReactNode }) => {
                 >
                     <SwiperSlide><>
                         {/**/}
-                        <div className={"relative w-full h-screen max-h-[450px] lg:max-h-[650px]  xl:max-h-[800px] "}>
+                        <div className={"relative w-full h-screen max-h-[200px] lg:max-h-[650px]  xl:max-h-[800px] "}>
                             <BlurImage2 image={"/images/slidex.jpg"} alt={"Default Nobel Image"}
                                         className={"brightness-50"}/>
                         </div>
