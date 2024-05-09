@@ -1,8 +1,7 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;400;500&display=swap');*/
+@import 'aos/dist/aos.css'; /*@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;400;500&display=swap');*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'aos/dist/aos.css';
 ul{
   @apply list-outside list-none
 }
@@ -52,6 +51,19 @@ h2.title{
   /*width: 100%;*/
   /*height: 100%;*/
   object-fit: cover;
+}
+#primary .skiptranslate{
+  @apply flex gap-2 !text-primary
+}
+
+.skiptranslate {
+  @apply flex gap-2 !text-white
+}
+.skiptranslate .goog-te-combo{
+  @apply !text-black
+}
+.skiptranslate span{
+  @apply hidden
 }
 
 #news-section p {

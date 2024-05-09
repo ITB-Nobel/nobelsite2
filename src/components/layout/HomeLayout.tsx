@@ -12,11 +12,31 @@ import AOS from "aos";
 
 
 const HomeLayout = ({children}: { children: React.ReactNode }) => {
+    const googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement(
+            {
+                pageLanguage: "id",
+                autoDisplay: false,
+                includedLanguages : 'id,en,us,es,th,ar,zh-CN,zh-TW,de'
+            },
+            "google_translate_element"
+        );
+    };
     useEffect(() => {
         AOS.init();
+        var addScript = document.createElement("script");
+        addScript.setAttribute(
+            "src",
+            "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        );
+        document.body.appendChild(addScript);
+        window.googleTranslateElementInit = googleTranslateElementInit;
     }, [])
+
+
     return <>
         <TopHeader variant={"white"}/>
+
         <main className={"overflow-x-hidden"}>
             <div className={"relative"}>
                 <HomeNavbar/>
