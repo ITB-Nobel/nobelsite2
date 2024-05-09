@@ -16,6 +16,7 @@ import {fetcher} from "@/lib/api";
 import {Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger} from "@/components/Drawer";
 import {HamburgerMenuIcon} from "@radix-ui/react-icons";
 import {CloseIcon} from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon";
+import {ScrollArea} from "@/components/ScrollArea";
 
 type MenuType = {
     title: string;
@@ -43,7 +44,7 @@ const defaultMenu: MenuType[] = [
     },
     {
         title: 'About',
-        link: '/about',
+        link: '#',
         submenu: [
             {
                 title: "Sejarah",
@@ -66,7 +67,7 @@ const defaultMenu: MenuType[] = [
     },
     {
         title: 'Study',
-        link: '/study',
+        link: '#',
         submenu: [],
         submenu_with_header: [
             {
@@ -142,7 +143,8 @@ export const Navbar = () => {
             {
                 menu.map((props, index) => {
                     if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
-                        return <li key={index} className={" pb-2 cursor-pointer hover:text-primary !text-white capitalize"}>
+                        return <li key={index}
+                                   className={" pb-2 cursor-pointer hover:text-primary !text-white capitalize"}>
                             <Link href={props.link}>{props.title}</Link>
                         </li>
                     if (props.submenu_with_header.length > 0)
@@ -210,40 +212,67 @@ export function MobileNavbar() {
         <DrawerTrigger className={"absolute right-6 -top-2"}>
             <HamburgerMenuIcon color={"white"} width={"24px"} height={"24px"}/>
         </DrawerTrigger>
-        <DrawerContent className={"bg-white h-screen"}>
+        <DrawerContent className={"bg-white min-h-screen"}>
+
             <DrawerHeader className={"text-left"}>
                 <DrawerTitle className={"text-3xl"}>Menu</DrawerTitle>
                 {/*<DrawerDescription>This action cannot be undone.</DrawerDescription>*/}
             </DrawerHeader>
+            <ScrollArea className={"h-[80vh]"}>
+                <div className={"py-6"}>
+                    <div className={"text-md px-4 space-y-4 font-semibold text-md uppercase "}>
+                        {
+                            menu.map((props, index) => {
+                                return <div key={index}>
+                                    <Link href={`${props.link}`}>
+                                        <h4 className={"bg-slate-100 py-1 px-2 rounded-md w-full"}>
+                                            {props.title}
+                                        </h4>
+                                    </Link>
+                                    <div>
+                                        <ul className={"space-y-1 list-disc px-8 my-2"}>
+                                            {props.submenu.map((item, index) => {
+                                                return <li key={index} className={"text-xs font-light"}>
+                                                    <Link href={`${item.link}`}>
+                                                        {item.title}
+                                                    </Link>
+                                                </li>
+                                            })}
+                                        </ul>
 
-            <div className={"py-12"}>
-                <div className={"text-md px-4 space-y-4 font-semibold text-md uppercase "}>
-                    {
-                        menu.map((props, index) => {
-                            return <div key={index}>
-                                <h4 className={"bg-slate-100 py-1 px-2 rounded-md"}>{props.title}</h4>
-                                <div>
+                                        {props.submenu_with_header.map((item, index) => {
+                                            return <div key={index} className={"px-6"}>
+                                                {fakultasArray.map((component, index) => (
+                                                    <>
+                                                        <h4 className={"font-semibold capitalize text-sm py-2"}>{component}</h4>
+                                                        <div key={index} className={"space-y-2"}>
+                                                            <ul className={"space-y-1 list-disc px-8"}>
+                                                                {
+                                                                    jurusanArray.filter((item) => item.acf.fakultas === component)
+                                                                        .map((item, index) =>
+                                                                            <li key={index}
+                                                                                className={"text-xs font-light"}>
+                                                                                <Link href={`/jurusan/${item.id}`}>
+                                                                                    {item.acf.overview.jurusan}
+                                                                                </Link>
+                                                                            </li>
+                                                                        )
+                                                                }
+                                                            </ul>
+                                                        </div>
+                                                    </>
+                                                ))}
 
-                                    {props.submenu_with_header.map((item, index) => {
-                                        return <div key={index} className={"px-6"}>
-                                            <h6 className={"text-md font-medium"}>{item.header}</h6>
-                                            {
-                                                item.items.map((subitem, index) => {
-                                                    return <div key={index}>
-                                                        {subitem.title}
-                                                    </div>
-                                                })
-                                            }
-                                        </div>
-                                    })}
+                                            </div>
+                                        })}
+                                    </div>
                                 </div>
-                            </div>
-                        })
-                    }
+                            })
+                        }
 
+                    </div>
                 </div>
-            </div>
-
+            </ScrollArea>
 
             <DrawerClose className={"absolute top-4 right-4"}>
                 <CloseIcon/>

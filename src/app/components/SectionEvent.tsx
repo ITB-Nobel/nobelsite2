@@ -25,7 +25,7 @@ const SectionEvent = ({title, subtitle, color_title}: SectionEventType) => {
             <div className={"w-full grid grid-cols-1 lg:grid-cols-3 gap-8  mt-12 md:mt-24 "}>
                 {
                     data ?
-                    data.map((props, index) => <EventCard key={index} {...props}/>) : <Skeleton className={"min-h-screen"} />
+                    data?.map((props, index) => <EventCard key={index} {...props}/>) : <Skeleton className={"min-h-screen"} />
                 }
             </div>
             {

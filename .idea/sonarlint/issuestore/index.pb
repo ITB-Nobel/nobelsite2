@@ -215,5 +215,9 @@ S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
 C
 src/lib/custom.d.ts,4/4/44505f02d15d6603706d79b0158e3275c0714951
-F
-src/app/__document.tsx,f/6/f6e45f4f70d2a0ad167777a820da05549662de3f
+P
+ src/components/HamburgerMenu.tsx,9/e/9efe0a2f123f2121105519885610cd48ad5f839a
+N
+src/components/HeadingMenu.tsx,9/1/91f92107aa0423d602529fb04b778777b3eede7c
+O
+src/app/jurusan/[slug]/page.tsx,d/0/d0a5aa5cf3ea23a645abad946f7ac091f204297c
