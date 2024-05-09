@@ -6,8 +6,13 @@ export async function fetcher<T>(link: string) {
     //         'Cache-Control': 'no-cache',
     //     }
     // });
-    const res = await fetch(`https://nobel.nobelcodelabs.com/wp-json/wp/v2/${link}`, { next: { revalidate: 60 } })
-    return await res.json()
+    try {
+        const res = await fetch(`https://nobel.nobelcodelabs.com/wp-json/wp/v2/${link}`, { next: { revalidate: 60 } })
+        return await res.json()
+    }catch (error){
+        return error
+    }
+
 }
 
 export async function fetcherAcf<T>(link: string) {
