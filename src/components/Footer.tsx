@@ -97,6 +97,11 @@ const Footer =  () => {
                                 {data[0]?.acf.group1.label6}
                             </Link>
                         </li>
+                        <li>
+                            <Link href="https://nobelpress.nobel.ac.id/">
+                                Nobel Press
+                            </Link>
+                        </li>
 
                     </ul>
                 </div>
