@@ -24,16 +24,16 @@ const TopHeader = ({variant}: { variant: "white" | "primary" }) => {
                         <span className={"hidden lg:block"}>News</span>
                     </Link>
                 </li>
-                <li>
+                {/* <li>
                     <Link href={"/achievement"} className={style.list}>
                         <Trophy strokeWidth={1} size={14}/>
                         <span className={"hidden lg:block"}>Achievement</span>
                     </Link>
-                </li>
+                </li> */}
 
 
                 <li>
-                    <a href={"https://tracerstudy.nobel.ac.id"} target={"_blank"} className={style.list}>
+                    <a href={"https://alumni.nobel.ac.id"} target={"_blank"} className={style.list}>
                         <GraduationCap strokeWidth={1} size={14}/>
                         <span className={"hidden lg:block"}>Alumni</span>
                     </a>
