@@ -78,7 +78,7 @@ const Footer =  () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href={data[0]?.acf.group1.link3}>
+                            <Link href="https://e-jurnal.nobel.ac.id/index.php/">
                                 {data[0]?.acf.group1.label3}
                             </Link>
                         </li>
