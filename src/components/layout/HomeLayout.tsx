@@ -1,3 +1,4 @@
+'use client'
 import React, {useEffect} from "react";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Navigation} from 'swiper/modules';
@@ -11,7 +12,8 @@ import {BlurImage2} from "@/components/BlurImage";
 import AOS from "aos";
 
 
-const HomeLayout = ({children}: { children: React.ReactNode }) => {
+const HomeLayout = ({children,data}: { children: React.ReactNode, data: any }) => {
+    console.log("BERANDAKU:",data)
     const googleTranslateElementInit = () => {
         if (typeof window !== 'undefined') {
             // @ts-ignore
@@ -61,9 +63,24 @@ const HomeLayout = ({children}: { children: React.ReactNode }) => {
                 >
                     <SwiperSlide><>
                         {/**/}
-                        <div className={"relative w-full h-screen max-h-[200px] lg:max-h-[650px]  xl:max-h-[800px] "}>
-                            <BlurImage2 image={"/images/slidex.jpg"} alt={"Default Nobel Image"}
-                                        className={"brightness-50"}/>
+                        <div className={"relative  w-full h-screen max-h-[200px] lg:max-h-[650px]  xl:max-h-[800px] pb-[56.25%] "}>
+                            {
+                                ["", null, undefined].includes(data[0]?.acf?.youtube_embed_link) ?
+                                    <BlurImage2 image={`${data[0]?.acf?.image}`} alt={"Default Nobel Image"}
+                                                className={"brightness-50"}/>
+                                    :
+                                    <iframe width="100%"
+                                            height="100%"
+                                            src={`${data[0]?.acf?.youtube_embed_link}?autoplay=1&autohide=1&mute=1&disablekb=1&controls=0&showinfo=0&modestbranding=1&loop=1&fs=0&rel=0&enablejsapi=1`}
+                                            title="PROFILE - NOBEL INDONESIA INSTITUTE"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerPolicy="strict-origin-when-cross-origin"
+                                            allowFullScreen
+                                            className={"brightness-50 absolute"}
+                                    ></iframe>
+                            }
+
+
                         </div>
                         <SliderContent/>
                     </>

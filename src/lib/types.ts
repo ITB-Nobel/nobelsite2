@@ -132,7 +132,8 @@ export type GeneralPageTypeACF = {
     "color_title"?: string,
     "subtitle"?: string,
     "image"?: Photo,
-    "description"?: string
+    "description"?: string,
+    "youtube_embed_link"?: string
 }
 
 export type GeneralPageType = {
