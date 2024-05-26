@@ -1,15 +1,16 @@
-'use client'
-
 import HomeLayout from "@/components/layout/HomeLayout";
 import SectionJoinUs from "@/app/components/SectionJoinUs";
 import SectionExploreDegrees from "@/app/components/SectionExploreDegrees";
 import SectionPodcast from "@/app/components/SectionPodcast";
 import SectionNews from "@/app/components/SectionNews";
 import SectionEvent from "@/app/components/SectionEvent";
+import {fetcher} from "@/lib/api";
+import {GeneralPageType} from "@/lib/types";
 
-export default function Home() {
+export default async function Home() {
+    const data = await fetcher<GeneralPageType[]>('pages?slug=beranda')
     return (
-        <HomeLayout>
+        <HomeLayout data={data}>
             <SectionJoinUs
                 title={'Start Here Go Anywhere'}
                 quotes={'Communication, the human connection, is the key to personal and career success.'}
@@ -42,10 +43,10 @@ export default function Home() {
                 subtitle={"Find all the latest news from Nobel and across the higher education sector."}
             />
 
-            <SectionEvent
-                title={"Recent"}
-                color_title={"Events"}
-                subtitle={"Explore opportunities to engage with people, ideas and education across campus."}/>
+            {/*<SectionEvent*/}
+            {/*    title={"Recent"}*/}
+            {/*    color_title={"Events"}*/}
+            {/*    subtitle={"Explore opportunities to engage with people, ideas and education across campus."}/>*/}
         </HomeLayout>
     )
 }

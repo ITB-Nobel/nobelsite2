@@ -2,14 +2,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'GT America Standard Regular';
+  src: url('/fonts/gt-america-standard-regular.ttf') format('truetype');
+  /* Add more src lines for different font variations (e.g., bold, italic) */
+}
+
 ul{
   @apply list-outside list-none
 }
 body{
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'GT America Standard Regular', sans-serif;
 }
 p, article{
-  font-family: "Roboto", serif;
+  font-family: "GT America Standard Regular", serif;
 }
 
 h1{
@@ -73,3 +80,4 @@ h2.title{
 footer li{
   @apply hover:text-primary   cursor-pointer
 }
+

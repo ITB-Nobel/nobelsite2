@@ -29,7 +29,7 @@ const SectionEvent = ({title, subtitle, color_title}: SectionEventType) => {
                 }
             </div>
             {
-                (data && data.length > 5) &&
+                (data && data?.length > 5) &&
                 <Link href={"/events"}>
                     <button
                         className={"border-2 px-4 py-2 border-black hover:bg-black hover:text-white mt-12 md:mt-24"}>
