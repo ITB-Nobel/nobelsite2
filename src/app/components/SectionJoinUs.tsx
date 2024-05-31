@@ -2,6 +2,8 @@
 import React from "react";
 import {Mail, Send} from "lucide-react";
 import {motion} from "framer-motion";
+import {Play} from "lucide-react";
+import {Dialog, DialogContent, DialogDescription, DialogTrigger} from "@/components/Dialog";
 
 
 type SectionJoinUsType = {
@@ -29,6 +31,7 @@ const SectionJoinUs = ({
                     {quotes}
                 </blockquote>
                 <p className={"text-lg lg:text-2xl mt-4"}>{author}</p>
+                <PlayButtonDialog/>
             </div>
             <div  className={"capitalize text-left lg:text-center"}>
                 <h1 className={"text-2xl lg:text-4xl mb-4 font-semibold"}>{title}</h1>
@@ -64,3 +67,29 @@ const SectionJoinUs = ({
 }
 
 export default SectionJoinUs;
+
+
+const PlayButtonDialog = () => <Dialog>
+    <DialogTrigger className={"lg:w-auto"}>
+<br/>
+        <div
+            className={"flex items-center font-semibold gap-4 bg-white hover:bg-blue text-black hover:text-black p-4 rounded-md"}>
+            <Play className={"w-6 h-6"}/>
+            Play Video
+        </div>
+    </DialogTrigger>
+    <DialogContent className="max-w-fit p-0 border-0 bg-none">
+        <DialogDescription>
+            <iframe
+                className={"rounded-lg w-[350px] h-[250px] md:w-[600px] lg:w-[850px] md:h-[400px] lg:h-[500px]"}
+                src="https://www.youtube.com/embed/7z2TlZXvvEk?autoplay=1"
+                title="How To Get Rich"
+                allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+
+            />
+        </DialogDescription>
+
+
+    </DialogContent>
+</Dialog>
