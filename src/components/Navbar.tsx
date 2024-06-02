@@ -239,29 +239,30 @@ export function MobileNavbar() {
                                                 </li>
                                             })}
                                         </ul>
-
                                         {props.submenu_with_header.map((item, index) => {
                                             return <div key={index} className={"px-6"}>
-                                                {fakultasArray.map((component, index) => (
-                                                    <>
-                                                        <h4 className={"font-semibold capitalize text-sm py-2"}>{component}</h4>
-                                                        <div key={index} className={"space-y-2"}>
-                                                            <ul className={"space-y-1 list-disc px-8"}>
-                                                                {
-                                                                    jurusanArray.filter((item) => item.acf.fakultas === component)
-                                                                        .map((item, index) =>
-                                                                            <li key={index}
-                                                                                className={"text-xs font-light"}>
-                                                                                <Link href={`/jurusan/${item.id}`}>
-                                                                                    {item.acf.overview.jurusan}
-                                                                                </Link>
-                                                                            </li>
-                                                                        )
-                                                                }
-                                                            </ul>
-                                                        </div>
-                                                    </>
-                                                ))}
+                                                {fakultasArray.map((component, index) => {
+                                                    if(component?.toLowerCase() === item.header.toLowerCase())
+                                                        return (<>
+                                                            <h4 className={"font-semibold capitalize text-sm py-2"}>{component}</h4>
+                                                            <div key={index} className={"space-y-2"}>
+                                                                <ul className={"space-y-1 list-disc px-8"}>
+                                                                    {
+                                                                        jurusanArray.filter((item) => item.acf.fakultas === component)
+                                                                            .map((item, index) =>
+                                                                                <li key={index}
+                                                                                    className={"text-xs font-light"}>
+                                                                                    <Link href={`/jurusan/${item.id}`}>
+                                                                                        {item.acf.overview.jurusan}
+                                                                                    </Link>
+                                                                                </li>
+                                                                            )
+                                                                    }
+                                                                </ul>
+                                                            </div>
+                                                        </>)
+                                                    }
+                                                )}
 
                                             </div>
                                         })}

@@ -13,7 +13,6 @@ import AOS from "aos";
 
 
 const HomeLayout = ({children,data}: { children: React.ReactNode, data: any }) => {
-    console.log("BERANDAKU:",data)
     const googleTranslateElementInit = () => {
         if (typeof window !== 'undefined') {
             // @ts-ignore
