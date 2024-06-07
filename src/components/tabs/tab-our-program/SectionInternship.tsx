@@ -23,7 +23,7 @@ export default function SectionInternship(props: Pick<OurProgramType, "internshi
                     image={internship?.image}
                     alt={internship?.image}
                 />
-                <div className={"absolute hidden lg:block bg-black w-[445px] h-full -bottom-3 -z-10"}/>
+                <div className={"absolute hidden lg:block w-[445px] h-full -bottom-3 -z-10"}/>
             </div>
         </div>
 

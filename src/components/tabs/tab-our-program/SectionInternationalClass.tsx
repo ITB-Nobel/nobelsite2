@@ -22,7 +22,7 @@ export default function SectionInternationalClass(props: Pick<OurProgramType, "i
                     image={international_class?.image as string}
                     alt={"Overview Jurusan"}
                 />
-                <div className={"absolute hidden lg:block bg-black w-[445px] h-full -bottom-3 -z-10"}/>
+                <div className={"absolute hidden lg:block w-[445px] h-full -bottom-3 -z-10"}/>
             </div>
         </div>
 

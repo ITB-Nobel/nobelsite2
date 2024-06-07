@@ -13,7 +13,7 @@ export default function SectionVolunteer({
     return <section data-aos={"zoom-in"}
                     className={"py-4 lg:py-12 text-left flex flex-col lg:flex-row gap-12 items-center justify-between w-full"}>
         <div className={""}>
-            <h1 className={"text-5xl font-semibold text-primary"}>{title}</h1>
+            <h1 className={"text-5xl font-semibold text-primary"}>Exchange</h1>
             <article>
                 <div className={"text-left mt-10 "}>
                     <div className={"!items-stretch relative"}
@@ -28,7 +28,7 @@ export default function SectionVolunteer({
                     image={image}
                     alt={image}
                 />
-                <div className={"absolute hidden lg:block bg-black w-[445px] h-full -bottom-3 -z-10"}/>
+                <div className={"absolute hidden lg:block w-[445px] h-full -bottom-3 -z-10"}/>
             </div>
         </div>
 
