@@ -16,7 +16,7 @@ export const NewsItem = ({acf, tags, id,slug}: DetailNewsType) => {
             </div>
 
             <div className={"p-4"}>
-                <h3 className={"text-sm md:text-lg font-semibold"}>{acf.title}</h3>
+                <h3 className={"text-sm md:text-lg font-semibold"}> {acf.title}</h3>
                 {
                     tags.length > 0 &&
                     <div className={"flex flex-row gap-2 mt-2 text-xs flex-wrap"}>
