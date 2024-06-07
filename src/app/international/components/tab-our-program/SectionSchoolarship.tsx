@@ -33,6 +33,5 @@ export default function SectionSchoolarship({
             </article>
         </div>
 
-
     </section>
 }

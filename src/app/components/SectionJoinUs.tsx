@@ -67,11 +67,8 @@ const SectionJoinUs = ({
 
 export default SectionJoinUs;
 
-
-
 const PlayButtonDialog = () => <Dialog>
     <DialogTrigger className={"lg:w-auto"}>
-
         <div
             className={"flex items-center font-semibold gap-4 bg-white hover:bg-black text-black hover:text-white p-4 rounded-md"}>
             <Play className={"w-6 h-6"}/>
