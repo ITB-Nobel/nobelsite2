@@ -1,10 +1,9 @@
 'use client'
 import React from "react";
-import {Mail, Send} from "lucide-react";
+import {Mail, Play, Send} from "lucide-react";
 import {motion} from "framer-motion";
-import {Play} from "lucide-react";
-import {Dialog, DialogContent, DialogDescription, DialogTrigger} from "@/components/Dialog";
 
+import {Dialog, DialogContent, DialogDescription, DialogTrigger} from "@/components/Dialog";
 
 type SectionJoinUsType = {
     title: string
@@ -31,7 +30,7 @@ const SectionJoinUs = ({
                     {quotes}
                 </blockquote>
                 <p className={"text-lg lg:text-2xl mt-4"}>{author}</p>
-                <PlayButtonDialog/>
+                <br/><PlayButtonDialog/>
             </div>
             <div  className={"capitalize text-left lg:text-center"}>
                 <h1 className={"text-2xl lg:text-4xl mb-4 font-semibold"}>{title}</h1>
@@ -68,12 +67,10 @@ const SectionJoinUs = ({
 
 export default SectionJoinUs;
 
-
 const PlayButtonDialog = () => <Dialog>
     <DialogTrigger className={"lg:w-auto"}>
-<br/>
         <div
-            className={"flex items-center font-semibold gap-4 bg-white hover:bg-blue text-black hover:text-black p-4 rounded-md"}>
+            className={"flex items-center font-semibold gap-4 bg-white hover:bg-black text-black hover:text-white p-4 rounded-md"}>
             <Play className={"w-6 h-6"}/>
             Play Video
         </div>

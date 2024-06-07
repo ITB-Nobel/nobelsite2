@@ -25,13 +25,13 @@ const TabOurProgram = ({
                        }: OurProgramType) =>
     <>
         <SectionFullDegree full_degree={full_degree}/>
-        <SectionInternationalClass international_class={international_class}/>
-        <SectionStudyVisit study_visit={study_visit}/>
-        <SectionCourse course={course}/>
+        <SectionCourse course={course}/> {/* Double degree */}
         <SectionShortProgram short_program={short_program}/>
         <SectionInternship internship={internship}/>
-        <SectionVolunteer volunteer={volunteer}/>
-        <SectionNeon neon={neon}/>
+        {/*<SectionInternationalClass international_class={international_class}/>*/}
+        {/*<SectionStudyVisit study_visit={study_visit}/>*/}
+        <SectionVolunteer volunteer={volunteer}/>  {/* Exchange */ }
+        {/*<SectionNeon neon={neon}/>*/}
         <SectionSchoolarship schoolarship={schoolarship}/>
     </>
 

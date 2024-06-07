@@ -23,7 +23,7 @@ export default function SectionShortProgram(props: Pick<OurProgramType, "short_p
                     image={short_program?.image}
                     alt={short_program?.image}
                 />
-                <div className={"absolute hidden lg:block bg-black w-[445px] h-full -bottom-3 -z-10"}/>
+                <div className={"absolute hidden lg:block w-[445px] h-full -bottom-3 -z-10"}/>
             </div>
         </div>
 
