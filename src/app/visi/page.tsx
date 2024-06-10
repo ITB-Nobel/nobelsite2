@@ -14,7 +14,7 @@ const VisiPage = async() => {
         {
             data ?
                 <main>
-                    <section data-aos={"fade-in"} className={"container py-24 text-center "}>
+                    <section data-aos={"fade-in"} className={"container py-12 text-center "}>
                         <h1 className={"text-4xl font-semibold"}>{data[0]?.acf.title} <span
                             className={"text-primary"}>{data[0]?.acf.color_title}</span></h1>
                         <p className={"text-slate-500 text-lg mt-2"}>{data[0]?.acf.subtitle}</p>
