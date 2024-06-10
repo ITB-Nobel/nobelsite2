@@ -6,6 +6,7 @@ import { cva } from "class-variance-authority"
 import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
+import FixedButton from './FixedButton';
 const NavigationMenu = React.forwardRef<
     React.ElementRef<typeof NavigationMenuPrimitive.Root>,
     React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
@@ -19,6 +20,8 @@ const NavigationMenu = React.forwardRef<
         {...props}
     >
         {children}
+        
+        <FixedButton />
         <NavigationMenuViewport />
     </NavigationMenuPrimitive.Root>
 ))

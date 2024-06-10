@@ -1,0 +1,13 @@
+
+-                    {/*<a className={"flex-1 top-4 right-4 bottom-5 z-10 items-end justify-end"} href={join_button_link} target={"_blank"} rel={"noreferrer"}>*/}
+-                    {/*    <motion.div*/}
+-                    {/*        whileHover={{*/}
+-                    {/*            opacity: 0.95,*/}
+-                    {/*            boxShadow: "white",*/}
+-                    {/*            borderRadius: "0px"*/}
+-                    {/*        }}*/}
+-                    {/*        className={"flex items-center gap-4 justify-center space-x-4 px-2 lg:px-4 py-3 lg:py-6 bg-black lg:bg-white text-white lg:text-black rounded-xl"}>*/}
+-                    {/*        <Send className={"w-6 h-6"}/>*/}
+-                    {/*        {join_button_title}*/}
+-                    {/*    </motion.div>*/}
+-                    {/*</a>*/}
