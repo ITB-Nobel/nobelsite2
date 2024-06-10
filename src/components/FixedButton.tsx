@@ -27,14 +27,14 @@ const FixedButton = () => {
          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
       >
-        <img src="/images/join_now_merah.png" alt="join us" className="group-hover:opacity-70" width={"150px"}/>
+        <img src="/images/join_now_merah.png" alt="join us" className="group-hover:opacity-70" width={"115px"}/>
       </a>
       <a href="https://join.nobel.ac.id" target="_blank" rel="noopener noreferrer" className="fixed top-8 right-4 cursor-pointer group hidden sm:block"
          style={{ transition: 'opacity 0.5s, transform 0.5s' }}
          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
       >
-        <img src="/images/join_now_merah.png" alt="join us" className="group-hover:opacity-70" width={"150px"}/>
+        <img src="/images/join_now_merah.png" alt="join us" className="group-hover:opacity-70" width={"115px"}/>
       </a>
 
 
