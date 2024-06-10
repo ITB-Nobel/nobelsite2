@@ -8,6 +8,7 @@ export default function SliderContent() {
 
         <div className={" lg:mt-[15%] lg:ml-12 lg:w-1/2 text-white"}>
 
+            
         </div>
     </div>
 }
