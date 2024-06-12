@@ -38,13 +38,11 @@ const SectionJoinUs = ({
                 <h1 className={"text-2xl lg:text-4xl mb-4 font-semibold"}>{title}</h1>
                 <div  className={"flex flex-col mt-4 gap-2 text-black w-full text-xl lg:text-2xl items-center justify-center"}>
                     <a className={"flex items-center gap-4 justify-center space-x-4 px-2 lg:px-4 py-3 lg:py-6 bg-primary text-white rounded-md"} target={"_blank"} //flex-1
-                       href="https://api.whatsapp.com/send/?phone=081142566235&text=Please%20feel%20free%20to%20contact%20us%20if%20you%20need%20any%20further%20information&type=phone_number&app_absent=0">
+                       href="https://api.whatsapp.com/send/?phone=+6281142566235&text=Please%20feel%20free%20to%20contact%20us%20if%20you%20need%20any%20further%20information">
                         <Mail className={"w-6 h-6"}/>{contact_button_title}
                     </a>
-
                 </div>
             </div>
-
             
 
         </div>
