@@ -139,7 +139,7 @@ const Footer =  () => {
                         </li>
                         <li>
                             <Link href={data[0]?.acf.group2.link6}>
-                                {data[0]?.acf.group2.label6}
+                                {data[0]?.acf.group2.label6} dsds
                             </Link>
                         </li>
 
