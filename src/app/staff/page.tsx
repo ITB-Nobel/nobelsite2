@@ -14,10 +14,10 @@ const StaffPage = () => {
     const handleClick = (value: string) => setFilter(value)
     return <GeneralLayout>
         <>
-            <main className={"text-center py-16 lg:px-24 min-h-screen"}>
+            <main className={"text-center pt-24 pb-16 lg:pt-32 lg:px-24 min-h-screen"}>
                 <h1 className={"text-6xl"}>Nobel <span className={"text-primary"}>Staff</span></h1>
                 <Filter handleClick={handleClick} filter={filter}/>
-                <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 "}>
+                <div className={"mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 "}>
                     {data ? data.map((props, index) => {
                         return filter?.toLowerCase() === props?.acf?.group?.toLowerCase() && <StaffDialog {...props.acf} key={index}/>
                     }) : <Skeleton className={"w-full rounded-xl h-screen"}/>}

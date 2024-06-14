@@ -13,8 +13,8 @@ const StaffDialog = (props: StaffACF) => <Dialog>
     <DialogContentLeft className=" p-0 border-0">
         <DialogDescription>
 
-            <div className={"min-w-full  p-12 space-y-6"}>
-                <div className={"relative w-[350px] h-[500px] mx-auto"}>
+            <div className={""}>
+                <div className={"relative w-[450px] h-[650px] mx-auto"}>
                     <div className={"absolute inset-0 flex items-center justify-center"}>
                         <Image
                             alt={props.title}
