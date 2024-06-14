@@ -21,6 +21,7 @@ const StaffPage = () => {
                     {data ? data.map((props, index) => {
                         return filter?.toLowerCase() === props?.acf?.group?.toLowerCase() && <StaffDialog {...props.acf} key={index}/>
                     }) : <Skeleton className={"w-full rounded-xl h-screen"}/>}
+                    
                 </div>
 
             </main>

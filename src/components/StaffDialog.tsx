@@ -6,47 +6,25 @@ import {StaffACF} from "@/lib/types";
 
 
 const StaffDialog = (props: StaffACF) => <Dialog>
-    <DialogTrigger>
+     <DialogTrigger>
         <Staff {...props}/>
-    </DialogTrigger>
+    </DialogTrigger> 
 
-    <DialogContentLeft className="bg-white   p-0 border-0 bg-none">
+    <DialogContentLeft className=" p-0 border-0">
         <DialogDescription>
 
-            <div className={"bg-white rounded-xl min-w-full  p-12 space-y-6"}>
-                {/*<div className={"absolute -top-[80px] -right-[20px] z-50 "}>*/}
-                {/*    <div className={"relative w-[200px] h-[200px]"}>*/}
-                {/*        <Image*/}
-                {/*            alt={props.title}*/}
-                {/*            className={"shadow-white shadow-2xl rounded-full "}*/}
-                {/*            layout={"fill"}*/}
-                {/*            src={props.image}*/}
-                {/*            objectFit={"cover"}*/}
-                {/*        />*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                <ScrollArea className={""}>
-                    <div className={"relative w-[250px] h-[250px] mx-auto"}>
+            <div className={"min-w-full  p-12 space-y-6"}>
+                <div className={"relative w-[350px] h-[500px] mx-auto"}>
+                    <div className={"absolute inset-0 flex items-center justify-center"}>
                         <Image
                             alt={props.title}
-                            className={"shadow-white shadow-2xl rounded-full "}
+                            className={""}
                             layout={"fill"}
                             src={props.image}
                             objectFit={"cover"}
                         />
                     </div>
-                    {/*HEADER*/}
-                    <div className={"space-y-2 mt-8 text-left"}>
-                        <h1 className={"text-2xl"}>{props.title}</h1>
-                        <p className={"text-primary text-lg font-semibold"}>{props.position}</p>
-                    </div>
-                    {/*CONTENT*/}
-                    {/*<article>*/}
-                    {/*    <div contentEditable*/}
-                    {/*         dangerouslySetInnerHTML={{__html: props.description}}*/}
-                    {/*    />*/}
-                    {/*</article>*/}
-                </ScrollArea>
+                </div>
             </div>
         </DialogDescription>
     </DialogContentLeft>
