@@ -16,7 +16,7 @@ const TabOverviewJurusan = ({jurusan, image, description, image_detail, videoPro
                 <h1 className={"text-5xl font-semibold text-primary"}>{jurusan}</h1>
                 <article>
                     <div className={"text-left mt-10 "}>
-                        <div className={"!items-stretch relative "}
+                        <div className={"!items-stretch relative text-sm"}
                              dangerouslySetInnerHTML={{__html: description as string}}/>
                     </div>
                 </article>

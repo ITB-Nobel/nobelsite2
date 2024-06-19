@@ -30,19 +30,21 @@ const JurusanDetailPage = () => {
     >
         <main className={"min-h-screen"}>
             <Tabs defaultValue="1" className={"container py-12 text-center "}>
-                <TabsList className="lg:grid lg:grid-cols-6 border-b-2 py-12 ">
-                    <TabsTrigger   value="1">
-                        OVERVIEW
-                    </TabsTrigger>
-                    <TabsTrigger  value="2">
-                        KURIKULUM
-                    </TabsTrigger>
-                    <TabsTrigger value="3">
-                        DOSEN
-                    </TabsTrigger>
-                    <TabsTrigger   value="4">
-                        AKTIVITAS
-                    </TabsTrigger>
+                <TabsList className="lg:grid lg:grid-cols-6 border-b-2 py-12 scroll-smooth">
+                    <div className="flex gap-2">
+                        <TabsTrigger className="px-2 text-sm" value="1">
+                            OVERVIEW
+                        </TabsTrigger>
+                        <TabsTrigger className="px-2 text-sm" value="2">
+                            KURIKULUM
+                        </TabsTrigger>
+                        <TabsTrigger className="px-2 text-sm" value="3">
+                            DOSEN
+                        </TabsTrigger>
+                        <TabsTrigger className="px-2 text-sm" value="4">
+                            AKTIVITAS
+                        </TabsTrigger>
+                    </div>
                 </TabsList>
                 <TabsContent value="1">
                     {data?.acf?.overview && <TabOverviewJurusan {...data?.acf.overview}
