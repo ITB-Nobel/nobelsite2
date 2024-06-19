@@ -53,12 +53,15 @@ const DetailNewsContent = ({acf, tags}: DetailNewsType) =>
             </div>
 
             <div className={"my-12"}>
-                <div className={"relative w-full h-96"}>
+                <div className={"relative w-full h-auto"}>
                     <Image
                         src={acf?.photo?.url}
                         alt={acf?.photo?.alt}
-                        layout={"fill"}
+                        layout={"responsive"}
                         objectFit={"cover"}
+                        quality={100}
+                        width={768}
+                        height={400}
                     />
                 </div>
                 <p className={"text-xs my-2 text-left"}>{acf?.photo?.description}</p>
