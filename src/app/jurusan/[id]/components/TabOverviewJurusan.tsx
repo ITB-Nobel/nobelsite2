@@ -1,6 +1,7 @@
 'use client'
 import React from "react";
 import {ProdiOverview, ProfilLulusanType} from "@/lib/types";
+import Image from "next/image";
 import BlurImage from "@/components/BlurImage";
 
 
@@ -21,15 +22,18 @@ const TabOverviewJurusan = ({jurusan, image, description, image_detail, videoPro
                 </article>
             </div>
 
-            <div className={" flex justify-end"}>
-                <div className={'relative w-[350px] lg:w-[430px] lg:h-[430px]'}>
-                    <BlurImage
-                        image={image_detail}
+
+            <div className={"relative w-full h-auto"}>
+                    <Image
+                        src={image_detail}
                         alt={"Overview Jurusan"}
+                        layout={"responsive"}
+                        objectFit={"cover"}
+                        quality={100}
+                        width={768}
+                        height={400}
                     />
-                    <div className={"absolute hidden lg:block w-[445px] h-full -bottom-3 -z-10"}/>
-                </div>
-            </div>
+</div>
 
         </section>
         
