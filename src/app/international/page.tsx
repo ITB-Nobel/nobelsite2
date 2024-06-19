@@ -22,20 +22,23 @@ const InternationalPage = async () => {
         >
             <main className={"min-h-screen"}>
                 <Tabs defaultValue="1" className={"container py-12 text-center "}>
-                    <TabsList className="lg:grid grid-cols-6 border-b-2 py-12 overflow-x-auto">
-                        <TabsTrigger value="1">
+                <TabsList className="lg:grid lg:grid-cols-6 border-b-2 py-12 scroll-smooth">
+                    <div className="flex gap-2">
+                        <TabsTrigger value="1" className="px-2 text-sm">
                             OVERVIEW
                         </TabsTrigger>
-                        <TabsTrigger value="2">
+                        <TabsTrigger value="2" className="px-2 text-sm">
                             EXPLORE
                         </TabsTrigger>
-                        <TabsTrigger value="3">
+                        <TabsTrigger value="3" className="px-2 text-sm">
                             PROGRAM
                         </TabsTrigger>
-                        <TabsTrigger value="4">
+                        <TabsTrigger value="4" className="px-2 text-sm">
                             ACTIVITY
                         </TabsTrigger>
+                    </div>
                     </TabsList>
+                
                     <TabsContent value="1">
                         {tempData?.acf?.overview && <TabOVerviewInternational {...tempData?.acf.overview}/>}
                     </TabsContent>
