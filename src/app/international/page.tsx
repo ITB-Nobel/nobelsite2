@@ -22,15 +22,15 @@ const InternationalPage = async () => {
         >
             <main className={"min-h-screen"}>
                 <Tabs defaultValue="1" className={"container py-12 text-center "}>
-                    <TabsList className="hidden lg:grid w-full grid-cols-4 border-b-2 pb-10">
+                    <TabsList className="lg:grid grid-cols-6 border-b-2 py-12 overflow-x-auto">
                         <TabsTrigger value="1">
                             OVERVIEW
                         </TabsTrigger>
                         <TabsTrigger value="2">
-                            EXPLORE MAKASSAR
+                            EXPLORE
                         </TabsTrigger>
                         <TabsTrigger value="3">
-                            OUR PROGRAM
+                            PROGRAM
                         </TabsTrigger>
                         <TabsTrigger value="4">
                             ACTIVITY
