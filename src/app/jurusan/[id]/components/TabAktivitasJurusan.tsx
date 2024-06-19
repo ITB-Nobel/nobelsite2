@@ -28,15 +28,20 @@ const TabAktivitasJurusan = ({term_id, idProdi}: ActivityProdiCategory & { idPro
                                 selengkapnya</p></Link>
                         </article>
                     </div>
-                    <div className={"relative w-full lg:w-[450px]"}>
-                        <BlurImage
-                            image={data[0]?.acf.photo.url}
-                            alt={"Image"}
-                            // layout={"fill"}
-                            // objectFit={"cover"}
-                            className={"rounded-2xl"}
-                        />
-                    </div>
+
+                    <div className={"relative w-full h-auto"}>
+                    <Image
+                        src={data[0]?.acf.photo.url}
+                        alt={"Image"}
+                        layout={"responsive"}
+                        objectFit={"cover"}
+                        quality={100}
+                        width={768}
+                        height={400}
+                    />
+                </div>
+
+                
                 </>
             }
 

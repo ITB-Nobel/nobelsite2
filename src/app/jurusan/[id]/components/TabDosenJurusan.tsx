@@ -14,20 +14,21 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
 
     return <section
         data-aos={"zoom-in"}
-        className={"py-12 grid grid-cols-1 lg:grid-cols-4 text-left w-full"}>
+        className={"md:grid md:grid-cols-2 lg:grid-cols-4 gap-4"}>
         {
             data ? data?.map((item, index) => {
                 const prodis = item.acf.prodi.map(prodi => prodi.ID)
                 if (prodis.includes(Number(idProdi)))
-                    return <StaffDialog2
-                        position={item.acf.position}
-                        image={item.acf.photo?.url}
-                        key={index}
-                        description={item.acf.description}
-                        group={""}
-                        title={item.acf.name}
-                    />
-            }) : <Skeleton className={"w-full rounded-xl h-screen"}/>
+                    return <div className={"col-span-1"} key={index}>
+                        <StaffDialog2
+                            position={item.acf.position}
+                            image={item.acf.photo?.url}
+                            description={item.acf.description}
+                            group={""}
+                            title={item.acf.name}
+                        />
+                    </div>
+            }) : <Skeleton className={"w-full rounded-xl h-screen col-span-1"}/>
         }
     </section>
 }

@@ -30,7 +30,7 @@ const JurusanDetailPage = () => {
     >
         <main className={"min-h-screen"}>
             <Tabs defaultValue="1" className={"container py-12 text-center "}>
-                <TabsList className="hidden  lg:grid lg:grid-cols-4 border-b-2 py-12 ">
+                <TabsList className="lg:grid lg:grid-cols-6 border-b-2 py-12 ">
                     <TabsTrigger   value="1">
                         OVERVIEW
                     </TabsTrigger>
