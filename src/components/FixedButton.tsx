@@ -20,16 +20,16 @@ const FixedButton = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ position: 'fixed', bottom: '60%', right: '4px', transform: 'translateY(50%)' }}>
 
-      <a href="https://join.nobel.ac.id" target="_blank" rel="noopener noreferrer" className="fixed bottom-25 right-4 cursor-pointer group w-fit block sm:hidden"
+      <a href="https://join.nobel.ac.id" target="_blank" rel="noopener noreferrer" className="block cursor-pointer group w-fit sm:hidden"
          style={{ transition: 'opacity 0.5s, transform 0.5s' }}
          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
       >
         <img src="/images/join_now_merah.png" alt="join us" className="group-hover:opacity-70" width={"115px"}/>
       </a>
-      <a href="https://join.nobel.ac.id" target="_blank" rel="noopener noreferrer" className="fixed bottom-25 right-4 cursor-pointer group hidden sm:block"
+      <a href="https://join.nobel.ac.id" target="_blank" rel="noopener noreferrer" className="hidden sm:block"
          style={{ transition: 'opacity 0.5s, transform 0.5s' }}
          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -38,13 +38,6 @@ const FixedButton = () => {
       </a>
 
 
-      {/*    <button */}
-{/*      className={`fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none}`}*/}
-{/*      style={{ transition: 'opacity 0.5s' }}*/}
-{/*    >*/}
-{/*Join US*/}
-{/*    </button>*/}
-    
     </div>
   );
 };
