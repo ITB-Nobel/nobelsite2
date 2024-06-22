@@ -87,7 +87,7 @@ export const StaffDialog2 = (props: StaffACF) => <Dialog>
 
                     {/*CONTENT*/}
                     <article>
-                        <div contentEditable
+                        <div
                              dangerouslySetInnerHTML={{__html: props.description}}
                         />
                     </article>
