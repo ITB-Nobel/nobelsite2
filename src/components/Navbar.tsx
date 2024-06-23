@@ -116,7 +116,7 @@ const useProdi = () => {
     const {data} = useSWR<ProdiType[]>('prodi', () => fetcher<ProdiType[]>('prodi?orderby=slug&order=asc&_fields=acf,slug,id'))
     useEffect(() => {
         if (data) {
-            let items = data.map(item => item.acf.fakultas)
+            let items = data?.map(item => item.acf.fakultas)
             items = Array.from(new Set(items)).reverse()
             setFakultasArray(items)
             setJurusanArray(data)
@@ -133,40 +133,47 @@ const useProdi = () => {
 export const Navbar = () => {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
     const {fakultasArray, jurusanArray} = useProdi()
-    return (<div
-        className={"absolute top-0 right-12 z-50  w-full lg:flex  hidden justify-end px-8 py-8 items-center bg-transparent"}>
-        {/*<div className={"relative w-48 h-24"}>*/}
-        {/*    <Image src={"/images/logo.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>*/}
-        {/*</div>*/}
+    return (
+        <>
+            <div
+                className={"absolute top-0 right-12 z-50  w-full lg:flex  hidden justify-end px-8 py-8 items-center bg-transparent"}>
+                {/*<div className={"relative w-48 h-24"}>*/}
+                {/*    <Image src={"/images/logo.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>*/}
+                {/*</div>*/}
 
-        <ul className={"text-md flex gap-14 font-semibold text-md uppercase "}>
-            {
-                menu.map((props, index) => {
-                    if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
-                        return <li key={index}
-                                   className={" pb-2 cursor-pointer hover:text-primary !text-white capitalize"}>
-                            <Link href={props.link}>{props.title}</Link>
-                        </li>
-                    if (props.submenu_with_header.length > 0)
-                        return <SubmenuWithHeader key={index} acf={jurusanArray}
-                                                  fakultasArray={fakultasArray} {...props} type={"general"}/>
+                <ul className={"text-md flex gap-14 font-semibold text-md uppercase "}>
+                    {
+                        menu.map((props, index) => {
+                            if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
+                                return <li key={index}
+                                           className={" pb-2 cursor-pointer hover:text-primary !text-white capitalize"}>
+                                    <Link href={props.link}>{props.title}</Link>
+                                </li>
+                            if (props.submenu_with_header.length > 0)
+                                return <SubmenuWithHeader key={index} acf={jurusanArray}
+                                                          fakultasArray={fakultasArray} {...props} type={"general"}/>
 
-                    return <SubMenu key={index} {...props} type={"general"}/>
-                })
-            }
+                            return <SubMenu key={index} {...props} type={"general"}/>
+                        })
+                    }
 
-        </ul>
+                </ul>
 
-        {/*<div>*/}
-        {/*    <a href={"https://join.nobel.ac.id"} target={"_blank"}>*/}
-        {/*        <button*/}
-        {/*            className={"border-2 font-roboto p-2 px-8 rounded-md border-black hover:bg-black hover:text-white font-semibold"}>*/}
-        {/*            Apply To Study*/}
-        {/*        </button>*/}
-        {/*    </a>*/}
+                {/*<div>*/}
+                {/*    <a href={"https://join.nobel.ac.id"} target={"_blank"}>*/}
+                {/*        <button*/}
+                {/*            className={"border-2 font-roboto p-2 px-8 rounded-md border-black hover:bg-black hover:text-white font-semibold"}>*/}
+                {/*            Apply To Study*/}
+                {/*        </button>*/}
+                {/*    </a>*/}
 
-        {/*</div>*/}
-    </div>);
+                {/*</div>*/}
+            </div>
+            <div className={"lg:hidden absolute right-0 top-12 z-50"}>
+                <MobileNavbar/>
+            </div>
+        </>
+    );
 }
 
 export function HomeNavbar() {
@@ -218,7 +225,7 @@ export function MobileNavbar() {
                 <DrawerTitle className={"text-3xl"}>Menu</DrawerTitle>
                 {/*<DrawerDescription>This action cannot be undone.</DrawerDescription>*/}
             </DrawerHeader>
-            <ScrollArea className={"h-[80vh]"}>
+            <ScrollArea className={"min-h-[80vh]"}>
                 <div className={"py-6"}>
                     <div className={"text-md px-4 space-y-4 font-semibold text-md uppercase "}>
                         {
@@ -242,25 +249,25 @@ export function MobileNavbar() {
                                         {props.submenu_with_header.map((item, index) => {
                                             return <div key={index} className={"px-6"}>
                                                 {fakultasArray.map((component, index) => {
-                                                    if(component?.toLowerCase() === item.header.toLowerCase())
-                                                        return (<>
-                                                            <h4 className={"font-semibold capitalize text-sm py-2"}>{component}</h4>
-                                                            <div key={index} className={"space-y-2"}>
-                                                                <ul className={"space-y-1 list-disc px-8"}>
-                                                                    {
-                                                                        jurusanArray.filter((item) => item.acf.fakultas === component)
-                                                                            .map((item, index) =>
-                                                                                <li key={index}
-                                                                                    className={"text-xs font-light"}>
-                                                                                    <Link href={`/jurusan/${item.id}`}>
-                                                                                        {item.acf.overview.jurusan}
-                                                                                    </Link>
-                                                                                </li>
-                                                                            )
-                                                                    }
-                                                                </ul>
-                                                            </div>
-                                                        </>)
+                                                        if (component?.toLowerCase() === item.header.toLowerCase())
+                                                            return (<>
+                                                                <h4 className={"font-semibold capitalize text-sm py-2"}>{component}</h4>
+                                                                <div key={index} className={"space-y-2"}>
+                                                                    <ul className={"space-y-1 list-disc px-8"}>
+                                                                        {
+                                                                            jurusanArray.filter((item) => item.acf.fakultas === component)
+                                                                                .map((item, index) =>
+                                                                                    <li key={index}
+                                                                                        className={"text-xs font-light"}>
+                                                                                        <Link href={`/jurusan/${item.id}`}>
+                                                                                            {item.acf.overview.jurusan}
+                                                                                        </Link>
+                                                                                    </li>
+                                                                                )
+                                                                        }
+                                                                    </ul>
+                                                                </div>
+                                                            </>)
                                                     }
                                                 )}
 

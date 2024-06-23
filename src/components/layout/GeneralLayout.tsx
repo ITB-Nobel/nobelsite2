@@ -19,7 +19,6 @@ type GeneralLayoutType = {
 }
 
 
-
 export default function GeneralLayout({
                                           children,
                                           featuredTitle = "Nobel Page",
@@ -32,7 +31,7 @@ export default function GeneralLayout({
                 {
                     pageLanguage: "id",
                     autoDisplay: false,
-                    includedLanguages : 'id,en,us,es,th,ar,zh-CN,zh-TW,de'
+                    includedLanguages: 'id,en,us,es,th,ar,zh-CN,zh-TW,de'
                 },
                 "google_translate_element"
             );
@@ -55,18 +54,26 @@ export default function GeneralLayout({
         <>
             <TopHeader variant={"primary"}/>
 
-            <div className={"relative max-h-[240px] min-h-[400px] w-full "}>
+            <div className={"relative lg:max-h-[240px] lg:min-h-[400px] w-full "}>
                 <Navbar/>
                 {featuredImage && <BlurImage2 image={featuredImage}
                                               alt={featuredTitle}
-                                              className={" brightness-75 aspect-w-4 aspect-h-1 w-full h-[400px]"}
+                                              className={" brightness-75 aspect-w-4 aspect-h-2 lg:aspect-h-1 w-full lg:h-[400px]"}
                 />}
 
                 <h1 className={"absolute  lg:px-24 text-white text-4xl lg:text-5xl font-semibold tracking-widest top-52 left-12"}
                     dangerouslySetInnerHTML={{__html: featuredTitle}}/>
+
+                {/*LOGO*/}
                 <Link href={"/"}>
-                    <Image src={"/images/logo_putih.png"} alt={"logo"} width={300} height={100} objectFit={"cover"}
-                           className={"absolute top-8 z-50 left-12"}/>
+                    <div
+                        className={"absolute w-[150px] h-[50px] lg:h-[100px] lg:w-[300px] top-8 z-50 left-4 lg:left-12"}>
+                        <Image src={"/images/logo_putih.png"}
+                               alt={"logo"}
+                               objectFit={"cover"}
+                               fill={true}
+                               className={""}/>
+                    </div>
                 </Link>
 
             </div>

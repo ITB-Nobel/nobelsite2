@@ -14,8 +14,8 @@ const StaffPage = () => {
     const handleClick = (value: string) => setFilter(value)
     return <GeneralLayout>
         <>
-            <main className={"text-center pt-24 pb-16 lg:pt-32 lg:px-24 min-h-screen"}>
-                <h1 className={"text-6xl"}>Nobel <span className={"text-primary"}>Staff</span></h1>
+            <main className={"text-center pt-12 pb-16 lg:pt-32 min-h-screen"}>
+                <h1 className={"text-4xl lg:text-6xl"}>Nobel <span className={"text-primary"}>Staff</span></h1>
                 <Filter handleClick={handleClick} filter={filter}/>
                 <div className={"mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 "}>
                     {data ? data.map((props, index) => {
@@ -33,7 +33,7 @@ const StaffPage = () => {
 const Filter = ({handleClick, filter}: { handleClick: (input: string) => void, filter: string }) => {
     const activeClass = `text-white bg-primary rounded-xl  py-1 px-6`
     return <div
-        className={" text-lg  lg:text-2xl py-4 justify-center min-w-full overflow-x-scroll  lg:overflow-x-hidden px-12 mx-auto lg:max-w-fit my-6 md:my-12 items-center gap-8 lg:gap-12 flex font-medium capitalize "}>
+        className={" text-sm  lg:text-2xl py-4 justify-center min-w-full overflow-x-scroll  lg:overflow-x-hidden px-12 mx-auto lg:max-w-fit my-6 md:my-12 items-center gap-8 lg:gap-12 flex font-medium capitalize "}>
         <button
             className={`!capitalize min-w-fit  ${filter === 'rektorat' && activeClass}`}
             onClick={() => handleClick('rektorat')}

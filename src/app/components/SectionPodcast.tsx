@@ -18,7 +18,7 @@ const SectionPodcast = ({
                             button_title,
                             button_link
                         }: SectionPodcastType) => {
-    return (<section className={"py-12  bg-black text-white relative "}>
+    return (<section className={"py-12  bg-black text-white relative px-4"}>
 
         <div data-aos={"zoom-out"}  className={"flex flex-col-reverse sm:flex-row justify-between gap-12 lg:gap-24  container items-center "}>
             <iframe

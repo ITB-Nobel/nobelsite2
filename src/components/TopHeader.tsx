@@ -12,7 +12,7 @@ const TopHeader = ({variant}: { variant: "white" | "primary" }) => {
         {/*<div className={`text-sm lg:text-md tracking-widest`}>*/}
         {/*    <div className={"font-semibold"}>EN | ID</div>*/}
         {/*</div>*/}
-        <div id={variant}>
+        <div id={variant} className={"!max-w-[100px] lg:max-w-full mt-4"}>
             <div id="google_translate_element"></div>
         </div>
         <div>
