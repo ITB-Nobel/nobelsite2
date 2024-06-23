@@ -27,7 +27,7 @@ const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaTyp
                 <ButtonFilter type={filter} handleClick={(input: string) => {
                     setFilter(input)
                 }}/>
-                <div className={"grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 min-h-[89vh]"}>
+                <div className={"grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 lg:px-0 min-h-[89vh]"}>
                     {data?.map((item, index) => {
                         return (
                             <>
@@ -55,7 +55,7 @@ const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaTyp
                                             }
                                             <div
                                                 className={" text-left absolute top-0 left-36  2xl:left-44 h-full flex items-center"}>
-                                                <h2 className={"text-xl max-w-[200px] capitalize"}>{item.acf.overview?.jurusan}</h2>
+                                                <h2 className={"text-lg lg:text-xl max-w-[200px] capitalize"}>{item.acf.overview?.jurusan}</h2>
                                             </div>
                                         </motion.div>
                                     </Link>}
