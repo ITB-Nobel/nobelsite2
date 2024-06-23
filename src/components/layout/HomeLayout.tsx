@@ -1,11 +1,11 @@
 'use client'
 import React, {useEffect} from "react";
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {Autoplay, Navigation} from 'swiper/modules';
+import {Autoplay, Navigation, Pagination} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation'
 import TopHeader from "@/components/TopHeader";
-import SliderContent from "@/app/components/SliderContent";
 import Footer from "@/components/Footer";
 import {HomeNavbar} from "@/components/Navbar";
 import {BlurImage2} from "@/components/BlurImage";
@@ -40,6 +40,7 @@ const HomeLayout = ({children, data}: { children: React.ReactNode, data: any }) 
         }
     }, [])
 
+
     return <>
         <TopHeader variant={"white"}/>
 
@@ -57,22 +58,59 @@ const HomeLayout = ({children, data}: { children: React.ReactNode, data: any }) 
                         clickable: true,
                     }}
                     navigation={true}
-                    modules={[Autoplay, Navigation]}
+                    modules={[Autoplay, Navigation, Pagination]}
                     className="text-white bg-black lg:min-h-screen"
                 >
-                    <SwiperSlide className={"text-red-500"}><>
-                        <div
-                            className={"relative  w-full h-screen max-h-[200px] lg:max-h-[650px]  xl:max-h-[800px] "}>
-                            {
-                                <BlurImage2
-                                    image={`${data[0]?.acf?.image}`}
-                                    alt={"Default Nobel Image"}
-                                    className={"brightness-50"}
-                                />
-                            }
-                        </div>
-                    </>
-                    </SwiperSlide>
+                    {
+                        !["", undefined, null].includes(data[0]?.acf?.image) &&
+                        <SwiperSlide className={"text-red-500"}><>
+                            <div
+                                className={"relative  w-full h-screen max-h-[250px] lg:max-h-[650px]  xl:max-h-[800px] "}>
+                                {
+                                    <BlurImage2
+                                        image={`${data[0]?.acf?.image}`}
+                                        alt={"Default Nobel Image"}
+                                        className={"brightness-50 w-full h-full"}
+                                    />
+                                }
+                            </div>
+                        </>
+                        </SwiperSlide>
+                    }
+
+                    {
+                        !["", undefined, null].includes(data[0]?.acf?.image2) &&
+                        <SwiperSlide className={"text-red-500"}><>
+                            <div
+                                className={"relative  w-full h-screen max-h-[250px] lg:max-h-[650px]  xl:max-h-[800px] "}>
+                                {
+                                    <BlurImage2
+                                        image={`${data[0]?.acf?.image2}`}
+                                        alt={"Default Nobel Image"}
+                                        className={"brightness-50 w-full h-full"}
+                                    />
+                                }
+                            </div>
+                        </>
+                        </SwiperSlide>
+                    }
+
+                    {
+                        !["", undefined, null].includes(data[0]?.acf?.image3) &&
+                        <SwiperSlide className={"text-red-500"}><>
+                            <div
+                                className={"relative  w-full h-screen max-h-[250px] lg:max-h-[650px]  xl:max-h-[800px] "}>
+                                {
+                                    <BlurImage2
+                                        image={`${data[0]?.acf?.image3}`}
+                                        alt={"Default Nobel Image"}
+                                        className={"brightness-50 w-full h-full"}
+                                    />
+                                }
+                            </div>
+                        </>
+                        </SwiperSlide>
+                    }
                 </Swiper>
 
             </div>
@@ -81,6 +119,5 @@ const HomeLayout = ({children, data}: { children: React.ReactNode, data: any }) 
         <Footer/>
     </>
 }
-
 
 export default HomeLayout;
