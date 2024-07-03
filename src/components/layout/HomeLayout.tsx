@@ -1,18 +1,18 @@
 'use client'
 import React, {useEffect} from "react";
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {Autoplay, Navigation} from 'swiper/modules';
+import {Autoplay, Navigation, Pagination} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation'
 import TopHeader from "@/components/TopHeader";
-import SliderContent from "@/app/components/SliderContent";
 import Footer from "@/components/Footer";
 import {HomeNavbar} from "@/components/Navbar";
 import {BlurImage2} from "@/components/BlurImage";
 import AOS from "aos";
 
 
-const HomeLayout = ({children,data}: { children: React.ReactNode, data: any }) => {
+const HomeLayout = ({children, data}: { children: React.ReactNode, data: any }) => {
     const googleTranslateElementInit = () => {
         if (typeof window !== 'undefined') {
             // @ts-ignore
@@ -20,7 +20,7 @@ const HomeLayout = ({children,data}: { children: React.ReactNode, data: any }) =
                 {
                     pageLanguage: "id",
                     autoDisplay: false,
-                    includedLanguages : 'id,en,us,es,th,ar,zh-CN,zh-TW,de'
+                    includedLanguages: 'id,en,us,es,th,ar,zh-CN,zh-TW,de'
                 },
                 "google_translate_element"
             );
@@ -40,6 +40,7 @@ const HomeLayout = ({children,data}: { children: React.ReactNode, data: any }) =
         }
     }, [])
 
+
     return <>
         <TopHeader variant={"white"}/>
 
@@ -57,42 +58,59 @@ const HomeLayout = ({children,data}: { children: React.ReactNode, data: any }) =
                         clickable: true,
                     }}
                     navigation={true}
-                    modules={[Autoplay, Navigation]}
-                    className="mySwiper text-white bg-black lg:min-h-screen"
+                    modules={[Autoplay, Navigation, Pagination]}
+                    className="text-white bg-black lg:min-h-screen"
                 >
-                    <SwiperSlide><>
-                        {/**/}
-                        <div className={"relative  w-full h-screen max-h-[200px] lg:max-h-[650px]  xl:max-h-[800px] pb-[56.25%] "}>
-                            {
-                                ["", null, undefined].includes(data[0]?.acf?.youtube_embed_link) ?
-                                    <BlurImage2 image={`${data[0]?.acf?.image}`} alt={"Default Nobel Image"}
-                                                className={""}/>
-                                    :
-                                    <iframe width="100%"
-                                            height="100%"
-                                            src={`${data[0]?.acf?.youtube_embed_link}?autoplay=1&autohide=1&mute=1&disablekb=1&controls=0&showinfo=0&modestbranding=1&loop=1&fs=0&rel=0&enablejsapi=1`}
-                                            title="PROFILE - NOBEL INDONESIA INSTITUTE"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            referrerPolicy="strict-origin-when-cross-origin"
-                                            allowFullScreen
-                                            className={"brightness-50 absolute"}
-                                    ></iframe>
-                            }
+                    {
+                        !["", undefined, null].includes(data[0]?.acf?.image) &&
+                        <SwiperSlide className={"text-red-500"}><>
+                            <div
+                                className={"relative  w-full h-screen max-h-[250px] lg:max-h-[650px]  xl:max-h-[800px] "}>
+                                {
+                                    <BlurImage2
+                                        image={`${data[0]?.acf?.image}`}
+                                        alt={"Default Nobel Image"}
+                                        className={"w-full h-full"}
+                                    />
+                                }
+                            </div>
+                        </>
+                        </SwiperSlide>
+                    }
 
+                    {
+                        !["", undefined, null].includes(data[0]?.acf?.image2) &&
+                        <SwiperSlide className={"text-red-500"}><>
+                            <div
+                                className={"relative  w-full h-screen max-h-[250px] lg:max-h-[650px]  xl:max-h-[800px] "}>
+                                {
+                                    <BlurImage2
+                                        image={`${data[0]?.acf?.image2}`}
+                                        alt={"Default Nobel Image"}
+                                        className={"w-full h-full"}
+                                    />
+                                }
+                            </div>
+                        </>
+                        </SwiperSlide>
+                    }
 
-                        </div>
-                        <SliderContent/>
-                    </>
-                    </SwiperSlide>
-                    {/*<SwiperSlide><>*/}
-                    {/*    <StaticImage*/}
-                    {/*        src={"../images/slidex.jpg"}*/}
-                    {/*        alt={"Slider Image"}*/}
-                    {/*        className={"w-full max-h-[450px] lg:max-h-[650px]  xl:max-h-[800px] bg-black h-auto brightness-75"}*/}
-                    {/*    />*/}
-                    {/*    <SliderContent/>*/}
-                    {/*</></SwiperSlide>*/}
-                    {/*<SwiperSlide><TestComponent/></SwiperSlide>*/}
+                    {
+                        !["", undefined, null].includes(data[0]?.acf?.image3) &&
+                        <SwiperSlide className={"text-red-500"}><>
+                            <div
+                                className={"relative  w-full h-screen max-h-[250px] lg:max-h-[650px]  xl:max-h-[800px] "}>
+                                {
+                                    <BlurImage2
+                                        image={`${data[0]?.acf?.image3}`}
+                                        alt={"Default Nobel Image"}
+                                        className={"w-full h-full"}
+                                    />
+                                }
+                            </div>
+                        </>
+                        </SwiperSlide>
+                    }
                 </Swiper>
 
             </div>
@@ -101,6 +119,5 @@ const HomeLayout = ({children,data}: { children: React.ReactNode, data: any }) =
         <Footer/>
     </>
 }
-
 
 export default HomeLayout;

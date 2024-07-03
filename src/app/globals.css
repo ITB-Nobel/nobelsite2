@@ -3,6 +3,25 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --swiper-navigation-color: #fff;
+  --swiper-theme-color: #fff;
+  --swiper-pagination-color: #fff;
+}
+
+.swiper-button-next{
+  @apply  mr-8
+}
+
+.swiper-button-prev{
+  @apply ml-8
+}
+
+.swiper-button-prev:after, .swiper-button-next:after{
+  @apply !text-lg lg:!text-5xl
+}
+
+
 @font-face {
   font-family: 'GT America Standard Regular';
   src: url('/fonts/gt-america-standard-regular.ttf') format('truetype');

@@ -20,20 +20,20 @@ const VisiPage = async() => {
                         <p className={"text-slate-500 text-lg mt-2"}>{data[0]?.acf.subtitle}</p>
                         {
                             data[0]?.acf.image &&
-                            <div className={"relative w-full h-32 lg:h-72"}>
+                            <div className={"relative w-full h-48 lg:h-72"}>
                                 <Image
                                     src={data[0]?.acf.image.url}
                                     alt={data[0]?.acf.image.title}
                                     layout={"fill"}
                                     objectFit={"fill"}
-                                    className={"  my-16 object-center"}
+                                    className={"my-6 lg:my-16 object-center"}
                                 />
                             </div>
                         }
-
-
-                        {data[0]?.acf.description && <div className={"text-left  space-y-4 basis-3/4 mt-24"}
+                        {data[0]?.acf.description && <div className={"text-left  space-y-4 basis-3/4 mt-4 lg:mt-24"}
                                                           dangerouslySetInnerHTML={{__html: data[0]?.acf.description}}/>}
+
+
                     </section>
                 </main> : <Skeleton className={"w-full rounded-xl h-screen"}/>
         }

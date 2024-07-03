@@ -111,7 +111,7 @@ const NewsWidestCard = ({acf, id, slug, tags}: DetailNewsType) => {
 
 const NewsHigherCard = ({acf, slug, id, tags}: DetailNewsType) => {
     const {title, date, author, description, photo} = acf
-    return <Link href={`news/${slug}`} className={"row-span-2"}>
+    return <Link href={`news/${slug}`} className={"lg:row-span-2"}>
         <div
             data-aos={"fade-right"}
             className={"h-full  card-shadow rounded-xl text-left  flex flex-col justify-between "}>
@@ -120,7 +120,7 @@ const NewsHigherCard = ({acf, slug, id, tags}: DetailNewsType) => {
                 <h1 className={"text-[20px] leading-normal  font-semibold mx-6 my-6"}>
                     {title}
                 </h1>
-                <div className={"relative w-full min-h-[200px] flex-q"}>
+                <div className={"relative w-full hidden lg:block min-h-[200px] flex-q"}>
                     <Image
                         src={photo.url}
                         alt={slug}
