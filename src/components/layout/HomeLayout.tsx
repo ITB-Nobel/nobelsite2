@@ -66,7 +66,7 @@ const HomeLayout = ({children,data}: { children: React.ReactNode, data: any }) =
                             {
                                 ["", null, undefined].includes(data[0]?.acf?.youtube_embed_link) ?
                                     <BlurImage2 image={`${data[0]?.acf?.image}`} alt={"Default Nobel Image"}
-                                                className={"brightness-50"}/>
+                                                className={""}/>
                                     :
                                     <iframe width="100%"
                                             height="100%"

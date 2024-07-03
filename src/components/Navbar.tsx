@@ -64,6 +64,11 @@ const defaultMenu: MenuType[] = [
             },
         ],
         submenu_with_header: []
+    },{
+        title: 'News',
+        link: '/news',
+        submenu: [],
+        submenu_with_header: []
     },
     {
         title: 'Study',
@@ -85,6 +90,12 @@ const defaultMenu: MenuType[] = [
         link: '/research',
         submenu: [],
         submenu_with_header: []
+    },{
+        title: 'Alumni',
+        link: 'https://alumni.nobel.ac.id/',
+        submenu: [],
+        submenu_with_header: []
+
     },
     {
         title: 'Academic Support',
@@ -181,12 +192,13 @@ export function HomeNavbar() {
             </div>
         </Link>
         <div className={"hidden lg:block"}>
-            <ul className={"text-md flex gap-14"}>
+            <ul className={"text-md flex gap-8"}>
                 {
                     menu.map((props, index) => {
                         if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
                             return <li key={index} className={"text-white pb-2 cursor-pointer hover:text-primary "}>
                                 <Link href={props.link}>{props.title}</Link>
+                                
                             </li>
                         if (props.submenu_with_header.length > 0)
                             return <SubmenuWithHeader fakultasArray={fakultasArray} acf={jurusanArray}
