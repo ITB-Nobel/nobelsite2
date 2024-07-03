@@ -70,7 +70,7 @@ const HomeLayout = ({children, data}: { children: React.ReactNode, data: any }) 
                                     <BlurImage2
                                         image={`${data[0]?.acf?.image}`}
                                         alt={"Default Nobel Image"}
-                                        className={"brightness-50 w-full h-full"}
+                                        className={"w-full h-full"}
                                     />
                                 }
                             </div>
@@ -87,7 +87,7 @@ const HomeLayout = ({children, data}: { children: React.ReactNode, data: any }) 
                                     <BlurImage2
                                         image={`${data[0]?.acf?.image2}`}
                                         alt={"Default Nobel Image"}
-                                        className={"brightness-50 w-full h-full"}
+                                        className={"w-full h-full"}
                                     />
                                 }
                             </div>
@@ -104,7 +104,7 @@ const HomeLayout = ({children, data}: { children: React.ReactNode, data: any }) 
                                     <BlurImage2
                                         image={`${data[0]?.acf?.image3}`}
                                         alt={"Default Nobel Image"}
-                                        className={"brightness-50 w-full h-full"}
+                                        className={"w-full h-full"}
                                     />
                                 }
                             </div>

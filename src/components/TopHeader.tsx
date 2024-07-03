@@ -17,13 +17,13 @@ const TopHeader = ({variant}: { variant: "white" | "primary" }) => {
         </div>
         <div>
             <ul className={"flex gap-6 text-sm"}>
-
+{/* 
                 <li>
                     <Link href={"/news"} className={style.list}>
                         <Newspaper strokeWidth={1} size={14}/>
                         <span className={"hidden lg:block"}>News</span>
                     </Link>
-                </li>
+                </li> */}
                 {/* <li>
                     <Link href={"/achievement"} className={style.list}>
                         <Trophy strokeWidth={1} size={14}/>
@@ -31,13 +31,13 @@ const TopHeader = ({variant}: { variant: "white" | "primary" }) => {
                     </Link>
                 </li> */}
 
-
+{/* 
                 <li>
                     <a href={"https://alumni.nobel.ac.id"} target={"_blank"} className={style.list}>
                         <GraduationCap strokeWidth={1} size={14}/>
                         <span className={"hidden lg:block"}>Alumni</span>
                     </a>
-                </li>
+                </li> */}
                 {/*<li>*/}
                 {/*    <Link href={"/coming-soon"} className={style.list}>*/}
                 {/*        <Contact strokeWidth={1} size={14}/>*/}
