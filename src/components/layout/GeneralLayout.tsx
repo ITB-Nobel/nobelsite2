@@ -58,10 +58,10 @@ export default function GeneralLayout({
                 <Navbar/>
                 {featuredImage && <BlurImage2 image={featuredImage}
                                               alt={featuredTitle}
-                                              className={" brightness-75 aspect-w-4 aspect-h-2 lg:aspect-h-1 w-full lg:h-[400px]"}
+                                              className={" brightness-75 aspect-w-5 aspect-h-2 lg:aspect-h-1 w-full lg:h-[400px]"}
                 />}
 
-                <h1 className={"absolute  lg:px-24 text-white text-4xl lg:text-5xl font-semibold tracking-widest top-52 left-12"}
+                <h1 className={"absolute top-1/2 left-5 -translate-y-1/2 lg:px-24 text-white text-2xl lg:text-5xl font-semibold tracking-widest mt-3.5"}
                     dangerouslySetInnerHTML={{__html: featuredTitle}}/>
 
                 {/*LOGO*/}
