@@ -39,7 +39,7 @@ const DetailNewsPage = () => {
 const DetailNewsContent = ({acf, tags}: DetailNewsType) =>
     <section data-aos={"fade-in"} className={"container"}>
         <div className={""}>
-            <h1 className={"text-5xl font-semibold "}>{acf?.title}</h1>
+            <h1 className={"font-semibold "}>{acf?.title}</h1>
             <div className={"flex gap-4 items-center text-slate-500"}>
                 <p className={"mt-4 flex gap-2 items-center "}>
                     <ClockIcon className={"w-4 h-4"}/>
