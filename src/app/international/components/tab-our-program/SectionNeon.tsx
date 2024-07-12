@@ -13,7 +13,7 @@ export default function SectionNeon({
     return <section data-aos={"zoom-in"}
                     className={"py-4 lg:py-12 text-left flex flex-col lg:flex-row-reverse gap-12 items-center justify-between w-full"}>
         <div className={""}>
-            <h1 className={"text-5xl font-semibold text-primary"}>{title}</h1>
+            <h1 className={"font-semibold text-primary"}>{title}</h1>
             <article>
                 <div className={"text-left mt-10 "}>
                     <div className={"!items-stretch relative"}
