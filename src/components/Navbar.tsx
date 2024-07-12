@@ -17,6 +17,7 @@ import {Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTri
 import {HamburgerMenuIcon} from "@radix-ui/react-icons";
 import {CloseIcon} from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon";
 import {ScrollArea} from "@/components/ScrollArea";
+import FixedButton from '@/components/FixedButton';
 
 type MenuType = {
     title: string;
@@ -219,8 +220,9 @@ export function HomeNavbar() {
         </div>
         <div className={"lg:hidden"}>
             <MobileNavbar/>
-        </div>
 
+            <FixedButton/>
+        </div>
     </nav>
 }
 
@@ -298,6 +300,7 @@ export function MobileNavbar() {
                 <CloseIcon/>
             </DrawerClose>
         </DrawerContent>
+        
     </Drawer>
 }
 
