@@ -242,7 +242,7 @@ export function MobileNavbar() {
                 <DrawerTitle className={"text-3xl"}>Menu</DrawerTitle>
                 {/*<DrawerDescription>This action cannot be undone.</DrawerDescription>*/}
             </DrawerHeader>
-            <ScrollArea className={"min-h-[80vh]"}>
+            <ScrollArea className={"min-h-[82vh] w-full h-80 overflow-y-scroll border border-gray-300 p-4"}>
                 <div className={"py-6"}>
                     <div className={"text-md px-4 space-y-4 font-semibold text-md uppercase "}>
                         {
