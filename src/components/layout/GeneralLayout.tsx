@@ -56,9 +56,9 @@ export default function GeneralLayout({
 
             <div className={"relative lg:max-h-[240px] lg:min-h-[400px] w-full "}>
                 <Navbar/>
-                {featuredImage && <BlurImage2 image={featuredImage}
+{featuredImage && <BlurImage2 image={featuredImage}
                                               alt={featuredTitle}
-                                              className={" brightness-75 aspect-w-5 aspect-h-2 lg:aspect-h-1 w-full lg:h-[400px]"}
+                                              className={"brightness-75 aspect-w-5 aspect-h-2 lg:aspect-h-1 md:w-full md:h-[300px] lg:h-[400px]  sm:h-[100px]  h-[150px]"}
                 />}
 
                 <h1 className={"absolute top-1/2 left-5 -translate-y-1/2 lg:px-24 text-white text-2xl lg:text-5xl font-semibold tracking-widest mt-3.5"}

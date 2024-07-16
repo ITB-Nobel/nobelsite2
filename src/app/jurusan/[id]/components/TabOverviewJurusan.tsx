@@ -13,7 +13,7 @@ const TabOverviewJurusan = ({jurusan, image, description, image_detail, videoPro
         <section data-aos={"zoom-in"}
                  className={"lg:py-12 text-left flex flex-col lg:flex-row gap-12 items-center justify-between w-full"}>
             <div className={""}>
-                <h1 className={"text-5xl font-semibold text-primary"}>{jurusan}</h1>
+                <h1 className={"font-semibold text-primary"}>{jurusan}</h1>
                 <article>
                     <div className={"text-left mt-10 "}>
                         <div className={"!items-stretch relative text-sm"}
@@ -55,7 +55,7 @@ const TabOverviewJurusan = ({jurusan, image, description, image_detail, videoPro
             {profil_lulusan?.image && <section data-aos={"zoom-in"}
                                                className={"py-12 text-left flex flex-col lg:flex-row gap-12 items-center justify-between w-full"}>
                 <div className={"lg:text-left w-full px-4"}>
-                    <h1 className={"text-5xl font-semibold text-primary"}>{profil_lulusan.judul}</h1>
+                    <h1 className={"font-semibold text-primary"}>{profil_lulusan.judul}</h1>
                     <article>
                         <div className={"text-left mt-10 "}>
                             <div className={"!items-stretch relative "}

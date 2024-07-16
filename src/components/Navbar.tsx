@@ -153,7 +153,8 @@ export const Navbar = () => {
                 {/*    <Image src={"/images/logo.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>*/}
                 {/*</div>*/}
 
-                <ul className={"text-md flex gap-14 font-semibold text-md uppercase "}>
+
+                <ul className={"text-md flex gap-7 font-semibold text-md uppercase "}>
                     {
                         menu.map((props, index) => {
                             if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
@@ -183,6 +184,8 @@ export const Navbar = () => {
             </div>
             <div className={"lg:hidden absolute right-0 top-12 z-50"}>
                 <MobileNavbar/>
+                
+            <FixedButton/>
             </div>
         </>
     );

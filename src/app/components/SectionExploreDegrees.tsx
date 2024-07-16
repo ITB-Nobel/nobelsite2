@@ -43,7 +43,7 @@ const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaTyp
                                             }
                                         >
                                             {
-                                                <div className={"rounded-xl w-full h-[180px] relative"}>
+                                                <div className={"rounded-xl w-[270px] h-[180px] relative"}>
                                                     <Image alt={item?.slug as string}
                                                            src={item.acf.overview.image}
                                                            layout={"fill"}
@@ -54,7 +54,7 @@ const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaTyp
 
                                             }
                                             <div
-                                                className={" text-left absolute top-0 left-36  2xl:left-44 h-full flex items-center"}>
+                                                className={" text-left absolute top-16 left-20 h-full flex"}>
                                                 <h2 className={"text-lg lg:text-xl max-w-[200px] capitalize"}>{item.acf.overview?.jurusan}</h2>
                                             </div>
                                         </motion.div>

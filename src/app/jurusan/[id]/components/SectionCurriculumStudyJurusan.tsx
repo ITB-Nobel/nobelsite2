@@ -36,8 +36,8 @@ const SectionCurriculumStudyJurusan = ({idProdi}: ProdiCurriculum & { idProdi: s
 
     return matakuliahArray?.length > 0 && <section
         data-aos={"zoom-in"}
-        className={"py-12 space-y-12 text-left w-full"}>
-        <h1 className={"text-5xl font-semibold text-primary"}>Study Plan</h1>
+        className={"py-1 space-y-12 text-left w-full"}>
+        <h1 className={"font-semibold text-primary"}>Study Plan</h1>
         <div>
             <Accordion type="single" defaultValue={"1"} collapsible className="w-full">
                 {
