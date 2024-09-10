@@ -29,7 +29,7 @@ export default function GeneralLayout({
             // @ts-ignore
             new window.google.translate.TranslateElement(
                 {
-                    pageLanguage: "id",
+                    pageLanguage: "en",
                     autoDisplay: false,
                     includedLanguages: 'id,en,us,es,th,ar,zh-CN,zh-TW,de'
                 },
