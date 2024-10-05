@@ -46,7 +46,7 @@ const HomeLayout = ({children, data}: { children: React.ReactNode, data: any }) 
 
         <main className={"overflow-x-hidden"}>
             <div className={"relative"}>
-                <HomeNavbar/>
+                { <HomeNavbar/> }
                 <Swiper
                     spaceBetween={30}
                     centeredSlides={true}
