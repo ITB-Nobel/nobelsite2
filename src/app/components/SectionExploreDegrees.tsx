@@ -27,7 +27,7 @@ const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaTyp
                 <ButtonFilter type={filter} handleClick={(input: string) => {
                     setFilter(input)
                 }}/>
-                <div className={"grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 lg:px-0 min-h-[89vh]"}>
+                <div className={"grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 min-h-[89vh]"}>
                     {data?.map((item, index) => {
                         return (
                             <>
@@ -49,6 +49,7 @@ const SectionExploreDegrees = ({title, color_title, subtitle}: SectionBerandaTyp
                                                            layout={"fill"}
                                                            className={"rounded-xl"}
                                                            objectFit={"cover"}
+                                                           sizes={"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
                                                     />
                                                 </div>
 

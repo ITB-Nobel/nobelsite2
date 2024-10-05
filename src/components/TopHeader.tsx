@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {GraduationCap, Newspaper, Trophy} from "lucide-react";
 import Link from "next/link";
+import { defaultMenu, MenuType, MobileNavbar, SubMenu, SubmenuWithHeader, useProdi } from './Navbar';
+import FixedButton from './FixedButton';
 
 
 const TopHeader = ({variant}: { variant: "white" | "primary" }) => {
+    const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
+    const {jurusanArray, fakultasArray} = useProdi()
     const style = {
         list: `flex gap-2 items-center p-2 cursor-pointer ${variant === "white" ? "hover:bg-primary hover:text-white" : "hover:bg-white hover:text-primary"}`
     }
@@ -16,7 +20,33 @@ const TopHeader = ({variant}: { variant: "white" | "primary" }) => {
             <div id="google_translate_element"></div>
         </div>
         <div>
-            <ul className={"flex gap-6 text-sm"}>
+            {/* <ul className={"flex gap-6 text-sm"}> */}
+            <div className={"hidden lg:block  top-12"}>
+                <ul className={"text-md flex gap-8"}>
+                    {
+                        menu.map((props, index) => {
+                            if (props.submenu.length === 0 && props.submenu_with_header.length === 0)
+                                return <li key={index} className={"text-black pb-2 cursor-pointer hover:text-primary "}>
+                                    <Link href={props.link}>{props.title}</Link>
+                                    
+                                </li>
+                            if (props.submenu_with_header.length > 0)
+                                return <SubmenuWithHeader fakultasArray={fakultasArray} acf={jurusanArray}
+                                                        key={index} {...props} type={"home"}/>
+                            return <SubMenu key={index} {...props} type={"home"}/>
+
+
+                        })
+                    }
+                </ul>
+            </div>
+
+            <div className={"lg:hidden"}>
+            <MobileNavbar/>
+
+            <FixedButton/>
+        </div>
+                
 {/* 
                 <li>
                     <Link href={"/news"} className={style.list}>
@@ -44,8 +74,16 @@ const TopHeader = ({variant}: { variant: "white" | "primary" }) => {
                 {/*        <span className={"hidden lg:block"}>Contact Us</span>*/}
                 {/*    </Link>*/}
                 {/*</li>*/}
-            </ul>
+            {/* </ul> */}
         </div>
     </div>)
 }
 export default TopHeader;
+
+// function useProdi(): { jurusanArray: any; fakultasArray: any; } {
+//     throw new Error('Function not implemented.');
+// }
+// function useProdi(): { jurusanArray: any; fakultasArray: any; } {
+//     throw new Error('Function not implemented.');
+// }
+

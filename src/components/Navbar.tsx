@@ -19,7 +19,7 @@ import {CloseIcon} from "next/dist/client/components/react-dev-overlay/internal/
 import {ScrollArea} from "@/components/ScrollArea";
 import FixedButton from '@/components/FixedButton';
 
-type MenuType = {
+export type MenuType = {
     title: string;
     link: string;
     submenu: {
@@ -35,8 +35,8 @@ type MenuType = {
         }[]
     }[]
 }
-
-const defaultMenu: MenuType[] = [
+ 
+export const defaultMenu: MenuType[] = [
     {
         title: 'Home',
         link: '/',
@@ -122,7 +122,7 @@ const defaultMenu: MenuType[] = [
     }
 ]
 
-const useProdi = () => {
+export const useProdi = () => {
     const [fakultasArray, setFakultasArray] = useState<string[]>([])
     const [jurusanArray, setJurusanArray] = useState<ProdiType[]>([])
     const {data} = useSWR<ProdiType[]>('prodi', () => fetcher<ProdiType[]>('prodi?orderby=slug&order=asc&_fields=acf,slug,id'))
@@ -194,15 +194,15 @@ export const Navbar = () => {
 export function HomeNavbar() {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
     const {jurusanArray, fakultasArray} = useProdi()
-    return <nav className={"justify-between w-full  flex absolute top-12 px-4 md:px-12 z-50"}>
+    return <nav className={"justify-between w-full  flex absolute top-8 px-4 md:px-12 z-50"}>
         <Link href={"/"}>
             <div className={"-mt-4"}>
-                <div className={"relative w-[150px] h-12 lg:w-[250px] lg:h-20"}>
-                    <Image src={"/images/logo_putih.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
+                <div className={"relative w-[150px] h-12 lg:w-[320px] lg:h-20"}>
+                    <Image src={"/images/logo_merah.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
                 </div>
             </div>
         </Link>
-        <div className={"hidden lg:block"}>
+        {/* <div className={"hidden lg:block"}>
             <ul className={"text-md flex gap-8"}>
                 {
                     menu.map((props, index) => {
@@ -225,7 +225,7 @@ export function HomeNavbar() {
             <MobileNavbar/>
 
             <FixedButton/>
-        </div>
+        </div> */}
     </nav>
 }
 
@@ -233,8 +233,8 @@ export function MobileNavbar() {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
     const {jurusanArray, fakultasArray} = useProdi()
     return <Drawer>
-        <DrawerTrigger className={"absolute right-6 -top-2"}>
-            <HamburgerMenuIcon color={"white"} width={"24px"} height={"24px"}/>
+        <DrawerTrigger className={"absolute right-6 top-1"}>
+            <HamburgerMenuIcon color={"black"} width={"24px"} height={"24px"}/>
         </DrawerTrigger>
         <DrawerContent className={"bg-white min-h-screen"}>
 
@@ -242,7 +242,7 @@ export function MobileNavbar() {
                 <DrawerTitle className={"text-3xl"}>Menu</DrawerTitle>
                 {/*<DrawerDescription>This action cannot be undone.</DrawerDescription>*/}
             </DrawerHeader>
-            <ScrollArea className={"min-h-[70vh] w-full h-80 overflow-y-scroll border border-gray-300 p-4"}>
+            <ScrollArea className={"min-h-[60vh] w-full h-80 overflow-y-scroll border border-gray-300 p-4"}>
                 <div className={"py-6"}>
                     <div className={"text-md px-4 space-y-4 font-semibold text-md uppercase "}>
                         {
@@ -321,11 +321,11 @@ export function SubMenu({submenu, type, title, target}: MenuType & {
                 {
                     type === 'home' ?
                         <NavigationMenuTrigger
-                            className={`text-white font-medium font-condensed text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
+                            className={`text-black font-medium font-condensed text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
                             {title}
                         </NavigationMenuTrigger> :
                         <NavigationMenuTrigger
-                            className={`text-white font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
+                            className={`text-black font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary`}>
                             {title}
                         </NavigationMenuTrigger>
                 }
@@ -353,7 +353,7 @@ export function SubMenu({submenu, type, title, target}: MenuType & {
 }
 
 
-const SubmenuWithHeader = ({submenu_with_header, type, acf, fakultasArray}: MenuType & {
+export const SubmenuWithHeader = ({submenu_with_header, type, acf, fakultasArray}: MenuType & {
     type: 'home' | 'general',
     acf: ProdiType[],
     fakultasArray: string[]
@@ -365,11 +365,11 @@ const SubmenuWithHeader = ({submenu_with_header, type, acf, fakultasArray}: Menu
                     {
                         type === 'home' ?
                             <NavigationMenuTrigger
-                                className={`text-white font-medium font-condensed text-md py-0 pb-4 cursor-pointer hover:text-primary !capitalize`}>
+                                className={`text-black font-medium font-condensed text-md py-0 pb-4 cursor-pointer hover:text-primary !capitalize`}>
                                 Study
                             </NavigationMenuTrigger> :
                             <NavigationMenuTrigger
-                                className={`text-white font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary !capitalize`}>
+                                className={`text-black font-semibold text-md py-0 pb-4 cursor-pointer hover:text-primary !capitalize`}>
                                 Study
                             </NavigationMenuTrigger>
                     }
