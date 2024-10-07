@@ -3,7 +3,7 @@ import {GraduationCap, Newspaper, Trophy} from "lucide-react";
 import Link from "next/link";
 import { defaultMenu, MenuType, MobileNavbar, SubMenu, SubmenuWithHeader, useProdi } from './Navbar';
 import FixedButton from './FixedButton';
-
+//ipul
 
 const TopHeader = ({variant}: { variant: "white" | "primary" }) => {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
