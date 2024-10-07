@@ -228,7 +228,7 @@ export function HomeNavbar() {
         </div> */}
     </nav>
 }
-
+// ipul
 export function MobileNavbar() {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
     const {jurusanArray, fakultasArray} = useProdi()
