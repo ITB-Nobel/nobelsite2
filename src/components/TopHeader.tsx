@@ -4,7 +4,7 @@ import Link from "next/link";
 import { defaultMenu, MenuType, MobileNavbar, SubMenu, SubmenuWithHeader, useProdi } from './Navbar';
 import FixedButton from './FixedButton';
 //ipul
-
+// 7 oktober 2024
 const TopHeader = ({variant}: { variant: "white" | "primary" }) => {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
     const {jurusanArray, fakultasArray} = useProdi()
