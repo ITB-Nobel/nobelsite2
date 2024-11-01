@@ -145,7 +145,7 @@ export type GeneralPageType = {
         renderd: string
     }
 }
-
+//console.log
 export type DetailNewsType = { acf: NewsACF, slug: string, id: string, categories: string[], tags: string[] }
 
 export type Category = {
