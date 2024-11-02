@@ -119,6 +119,17 @@ export const defaultMenu: MenuType[] = [
         link: '/international',
         submenu: [],
         submenu_with_header: []
+    },  {
+        title: 'Repository',
+        link: 'https://repository.nobel.ac.id/',
+        submenu: [],
+        submenu_with_header: []
+    },
+    {
+        title: 'SIAKAD',
+        link: 'https://siakad.nobel.ac.id/',
+        submenu: [],
+        submenu_with_header: []
     }
 ]
 
@@ -197,7 +208,7 @@ export function HomeNavbar() {
     return <nav className={"justify-between w-full  flex absolute top-8 px-4 md:px-12 z-50"}>
         <Link href={"/"}>
             <div className={"-mt-4"}>
-                <div className={"relative w-[150px] h-12 lg:w-[320px] lg:h-20"}>
+                <div className={"relative w-[190px] h-12 lg:w-[390px] lg:h-20"}>
                     <Image src={"/images/logo_merah.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
                 </div>
             </div>
@@ -242,7 +253,7 @@ export function MobileNavbar() {
                 <DrawerTitle className={"text-3xl"}>Menu</DrawerTitle>
                 {/*<DrawerDescription>This action cannot be undone.</DrawerDescription>*/}
             </DrawerHeader>
-            <ScrollArea className={"min-h-[60vh] w-full h-80 overflow-y-scroll border border-gray-300 p-4"}>
+            <ScrollArea className={"min-h-[80vh] w-full h-80 overflow-y-scroll border border-gray-300 p-4"}>
                 <div className={"py-6"}>
                     <div className={"text-md px-4 space-y-4 font-semibold text-md uppercase "}>
                         {
