@@ -22,7 +22,7 @@ const TopHeader = ({variant}: { variant: "white" | "primary" }) => {
         <div>
             {/* <ul className={"flex gap-6 text-sm"}> */}
             <div className={"hidden lg:block  top-12"}>
-                <ul className={"text-md flex gap-8"}>
+                <ul style={{marginTop: "10px"}} className={"text-md flex gap-4 "}>
                     {
                         menu.map((props, index) => {
                             if (props.submenu.length === 0 && props.submenu_with_header.length === 0)

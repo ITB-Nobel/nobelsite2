@@ -121,7 +121,7 @@ export const defaultMenu: MenuType[] = [
         submenu_with_header: []
     },  {
         title: 'Repository',
-        link: 'https://repository.nobel.ac.id/',
+        link: 'http://repository.nobel.ac.id/',
         submenu: [],
         submenu_with_header: []
     },
