@@ -249,7 +249,7 @@ export function MobileNavbar() {
         </DrawerTrigger>
         <DrawerContent className={"bg-white min-h-screen"}>
 
-            <DrawerHeader className={"text-left"}>
+            <DrawerHeader className={"text-left  top-4"}>
                 <DrawerTitle className={"text-3xl"}>Menu</DrawerTitle>
                 {/*<DrawerDescription>This action cannot be undone.</DrawerDescription>*/}
             </DrawerHeader>
