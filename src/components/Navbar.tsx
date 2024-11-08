@@ -205,9 +205,9 @@ export const Navbar = () => {
 export function HomeNavbar() {
     const [menu, setMenu] = useState<MenuType[]>(defaultMenu)
     const {jurusanArray, fakultasArray} = useProdi()
-    return <nav className={"justify-between w-full  flex absolute top-8 px-4 md:px-12 z-50"}>
+    return <nav className={"justify-between w-full  flex absolute top-8 px-4 md:px-12 z-10"}>
         <Link href={"/"}>
-            <div className={"-mt-4"}>
+            <div className={"mt-4"}>
                 <div className={"relative w-[190px] h-12 lg:w-[320px] lg:h-20"}>
                     <Image src={"/images/logo_merah.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
                 </div>

@@ -42,11 +42,12 @@ const HomeLayout = ({children, data}: { children: React.ReactNode, data: any }) 
 
 
     return <>
-        <TopHeader variant={"white"}/>
+        
 
         <main className={"overflow-x-hidden"}>
             <div className={"relative"}>
                 { <HomeNavbar/> }
+                <TopHeader variant={"white"}/>
                 <Swiper
                     spaceBetween={30}
                     centeredSlides={true}
