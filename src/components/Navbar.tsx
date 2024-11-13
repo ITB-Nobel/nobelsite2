@@ -208,8 +208,8 @@ export function HomeNavbar() {
     return <nav className={"justify-between w-full  flex absolute top-8 px-4 md:px-12 z-10"}>
         <Link href={"/"}>
             <div className={"mt-4"}>
-                <div className={"relative w-[190px] h-12 lg:w-[320px] lg:h-20"}>
-                    <Image src={"/images/logo_merah.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
+                <div className={"relative w-[195px] h-12 lg:w-[320px] lg:h-20"}>
+                    <Image src={"/images/logo_merah_putih.png"} alt={"logo"} layout={"fill"} objectFit={"cover"}/>
                 </div>
             </div>
         </Link>
