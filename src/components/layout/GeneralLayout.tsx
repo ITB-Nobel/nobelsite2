@@ -52,10 +52,10 @@ export default function GeneralLayout({
     }, [])
     return (
         <>
-            <TopHeader variant={"primary"}/>
+            <TopHeader variant={"white"}/>
 
             <div className={"relative lg:max-h-[240px] lg:min-h-[400px] w-full "}>
-                <Navbar/>
+                {/* <Navbar/> */}
 {featuredImage && <BlurImage2 image={featuredImage}
                                               alt={featuredTitle}
                                               className={"brightness-75 aspect-w-5 aspect-h-2 lg:aspect-h-1 md:w-full md:h-[300px] lg:h-[400px]  sm:h-[100px]  h-[150px]"}
@@ -67,8 +67,8 @@ export default function GeneralLayout({
                 {/*LOGO*/}
                 <Link href={"/"}>
                     <div
-                        className={"absolute w-[150px] h-[50px] lg:h-[100px] lg:w-[300px] top-8 z-50 left-4 lg:left-12"}>
-                        <Image src={"/images/logo_putih.png"}
+                        className={"absolute w-[120px] h-[30px] lg:h-[75px] lg:w-[310px] top-4 z-50 left-4 lg:left-12"}>
+                        <Image src={"/images/logo_merah_putih.png"}
                                alt={"logo"}
                                objectFit={"cover"}
                                fill={true}
