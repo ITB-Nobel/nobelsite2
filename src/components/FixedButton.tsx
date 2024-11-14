@@ -20,7 +20,7 @@ const FixedButton = () => {
   }, []);
 
   return (
-    <div style={{ position: 'fixed', bottom: '60%', right: '4px', transform: 'translateY(50%)' }}>
+    <div style={{ position: 'fixed', bottom: '60%', right: '4px', transform: 'translateY(50%)', zIndex: 1000 }}>
 
       <a href="https://join.nobel.ac.id" target="_blank" rel="noopener noreferrer" className="sm:block"
          style={{ transition: 'opacity 0.5s, transform 0.5s' }}
