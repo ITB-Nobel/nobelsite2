@@ -10,7 +10,8 @@ const ResearchPage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-research', () => fetcher<GeneralPageType[]>('pages?slug=research'))
     return <GeneralLayout
 
-        featuredTitle={"Research Page"}
+        featuredTitle={"Research Page"} 
+        featuredImage={"/images/header_new2.jpg"}
     >
         {
             data &&

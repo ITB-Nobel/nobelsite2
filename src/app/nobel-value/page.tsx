@@ -8,7 +8,8 @@ import {GeneralPageType} from "@/lib/types";
 const NobelValuePage = async () => {
     const data = await fetcher<GeneralPageType[]>('pages?slug=nobel-value')
 
-    return <GeneralLayout featuredTitle={"Nobel Value"}>
+    return <GeneralLayout featuredTitle={"Nobel Value"}
+                          featuredImage={"/images/header_new2.jpg"}>
         {
             data ?
                 <main>

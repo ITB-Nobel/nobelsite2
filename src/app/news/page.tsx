@@ -27,6 +27,7 @@ const NewsPage = () => {
     return (<GeneralLayout
 
         featuredTitle={"News Page"}
+        featuredImage={"/images/header_new2.jpg"}
     >
         <main>
             <SearchNews rangeDate={rangeDate} setRangeDate={setRangeDate}/>

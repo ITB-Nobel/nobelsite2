@@ -19,10 +19,12 @@ type GeneralLayoutType = {
 }
 
 
+// featuredTitle = "Nobel Page",
+// featuredImage = "/images/banner.jpeg"
 export default function GeneralLayout({
                                           children,
-                                          featuredTitle = "Nobel Page",
-                                          featuredImage = "/images/banner.jpeg"
+                                          featuredTitle = "",
+                                          featuredImage = ""
                                       }: GeneralLayoutType) {
     const googleTranslateElementInit = () => {
         if (typeof window !== 'undefined') {

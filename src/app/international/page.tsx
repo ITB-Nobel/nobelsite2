@@ -18,6 +18,7 @@ const InternationalPage = async () => {
         const tempData = data[0]
         return <GeneralLayout
             featuredTitle={tempData?.title?.rendered}
+            featuredImage={"/images/header_new2.jpg"}
             // featuredImage={tempData?.acf.header_image.url}
         >
             <main className={"min-h-screen"}>

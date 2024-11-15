@@ -12,7 +12,8 @@ const StaffPage = () => {
     const {data} = useSWR<StaffType[]>('staff', () => fetcher<StaffType[]>('staff/?per_page=100'))
     const [filter, setFilter] = useState<string>("rektorat")
     const handleClick = (value: string) => setFilter(value)
-    return <GeneralLayout>
+    return <GeneralLayout 
+    featuredImage={"/images/header_new2.jpg"}>
         <>
             <main className={"text-center pt-12 pb-16 lg:pt-32 min-h-screen"}>
                 <h1 className={"text-4xl lg:text-6xl"}>Nobel <span className={"text-primary"}>Staff</span></h1>
