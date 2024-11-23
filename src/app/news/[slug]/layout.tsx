@@ -22,7 +22,14 @@ export default function RootLayout({
     return (
         <html lang="en">
         <Head>
-            <meta property="og:image" content="https://res.cloudinary.com/ddxvfqlhp/image/upload/v1669146558/nobel-institute-indonesia-og_mqjvzq.jpg" />
+            <meta property="og:title" content="My Next.js Website" />
+            <meta property="og:description" content="A description of the page for social media." />
+            <meta property="og:image" content="https://yourwebsite.com/images/og-image.jpg" />
+            <meta property="og:image:type" content="image/jpeg" />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <meta property="og:url" content="https://yourwebsite.com" />
+            <meta property="og:type" content="website" />
             
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
         </Head>
