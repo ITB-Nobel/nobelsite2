@@ -9,7 +9,7 @@ import Head from "next/head";
 // const localFont1 = localFont({ src: '../fonts/gt-america-standard-medium.woff' })
 
 export const metadata: Metadata = {
-    title: 'mNobel Institute Indonesia',
+    title: 'Nobel Indonesia Institute',
     description: 'Start Here go AnyWhere',
     openGraph: {
         
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
                 url: '/images/og-image.png',
                 width: 800,
                 height: 600,
-                alt: 'Nobel Institute Indonesia'
+                alt: 'Nobel Indonesia Institute'
             }
         ]
     },
