@@ -25,7 +25,7 @@ const DetailNewsPage = () => {
     const {data} =
         useSWR<DetailNewsType[]>(`news-${idNews}`, () => fetcher<DetailNewsType>(`news?slug=${idNews}`))
 
-    return <GeneralLayout featuredTitle={"Detail News"}>
+    return <GeneralLayout featuredTitle={"Detail News"} featuredImage={"/images/header_news.jpg"}>
         <main className={"pt-12"}>
             {data ? <>
                     <DetailNewsContent {...data[0]}/>

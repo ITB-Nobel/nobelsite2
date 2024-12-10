@@ -9,7 +9,7 @@ const NobelValuePage = async () => {
     const data = await fetcher<GeneralPageType[]>('pages?slug=nobel-value')
 
     return <GeneralLayout featuredTitle={"Nobel Value"}
-                          featuredImage={"/images/header_new2.jpg"}>
+                          featuredImage={"/images/header_nobel_value.jpg"}>
         {
             data ?
                 <main>
