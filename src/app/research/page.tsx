@@ -11,7 +11,7 @@ const ResearchPage = () => {
     return <GeneralLayout
 
         featuredTitle={"Research Page"} 
-        featuredImage={"/images/header_new2.jpg"}
+        featuredImage={"/images/header_research.jpg"}
     >
         {
             data &&

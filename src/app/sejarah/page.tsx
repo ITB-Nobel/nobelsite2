@@ -11,7 +11,7 @@ import Image from "next/image";
 const SejarahPage = () => {
     const {data} = useSWR<GeneralPageType[]>('page-sejarah', () => fetcher<GeneralPageType[]>('pages?slug=sejarah'))
     return <GeneralLayout
-        featuredImage={"/images/header_new.jpg"}
+        featuredImage={"/images/header_sejarah.jpg"}
         featuredTitle={"Sejarah Nobel"}
     >
         {

@@ -9,7 +9,7 @@ const VisiPage = async() => {
     const data = await fetcher<GeneralPageType[]>('pages?slug=visi-misi')
     return <GeneralLayout
         featuredTitle={"Visi Misi Nobel Institute"}
-        featuredImage={"/images/header_new2.jpg"}
+        featuredImage={"/images/header_visi_misi.jpg"}
     >
         {
             data ?
