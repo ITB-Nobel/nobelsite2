@@ -4,6 +4,7 @@ import SectionExploreDegrees from "@/app/components/SectionExploreDegrees";
 import SectionPodcast from "@/app/components/SectionPodcast";
 import SectionNews from "@/app/components/SectionNews";
 import SectionEvent from "@/app/components/SectionEvent";
+import SectionNewsSlider from "@/app/components/SectionNewsSlider";
 import {fetcher} from "@/lib/api";
 import {GeneralPageType} from "@/lib/types";
 
@@ -37,11 +38,17 @@ export default async function Home() {
                 button_link={"https://www.youtube.com/@nobelindonesiainstitute"}
             />
 
-            <SectionNews
+            {/* <SectionNews
                 title={"Latest"}
                 color_title={"News"}
                 subtitle={"Find all the latest news from Nobel and across the higher education sector."}
+            /> */}
+
+            <SectionNewsSlider
+                
             />
+
+
 
             {/*<SectionEvent*/}
             {/*    title={"Recent"}*/}
