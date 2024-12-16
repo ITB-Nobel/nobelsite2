@@ -6,13 +6,35 @@ import {Navigation} from 'swiper/modules';
 
 const NewsList = ({news}: { news?: DetailNewsType[] }) => {
     return (
-        <section className={"container pb-12 md:pb-24 relative"}>
-            <br></br><br></br>
+        <section className={"container pt-24 pb-12 md:pb-24 relative"}>
+
+             <h1 className={"text-2xl md:text-4xl font-semibold text-center mb-20"}>News</h1>
+
+                <p className={"text-slate-500 text-md md:text-lg mt-2"}></p>
+
+            <br></br>
+            <div className="flex justify-between">
+                <div className="swiper-button-prev"></div>
+                <div className="swiper-button-next"></div>
+            </div>
+            <style>
+                {
+                    `.swiper-button-next, .swiper-button-prev {
+                        position: absolute;
+                        top: 200px;
+                        background-color: #EF233C;
+                        
+                    }`
+                }
+            </style>
             <Swiper
                 modules={[Navigation]}
                 slidesPerView={1}
                 spaceBetween={10}
-                navigation={true}
+                navigation={{
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                }}
                 breakpoints={{
                     640: {
                         slidesPerView: 2,
@@ -32,7 +54,6 @@ const NewsList = ({news}: { news?: DetailNewsType[] }) => {
                             />
                         </SwiperSlide>
                     ))
-
                 }
             </Swiper>
         </section>
