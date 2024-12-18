@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import EventCard from "@/app/components/EventCard";
 import Link from "next/link";
