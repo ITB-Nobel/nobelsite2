@@ -24,6 +24,7 @@ const DetailEventPage = () => {
     return <GeneralLayout
 
         featuredTitle={"Detail Event"}
+        featuredImage={"/images/header_news.jpg"}
     >
         <main className={"pt-12"}>
             {data ? <>

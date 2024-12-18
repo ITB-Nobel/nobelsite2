@@ -50,10 +50,10 @@ export default async function Home() {
 
 
 
-            {/*<SectionEvent*/}
-            {/*    title={"Recent"}*/}
-            {/*    color_title={"Events"}*/}
-            {/*    subtitle={"Explore opportunities to engage with people, ideas and education across campus."}/>*/}
+            <SectionEvent
+                title={"Events"}
+                color_title={""}
+                subtitle={"Explore opportunities to engage with people, ideas and education across campus."}/>
         </HomeLayout>
     )
 }

@@ -25,6 +25,7 @@ const EventPage = () => {
     return (<GeneralLayout
 
         featuredTitle={"Event Page"}
+        featuredImage={"/images/header_news.jpg"}
     >
         <main>
             <SearchEvent rangeDate={rangeDate} setRangeDate={setRangeDate}/>
