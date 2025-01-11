@@ -10,12 +10,12 @@ import Head from "next/head";
 
 export const metadata: Metadata = {
     title: 'Nobel Indonesia Institute',
-    description: 'Start Here go AnyWhere',
+    description: 'Start Here Go Anywhere',
     openGraph: {
         
         images: [
             {
-                url: '/images/og-image.png',
+                url: '/images/logo.png',
                 width: 800,
                 height: 600,
                 alt: 'Nobel Indonesia Institute'
