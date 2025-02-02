@@ -12,6 +12,7 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
         acf: Dosen
     }[]>('dosen?per_page=500'))
 
+
     return <section
         data-aos={"zoom-in"}
         className={"md:grid md:grid-cols-2 lg:grid-cols-4 gap-4"}>
@@ -26,6 +27,11 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
                             description={item.acf.description}
                             group={""}
                             title={item.acf.name}
+                            email={item.acf.email}
+                            nidn={item.acf.nidn}
+                            sinta={item.acf.sinta}
+                            scoopus={item.acf.scoopus}
+                            google_scholar={item.acf.google_scholar}
                         />
                     </div>
             }) : <Skeleton className={"w-full rounded-xl h-screen col-span-1"}/>

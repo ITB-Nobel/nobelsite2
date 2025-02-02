@@ -1,14 +1,16 @@
 import React from "react";
 import Image from "next/image";
-import {Dialog, DialogDescription, DialogTrigger, DialogContentLeft} from "@/components/Dialog";
+import {Dialog, DialogContentLeft, DialogDescription, DialogTrigger} from "@/components/Dialog";
 import {ScrollArea} from "@/components/ScrollArea";
 import {StaffACF} from "@/lib/types";
+import {LucideMail} from "lucide-react";
+import {DialogBody} from "next/dist/client/components/react-dev-overlay/internal/components/Dialog";
 
 
 const StaffDialog = (props: StaffACF) => <Dialog>
-     <DialogTrigger>
+    <DialogTrigger>
         <Staff {...props}/>
-    </DialogTrigger> 
+    </DialogTrigger>
 
     <DialogContentLeft className=" p-0 border-0">
         <DialogDescription>
@@ -62,10 +64,10 @@ export const StaffDialog2 = (props: StaffACF) => <Dialog>
         <Staff2 {...props}/>
     </DialogTrigger>
 
-    <DialogContentLeft className="bg-white h-1/2 p-0 border-0 bg-none">
+    <DialogContentLeft className="bg-white left-[45%] p-0 border-0 bg-none">
         <DialogDescription>
 
-            <div className={"bg-white rounded-xl min-w-full  p-12 space-y-6"}>
+            <div className={"bg-white rounded-xl min-w-full space-y-6"}>
                 <div className={"absolute -top-[80px] right-[10px] z-50 "}>
                     <div className={"relative w-[150px] h-[150px]"}>
                         <Image
@@ -77,27 +79,68 @@ export const StaffDialog2 = (props: StaffACF) => <Dialog>
                         />
                     </div>
                 </div>
-                <ScrollArea className={"h-60"}>
+            </div>
+        </DialogDescription>
+        <DialogBody className={"bg-white rounded-xl min-w-full  p-12 space-y-6 w-[700px]"}>
 
-                    {/*HEADER*/}
-                    <div className={"space-y-2 text-left"}>
-                        <h1 className={"text-2xl"}>{props.title}</h1>
-                        <p className={"text-primary text-lg font-semibold"}>{props.position}</p>
+            <ScrollArea className={"h-80"}>
+
+                {/*HEADER*/}
+                <div className={"space-y-2 mt-6 text-left"}>
+                    <h1 className={"text-lg"}>{props.title}</h1>
+                    <p className={"text-primary text-lg font-semibold"}>{props.position}</p>
+                </div>
+
+                {/*EMAILS*/}
+                <div className={"flex gap-4 my-4"}>
+                    <div className={"flex gap-2 items-center font-semibold"}>
+                        <LucideMail className={"h-4 w-4"}/>
+                        {props.email ?? "-"}
+                    </div>
+                    <div className={"flex gap-2 items-center font-semibold"}>
+                        <LucideMail className={"h-4 w-4"}/>
+                        NIDN : {props.nidn ?? "-"}
+                    </div>
+                    <div className={"flex gap-2 items-center font-semibold"}>
+                        <LucideMail className={"h-4 w-4"}/>
+                        SINTA ID : {props.nidn ?? "-"}
                     </div>
 
-                    {/*CONTENT*/}
-                    <article>
+                </div>
+
+                {/*GOOGLE SCHLARS*/}
+                <div className={"flex gap-4 mb-4"}>
+                    <a
+                        href={[null, undefined, ''].includes(props?.google_scholar) ? props?.google_scholar as string : "#"}
+                        target={"_blank"}
+                    >
                         <div
-                             dangerouslySetInnerHTML={{__html: props.description}}
-                        />
-                    </article>
+                            className={"border-[1px] px-4 py-2 rounded-full hover:bg-slate-100 hover:cursor-pointer"}>
+                            Google Scholar
+                        </div>
+                    </a>
+                    <a
+                        href={[null, undefined, ''].includes(props?.scoopus) ? props?.scoopus as string : "#"}
+                        target={"_blank"}
+                    >
+                        <div
+                            className={"border-[1px] px-4 py-2 rounded-full hover:bg-slate-100 hover:cursor-pointer"}>
+                            Scoopus
+                        </div>
+                    </a>
+
+                </div>
+
+                {/*CONTENT*/}
+                <article>
+                    <div
+                        dangerouslySetInnerHTML={{__html: props.description}}
+                    />
+                </article>
 
 
-                </ScrollArea>
-            </div>
-
-
-        </DialogDescription>
+            </ScrollArea>
+        </DialogBody>
 
 
     </DialogContentLeft>

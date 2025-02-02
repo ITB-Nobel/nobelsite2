@@ -116,6 +116,11 @@ export type StaffACF = {
     group: string;
     image: string;
     description: string;
+    google_scholar?: string
+    scoopus?: string;
+    email?: string;
+    nidn?:string
+    sinta?:string;
 }
 
 export type StaffType = {
@@ -299,6 +304,11 @@ export type Dosen = {
     position: string;
     description: string;
     photo: Photo;
+    google_scholar?: string
+    scoopus?: string;
+    email?: string;
+    nidn?:string
+    sinta?:string;
     prodi: {
         ID: number,
         post_name: string,
