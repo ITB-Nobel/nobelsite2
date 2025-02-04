@@ -103,7 +103,7 @@ export const StaffDialog2 = (props: StaffACF) => <Dialog >
                     </div>
                     <div className={"flex gap-2 items-center font-semibold"}>
                         <LucideMail className={"h-4 w-4"}/>
-                        SINTA ID : {props.nidn ?? "-"}
+                        SINTA ID : {props.sinta ?? "-"}
                     </div>
 
                 </div>
