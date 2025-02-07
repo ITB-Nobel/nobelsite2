@@ -89,7 +89,10 @@ export const defaultMenu: MenuType[] = [
     {
         title: 'Research',
         link: '/research',
-        submenu: [],
+        submenu: [  {
+            title: "Kutipan",
+            link: "/kutipan"
+        },],
         submenu_with_header: []
     },{
         title: 'Alumni',
