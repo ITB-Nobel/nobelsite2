@@ -5,6 +5,7 @@ import {ScrollArea} from "@/components/ScrollArea";
 import {StaffACF} from "@/lib/types";
 import {LucideMail} from "lucide-react";
 import {DialogBody} from "next/dist/client/components/react-dev-overlay/internal/components/Dialog";
+import {cn} from "@/lib/utils";
 
 
 const StaffDialog = (props: StaffACF) => <Dialog>
@@ -66,25 +67,19 @@ export const StaffDialog2 = (props: StaffACF) => {
             <Staff2 {...props}/>
         </DialogTrigger>
 
-        <DialogContentLeft className="bg-white left-[45%] p-0 border-0 bg-none">
-            <DialogDescription>
-
-                <div className={"bg-white rounded-xl min-w-full space-y-6"}>
-                    <div className={"absolute -top-[80px] right-[10px] z-50 "}>
-                        <div className={"relative w-[150px] h-[150px]"}>
-                            <Image
-                                alt={props.title}
-                                className={"shadow-white shadow-2xl object-top rounded-full "}
-                                layout={"fill"}
-                                src={props.image}
-                                objectFit={"cover"}
-                            />
-                        </div>
+        <DialogContentLeft className=" left-[45%] p-0 border-0 bg-none">
+            <DialogBody className={"relative bg-white rounded-xl min-w-full  p-12 space-y-6 w-[700px]"}>
+                <div className={"absolute -top-[80px] right-[40%] z-50 "}>
+                    <div className={"relative w-[150px] h-[150px]"}>
+                        <Image
+                            alt={props.title}
+                            className={"shadow-white shadow-2xl object-top rounded-full "}
+                            layout={"fill"}
+                            src={props.image}
+                            objectFit={"cover"}
+                        />
                     </div>
                 </div>
-            </DialogDescription>
-            <DialogBody className={"bg-white rounded-xl min-w-full  p-12 space-y-6 w-[700px]"}>
-
                 <ScrollArea className={"h-80"}>
 
                     {/*HEADER*/}
@@ -121,12 +116,14 @@ export const StaffDialog2 = (props: StaffACF) => {
                                 Google Scholar
                             </div>
                         </a>
+
                         <a
                             href={![null, undefined, ''].includes(props?.scoopus) ? props?.scoopus as string : "#"}
                             target={"_blank"}
+                            onClick={(e) => e.preventDefault()}
                         >
                             <div
-                                className={"border-[1px] px-4 py-2 rounded-full hover:bg-slate-100 hover:cursor-pointer"}>
+                                className={cn("border-[1px] px-4 py-2 rounded-full hover:bg-slate-100 hover:cursor-pointer", ![null, undefined, ''].includes(props?.scoopus) ? '' as string : "bg-slate-100")}>
                                 Scopus
                             </div>
                         </a>
