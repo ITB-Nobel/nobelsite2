@@ -44,13 +44,13 @@ export default function KutipanPage() {
     });
 
     return <GeneralLayout
-        featuredTitle={"Kutipan"}
+        featuredTitle={""}
         // featuredTitle={tempData?.title?.rendered}
         featuredImage={"/images/header_news.jpg"}
     >
         <main className={"min-h-screen px-[32px] py-[64px] space-y-[32px] "}>
             <div className={"flex justify-between items-center w-full"}>
-                <h1>Publication</h1>
+                <h1>Publikasi</h1>
                 <p>Panduan Sitasi (Manajemen Referensi)</p>
             </div>
             <div className={"w-full flex gap-2 justify-end"}>
@@ -60,9 +60,9 @@ export default function KutipanPage() {
                     <SelectTrigger className="w-[180px]">
                         <SelectValue placeholder="Pilih prodi" />
                     </SelectTrigger>
-                    <SelectContent>
-                        <SelectGroup>
-                            <SelectLabel>Pilih Prodi</SelectLabel>
+                    <SelectContent >
+                        <SelectGroup >
+                            {/*<SelectLabel>Pilih Prodi</SelectLabel>*/}
                             <SelectItem value=" ">All</SelectItem>
                             <SelectItem value="akuntansi">Akuntansi</SelectItem>
                             <SelectItem value="manajemen">Manajemen</SelectItem>
