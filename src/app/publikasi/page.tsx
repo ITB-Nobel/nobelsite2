@@ -5,15 +5,7 @@ import useSWR from "swr";
 import {Dosen} from "@/lib/types";
 import {fetcherAcf} from "@/lib/api";
 import {MoveRight, SearchIcon} from "lucide-react";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue
-} from "@/components/Select";
+import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/Select";
 
 export default function KutipanPage() {
     const [search, setSearch] = useState("")
@@ -27,6 +19,7 @@ export default function KutipanPage() {
             .replace(/-/g, " ") // Ganti "-" dengan spasi
             .replace(/\b\w/g, c => c.toUpperCase()); // Kapitalisasi setiap kata
     }
+
     const filteredData = data?.filter((item) => {
         const nameMatches = item.acf.name.toLowerCase().includes(search.toLowerCase());
 
@@ -41,7 +34,7 @@ export default function KutipanPage() {
 
         // Jika hanya cari berdasarkan nama
         return nameMatches;
-    });
+    })?.sort((a, b) => a.acf.name.localeCompare(b.acf.name));
 
     return <GeneralLayout
         featuredTitle={""}
@@ -54,26 +47,29 @@ export default function KutipanPage() {
                 <p>Panduan Sitasi (Manajemen Referensi)</p>
             </div>
             <div className={"w-full flex gap-2 justify-end"}>
-                <Select onValueChange={(value)=> {
+                <Select onValueChange={(value) => {
                     setProdi(value)
                 }}>
                     <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Pilih prodi" />
+                        <SelectValue placeholder="Pilih prodi"/>
                     </SelectTrigger>
-                    <SelectContent >
-                        <SelectGroup >
+                    <SelectContent>
+                        <SelectGroup>
                             {/*<SelectLabel>Pilih Prodi</SelectLabel>*/}
                             <SelectItem value=" ">All</SelectItem>
                             <SelectItem value="akuntansi">Akuntansi</SelectItem>
                             <SelectItem value="manajemen">Manajemen</SelectItem>
-                            <SelectItem value="sistem dan teknologi informasi">Sistem dan Teknologi Informasi</SelectItem>
+                            <SelectItem value="sistem dan teknologi informasi">Sistem dan Teknologi
+                                Informasi</SelectItem>
                             <SelectItem value="teknik pertambangan">Teknik Pertambangan</SelectItem>
                             <SelectItem value="teknologi hasil perikanan">Teknologi Hasil Perikanan</SelectItem>
                             <SelectItem value="teknologi industri">Teknologi Industri</SelectItem>
-                            <SelectItem value="pendidikan teknologi informasi">Pendidikan Teknologi Informasi</SelectItem>
+                            <SelectItem value="pendidikan teknologi informasi">Pendidikan Teknologi
+                                Informasi</SelectItem>
                             <SelectItem value="magister manajemen">Magister Manajemen</SelectItem>
                             <SelectItem value="magister keuangan publik">Magister Keuangan Publik</SelectItem>
-                            <SelectItem value="magister manajemen dan kewirausahaan">Magister Manajemen dan Kewirausahaan</SelectItem>
+                            <SelectItem value="magister manajemen dan kewirausahaan">Magister Manajemen dan
+                                Kewirausahaan</SelectItem>
                         </SelectGroup>
                     </SelectContent>
                 </Select>
@@ -112,7 +108,7 @@ export default function KutipanPage() {
                                 <td className="px-6 py-2">{item.acf.prodi.map((item) => formatDepartmentName(item.post_name))}</td>
                                 <td className="px-6 py-2">
                                     <button
-                                        className={"px-4 py-2 bg-green-300 text-white w-fit rounded-full disabled:bg-slate-300"}
+                                        className={"px-4 py-2 text-white w-fit rounded-full"}
                                         disabled={[null, undefined, ''].includes(item.acf.google_scholar)}
                                         onClick={() => {
                                             if (![null, undefined, ''].includes(item.acf.google_scholar))
@@ -120,13 +116,23 @@ export default function KutipanPage() {
                                         }}
                                     >
                                         <div className={""}>
-                                            <MoveRight/>
+                                            {
+                                                [null, undefined, ''].includes(item.acf.google_scholar) ?
+                                                    <img src={'images/icon-link2.png'}
+                                                         alt={"Image Link"}
+                                                         className={"h-4 w-4"}
+                                                    /> :
+                                                    <img src={'images/icon-link1.png'}
+                                                         alt={"Image Link"}
+                                                         className={"h-4 w-4"}
+                                                    />
+                                            }
                                         </div>
                                     </button>
                                 </td>
                                 <td className="px-6 py-2">
                                     <button
-                                        className={"px-4 py-2 bg-green-300 text-white w-fit rounded-full disabled:bg-slate-300"}
+                                        className={"px-4 py-2 text-white w-fit rounded-full"}
                                         disabled={[null, undefined, ''].includes(item.acf.scoopus)}
                                         onClick={() => {
                                             if (![null, undefined, ''].includes(item.acf.scoopus))
@@ -134,7 +140,17 @@ export default function KutipanPage() {
                                         }}
                                     >
                                         <div className={" "}>
-                                            <MoveRight/>
+                                            {
+                                                [null, undefined, ''].includes(item.acf.scoopus) ?
+                                                    <img src={'images/icon-link2.png'}
+                                                         alt={"Image Link"}
+                                                         className={"h-4 w-4"}
+                                                    /> :
+                                                    <img src={'images/icon-link1.png'}
+                                                         alt={"Image Link"}
+                                                         className={"h-4 w-4"}
+                                                    />
+                                            }
                                         </div>
                                     </button>
                                 </td>
