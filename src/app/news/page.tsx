@@ -24,16 +24,15 @@ const NewsPage = () => {
     }, [rangeDate, mutate])
 
 
-    // return (<GeneralLayout
-    //
-    //     featuredTitle={"News Page"}
-    //     featuredImage={"/images/header_news.jpg"}
-    // >
-    //     <main>
-    //         <SearchNews rangeDate={rangeDate} setRangeDate={setRangeDate}/>
-    //         <NewsList news={data}/>
-    //     </main>
-    // </GeneralLayout>)
+    return (<GeneralLayout
+        featuredTitle={"News Page"}
+        featuredImage={"/images/header_news.jpg"}
+    >
+        <main>
+            {/*<SearchNews rangeDate={rangeDate} setRangeDate={setRangeDate}/>*/}
+            <NewsList news={data}/>
+        </main>
+    </GeneralLayout>)
 }
 
 export default NewsPage;
