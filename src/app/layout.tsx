@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         description: 'Fakultas Teknologi dan Bisnis, Fakultas Pascasarjana : Start Here Go Anywhere',
         images: [
             {
-                url: '/images/logo.png',
+                url: 'next/images/logo.png',
                 width: 800,
                 height: 600,
                 alt: 'Nobel Indonesia Institute'
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Nobel Indonesia Institute',
         description: 'Empowering Future Generations Through Quality Education and Innovation',
-        images: ['/images/logo.png']
+        images: ['next/images/logo.png']
     }
 }
 
