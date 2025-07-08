@@ -10,7 +10,7 @@ import BlurImage from "@/components/BlurImage";
 
 const TabAktivitasJurusan = ({term_id, idProdi}: ActivityProdiCategory & { idProdi: string }) => {
     // const {data} = useSWR<DetailNewsType[]>(`news-${idProdi}/${term_id}`, () => fetcherAcf<DetailNewsType[]>(`news?_fields=acf,slug,id&categories=${term_id}`))
-    const {data} = useSWR<DetailNewsType[]>('mews', () => fetcher<ProdiType[]>(`news?orderby=slug&order=asc&_fields=acf,slug,id&categories=${term_id}`))
+    const {data} = useSWR<DetailNewsType[]>('mews', () => fetcher<ProdiType[]>(`news?orderby=slug&order=desc&_fields=acf,slug,id&categories=${term_id}`))
     //     console.log(data,'dataku')
     return <>
         <section
