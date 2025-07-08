@@ -59,7 +59,7 @@ const TabAktivitas = () => {
 
         </section>
         <section className={"grid grid-cols-1 lg:grid-cols-3 gap-4"}>
-            {console.log("DATA",data)}
+            {/* {console.log("DATA",data)} */}
             {
                 
                 data && (data ?? []).map((news, index) => <AktivitasNews idNews={news.slug} index={index} {...news.acf}

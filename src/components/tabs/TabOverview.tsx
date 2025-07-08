@@ -22,7 +22,7 @@ export default function TabOverview ({image, description, judul}: TabOverviewTyp
                 </div>
             </article>
         </div>
-
+ 
         <div className={" flex justify-end"}>
             <div className={'relative w-[350px] lg:w-[430px] h-[350px] lg:h-[430px]'}>
                 <BlurImage
