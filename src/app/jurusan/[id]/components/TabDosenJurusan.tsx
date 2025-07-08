@@ -10,7 +10,7 @@ const TabDosenJurusan = ({idProdi}: { idProdi: string }) => {
 
     const {data} = useSWR<{ acf: Dosen }[]>(`dosen-prodi-${idProdi}`, () => fetcherAcf<{
         acf: Dosen
-    }[]>('dosen?per_page=500'))
+    }[]>('dosen?per_page=100'))
 
 
     return <section

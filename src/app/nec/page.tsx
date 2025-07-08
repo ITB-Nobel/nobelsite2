@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import GeneralLayout from "@/components/layout/GeneralLayout";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/Tabs";
@@ -7,7 +9,9 @@ import TabAktivitas from "@/components/tabs/TabAktivitas";
 import TabGallery from "@/components/tabs/TabGallery";
 import TabOVerview from "@/components/tabs/TabOverview";
 import TabOurProgram from "@/components/tabs/tab-our-program/TabOurProgram";
-
+import {usePathname} from 'next/navigation'
+import useSWR from "swr";
+import {ProdiACF} from "@/lib/types";
 
 const NECPage = async () => {
 
@@ -46,7 +50,9 @@ const NECPage = async () => {
                         <TabOurProgram {...tempData.acf.our_program} />
                     </TabsContent>
                     <TabsContent value="4">
-                        {data && <TabAktivitas idProdi={0} {...tempData?.acf.activity_news_category} />}
+                        <TabAktivitas />
+                        {/* {akt && <TabAktivitas idProdi={idProdi} {...akt?.acf?.activity_news_category} />} */}
+                        {/* {data && <TabAktivitas idProdi={0} {...tempData?.acf.activity_news_category} />} */}
                     </TabsContent>
                 </Tabs>
 
