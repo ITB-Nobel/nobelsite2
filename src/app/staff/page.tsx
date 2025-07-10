@@ -41,11 +41,12 @@ const Filter = ({handleClick, filter}: { handleClick: (input: string) => void, f
         >
             Rektorat
         </button>
+
         <button
-            className={`!capitalize min-w-fit  ${filter === 'teknologi' && activeClass}`}
-            onClick={() => handleClick('teknologi')}
+            className={`!capitalize min-w-fit ${filter === "fakultas pascasarjana" && activeClass}`}
+            onClick={() => handleClick('fakultas pascasarjana')}
         >
-            Fakultas Teknologi Industri
+            Fakultas Pascasarjana
         </button>
         <button
             className={`!capitalize min-w-fit  ${filter === 'ekonomi' && activeClass}`}
@@ -54,10 +55,10 @@ const Filter = ({handleClick, filter}: { handleClick: (input: string) => void, f
             Fakultas Ekonomi dan Bisnis
         </button>
         <button
-            className={`!capitalize min-w-fit ${filter === "fakultas pascasarjana" && activeClass}`}
-            onClick={() => handleClick('fakultas pascasarjana')}
+            className={`!capitalize min-w-fit  ${filter === 'teknologi' && activeClass}`}
+            onClick={() => handleClick('teknologi')}
         >
-            Fakultas Pascasarjana
+            Fakultas Teknologi Industri
         </button>
         <button
             className={`!capitalize min-w-fit ${filter === "lembaga" && activeClass}`}
