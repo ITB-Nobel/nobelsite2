@@ -112,19 +112,19 @@ export default TabAktivitas
 // import BlurImage from "@/components/BlurImage";
 
 
-// export type TabAktivitasType = {
-//     term_id: number;
-//     name: string;
-//     slug: string;
-//     term_group: number;
-//     term_taxonomy_id: number;
-//     taxonomy: string;
-//     description: string;
-//     parent: number;
-//     count: number;
-//     filter: string;
-//     idProdi: number
-// }
+export type TabAktivitasType = {
+    term_id: number;
+    name: string;
+    slug: string;
+    term_group: number;
+    term_taxonomy_id: number;
+    taxonomy: string;
+    description: string;
+    parent: number;
+    count: number;
+    filter: string;
+    idProdi: number
+}
 
 // const TabAktivitas = ({term_id, idProdi}: TabAktivitasType) => {
 //     const {data} = useSWR<{
