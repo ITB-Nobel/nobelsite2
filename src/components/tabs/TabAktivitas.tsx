@@ -19,7 +19,7 @@ const TabAktivitas = () => {
     }>(`prodi-${idProdi}`, () => fetcher<{
         acf: ProdiACF,
         title: { rendered: string }
-    }>(`prodi/${idProdi}?per_page=1000`))
+    }>(`prodi/${idProdi}?per_page=100`))
     console.log("AKTIVITAS",akt)
     // const {data} = useSWR<DetailNewsType[]>(`news-${idProdi}/${term_id}`, () => fetcherAcf<DetailNewsType[]>(`news?_fields=acf,slug,id&categories=${term_id}`))
     const {data} = useSWR<DetailNewsType[]>('mews', () => fetcher<ProdiType[]>(`news?orderby=slug&order=desc&_fields=acf,slug,id`))
@@ -112,19 +112,19 @@ export default TabAktivitas
 // import BlurImage from "@/components/BlurImage";
 
 
-export type TabAktivitasType = {
-    term_id: number;
-    name: string;
-    slug: string;
-    term_group: number;
-    term_taxonomy_id: number;
-    taxonomy: string;
-    description: string;
-    parent: number;
-    count: number;
-    filter: string;
-    idProdi: number
-}
+// export type TabAktivitasType = {
+//     term_id: number;
+//     name: string;
+//     slug: string;
+//     term_group: number;
+//     term_taxonomy_id: number;
+//     taxonomy: string;
+//     description: string;
+//     parent: number;
+//     count: number;
+//     filter: string;
+//     idProdi: number
+// }
 
 // const TabAktivitas = ({term_id, idProdi}: TabAktivitasType) => {
 //     const {data} = useSWR<{
