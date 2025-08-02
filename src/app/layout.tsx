@@ -11,14 +11,14 @@ import Head from "next/head";
 
 export const metadata: Metadata = {
     title: 'Nobel Indonesia Institute',
-    description: 'Start Here Go Anywhere, <br> Home For Entrepreneurs',
-    keywords: 'Fakultas Teknologi dan Bisnis : Manajemen, Akuntansi, Sistem dan Teknologi Informasi, Teknik Pertambangan, Teknologi Hasil Perikanan,Teknik Industri, Pendidikan Teknologi Informasi, Fakultas Pascasarjana : Magister Manajemen, Magister Keuangan Publik, Magister Manajemen dan Kewirausahaan',
+    description: 'Start Here Go Anywhere, <br> Home For Entrepreneurs.',
+    keywords: 'Fakultas Teknologi dan Industri : Manajemen, Akuntansi, Sistem dan Teknologi Informasi, Teknik Pertambangan, Teknologi Hasil Perikanan,Teknik Industri, Pendidikan Teknologi Informasi, Fakultas Pascasarjana : Magister Manajemen, Magister Keuangan Publik, Magister Manajemen dan Kewirausahaan',
     openGraph: {
         type: 'website',
         url: 'https://nobel.ac.id/',
         title: 'Nobel Indonesia Institute',
         
-        description: 'Start Here Go Anywhere, <br> Home For Entrepreneurs',
+        description: 'Start Here Go Anywhere, <br> Home For Entrepreneurs.',
         images: [
             {
                 url: '/images/logo.png',
