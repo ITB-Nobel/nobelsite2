@@ -392,10 +392,33 @@ export const SubmenuWithHeader = ({submenu_with_header, type, acf, fakultasArray
                     <NavigationMenuContent>
                         <div className={"bg-white  py-2 "}>
                             <ul className="grid w-[300px] gap-3 p-4 md:grid-cols-1">
-                                {fakultasArray.map((component, index) => (
+                                <h4 className={"font-semibold capitalize"}>Fakultas Ekonomi dan Bisnis</h4>
+                                <div className={"space-y-2"}>
+                                    <ListItem title="Manajemen" href="/jurusan/158" />
+                                    <ListItem title="Akuntansi" href="/jurusan/104" />
+                                </div>
+
+                                 <h4 className={"font-semibold capitalize"}>Fakultas Teknologi Industri</h4>
+                                <div className={"space-y-2"}>
+                                    <ListItem title="Sistem dan Teknologi Informasi" href="/jurusan/162" />
+                                    <ListItem title="Pendidikan Teknologi Informasi" href="/jurusan/160" />
+                                    <ListItem title="Teknik Industri" href="/jurusan/152" />
+                                    <ListItem title="Teknik Pertambangan" href="/jurusan/154" />
+                                    <ListItem title="Teknologi Hasil Perikanan" href="/jurusan/156" />
+                                </div>
+
+                                <h4 className={"font-semibold capitalize"}>Fakultas Pascasarjana</h4>
+                                <div className={"space-y-2"}>
+                                    <ListItem title="Magister Manjemen" href="/jurusan/166" />
+                                    <ListItem title="Magister Keuangan Publik" href="/jurusan/164" />
+                                    <ListItem title="Magister Manjemen dan Kewirausahaan" href="/jurusan/168" />
+                                    
+                                </div>
+                                {/* {fakultasArray.map((component, index) => (
                                     <>
                                         <h4 className={"font-semibold capitalize"}>{component}</h4>
                                         <div key={index} className={"space-y-2"}>
+                                            
                                             {
                                                 acf.filter((item) => item.acf.fakultas === component)
                                                     .map((item, index) =>
@@ -408,7 +431,7 @@ export const SubmenuWithHeader = ({submenu_with_header, type, acf, fakultasArray
                                             }
                                         </div>
                                     </>
-                                ))}
+                                ))} */}
                             </ul>
 
                         </div>
